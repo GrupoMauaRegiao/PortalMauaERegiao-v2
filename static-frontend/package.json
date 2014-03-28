@@ -1,0 +1,20 @@
+{
+  "name": "portalmauaeregiao",
+  "description": "Versão 2014 do Portal Mauá e Região",
+  "author": "Marcos Garcia Marcker",
+  "version": "0.2.0",
+  "homepage": "http://portalmauaeregiao.com.br",
+  "devDependencies": {
+    "grunt": "0.4.4",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-coffeelint": "0.0.8",
+    "grunt-contrib-coffee": "0.10.1",
+    "grunt-contrib-jshint": "0.9.2",
+    "grunt-yui-compressor": "0.3.3",
+    "grunt-contrib-sass": "0.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrupoMauaRegiao/PortalMauaERegiao-v2.git"
+  }
+}
