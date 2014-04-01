@@ -1,5 +1,27 @@
- @import "reset.sass"
- @import "cores.sass"
- @import "tipografia.sass"
+@import "reset.sass"
+@import "cores.sass"
+@import "tipografia.sass"
 
- outline: 1px solid
+body
+  background: url("../imagens/background-body.jpg") no-repeat 50% 0
+  font-family: Gotham, Arial, sans-serif
+
+.layout
+  width: 100%
+  overflow: hidden
+
+  header
+    width: 960px
+    margin: 0 auto
+    margin-top: 20px
+
+    .conteudo-header
+      .facebook
+        width: 960px
+        float: left
+
+        .fb-botao
+          width: 200px
+          height: 30px
+          float: right
+          background: $azulSubmenu
