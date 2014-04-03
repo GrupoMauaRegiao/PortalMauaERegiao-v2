@@ -3,21 +3,25 @@
 @import "tipografia.sass"
 
 body
-  background: url("../imagens/background-body.jpg") no-repeat 50% 0
+  background-image: url("../imagens/sombra-body.png"), url("../imagens/background-body.jpg")
+  background-repeat: no-repeat, repeat-x
+  background-position: -5px -5px, 50% 0
+  background-size: 103% 306px, auto auto
   font-family: Gotham, Arial, sans-serif
 
 .layout
-  width: 100%
+  width: 1000px
+  margin: 0 auto
   overflow: hidden
 
   header
     width: 960px
-    margin: 0 auto
-    margin-top: 20px
+    margin: 15px 0 0
 
     .conteudo-header
       .facebook
         width: 960px
+        margin: 0 0 15px 0
         float: left
 
         .fb-botao
@@ -25,3 +29,104 @@ body
           height: 30px
           float: right
           background: $azulSubmenu
+
+      a
+        .logotipo
+          width: 170px
+          height: 75px
+          margin: 0 60px 0 0
+          background: url("../imagens/sprite.png") no-repeat -5px -92px
+          float: left
+
+      .publicidade-topo
+        float: left
+        margin: 0 0 25px 0
+
+        a
+          .imagem
+            width: 730px
+            height: 100px
+            border-radius: 20px
+            background: $cinzaDestaques
+
+      .topo
+        width: 1000px
+        height: 30px
+        font-size: 14px
+        text-transform: uppercase
+        font-weight: bold
+        color: $branco
+        float: left
+
+        .categorias,
+        .entretenimento,
+        .previsao-do-tempo,
+        .busca,
+        .revista,
+        .jornal,
+        .empresas
+          margin: 0 13px 0 22px
+          float: left
+
+          .header
+            cursor: pointer
+
+            .titulo
+              float: left
+
+          .header:hover
+            color: $azulSubmenu
+
+          .seta
+            width: 8px
+            height: 5px
+            background: url("../imagens/sprite.png") no-repeat -139px -195px
+            margin: 3px 0 0 5px
+            float: left
+
+        .busca
+          .icone
+            width: 16px
+            height: 16px
+            background: url("../imagens/sprite.png") no-repeat -113px -189px
+            float: left
+
+          .formulario-busca
+            display: none
+        
+        .previsao-do-tempo
+          .icone
+            width: 20px
+            height: 20px
+            background: url("../imagens/sol.png") no-repeat 0 0
+            background-size: 20px 20px
+            margin: -3px 5px 0
+            float: left
+
+          .temperatura,
+          .localidade
+            float: left
+
+          .temperatura
+            margin: 0 5px 0
+
+        .empresas
+          .header
+            .icone
+              width: 17px
+              height: 17px
+              background: url("../imagens/sprite.png") no-repeat -5px -5px
+              margin: -2px 7px 0
+              float: left
+
+          .formulario-busca-empresas
+            display: none
+
+  .homepage-noticias
+    width: 1000px
+    padding: 25px
+    background: $branco
+    float: left
+
+  footer
+    float: left
