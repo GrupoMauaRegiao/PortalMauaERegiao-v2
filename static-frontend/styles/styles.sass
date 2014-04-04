@@ -128,5 +128,32 @@ body
     background: $branco
     float: left
 
+  .box-com-1,
+  .box-com-2,
+  .box-com-3
+    width: 302px
+    height: auto
+    margin: 0 22px 0 0
+    float: left
+
+    .noticia
+      width: 302px
+      height: 150px
+      margin: 0 0 22px 0
+      background: $azul
+
+  .box-com-1
+    .noticia
+      height: 554px
+
+  .box-com-2
+    .noticia
+      height: 266px
+
+  .box-com-3
+    .noticia:nth-child(2),
+    .noticia:nth-child(3)
+      height: 180px
+
   footer
     float: left
