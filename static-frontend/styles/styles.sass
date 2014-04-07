@@ -47,7 +47,7 @@ body
             width: 730px
             height: 100px
             border-radius: 20px
-            background: $cinzaDestaques
+            background: $cinzaTituloMat
 
       .topo
         width: 1000px
@@ -186,10 +186,6 @@ body
       cursor: pointer
 
       .informacoes
-        .marca
-          span
-            // background: $laranjaBrasil
-
         .titulo
           span
             box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
@@ -276,6 +272,85 @@ body
 
           strong
             font-weight: bold
+
+    .box-com-destaques
+      width: 617px
+      margin: 0 0 20px 0
+      float: left
+
+      .destaque
+        width: 620px
+        height: 135px
+        margin: 0 0 15px 0
+        float: left
+
+        .imagem
+          width: 302px
+          height: 135px
+          margin: 0 15px 0 0
+          overflow: hidden
+          border-radius: 15px
+          background: $preto
+          float: left
+
+          img
+            width: 302px
+            height: auto
+
+        .categoria
+          font-size: 18px
+          text-transform: uppercase
+          color: $cinzaTituloBox
+          margin: 15px 0 5px 0
+
+          strong
+            font-weight: bold
+
+        .decoracao
+          width: 300px
+          margin: 0 0 20px 0
+          float: left
+
+          .linha-grossa
+            width: 85px
+            height: 3px
+            background: $azul
+            float: left
+
+          .linha-fina
+            width: 215px
+            height: 1px
+            margin: 1px 0 0 0
+            background: $cinzaTituloMat
+            float: left
+
+        .titulo
+          width: 280px
+          font-size: 20px
+          color: $cinzaTituloMat
+          float: left
+
+      .destaque:hover
+        .titulo
+          text-decoration: underline
+
+    .publicidade-destaques
+      width: 302px
+      height: 285px
+      margin: 0 0 0 40px
+      float: left
+
+      a
+        width: 302px
+        height: 285px
+        background: $cinzaTituloMat
+        float: left
+
+    .sombra
+      width: 960px
+      height: 50px
+      background: url("../imagens/sombra-inferior.jpg") no-repeat 50% 0
+      float: left
 
   footer
     float: left
