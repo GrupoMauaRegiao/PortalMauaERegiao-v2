@@ -136,120 +136,126 @@ body
     margin: 0 22px 0 0
     float: left
 
-    .noticia
-      width: 302px
-      height: 150px
-      margin: 0 0 22px 0
-      background: $azul
+    a
+      text-decoration: none
 
-      .imagem
+      .noticia
         width: 302px
-        height: 150px
-        overflow: hidden
+        margin: 0 0 22px 0
+        background: $azul
 
-        img
+        .imagem
           width: 302px
-          height: auto
-
-      .informacoes
-        position: relative
-        color: $branco
-        margin: -84px 0 0
-        z-index: 1
-
-        .marca
-          margin: 0 0 10px
-
-          span
-            text-transform: uppercase
-            font-size: 14px
-            font-weight: bold
-            width: auto
-            padding: 5px 5px 5px 15px
-            background: $azul
-
-        .titulo
+          height: 150px
           overflow: hidden
 
-          h2
-            font-weight: bold
-            font-size: 20px
-            line-height: 29px
-            padding: 0 0 0 15px
+          img
+            width: 302px
+            height: auto
+
+        .informacoes
+          position: relative
+          color: $branco
+          margin: -84px 0 0
+          z-index: 1
+
+          .marca
+            margin: 0 0 10px
 
             span
-              padding: 10px 10px 5px 0
-              box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
-              background: $cinzaDestaques
+              text-transform: uppercase
+              font-size: 14px
+              font-weight: bold
+              width: auto
+              padding: 5px 5px 5px 15px
+              background: $azul
 
-    .noticia:hover
-      cursor: pointer
+          .titulo
+            overflow: hidden
 
-      .informacoes
-        .titulo
-          span
-            box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
-            background: $cinzaDestCentral
+            h2
+              font-weight: bold
+              font-size: 20px
+              line-height: 29px
+              padding: 0 0 0 15px
 
-  .box-com-1
-    .noticia
-      height: 554px
+              span
+                padding: 10px 10px 5px 0
+                box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                background: $cinzaDestaques
 
-      .imagem
-        width: 302px
-        height: 554px
-        overflow: hidden
+    a
+      .noticia:hover
+        cursor: pointer
 
-        img
-          width: auto
-          height: 554px
-
-      .informacoes
-        margin: -175px 0 0 0
-
-        .marca
-          margin-bottom: 20px
-
-          span
-            font-size: 16px
-
-        .titulo
-          h2
+        .informacoes
+          .titulo
             span
               box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
               background: $cinzaDestCentral
-              font-size: 28px
-              line-height: 38px
 
-    .noticia:hover
-      .informacoes
-        .titulo
-          span
-            box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
-            background: $cinzaDestaques
+  .box-com-1
+    a
+      .noticia
+        height: 554px
+
+        .imagem
+          width: 302px
+          height: 554px
+          overflow: hidden
+
+          img
+            width: auto
+            height: 554px
+
+        .informacoes
+          margin: -175px 0 0 0
+
+          .marca
+            margin-bottom: 20px
+
+            span
+              font-size: 16px
+
+          .titulo
+            h2
+              span
+                box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
+                background: $cinzaDestCentral
+                font-size: 28px
+                line-height: 38px
+
+      .noticia:hover
+        .informacoes
+          .titulo
+            span
+              box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+              background: $cinzaDestaques
 
   .box-com-2
-    .noticia
-      height: 266px
-
-      .imagem
-        width: 302px
+    a
+      .noticia
         height: 266px
-        overflow: hidden
 
-        img
-          width: auto
+        .imagem
+          width: 302px
           height: 266px
+          overflow: hidden
+
+          img
+            width: auto
+            height: 266px
 
   .box-com-3
-    .noticia:nth-child(2),
-    .noticia:nth-child(3)
-      height: 180px
-
-      .imagem
-        width: 302px
+    a:nth-child(2),
+    a:nth-child(3)
+      .noticia
         height: 180px
-        overflow: hidden
+
+        .imagem
+          width: 302px
+          height: 180px
+          overflow: hidden
 
   .outros-destaques
     width: 960px
