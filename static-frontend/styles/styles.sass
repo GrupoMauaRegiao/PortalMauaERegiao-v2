@@ -359,105 +359,113 @@ body
       float: left
 
   .midias
-    width: 720px
+    width: 960px
     float: left
 
-    .fatos-e-fotos
-      .header-fatos-e-fotos
-        width: 720px
-        margin: 0px 0 40px 0
-        background: url("../imagens/background-titulo-secao.jpg") repeat-x
+    .f-e-f-pub
+      width: 720px
+      float: left
 
-        h1
-          font-size: 18px
-          text-transform: uppercase
-          text-align: center
-          color: $cinzaTituloBox
+      .fatos-e-fotos
+        .header-fatos-e-fotos
+          width: 720px
+          margin: 0px 0 40px 0
+          background: url("../imagens/background-titulo-secao.jpg") repeat-x
 
-          span
-            background: $branco
-            box-shadow: 10px 0 0 $branco, -10px 0 0 $branco
+          h1
+            font-size: 18px
+            text-transform: uppercase
+            text-align: center
+            color: $cinzaTituloBox
 
-            strong
-              font-weight: bold
+            span
+              background: $branco
+              box-shadow: 10px 0 0 $branco, -10px 0 0 $branco
 
-      .galerias
-        width: 720px
-        margin: 0 0 40px 0
-        float: left
+              strong
+                font-weight: bold
 
-        .galeria
-          width: 180px
+        .galerias
+          width: 720px
+          margin: 0 0 40px 0
           float: left
 
-          .imagens
+          .galeria
             width: 180px
             float: left
 
-            .imagem
-              width: 135px
-              height: 135px
-              border-radius: 100%
-              overflow: hidden
+            .imagens
+              width: 180px
               float: left
-              background: $azul
 
-              img
-                width: auto
+              .imagem
+                width: 135px
                 height: 135px
+                border-radius: 100%
+                overflow: hidden
+                float: left
+                background: $azul
 
-            .subimagem
-              width: 75px
-              height: 75px
-              position: relative
-              border: 7px solid $branco
-              margin: -80px 0 0 48px
-              border-radius: 100%
-              overflow: hidden
-              float: left
-              background: $cinzaDestaques
+                img
+                  width: auto
+                  height: 135px
 
-              img
-                width: auto
+              .subimagem
+                width: 75px
                 height: 75px
+                position: relative
+                border: 7px solid $branco
+                margin: -80px 0 0 48px
+                border-radius: 100%
+                overflow: hidden
+                float: left
+                background: $cinzaDestaques
 
-          .imagens:first-child
+                img
+                  width: auto
+                  height: 75px
+
+            .imagens:first-child
+              margin: 0
+
+            .titulo
+              margin: 5px 0 0 30px
+              float: left
+
+              a
+                text-decoration: none
+                font-size: 18px
+                color: $azulSubmenu
+
+              a:hover
+                text-decoration: underline
+
+          .galeria:nth-child(2),
+          .galeria:last-child
+            .imagens
+              .subimagem
+                margin: -80px 0 0 25px
+
+      .publicidade-fatos-e-fotos
+        width: 720px
+        height: 200px
+        float: left
+
+        a
+          .publicidade
+            width: 350px
+            height: 200px
+            margin: 0 20px 0 0
+            float: left
+            background: $cinzaTituloMat
+
+        a:last-child
+          .publicidade
             margin: 0
 
-          .titulo
-            margin: 5px 0 0 30px
-            float: left
-
-            a
-              text-decoration: none
-              font-size: 18px
-              color: $azulSubmenu
-
-            a:hover
-              text-decoration: underline
-
-        .galeria:nth-child(2),
-        .galeria:last-child
-          .imagens
-            .subimagem
-              margin: -80px 0 0 25px
-
-    .publicidade-fatos-e-fotos
-      width: 720px
-      height: 300px
+    .revista-e-jornal
+      width: 240px
       float: left
-
-      a
-        .publicidade
-          width: 350px
-          height: 200px
-          margin: 0 20px 0 0
-          float: left
-          background: $cinzaTituloMat
-
-      a:last-child
-        .publicidade
-          margin: 0
 
   footer
     float: left
