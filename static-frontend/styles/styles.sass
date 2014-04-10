@@ -511,7 +511,7 @@ body
     margin: 15px 0 0 0
     float: left
 
-    .noticias
+    .itens
       .destacadas
         width: 740px
         float: left
@@ -577,6 +577,7 @@ body
                     background: $cinzaDestCentral
 
       .outras
+        width: 400px
         float: left
 
         a
@@ -661,6 +662,73 @@ body
           height: 193px
           background: $cinzaDestaques
           float: left
+
+      .tematicas
+        .noticias
+          width: 720px
+          float: left
+
+          a
+            text-decoration: none
+
+            .noticia
+              width: 226px
+              margin: 0 20px 0 0
+              float: left
+
+              .header-noticia
+                .header
+                  font-size: 18px
+                  text-transform: uppercase
+                  color: $cinzaTituloBox
+                  margin: 15px 0 5px 0
+
+                  strong
+                    font-weight: bold
+
+                .decoracao
+                  width: 226px
+                  margin: 0 0 10px 0
+                  float: left
+
+                  .linha-grossa
+                    width: 100px
+                    height: 3px
+                    background: $laranjaBrasil
+                    float: left
+
+                  .linha-fina
+                    width: 126px
+                    height: 1px
+                    margin: 1px 0 0 0
+                    background: $cinzaTituloMat
+                    float: left
+
+              .imagem
+                width: 226px
+                height: 130px
+                overflow: hidden
+
+                img
+                  width: 233px
+                  height: auto
+
+          a:nth-child(2)
+            .noticia
+              .header-noticia
+                .decoracao
+                  .linha-grossa
+                    background: $verdeMeioAmb
+
+          a:last-child
+            .noticia
+              margin: 0
+
+              .header-noticia
+                .decoracao
+                  .linha-grossa
+                    background: $rosaTecnologia
+
 
   footer
     float: left
