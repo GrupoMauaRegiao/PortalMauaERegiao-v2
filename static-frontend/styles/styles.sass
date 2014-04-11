@@ -713,12 +713,27 @@ body
                   width: 233px
                   height: auto
 
+              .informacoes
+                margin: 15px 0 0 0
+
+                .titulo
+                  h2
+                    font-size: 16px
+                    color: $cinzaEscuroLateral
+
           a:nth-child(2)
             .noticia
               .header-noticia
                 .decoracao
                   .linha-grossa
                     background: $verdeMeioAmb
+
+          a:hover
+            .informacoes
+              .titulo
+                h2
+                  text-decoration: underline
+
 
           a:last-child
             .noticia
@@ -728,7 +743,6 @@ body
                 .decoracao
                   .linha-grossa
                     background: $rosaTecnologia
-
 
   footer
     float: left
