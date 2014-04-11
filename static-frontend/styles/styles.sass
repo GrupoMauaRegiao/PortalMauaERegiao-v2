@@ -507,11 +507,15 @@ body
           float: left
 
   .outras-noticias
-    width: 720px
+    width: 960px
     margin: 15px 0 0 0
     float: left
 
     .itens
+      width: 720px
+      margin: 0 20px 0 0
+      float: left
+
       .destacadas
         width: 740px
         float: left
@@ -658,10 +662,13 @@ body
               margin: -86px 0 0
 
         .publicidade
-          width: 190px
-          height: 193px
-          background: $cinzaDestaques
           float: left
+
+          a
+            .imagem
+              width: 190px
+              height: 193px
+              background: $cinzaTituloMat
 
       .tematicas
         .noticias
@@ -734,7 +741,6 @@ body
                 h2
                   text-decoration: underline
 
-
           a:last-child
             .noticia
               margin: 0
@@ -743,6 +749,27 @@ body
                 .decoracao
                   .linha-grossa
                     background: $rosaTecnologia
+
+    .publicidades-lateral
+      width: 220px
+      float: left
+
+      .header
+        font-size: 14px
+        text-transform: uppercase
+        margin: 0 0 5px 0
+
+      .publicidades
+        .publicidade
+          width: 220px
+          height: 130px
+          margin: 0 0 20px 0
+
+          a
+            .imagem
+              width: 220px
+              height: 130px
+              background: $cinzaTituloMat
 
   footer
     float: left
