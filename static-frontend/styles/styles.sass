@@ -2,6 +2,9 @@
 @import "cores.sass"
 @import "tipografia.sass"
 
+$tamanhoLayout: 1000px
+$areaUtilLayout: 950px
+
 body
   background-image: url("../imagens/sombra-body.png"), url("../imagens/background-body.jpg")
   background-repeat: no-repeat, repeat-x
@@ -19,12 +22,12 @@ body
     float: left
 
     .conteudo-header
-      width: 1000px
+      width: $tamanhoLayout
       margin: 0 auto
       margin-top: 15px
 
       .facebook
-        width: 960px
+        width: $areaUtilLayout
         margin: 0 0 15px 0
         float: left
 
@@ -54,7 +57,7 @@ body
             background: $cinzaTituloMat
 
       .topo
-        width: 1000px
+        width: $tamanhoLayout
         height: 30px
         font-size: 14px
         text-transform: uppercase
@@ -128,16 +131,17 @@ body
 
   .homepage-noticias
     width: 100%
+    margin: 0 0 20px
     float: left
 
     .conteudo
-      width: 1000px
+      width: $tamanhoLayout
       margin: 0 auto
 
       .noticias
         background: $branco
         float: left
-        padding: 25px
+        padding: 25px 25px 0
 
         .box-com-1,
         .box-com-2,
@@ -270,13 +274,14 @@ body
                 overflow: hidden
 
       .outros-destaques
-        width: 960px
+        width: $areaUtilLayout
+        padding: 0 25px 0 25px
         float: left
 
         .header-outros-destaques
-          width: 960px
+          width: $areaUtilLayout
           margin: 20px 0 40px 0
-          background: url("../imagens/background-titulo-secao.jpg") repeat-x
+          background: url("../imagens/background-titulo-secao.jpg") repeat-x -70% 0
 
           h1
             font-size: 18px
@@ -355,7 +360,7 @@ body
         .publicidade-destaques
           width: 302px
           height: 285px
-          margin: 0 0 0 40px
+          margin: 0 0 0 31px
           float: left
 
           a
@@ -365,14 +370,15 @@ body
             float: left
 
         .sombra
-          width: 960px
+          width: $areaUtilLayout
           height: 50px
           background: url("../imagens/sombra-inferior.jpg") no-repeat 50% 0
           float: left
 
       .midias
-        width: 960px
+        width: $areaUtilLayout
         margin: 0 0 20px 0
+        padding: 0 25px 0 25px
         float: left
 
         .f-e-f-pub
@@ -477,7 +483,7 @@ body
                 margin: 0
 
         .revista-e-jornal
-          width: 220px
+          width: 210px
           margin: -66px 0 0 20px
           float: left
 
@@ -496,32 +502,33 @@ body
                 font-weight: bold
 
             .decoracao
-              width: 220px
+              width: 210px
               margin: 0 0 10px 0
               float: left
 
               .linha-grossa
-                width: 85px
+                width: 80px
                 height: 3px
                 background: $azul
                 float: left
 
               .linha-fina
-                width: 135px
+                width: 130px
                 height: 1px
                 margin: 1px 0 0 0
                 background: $cinzaTituloMat
                 float: left
 
             .issuu-embed
-              width: 220px
+              width: 210px
               height: 230px
               background: $cinzaTituloMat
               float: left
 
       .outras-noticias
-        width: 960px
+        width: $areaUtilLayout
         margin: 15px 0 20px 0
+        padding: 0 25px 0 25px
         float: left
 
         .itens
@@ -765,7 +772,7 @@ body
                         background: $rosaTecnologia
 
         .publicidades-lateral
-          width: 220px
+          width: 210px
           line-height: 9px
           float: left
 
@@ -776,18 +783,18 @@ body
 
           .publicidades
             .publicidade
-              width: 220px
+              width: 210px
               height: 130px
               margin: 0 0 20px 0
 
               a
                 .imagem
-                  width: 220px
+                  width: 210px
                   height: 130px
                   background: $cinzaTituloMat
 
       .strip-publicidade
-        width: 960px
+        width: $areaUtilLayout
         float: left
 
         .publicidade
@@ -796,7 +803,7 @@ body
 
           a
             .imagem
-              width: 225px
+              width: 222.5px
               height: 200px
               background: $cinzaTituloMat
 
@@ -810,3 +817,30 @@ body
     .conteudo-rodape
       width: 100%
       background: $azulClaroRodape
+
+      .cabecalho-rodape
+        width: $tamanhoLayout
+        padding: 30px 0 20px 0
+        margin: 0 auto
+
+        a
+          color: $branco
+          text-decoration: none
+          text-transform: uppercase
+
+          strong
+            font-weight: bold
+
+        a:hover
+          text-decoration: underline
+
+    .copyright-marcas
+      width: 100%
+      padding: 20px 0
+      border-top: 2px solid $azulClaroBusca
+      background: $azulEscuroRodape
+      margin: 0 auto
+
+      .conteudo-copyright
+        width: $tamanhoLayout
+        margin: 0 auto
