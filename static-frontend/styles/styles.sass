@@ -817,29 +817,90 @@ body
     .conteudo-rodape
       width: 100%
       background: $azulClaroRodape
+      float: left
 
       .cabecalho-rodape
         width: $tamanhoLayout
-        padding: 30px 0 20px 0
         margin: 0 auto
 
-        a
-          color: $branco
-          text-decoration: none
-          text-transform: uppercase
+        .conteudo
+          width: 1000px
+          margin: 30px 0 20px
+          float: left
 
-          strong
-            font-weight: bold
+          .lateral
+            width: 760px
+            float: left
 
-        a:hover
-          text-decoration: underline
+            .logotipo
+              width: 100px
+              height: 80px
+              padding: 20px
+              border-right: 2px solid $branco
+              float: left
+
+              a
+                .logotipo-grupo-maua-e-regiao
+                  background: url("../imagens/sprite.png") no-repeat -32px -5px
+                  width: 75px
+                  height: 77px
+
+            .links
+              width: 578px
+              margin: 70px 0 0 40px
+              float: left
+
+              ul
+                line-height: 30px
+
+                li
+                  a
+                    color: $branco
+                    text-decoration: none
+                    text-transform: uppercase
+
+                    strong
+                      font-weight: bold
+
+                  a:hover
+                    text-decoration: underline
+
+          .busca-rodape
+            width: 240px
+            margin: 80px 0 0 -25px
+            float: left
+
+            form
+              input[type="text"]
+                width: 235px
+                height: 30px
+                background: $azulClaroBusca
+                border: 1px solid $azulClaroRodape
+                padding: 5px 0 5px 5px
+                color: $branco
+                font: 20px $fontePadrao
+                outline: 0
+                float: left
+
+              input[type="text"]:focus
+                border: 1px solid $azulClaroBusca
+                background: darken($azulClaroBusca, 3)
+
+              input[type="submit"]
+                width: 16px
+                height: 16px
+                background: url("../imagens/sprite.png") no-repeat 0 -223px
+                border: 0
+                outline: 0
+                margin: 12px 0 0 -25px
+                cursor: pointer
 
     .copyright-marcas
       width: 100%
       padding: 20px 0
       border-top: 2px solid $azulClaroBusca
       background: $azulEscuroRodape
-      margin: 0 auto
+      float: left
 
       .conteudo-copyright
         width: $tamanhoLayout
