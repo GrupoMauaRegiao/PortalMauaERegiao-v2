@@ -19,6 +19,7 @@ body
 
   header
     width: 100%
+    background: url("../imagens/background-menu.png") 50% 100% no-repeat
     float: left
 
     .conteudo-header
@@ -46,8 +47,8 @@ body
           float: left
 
       .publicidade-topo
-        float: left
         margin: 0 0 25px 0
+        float: left
 
         a
           .imagem
@@ -60,10 +61,75 @@ body
         width: $tamanhoLayout
         height: 30px
         font-size: 14px
+        letter-spacing: 0.5px
         text-transform: uppercase
         font-weight: bold
         color: $branco
         float: left
+
+        .categorias
+          padding: 8px 10px 8px 23px
+
+          .lista-categorias
+            display: none
+
+            .cidade,
+            .politica,
+            .e-mais
+              float: left
+
+              .header
+                font-size: 16px
+                padding: 30px 10px 0 43px
+                background: $azulSubmenu
+
+              .lista
+                ul
+                  li
+                    padding: 5px 10px 5px 23px
+                    margin: 2px 0 0 20px
+
+                    a
+                      font-size: 14px
+                      color: $cinzaTituloBox
+                      text-decoration: none
+
+                  li:hover
+                    background: $azulSubmenu
+
+                    a
+                      color: $branco
+
+            .e-mais
+              .lista
+                ul
+                  float: left
+
+        .categorias:hover
+          .lista-categorias
+            z-index: 1
+            position: absolute
+            margin: 15px 0 0 -23px
+            padding: 0 0 15px 0
+            background: $branco
+            box-shadow: -2px 8px 8px transparentize($preto, 0.8)
+            display: block
+
+        .entretenimento
+          padding: 8px 15px
+
+        .previsao-do-tempo
+          padding: 8px
+
+        .busca
+          padding: 8px 25px
+
+        .revista,
+        .jornal,
+          padding: 8px 15px
+
+        .empresas
+          padding: 8px 21px
 
         .categorias,
         .entretenimento,
@@ -72,7 +138,6 @@ body
         .revista,
         .jornal,
         .empresas
-          margin: 0 13px 0 22px
           float: left
 
           .header
@@ -80,9 +145,6 @@ body
 
             .titulo
               float: left
-
-          .header:hover
-            color: $azulSubmenu
 
           .seta
             width: 8px
@@ -100,7 +162,7 @@ body
 
           .formulario-busca
             display: none
-        
+
         .previsao-do-tempo
           .icone
             width: 20px
@@ -129,6 +191,14 @@ body
           .formulario-busca-empresas
             display: none
 
+        .categorias:hover,
+        .entretenimento:hover,
+        .revista:hover,
+        .jornal:hover,
+        .empresas:hover
+          cursor: pointer
+          background: $azulSubmenu
+
   .homepage-noticias
     width: 100%
     margin: 0 0 20px
@@ -140,8 +210,8 @@ body
 
       .noticias
         background: $branco
-        float: left
         padding: 25px 25px 0
+        float: left
 
         .box-com-1,
         .box-com-2,
@@ -173,15 +243,15 @@ body
                 position: relative
                 color: $branco
                 margin: -69px 0 0
-                z-index: 1
+                z-index: 0
 
                 .marca
                   margin: 0 0 5px
 
                   span
+                    width: auto
                     text-transform: uppercase
                     font-size: 14px
-                    width: auto
                     padding: 5px 5px 5px 15px
                     background: $azul
 
@@ -422,8 +492,8 @@ body
                     height: 135px
                     border-radius: 100%
                     overflow: hidden
-                    float: left
                     background: $azul
+                    float: left
 
                     img
                       width: auto
@@ -437,8 +507,8 @@ body
                     margin: -80px 0 0 48px
                     border-radius: 100%
                     overflow: hidden
-                    float: left
                     background: $cinzaDestaques
+                    float: left
 
                     img
                       width: auto
@@ -475,8 +545,8 @@ body
                 width: 350px
                 height: 200px
                 margin: 0 20px 0 0
-                float: left
                 background: $cinzaTituloMat
+                float: left
 
             a:last-child
               .publicidade
@@ -798,8 +868,8 @@ body
         float: left
 
         .publicidade
-          float: left
           margin: 0 20px 0 0
+          float: left
 
           a
             .imagem
