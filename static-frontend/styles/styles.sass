@@ -71,6 +71,7 @@ body
           padding: 8px 10px 8px 23px
 
           .lista-categorias
+            cursor: default
             display: none
 
             .cidade,
@@ -235,6 +236,7 @@ body
               float: left
 
           .formulario-busca-empresas
+            cursor: default
             display: none
 
         .empresas:hover
@@ -577,61 +579,74 @@ body
               margin: 0 0 40px 0
               float: left
 
-              .galeria
-                width: 180px
-                float: left
-
-                .imagens
+              a
+                .galeria
                   width: 180px
                   float: left
 
-                  .imagem
-                    width: 135px
-                    height: 135px
-                    border-radius: 100%
-                    overflow: hidden
-                    background: $azul
+                  .imagens
+                    width: 180px
                     float: left
 
-                    img
-                      width: auto
+                    .imagem
+                      width: 135px
                       height: 135px
+                      border-radius: 100%
+                      overflow: hidden
+                      background: $azul
+                      float: left
 
-                  .subimagem
-                    width: 75px
-                    height: 75px
-                    position: relative
-                    border: 7px solid $branco
-                    margin: -80px 0 0 48px
-                    border-radius: 100%
-                    overflow: hidden
-                    background: $cinzaDestaques
-                    float: left
+                      img
+                        width: auto
+                        height: 135px
 
-                    img
-                      width: auto
+                    .subimagem
+                      width: 75px
                       height: 75px
+                      position: relative
+                      border: 7px solid $branco
+                      margin: -80px 0 0 48px
+                      border-radius: 100%
+                      overflow: hidden
+                      background: $cinzaDestaques
+                      -webkit-transition: -webkit-transform 0.5s ease
+                      transition: transform 0.5s ease
+                      float: left
 
-                .imagens:first-child
-                  margin: 0
+                      img
+                        width: auto
+                        height: 75px
 
-                .titulo
-                  margin: 5px 0 0 30px
-                  float: left
+                    .imagem:hover + .subimagem,
+                    .subimagem:hover
+                      -webkit-transform: translateX(-25px) translateY(-31px)
+                      transform: translateX(-25px) translateY(-31px)
 
-                  a
+                  .imagens:first-child
+                    margin: 0
+
+                  .titulo
+                    margin: 5px 0 0 30px
+                    float: left
                     text-decoration: none
                     font-size: 18px
                     color: $azulSubmenu
 
-                  a:hover
+                .galeria:hover
+                  .titulo
                     text-decoration: underline
 
-              .galeria:nth-child(2),
-              .galeria:last-child
-                .imagens
-                  .subimagem
-                    margin: -80px 0 0 25px
+              a:nth-child(2),
+              a:last-child
+                .galeria
+                  .imagens
+                    .subimagem
+                      margin: -80px 0 0 25px
+
+                    .imagem:hover + .subimagem,
+                    .subimagem:hover
+                      -webkit-transform: translateX(-1px) translateY(-31px)
+                      transform: translateX(-1px) translateY(-31px)
 
           .publicidade-fatos-e-fotos
             width: 720px
