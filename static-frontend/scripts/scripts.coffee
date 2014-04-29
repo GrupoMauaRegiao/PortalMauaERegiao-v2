@@ -6,5 +6,5 @@ Portal.apps =
     return
 
 do ->
-  a()
+  Portal.apps.a()
   return
