@@ -994,8 +994,7 @@ body
         .publicidade:last-child
           margin: 0
 
-/* --------- Últimas notícias ---------- */
-
+// Últimas notícias
 .ultimas-noticias
   width: 100%
   margin: 0 0 20px
@@ -1026,18 +1025,18 @@ body
               font-weight: bold
 
           .decoracao
-            width: 300px
-            margin: 0 0 20px 0
+            width: 650px
+            margin: 5px 0 30px 0
             float: left
 
             .linha-grossa
-              width: 85px
+              width: 110px
               height: 3px
               background: $azul
               float: left
 
             .linha-fina
-              width: 215px
+              width: 540px
               height: 1px
               margin: 1px 0 0 0
               background: $cinzaTituloMat
@@ -1052,169 +1051,222 @@ body
             text-transform: uppercase
             margin: 0 0 5px 0
 
-
           .chamadas
             a
-              .chamada
+              text-decoration: none
+
+              .chamada.destaque
+                width: 650px
+                height: 150px
+                background: $azulSubmenu
+                box-shadow: 0 5px 5px transparentize($preto, 0.7)
+                float: left
+
                 .imagem
                   float: left
 
                   .foto-materia
                     width: 200px
-                    height: 200px
+                    height: 150px
                     overflow: hidden
+                    float: left
 
                     img
                       width: auto
-                      height: 200px
+                      height: 150px
+
+                  .corte
+                    width: 50px
+                    height: 150px
+                    z-index: -1
+                    margin: 0 0 0 -45px
+                    background: url("../imagens/corte.png") no-repeat
+                    float: left
+
+                .titulo
+                  width: 480px
+                  padding: 15px
+                  margin: 10px 0 0 -65px
+                  float: left
+
+                  .header
+                    width: 495px
+                    font-size: 14px
+                    color: $branco
+                    float: left
+
+                    .decoracao
+                      width: 360px
+                      height: 20px
+                      margin: 0 5px 0 0
+                      float: left
+
+                      .linha
+                        width: 360px
+                        height: 1px
+                        background: $branco
+
+                    .categoria
+                      font-size: 15px
+                      margin: -10px 0 0 0
+
+                  .texto
+                    font-size: 22px
+                    line-height: 27px
+                    margin: 0 0 10px 10px
+                    color: $branco
+                    float: left
+
+            a:hover
+              .texto
+                text-decoration: underline
 
       .lateral
         width: 300px
         float: left
+// end Últimas notícias
 
-/* --------- end Últimas notícias ---------- */
+footer
+  width: 100%
+  float: left
 
-  footer
+  .conteudo-rodape
     width: 100%
+    background: $azulClaroRodape
     float: left
 
-    .conteudo-rodape
-      width: 100%
-      background: $azulClaroRodape
-      float: left
+    .cabecalho-rodape
+      width: $tamanhoLayout
+      margin: 0 auto
 
-      .cabecalho-rodape
-        width: $tamanhoLayout
-        margin: 0 auto
+      .conteudo
+        width: 1000px
+        margin: 30px 0 20px
+        float: left
 
-        .conteudo
-          width: 1000px
-          margin: 30px 0 20px
+        .lateral
+          width: 760px
           float: left
 
-          .lateral
-            width: 760px
+          .logotipo
+            width: 100px
+            height: 80px
+            padding: 20px
+            border-right: 2px solid $branco
             float: left
 
-            .logotipo
-              width: 100px
-              height: 80px
-              padding: 20px
-              border-right: 2px solid $branco
-              float: left
+            a
+              .logotipo-grupo-maua-e-regiao
+                background: url("../imagens/sprite.png") no-repeat -32px -5px
+                width: 75px
+                height: 77px
 
-              a
-                .logotipo-grupo-maua-e-regiao
-                  background: url("../imagens/sprite.png") no-repeat -32px -5px
-                  width: 75px
-                  height: 77px
-
-            .links
-              width: 578px
-              margin: 70px 0 0 40px
-              float: left
-
-              ul
-                line-height: 30px
-
-                li
-                  a
-                    color: $branco
-                    text-decoration: none
-                    text-transform: uppercase
-
-                    strong
-                      font-weight: bold
-
-                  a:hover
-                    text-decoration: underline
-
-          .busca-rodape
-            width: 240px
-            margin: 80px 0 0 -25px
+          .links
+            width: 578px
+            margin: 70px 0 0 40px
             float: left
 
-            form
-              input[type="text"]
-                width: 235px
-                height: 30px
-                background: $azulClaroBusca
-                border: 1px solid $azulClaroRodape
-                padding: 5px 0 5px 5px
-                color: $branco
-                font: 20px $fontePadrao
-                outline: 0
-                float: left
+            ul
+              line-height: 30px
 
-              input[type="text"]:focus
-                border: 1px solid $azulClaroBusca
-                background: darken($azulClaroBusca, 3)
+              li
+                a
+                  color: $branco
+                  text-decoration: none
+                  text-transform: uppercase
 
-              input[type="submit"]
-                width: 16px
-                height: 16px
-                background: url("../imagens/sprite.png") no-repeat 0 -223px
-                border: 0
-                outline: 0
-                margin: 12px 0 0 -25px
-                cursor: pointer
+                  strong
+                    font-weight: bold
 
-    .copyright-marcas
-      width: 100%
-      padding: 20px 0 20px
-      border-top: 2px solid $azulClaroBusca
-      background: $azulEscuroRodape
-      float: left
+                a:hover
+                  text-decoration: underline
 
-      .conteudo-copyright-marcas
-        width: $tamanhoLayout
-        margin: 0 auto
-
-        .copyright
-          width: 499.5px
-          height: auto
-          color: $branco
-          font-size: 18px
-          line-height: 25px
+        .busca-rodape
+          width: 240px
+          margin: 80px 0 0 -25px
           float: left
 
-          strong
-            font-weight: bold
-
-        .marcas
-          width: 499.5px
-          height: auto
-          float: left
-
-          a
-            section
-              margin: 0 43px 0 0
-
-          a:first-child
-            section
-              width: 71px
-              height: 41px
-              background: url("../imagens/sprite.png") no-repeat -300px -109px
+          form
+            input[type="text"]
+              width: 235px
+              height: 30px
+              background: $azulClaroBusca
+              border: 1px solid $azulClaroRodape
+              padding: 5px 0 5px 5px
+              color: $branco
+              font: 20px $fontePadrao
+              outline: 0
               float: left
 
-          a:nth-child(2)
-            section
-              width: 73px
-              height: 41px
-              background: url("../imagens/sprite.png") no-repeat -117px -23px
-              float: left
+            input[type="text"]:focus
+              border: 1px solid $azulClaroBusca
+              background: darken($azulClaroBusca, 3)
 
-          a:nth-child(3)
-            section
-              width: 105px
-              height: 46px
-              background: url("../imagens/sprite.png") no-repeat -185px -106px
-              float: left
+            input[type="submit"]
+              width: 16px
+              height: 16px
+              background: url("../imagens/sprite.png") no-repeat 0 -223px
+              border: 0
+              outline: 0
+              margin: 12px 0 0 -25px
+              cursor: pointer
 
-          a:last-child
-            section
-              width: 98px
-              height: 41px
-              margin-right: 0
-              background: url("../imagens/sprite.png") no-repeat -5px -177px
-              float: left
+  .copyright-marcas
+    width: 100%
+    padding: 20px 0 20px
+    border-top: 2px solid $azulClaroBusca
+    background: $azulEscuroRodape
+    float: left
+
+    .conteudo-copyright-marcas
+      width: $tamanhoLayout
+      margin: 0 auto
+
+      .copyright
+        width: 499.5px
+        height: auto
+        color: $branco
+        font-size: 18px
+        line-height: 25px
+        float: left
+
+        strong
+          font-weight: bold
+
+      .marcas
+        width: 499.5px
+        height: auto
+        float: left
+
+        a
+          section
+            margin: 0 43px 0 0
+
+        a:first-child
+          section
+            width: 71px
+            height: 41px
+            background: url("../imagens/sprite.png") no-repeat -300px -109px
+            float: left
+
+        a:nth-child(2)
+          section
+            width: 73px
+            height: 41px
+            background: url("../imagens/sprite.png") no-repeat -117px -23px
+            float: left
+
+        a:nth-child(3)
+          section
+            width: 105px
+            height: 46px
+            background: url("../imagens/sprite.png") no-repeat -185px -106px
+            float: left
+
+        a:last-child
+          section
+            width: 98px
+            height: 41px
+            margin-right: 0
+            background: url("../imagens/sprite.png") no-repeat -5px -177px
+            float: left
