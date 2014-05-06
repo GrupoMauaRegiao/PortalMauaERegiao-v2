@@ -1,6 +1,7 @@
 @import "reset.sass"
 @import "cores.sass"
 @import "tipografia.sass"
+@import "imagens-datauri.sass"
 
 $tamanhoLayout: 1000px
 $areaUtilLayout: 950px
@@ -79,7 +80,6 @@ body
             .politica
               height: 170px
               border-right: 2px solid $azulSubmenu
-
 
             .politica,
             .e-mais
@@ -1055,12 +1055,83 @@ body
             a
               text-decoration: none
 
+              .chamada
+                width: 630px
+                height: 130px
+                background: $cinzaBGChamadas
+                margin: 0 0 10px 0
+                box-shadow: 0 5px 5px transparentize($preto, 0.7)
+                float: left
+
+                .imagem
+                  float: left
+
+                  .foto-materia
+                    width: 180px
+                    height: 130px
+                    overflow: hidden
+                    float: left
+
+                    img
+                      width: auto
+                      height: 130px
+
+                  .corte
+                    width: 50px
+                    height: 130px
+                    z-index: -1
+                    margin: 0 0 0 -45px
+                    background: $corte-cinza no-repeat
+                    float: left
+
+                .titulo
+                  width: 480px
+                  padding: 15px
+                  margin: 10px 0 0 -65px
+                  float: left
+
+                  .header
+                    width: 495px
+                    font-size: 14px
+                    float: left
+
+                    .decoracao
+                      width: 360px
+                      height: 20px
+                      color: $azul
+                      margin: 0 5px 0 0
+                      float: left
+
+                      .linha
+                        width: 479px
+                        height: 1px
+                        margin: 15px 0 0 0
+                        background: $cinzaLinhaChamadas
+
+                    .categoria
+                      width: 495px
+                      font-size: 15px
+                      margin: -10px 20px 0
+                      position: absolute
+
+                    .horario
+                      width: 480px
+                      font-size: 14px
+                      text-align: right
+                      text-transform: lowercase
+
+                  .texto
+                    font-size: 20px
+                    line-height: 22px
+                    margin: 0 0 10px 10px
+                    color: $cinzaTituloBox
+                    float: left
+
+              // Chamada destacada
               .chamada.destaque
                 width: 650px
                 height: 150px
                 background: $azulSubmenu
-                box-shadow: 0 5px 5px transparentize($preto, 0.7)
-                float: left
 
                 .imagem
                   float: left
@@ -1080,7 +1151,7 @@ body
                     height: 150px
                     z-index: -1
                     margin: 0 0 0 -45px
-                    background: url("../imagens/corte.png") no-repeat
+                    background: $corte-azul no-repeat
                     float: left
 
                 .titulo
@@ -1104,11 +1175,16 @@ body
                       .linha
                         width: 360px
                         height: 1px
+                        margin: 0
                         background: $branco
 
                     .categoria
                       font-size: 15px
                       margin: -10px 0 0 0
+                      position: static
+
+                    .horario
+                      display: none
 
                   .texto
                     font-size: 22px
@@ -1116,10 +1192,26 @@ body
                     margin: 0 0 10px 10px
                     color: $branco
                     float: left
+              // end Chamada destacada
 
             a:hover
-              .texto
-                text-decoration: underline
+              .chamada
+                background: $branco
+
+                .imagem
+                  .corte
+                    background: $corte-branco no-repeat
+
+                .titulo
+                  .texto
+                    text-decoration: underline
+
+              .chamada.destaque
+                background: $azulSubmenu
+
+                .imagem
+                  .corte
+                    background: $corte-azul no-repeat
 
       .lateral
         width: 300px
