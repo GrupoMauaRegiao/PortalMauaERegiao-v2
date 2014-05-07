@@ -1,10 +1,16 @@
 Portal = {}
 
 Portal.apps =
-  a: ->
-    'Teste'
+  paginador: ->
+    # YUI().use 'paginator', 'node', (Y) ->
+    #   pageUI = Y.one '.chamadas'
+    #   pg = new Y.Paginator {
+    #     totalItems: 5,
+    #     itemsPerPage: 1
+    #   }
+    #   return
     return
 
 do ->
-  Portal.apps.a()
+  Portal.apps.paginador()
   return

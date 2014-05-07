@@ -1011,7 +1011,7 @@ body
       float: left
 
       .principal
-        width: 650px
+        width: 630px
         float: left
 
         .header
@@ -1025,7 +1025,7 @@ body
               font-weight: bold
 
           .decoracao
-            width: 650px
+            width: 630px
             margin: 5px 0 30px 0
             float: left
 
@@ -1036,7 +1036,7 @@ body
               float: left
 
             .linha-fina
-              width: 540px
+              width: 520px
               height: 1px
               margin: 1px 0 0 0
               background: $cinzaTituloMat
@@ -1051,16 +1051,22 @@ body
             text-transform: uppercase
             margin: 0 0 5px 0
 
+          .ontem
+            margin-top: 30px
+            float: left
+
           .chamadas
+            float: left
+
             a
               text-decoration: none
 
               .chamada
-                width: 630px
+                width: 610px
                 height: 130px
                 background: $cinzaBGChamadas
                 margin: 0 0 10px 0
-                box-shadow: 0 5px 5px transparentize($preto, 0.7)
+                box-shadow: 0 5px 5px transparentize($preto, 0.8)
                 float: left
 
                 .imagem
@@ -1085,13 +1091,13 @@ body
                     float: left
 
                 .titulo
-                  width: 480px
+                  width: 460px
                   padding: 15px
                   margin: 10px 0 0 -65px
                   float: left
 
                   .header
-                    width: 495px
+                    width: 475px
                     font-size: 14px
                     float: left
 
@@ -1099,23 +1105,23 @@ body
                       width: 360px
                       height: 20px
                       color: $azul
-                      margin: 0 5px 0 0
+                      margin: 0
                       float: left
 
                       .linha
-                        width: 479px
+                        width: 459px
                         height: 1px
                         margin: 15px 0 0 0
                         background: $cinzaLinhaChamadas
 
                     .categoria
-                      width: 495px
+                      width: 455px
                       font-size: 15px
                       margin: -10px 20px 0
                       position: absolute
 
                     .horario
-                      width: 480px
+                      width: 460px
                       font-size: 14px
                       text-align: right
                       text-transform: lowercase
@@ -1129,7 +1135,7 @@ body
 
               // Chamada destacada
               .chamada.destaque
-                width: 650px
+                width: 630px
                 height: 150px
                 background: $azulSubmenu
 
@@ -1155,32 +1161,32 @@ body
                     float: left
 
                 .titulo
-                  width: 480px
+                  width: 460px
                   padding: 15px
                   margin: 10px 0 0 -65px
                   float: left
 
                   .header
-                    width: 495px
+                    width: 475px
                     font-size: 14px
                     color: $branco
                     float: left
 
                     .decoracao
-                      width: 360px
+                      width: 335px
                       height: 20px
                       margin: 0 5px 0 0
                       float: left
 
                       .linha
-                        width: 360px
+                        width: 335px
                         height: 1px
                         margin: 0
                         background: $branco
 
                     .categoria
                       font-size: 15px
-                      margin: -10px 0 0 0
+                      margin: -7px 0 0 0
                       position: static
 
                     .horario
@@ -1213,9 +1219,64 @@ body
                   .corte
                     background: $corte-azul no-repeat
 
+          .outras-noticias
+            margin: 20px 0 0 0
+            float: left
+
+            a
+              color: $azulSubmenu
+              font-weight: bold
+              font-size: 14px
+              text-decoration: none
+
+              span
+                font-size: 12px
+
+            a:hover
+              text-decoration: underline
+
+        .publicidade
+          margin: 25px 0 0 0
+          float: left
+
+          a
+            .imagem
+              width: 630px
+              height: 200px
+              background: $cinzaTituloMat
+
       .lateral
         width: 300px
+        margin: 0 0 0 20px
         float: left
+
+        .header
+          .titulo
+            font-size: 25px
+            text-transform: uppercase
+            color: $cinzaTituloBox
+            margin: 15px 0 5px 0
+
+            strong
+              font-weight: bold
+
+          .decoracao
+            width: 300px
+            margin: 5px 0 30px 0
+            float: left
+
+            .linha-grossa
+              width: 100px
+              height: 3px
+              background: $azul
+              float: left
+
+            .linha-fina
+              width: 200px
+              height: 1px
+              margin: 1px 0 0 0
+              background: $cinzaTituloMat
+              float: left
 // end Últimas notícias
 
 footer
