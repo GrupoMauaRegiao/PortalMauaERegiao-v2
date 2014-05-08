@@ -1016,7 +1016,7 @@ body
 
         .header
           .titulo
-            font-size: 25px
+            font-size: 30px
             text-transform: uppercase
             color: $cinzaTituloBox
             margin: 15px 0 5px 0
@@ -1255,14 +1255,14 @@ body
             font-size: 25px
             text-transform: uppercase
             color: $cinzaTituloBox
-            margin: 15px 0 5px 0
+            margin: 20px 0 5px 0
 
             strong
               font-weight: bold
 
           .decoracao
             width: 300px
-            margin: 5px 0 30px 0
+            margin: 5px 0 15px 0
             float: left
 
             .linha-grossa
@@ -1277,6 +1277,83 @@ body
               margin: 1px 0 0 0
               background: $cinzaTituloMat
               float: left
+
+        .redes-sociais
+          .icones
+            a
+              .icone
+                width: 40px
+                height: 40px
+                border-radius: 100%
+                background: $laranjaBrasil
+                margin: 0 6px 0 0
+                float: left
+
+        .publicidade
+          margin: 45px 0 0 0
+          float: left
+
+          a
+            .imagem
+              width: 300px
+              height: 250px
+              background: $cinzaTituloMat
+
+        .destaques
+          margin: 15px 0 0
+          float: left
+
+          .header
+            .decoracao
+              margin-bottom: 15px
+
+          .lista-destaques
+            float: left
+
+            a
+              color: $cinzaEscuroLateral
+              text-transform: uppercase
+              text-decoration: none
+
+              .destaque
+                width: 270px
+                padding: 15px
+                border-top: 2px solid $cinzaEscuroLateral
+                margin: 0 0 10px 0
+                background: $cinzaBGDestaquesLateral
+
+            a:nth-child(2)
+              .destaque
+                width: 260px
+                margin-left: 10px
+
+            a:last-child
+              .destaque
+                width: 250px
+                margin-left: 20px
+
+            a:hover
+              text-decoration: underline
+
+              .destaque
+                background: $cinzaBGChamadas
+
+        .revista,
+        .jornal
+          margin: 0 0 5px 0
+          float: left
+
+          .header
+            .decoracao
+              margin-bottom: 15px
+
+          .ver-revista,
+          .ver-jornal
+            width: 300px
+            height: 230px
+            background: red
+            float: left
+
 // end Últimas notícias
 
 footer
