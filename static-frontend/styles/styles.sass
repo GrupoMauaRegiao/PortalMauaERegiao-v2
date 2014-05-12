@@ -6,6 +6,25 @@
 $tamanhoLayout: 1000px
 $areaUtilLayout: 950px
 
+@mixin decoracaoHeader($total, $linhaGrossa, $corGrossa, $corFina)
+  .decoracao
+    width: $total
+    margin: 0 0 20px 0
+    float: left
+
+    .linha-grossa
+      width: $linhaGrossa
+      height: 3px
+      background: $corGrossa
+      float: left
+
+    .linha-fina
+      width: $total - $linhaGrossa
+      height: 1px
+      margin: 1px 0 0 0
+      background: $corFina
+      float: left
+
 body
   background-image: url("../imagens/sombra-body.png"), url("../imagens/background-body.jpg")
   background-repeat: no-repeat, repeat-x
@@ -500,23 +519,7 @@ body
               strong
                 font-weight: bold
 
-            .decoracao
-              width: 300px
-              margin: 0 0 20px 0
-              float: left
-
-              .linha-grossa
-                width: 85px
-                height: 3px
-                background: $azul
-                float: left
-
-              .linha-fina
-                width: 215px
-                height: 1px
-                margin: 1px 0 0 0
-                background: $cinzaTituloMat
-                float: left
+            @include decoracaoHeader(300px, 85px, $azul, $cinzaTituloMat)
 
             .titulo
               width: 280px
@@ -685,23 +688,7 @@ body
               strong
                 font-weight: bold
 
-            .decoracao
-              width: 210px
-              margin: 0 0 10px 0
-              float: left
-
-              .linha-grossa
-                width: 80px
-                height: 3px
-                background: $azul
-                float: left
-
-              .linha-fina
-                width: 130px
-                height: 1px
-                margin: 1px 0 0 0
-                background: $cinzaTituloMat
-                float: left
+            @include decoracaoHeader(210px, 80px, $azul, $cinzaTituloMat)
 
             .issuu-embed
               width: 210px
@@ -898,23 +885,7 @@ body
                       strong
                         font-weight: bold
 
-                    .decoracao
-                      width: 226px
-                      margin: 0 0 10px 0
-                      float: left
-
-                      .linha-grossa
-                        width: 100px
-                        height: 3px
-                        background: $laranjaBrasil
-                        float: left
-
-                      .linha-fina
-                        width: 126px
-                        height: 1px
-                        margin: 1px 0 0 0
-                        background: $cinzaTituloMat
-                        float: left
+                    @include decoracaoHeader(226px, 100px, $laranjaBrasil, $cinzaTituloMat)
 
                   .imagem
                     width: 226px
@@ -1024,23 +995,7 @@ body
             strong
               font-weight: bold
 
-          .decoracao
-            width: 630px
-            margin: 5px 0 30px 0
-            float: left
-
-            .linha-grossa
-              width: 110px
-              height: 3px
-              background: $azul
-              float: left
-
-            .linha-fina
-              width: 520px
-              height: 1px
-              margin: 1px 0 0 0
-              background: $cinzaTituloMat
-              float: left
+          @include decoracaoHeader(630px, 110px, $azul, $cinzaTituloMat)
 
         .noticias
           float: left
@@ -1260,23 +1215,7 @@ body
             strong
               font-weight: bold
 
-          .decoracao
-            width: 300px
-            margin: 5px 0 15px 0
-            float: left
-
-            .linha-grossa
-              width: 100px
-              height: 3px
-              background: $azul
-              float: left
-
-            .linha-fina
-              width: 200px
-              height: 1px
-              margin: 1px 0 0 0
-              background: $cinzaTituloMat
-              float: left
+          @include decoracaoHeader(300px, 100px, $azul, $cinzaTituloMat)
 
         .redes-sociais
           .icones
@@ -1384,23 +1323,7 @@ body
             strong
               font-weight: bold
 
-          .decoracao
-            width: 630px
-            margin: 5px 0 30px 0
-            float: left
-
-            .linha-grossa
-              width: 110px
-              height: 3px
-              background: $azul
-              float: left
-
-            .linha-fina
-              width: 520px
-              height: 1px
-              margin: 1px 0 0 0
-              background: $cinzaTituloMat
-              float: left
+          @include decoracaoHeader(630px, 110px, $azul, $cinzaTituloMat)
 
         .publicidade
           margin-top: 15px
@@ -1451,23 +1374,7 @@ body
                     strong
                       font-weight: bold
 
-                  .decoracao
-                    width: 196px
-                    margin: 0 0 10px 0
-                    float: left
-
-                    .linha-grossa
-                      width: 100px
-                      height: 3px
-                      background: $laranjaBrasil
-                      float: left
-
-                    .linha-fina
-                      width: 96px
-                      height: 1px
-                      margin: 1px 0 0 0
-                      background: $cinzaTituloMat
-                      float: left
+                  @include decoracaoHeader(196px, 100px, $laranjaBrasil, $cinzaTituloMat)
 
                 .imagem
                   width: 196px
