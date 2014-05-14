@@ -1057,7 +1057,7 @@ body
                     float: left
 
                     .decoracao
-                      width: 360px
+                      width: 320px
                       height: 20px
                       color: $azul
                       margin: 0
@@ -1503,6 +1503,102 @@ body
               list-style-type: disc
               margin: 0 0 15px 10px
 // end Ler notícia
+
+// Paginador
+.paginacao
+  width: 630px
+  font-size: 16px
+  margin: 50px 0 40px
+  color: $branco
+  text-align: center
+  line-height: 22px
+  float: left
+
+  .indice
+    height: 20px
+    background: $azulEscuroRodape
+    margin: 0 7px 7px 0
+    padding: 10px
+    font-weight: bold
+    float: left
+
+  .elementos
+    width: 630px
+    display: inline-block
+
+    .paginador
+      float: left
+
+      a
+        color: $branco
+        text-decoration: none
+
+      a,
+      a[class=""],
+      .jp-current
+        width: 38px
+        height: 20px
+        cursor: pointer
+        margin: 0 7px 7px 0
+        background: $azulEscuroRodape
+        padding: 10px
+        float: left
+
+      .jp-current
+        background: $azulClaroRodape
+
+      a[class=""]:hover,
+      .jp-current:hover,
+      a:hover
+        background: $azulClaroRodape
+
+  .controles
+    width: 520px
+    margin: -7px 0 0 0
+    display: inline-block
+
+    .primeira,
+    .proxima,
+    .anterior,
+    .ultima
+      height: 20px
+      margin: 0 7px 0 0
+      float: left
+      cursor: pointer
+      text-align: center
+      padding: 10px
+      background: $azulEscuroRodape
+      line-height: 18px
+
+    .primeira:hover,
+    .proxima:hover,
+    .anterior:hover,
+    .ultima:hover
+      background: $azulClaroRodape
+
+    .jp-disabled
+      cursor: text
+      background: transparentize($cinzaLinhaChamadas, 0.7)
+
+    .jp-disabled:hover
+      background: transparentize($cinzaLinhaChamadas, 0.7)
+
+  .input-pagina
+    float: left
+
+    input
+      width: 160px
+      height: 20px
+      padding: 10px 0 10px 10px
+      border: 0
+      color: $branco
+      font: 16px $fontePadrao
+      background: $azulEscuroRodape
+      outline: none
+
+    input:focus
+      background: $azulClaroRodape
+// end Paginador
 
 footer
   width: 100%
