@@ -18,8 +18,8 @@ Portal.apps =
         last: '.ultima',
         next: '.proxima',
         previous: '.anterior'
-        callback: (pages, items) ->
-          indice.html('Página ' + pages.current + ' de ' + pages.count)
+        callback: (paginas, itens) ->
+          indice.html('Página ' + paginas.current + ' de ' + paginas.count)
           return
       }
 
