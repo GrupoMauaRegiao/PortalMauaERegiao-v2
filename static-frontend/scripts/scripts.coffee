@@ -3,11 +3,11 @@ Portal = {}
 Portal.apps =
   paginador: ->
     $ ($) ->
-      paginador = $ '.paginador'
+      paginas = $ '.paginador'
       indice = $ '.indice'
       inputPagina = $ 'input[name="digitar-pagina"]'
 
-      paginador.jPages {
+      paginas.jPages {
         containerID: 'chamadas'
         perPage: 5
         startRange: 5
@@ -35,7 +35,7 @@ Portal.apps =
 
       _moverParaPagina = ->
         pagina = parseInt(inputPagina.val())
-        paginador.jPages pagina
+        paginas.jPages pagina
 
       inputPagina.on 'input', _moverParaPagina
 
