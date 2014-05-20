@@ -89,7 +89,7 @@ body
         float: left
 
         .categorias
-          padding: 8px 65px 8px 23px
+          padding: 8px 23px 8px 23px
 
           .lista-categorias
             cursor: default
@@ -256,6 +256,7 @@ body
               float: left
 
           .formulario-busca-empresas
+            width: 381px
             cursor: default
             display: none
 
@@ -1598,6 +1599,129 @@ body
     input:focus
       background: $azulClaroRodape
 // end Paginador
+
+// Agenda
+.agenda-chamada
+  padding: 0 0 20px 0
+  margin: 0 0 20px 0
+  border-bottom: 1px solid $cinzaLinhaChamadas
+
+  p
+    font-size: 18px
+    color: $cinzaTituloMat
+
+.agenda
+  color: $cinzaTituloMat
+  text-decoration: none
+
+  .evento
+    width: 630px
+    height: auto
+    background: $branco
+    margin: 0 0 30px 0
+    float: left
+
+    .imagem
+      float: left
+
+      .foto-materia
+        width: 180px
+        height: 130px
+        overflow: hidden
+        float: left
+
+        img
+          width: auto
+          height: 130px
+
+      .corte
+        width: 50px
+        height: 130px
+        z-index: -1
+        margin: 0 0 0 -45px
+        background: $corte-branco no-repeat
+        float: left
+
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          width: 495px
+          height: 13px
+          margin: 0 0 18px -50px
+          float: left
+
+        .linha-fina
+          width: 350px
+          height: 1px
+          margin: 0 0 0 -50px
+          background: $cinzaTituloMat
+          float: left
+
+        .data-horario
+          margin: -3px 0 0 2px
+          float: left
+
+    .informacoes
+      margin: -90px 0 15px 150px
+      float: left
+
+      .titulo
+        width: 325px
+        margin: 0 0 10px 10px
+        font-size: 24px
+
+    .localizacao
+      width: 610px
+      padding: 10px
+      height: auto
+      color: $preto
+      float: left
+
+  .evento-verde
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $verdeEvento
+
+    .localizacao
+      background: $verdeEvento
+
+  .evento-azul
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $azulEvento
+
+    .localizacao
+      background: $azulEvento
+
+  .evento-amarelo
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $amareloEvento
+
+    .localizacao
+      background: $amareloEvento
+
+  .evento-rosa
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $rosaEvento
+
+    .localizacao
+      background: $rosaEvento
+
+  .evento-amarelo
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $amareloEvento
+
+    .localizacao
+      background: $amareloEvento
+// end Agenda
 
 footer
   width: 100%
