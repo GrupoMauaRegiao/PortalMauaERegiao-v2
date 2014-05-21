@@ -1723,6 +1723,97 @@ body
       background: $amareloEvento
 // end Agenda
 
+// Fale Conosco
+.erro
+  border: 1px solid $vermelho !important
+  background: lighten($vermelho, 47%) !important
+
+.fale-conosco-chamada
+  padding: 0 0 20px 0
+  margin: 0 0 20px 0
+  border-bottom: 1px solid $cinzaLinhaChamadas
+
+  p
+    font-size: 18px
+    color: $cinzaTituloMat
+
+.fale-conosco
+  .formulario
+    form
+      input[type="text"],
+      input[type="email"],
+      textarea
+        height: 35px
+        font: 18px $fontePadrao
+        border: 1px solid $branco
+        outline: 0
+        resize: none
+        border-radius: 30px
+        margin: 0 0 5px
+        padding: 10px
+        background: $cinzaBGDestaquesLateral
+        text-transform: uppercase
+
+      input[name="nome"],
+      input[name="email"]
+        width: 400px
+
+      input[name="assunto"],
+      textarea
+        width: 500px
+
+      textarea
+        height: 100px
+        border-radius: 20px
+        border-right: 5px solid $cinzaBGDestaquesLateral
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus
+        border: 1px solid $azul
+        background: $branco
+
+      textarea::-webkit-scrollbar
+        width: 30px
+
+      textarea::-webkit-scrollbar-track
+        border-radius: 35px
+        margin: 5px 20px
+        background: $branco
+
+      textarea::-webkit-scrollbar-thumb
+        border-radius: 30px
+        border: 2px solid $branco
+        background: $azul
+
+    // -- Botões --
+    input[type="submit"],
+    input[type="button"]
+      border: 0
+      position: relative
+      border-radius: 30px
+      padding: 5px 40px
+      font: 20px $fontePadrao
+      color: $cinzaTituloMat
+      cursor: pointer
+      text-transform: uppercase
+
+    input[type="submit"]
+      background: $cinzaBGDestaquesLateral
+      z-index: 1
+
+    input[type="button"]
+      z-index: 0
+      margin: 0 0 0 -20px
+      background: $cinzaBotaoApagar
+      border-radius: 0 30px 30px 0
+
+    input[type="submit"]:hover,
+      background: darken($cinzaBGDestaquesLateral, 10%)
+
+    input[type="button"]:hover
+      background: darken($cinzaBotaoApagar, 5%)
+
 footer
   width: 100%
   float: left
