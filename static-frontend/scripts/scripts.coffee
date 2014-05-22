@@ -90,29 +90,7 @@ Portal.apps =
         evt.stopPropagation()
         return
 
-  limparFormularioContato: ->
-    # Apaga todos os campos do formulario de contato [página Fale Conosco].
-
-    formulario = document.querySelector '.formulario-fale-conosco form'
-
-    if formulario
-      cNome = document.querySelector '#nome'
-      cEmail = document.querySelector '#email'
-      cAssunto = document.querySelector '#assunto'
-      cMsg = document.querySelector '#mensagem'
-      botao = document.querySelector '#apagar'
-
-      _apagar = ->
-        cNome.value = ''
-        cEmail.value = ''
-        cAssunto.value = ''
-        cMsg.value = ''
-        return
-
-      botao.addEventListener 'click', _apagar
-
 do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
-  Portal.apps.limparFormularioContato()
   return
