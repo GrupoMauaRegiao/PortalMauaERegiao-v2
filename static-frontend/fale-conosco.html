@@ -220,26 +220,32 @@
               </section>
 
               <section class="fale-conosco">
-                <section class="formulario">
-                  <form action="#">
+                <section class="formulario-fale-conosco">
+                  <section class="mensagem-sucesso esconder">
+                    <p>
+                      Obrigado!<br>
+                      Sua mensagem foi enviada com sucesso.
+                    </p>
+                  </section>
+                  <form action="enviar-email.php">
                     <section class="nome">
-                      <input name="nome" type="text" placeholder="Nome" required>
+                      <input id="nome" name="nome" type="text" placeholder="Nome" required>
                     </section>
 
                     <section class="email">
-                      <input name="email" type="email" placeholder="E-mail" required>
+                      <input id="email" name="email" type="email" placeholder="E-mail" required>
                     </section>
 
                     <section class="assunto">
-                      <input name="assunto" type="text" placeholder="Assunto" required>
+                      <input id="assunto" name="assunto" type="text" placeholder="Assunto" required>
                     </section>
 
                     <section class="mensagem">
-                      <textarea name="mensagem" id="mensagem" placeholder="Mensagem"></textarea>
+                      <textarea id="mensagem" name="mensagem" id="mensagem" placeholder="Mensagem"></textarea>
                     </section>
 
                     <section class="botoes">
-                      <input name="enviar" type="submit" value="_Enviar">
+                      <input id="enviar" name="enviar" type="submit" value="_Enviar">
                       <input name="apagar" type="button" value="_Apagar">
                     </section>
                   </form>
@@ -250,15 +256,15 @@
                     <section class="linha"></section>
                   </section>
                   <section class="icones">
-                    <a href="#" target="_blank" title="Facebook">
+                    <a href="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546?fref=ts" target="_blank" title="Facebook">
                       <section class="icone"></section>
                     </a>
 
-                    <a href="#" target="_blank" title="Twitter">
+                    <a href="https://twitter.com/tvmauaeregiao" target="_blank" title="Twitter">
                       <section class="icone"></section>
                     </a>
 
-                    <a href="#" target="_blank" title="Youtube">
+                    <a href="https://www.youtube.com/channel/UC78ysBoZL1FwD4Nn8Gl6E3g" target="_blank" title="Youtube">
                       <section class="icone"></section>
                     </a>
                   </section>
@@ -375,21 +381,8 @@
       </footer>
     </section>
 
+    <script src="scripts/libs/jquery-2.1.1.min.js"></script>
     <script src="scripts/scripts.js"></script>
-    <!-- Twitter button -->
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    <!-- close Twitter button -->
-
-    <!-- Facebook button -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    <!-- close Facebook button -->
 
   </body>
 </html>
