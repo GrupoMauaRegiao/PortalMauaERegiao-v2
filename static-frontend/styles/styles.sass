@@ -1814,6 +1814,64 @@ body
     input[type="button"]:hover
       background: darken($cinzaBotaoApagar, 5%)
 
+  .redes-sociais
+    margin: 50px 0 50px
+
+    .decoracao
+      .linha
+        width: 475px
+        height: 1px
+        background: $cinzaLinhaChamadas
+
+    .icones
+      width: 630px
+      text-align: right
+      margin: -24px 0 0
+      float: left
+
+      a
+        border: 0
+        outline: 0
+        color: transparent
+
+        section
+          width: 45px
+          height: 45px
+          margin: 0 0 0 5px
+          display: inline-block
+
+      a:first-child
+        section
+          background: url("../imagens/sprite.png") no-repeat -376px 0
+
+      a:nth-child(2)
+        section
+          background: url("../imagens/sprite.png") no-repeat 0 -239px
+
+      a:last-child
+        section
+          background: url("../imagens/sprite.png") no-repeat -45px -239px
+
+  .informacoes-contato
+    font: 20px $fontePadrao
+    color: $cinzaTituloMat
+
+    .telefone,
+    .email a
+      border-radius: 20px
+      margin: 0 0 20px
+      padding: 10px
+      background: $cinzaBGDestaquesLateral
+      text-decoration: none
+      color: $cinzaTituloMat
+
+    .telefone
+      width: 280px
+
+    .email
+      a:hover
+        text-decoration: underline
+
 footer
   width: 100%
   float: left
