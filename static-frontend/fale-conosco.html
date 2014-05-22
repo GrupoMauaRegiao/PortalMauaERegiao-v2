@@ -15,11 +15,9 @@
       <header>
         <section class="conteudo-header">
           <section class="facebook">
-            <section class="fb-botao"></section>
-
-            <a href="facebook.com">
-              <section class="fb-icone"></section>
-            </a>
+            <section class="botao-curtir">
+              <div class="fb-like" data-href="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546?fref=ts" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+            </section>
           </section>
 
           <a href="#" title="Portal Mauá e Região">
@@ -383,6 +381,16 @@
 
     <script src="scripts/libs/jquery-2.1.1.min.js"></script>
     <script src="scripts/scripts.js"></script>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 
   </body>
 </html>
