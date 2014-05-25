@@ -1,0 +1,1323 @@
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
+header('Access-Control-Allow-Methods: POST, PUT, GET');
+?>
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="portal maua e regiao, maua e regiao, maua, portal maua, noticias, ultimas noticias, qualidade, melhor, website maua, melhor website, melhor site, ribeirao pires, rio grande da serra, noticias de ribeirao pires, noticias de rio grande da serra, santo andre, noticias de santo andre, portal de noticias do abc, abc sao paulo, sao paulo abc">
+    <meta name="description" content="Portal de notícias do Grupo Mauá e Região de Comunicação">
+    <meta name="author" content="Grupo Mauá e Região de Comunicação">
+    <link rel="shortcut icon" href="imagens/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.min.css">
+    <title>Portal Mauá e Região</title>
+  </head>
+  <body>
+
+    <section class="layout">
+      <header>
+        <section class="conteudo-header">
+          <section class="facebook">
+            <section class="fb-botao"></section>
+
+            <a href="facebook.com">
+              <section class="fb-icone"></section>
+            </a>
+          </section>
+
+          <a href="#" title="Portal Mauá e Região">
+            <section class="logotipo"></section>
+          </a>
+
+          <!-- ///////////////// PUBLICIDADE ////////////////// -->
+          <section class="publicidade-topo">
+            <a href="#" title="">
+              <section class="imagem">
+                <img src="#" alt="">
+              </section>
+            </a>
+          </section>
+          <!-- //////////////// close PUBLICIDADE ////////////////// -->
+
+          <nav class="topo">
+            <section class="categorias">
+              <section class="header">
+                <section class="titulo">
+                  Categorias
+                </section>
+                <section class="seta"></section>
+              </section>
+
+              <section class="lista-categorias">
+                <section class="cidade">
+                  <section class="header">
+                    Cidade
+                  </section>
+
+                  <section class="lista">
+                    <ul>
+                      <li><a href="#">Mauá</a></li>
+                      <li><a href="#">Ribeirão Pires</a></li>
+                      <li><a href="#">Rio G. da Serra</a></li>
+                    </ul>
+                  </section>
+                </section>
+
+                <section class="politica">
+                  <section class="header">
+                    Política
+                  </section>
+
+                  <section class="lista">
+                    <ul>
+                      <li><a href="#">Mauá</a></li>
+                      <li><a href="#">Ribeirão Pires</a></li>
+                      <li><a href="#">Rio G. da Serra</a></li>
+                    </ul>
+                  </section>
+                </section>
+
+                <section class="e-mais">
+                  <section class="header">
+                    E mais
+                  </section>
+
+                  <section class="lista">
+                    <ul>
+                      <li><a href="#">Acidentes</a></li>
+                      <li><a href="#">Brasil</a></li>
+                      <li><a href="#">Curiosidades</a></li>
+                      <li><a href="#">Educação</a></li>
+                    </ul>
+                    <ul>
+                      <li><a href="#">Esportes</a></li>
+                      <li><a href="#">LGBT</a></li>
+                      <li><a href="#">Mauá e região</a></li>
+                      <li><a href="#">Meio ambiente</a></li>
+                    </ul>
+                    <ul>
+                      <li><a href="#">Moda</a></li>
+                      <li><a href="#">Música</a></li>
+                      <li><a href="#">Saúde</a></li>
+                      <li><a href="#">Tecnologia</a></li>
+                    </ul>
+                  </section>
+                </section>
+              </section>
+            </section>
+
+            <section class="entretenimento">
+              <section class="header">
+                <section class="titulo">
+                  Entretenimento
+                </section>
+                <section class="seta"></section>
+              </section>
+
+              <section class="lista-entretenimento">
+                <!-- Conteúdo Entretenimento -->
+              </section>
+            </section>
+
+            <section class="previsao-do-tempo">
+              <section class="icone"></section>
+              <section class="temperatura"></section>
+              <section class="localidade"></section>
+            </section>
+
+            <section class="busca">
+              <section class="icone"></section>
+              <section class="formulario-busca">
+                <form action="#">
+                  <input type="text" name="s" placeholder="Procurar">
+                </form>
+              </section>
+            </section>
+
+            <section class="revista">
+              <section class="header">
+                <section class="titulo">
+                  Revista
+                </section>
+                <section class="seta"></section>
+              </section>
+
+              <section class="ver-revista">
+                <section class="embed">
+                  <!-- <iframe width="300" height="202" src="https://e.issuu.com/embed.html#1574428/7577626" frameborder="0" allowfullscreen></iframe> -->
+                </section>
+
+                <section class="ver-todas">
+                  <a target="_blank" href="http://revistamaua.com.br/todas-as-edicoes">Ver todas</a>
+                </section>
+              </section>
+            </section>
+
+            <section class="jornal">
+              <section class="header">
+                <section class="titulo">
+                  Jornal
+                </section>
+                <section class="seta"></section>
+              </section>
+
+              <section class="ver-jornal">
+                <section class="embed">
+                  <!-- <iframe width="400" height="300" src="https://e.issuu.com/embed.html#5123040/7578641" frameborder="0" allowfullscreen></iframe> -->
+                </section>
+
+                <section class="ver-todos">
+                  <a target="_blank" href="http://issuu.com/jornalmaua">Ver todos</a>
+                </section>
+              </section>
+            </section>
+
+            <section class="empresas">
+              <section class="header">
+                <section class="icone"></section>
+                <section class="titulo">
+                  Empresas
+                </section>
+              </section>
+
+              <section class="formulario-busca-empresas">
+                <form action="#">
+                  <input type="text" name="s" placeholder="Buscar (nome, CEP, ramo, ...)">
+                  <input type="submit" value=" " title="Buscar">
+                </form>
+
+                <section class="links">
+                  <a href="#">Todas as categorias</a>
+                  <a href="#">Busca avançada</a>
+                </section>
+              </section>
+
+
+            </section>
+          </nav>
+        </section>
+      </header>
+
+      <section class="ultimas-noticias">
+        <section class="layout-ultimas-noticias">
+          <section class="conteudo">
+            <section class="principal">
+              <section class="header">
+                <section class="titulo">
+                  Todas as <strong>notícias</strong>
+                </section>
+                <section class="decoracao">
+                  <section class="linha-grossa"></section>
+                  <section class="linha-fina"></section>
+                </section>
+              </section>
+
+              <section class="noticias">
+                <section id="chamadas" class="chamadas">
+                  <a href="#" title="Prefeito Donisete Braga participa do carnaval fantasiado de lanterna verde e acompanha Cinderela">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia3.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Mauá
+                          </section>
+                          <section class="horario">
+                            12 de maio de 2014
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Prefeito Donisete Braga participa do carnaval
+                          fantasiado de lanterna verde e acompanha Cinderela
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Prefeito Donisete Braga participa do carnaval fantasiado de lanterna verde e acompanha Cinderela">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia7.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Mauá
+                          </section>
+                          <section class="horario">
+                            11 de maio de 2014
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Prefeito Donisete Braga participa do carnaval
+                          fantasiado de lanterna verde e acompanha Cinderela
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Eleição e protestos no Brasil alimentam 'preocupação' com liberdade de imprensa">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia4.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Brasil
+                          </section>
+                          <section class="horario">
+                            10 de maio de 2014
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Eleição e protestos no Brasil alimentam 'preocupação' com liberdade de imprensa
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            09 de maio de 2014
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                  <a href="#" title="Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio">
+                    <section class="chamada">
+                      <section class="imagem">
+                        <section class="foto-materia">
+                          <img src="imagens/materias/materia5.jpg" alt="">
+                        </section>
+                        <section class="corte"></section>
+                      </section>
+
+                      <section class="titulo">
+                        <section class="header">
+                          <section class="decoracao">
+                            <section class="linha"></section>
+                          </section>
+                          <section class="categoria">
+                            Cidade Riberão Pires
+                          </section>
+                          <section class="horario">
+                            07 de maio de 2014 
+                          </section>
+                        </section>
+
+                        <section class="texto">
+                          Após duras críticas, COI diz que 'ainda acredita' nas Olimpíadas do Rio
+                        </section>
+                      </section>
+                    </section>
+                  </a>
+
+                </section>
+              </section>
+
+              <section class="paginacao">
+                <section class="indice"></section>
+                <section class="elementos">
+                  <section class="paginador"></section>
+                </section>
+                <section class="controles">
+                  <section title="Primeira" class="primeira">Primeira</section>
+                  <section title="Anterior" class="anterior">Anterior</section>
+                  <section title="Próxima" class="proxima">Próxima</section>
+                  <section title="Última" class="ultima">Última</section>
+                  <section class="input-pagina">
+                    <input type="number"
+                           name="digitar-pagina"
+                           placeholder="Digite o número"
+                           max="99999"
+                           min="1">
+                  </section>
+                </section>
+              </section>
+
+              <!-- ///////////////// PUBLICIDADE ////////////////// -->
+              <section class="publicidade">
+                <a href="#" title="">
+                  <section class="imagem">
+                    <img src="#" alt="">
+                  </section>
+                </a>
+              </section>
+              <!-- ///////////////// close PUBLICIDADE ////////////////// -->
+
+            </section>
+
+            <section class="lateral">
+              <section class="header">
+                <section class="titulo">
+                  Siga-nos
+                </section>
+                <section class="decoracao">
+                  <section class="linha-grossa"></section>
+                  <section class="linha-fina"></section>
+                </section>
+              </section>
+
+              <section class="redes-sociais">
+                <section class="icones">
+                  <a href="#" title="Facebook">
+                    <section class="icone"></section>
+                  </a>
+                  <a href="#" title="Twitter">
+                    <section class="icone"></section>
+                  </a>
+                  <a href="#" title="Instagram">
+                    <section class="icone"></section>
+                  </a>
+                  <a href="#" title="Tumblr">
+                    <section class="icone"></section>
+                  </a>
+                  <a href="#" title="YouTube">
+                    <section class="icone"></section>
+                  </a>
+                </section>
+              </section>
+
+              <!-- ///////////////// PUBLICIDADE ////////////////// -->
+              <section class="publicidade">
+                <a href="#" title="">
+                  <section class="imagem">
+                    <img src="#" alt="">
+                  </section>
+                </a>
+              </section>
+              <!-- ///////////////// close PUBLICIDADE ////////////////// -->
+            </section>
+          </section>
+        </section>
+      </section>
+
+      <footer>
+        <section class="conteudo-rodape">
+          <section class="cabecalho-rodape">
+            <section class="conteudo">
+              <section class="lateral">
+                <section class="logotipo">
+                  <a href="#" title="Grupo Mauá e Região de Comunicação">
+                    <section class="logotipo-grupo-maua-e-regiao"></section>
+                  </a>
+                </section>
+                <section class="links">
+                  <ul>
+                    <li><a href="#"><strong>Anuncie</strong></a></li>
+                    <li><a href="#">Fale <strong>conosco</strong></a></li>
+                  </ul>
+                </section>
+              </section>
+
+              <section class="busca-rodape">
+                <form action="#">
+                  <input type="text" name="s">
+                  <input type="submit" value=" " title="Buscar">
+                </form>
+              </section>
+            </section>
+
+          </section>
+
+          <section class="copyright-marcas">
+            <section class="conteudo-copyright-marcas">
+              <section class="copyright">
+                &copy; 2014 &#8212; Portal Mauá e Região<br>
+                <strong>Todos os direitos reservados</strong>
+              </section>
+
+              <section class="marcas">
+                <a href="#" title="Revista Mauá e Região">
+                  <section class="logotipo"></section>
+                </a>
+
+                <a href="#" title="Jornal Mauá e Região">
+                  <section class="logotipo"></section>
+                </a>
+
+                <a href="#" title="Portal Mauá e Região">
+                  <section class="logotipo"></section>
+                </a>
+
+                <a href="#" title="TV Mauá e Região">
+                  <section class="logotipo"></section>
+                </a>
+              </section>
+            </section>
+          </section>
+        </section>
+      </footer>
+    </section>
+
+    <script src="scripts/libs/jquery-2.1.1.min.js"></script>
+    <script src="scripts/libs/jPages.js"></script>
+    <scriptsrc="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=weather"></script>
+    <script src="scripts/scripts.js"></script>
+
+  </body>
+</html>

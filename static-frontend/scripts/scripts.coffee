@@ -111,8 +111,39 @@ Portal.apps =
 
       botao.addEventListener 'click', _apagar
 
+  geolocation: ->
+    _localizar = ->
+      containerTemperatura = $ '.temperatura'
+      containerLocalidade = $ '.localidade'
+
+      containerTemperatura.html 'Obtendo informações...'
+
+      navigator.geolocation.getCurrentPosition (posicao) ->
+        # Obtém a latitude e a longitude
+        lt = posicao.coords.latitude
+        lg = posicao.coords.longitude
+
+        # Obtém o nome da cidade conforme a latitude e a longitude
+        $.getJSON 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lt + ',' + lg, (dados) ->
+          cidade = dados.results[0].address_components[3].short_name
+
+          # Obtém informações sobre o clima conforme a cidade
+          $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&units=metric&lang=pt', (dados) ->
+
+            cidade = dados.name
+            tempMax = dados.main.temp_max
+            tempMin = dados.main.temp_min
+
+            containerTemperatura.html tempMax.toFixed() + '°, ' + tempMin.toFixed() + '° '
+            containerLocalidade.html cidade
+        return
+
+    _localizar()
+    return
+
 do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
+  Portal.apps.geolocation()
   return
