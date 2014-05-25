@@ -112,6 +112,8 @@ Portal.apps =
       botao.addEventListener 'click', _apagar
 
   geolocation: ->
+    # Cria a previsão do tempo no header da página
+
     _localizar = ->
       containerTemperatura = $ '.temperatura'
       containerLocalidade = $ '.localidade'
