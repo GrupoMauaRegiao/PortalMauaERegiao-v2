@@ -1,3 +1,9 @@
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
+header('Access-Control-Allow-Methods: POST, PUT, GET');
+?>
+
 <!doctype html>
 <html>
   <head>
@@ -118,13 +124,8 @@
 
             <section class="previsao-do-tempo">
               <section class="icone"></section>
-              <section class="temperatura">
-                31&#176;, 18&#176;
-              </section>
-
-              <section class="localidade">
-                Mauá
-              </section>
+              <section class="temperatura"></section>
+              <section class="localidade"></section>
             </section>
 
             <section class="busca">
@@ -1315,6 +1316,7 @@
 
     <script src="scripts/libs/jquery-2.1.1.min.js"></script>
     <script src="scripts/libs/jPages.js"></script>
+    <scriptsrc="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=weather"></script>
     <script src="scripts/scripts.js"></script>
 
   </body>
