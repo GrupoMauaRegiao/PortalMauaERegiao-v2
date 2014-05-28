@@ -123,11 +123,6 @@ header('Access-Control-Allow-Methods: POST, PUT, GET');
             </section>
 
             <section class="previsao-do-tempo">
-<<<<<<< HEAD:static-frontend/mais-noticias.php
-              <section class="icone"></section>
-              <section class="temperatura"></section>
-              <section class="localidade"></section>
-=======
               <section class="loading"></section>
 
               <section class="elementos esconder">
@@ -135,7 +130,6 @@ header('Access-Control-Allow-Methods: POST, PUT, GET');
                 <section class="temperatura"></section>
                 <section class="localidade"></section>
               </section>
->>>>>>> previsao-do-tempo:static-frontend/mais-noticias.php
             </section>
 
             <section class="busca">

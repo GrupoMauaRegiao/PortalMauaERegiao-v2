@@ -111,15 +111,6 @@ Portal.apps =
 
       botao.addEventListener 'click', _apagar
 
-<<<<<<< HEAD
-  geolocation: ->
-    _localizar = ->
-      containerTemperatura = $ '.temperatura'
-      containerLocalidade = $ '.localidade'
-
-      containerTemperatura.html 'Obtendo informações...'
-
-=======
   diminuirTexto: (texto, max) ->
     indicador = "…"
 
@@ -189,7 +180,6 @@ Portal.apps =
       containerTemperatura = $ '.temperatura'
       containerLocalidade = $ '.localidade'
 
->>>>>>> previsao-do-tempo
       navigator.geolocation.getCurrentPosition (posicao) ->
         # Obtém a latitude e a longitude
         lt = posicao.coords.latitude
@@ -201,18 +191,6 @@ Portal.apps =
 
           # Obtém informações sobre o clima conforme a cidade
           $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&units=metric&lang=pt', (dados) ->
-<<<<<<< HEAD
-
-            cidade = dados.name
-            tempMax = dados.main.temp_max
-            tempMin = dados.main.temp_min
-
-            containerTemperatura.html tempMax.toFixed() + '°, ' + tempMin.toFixed() + '° '
-            containerLocalidade.html cidade
-        return
-
-    _localizar()
-=======
             cidade = dados.name
             cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
             tempMax = dados.main.temp_max.toFixed()
@@ -251,16 +229,11 @@ Portal.apps =
         return
 
     _adicionarPrevisaoDoTempo()
->>>>>>> previsao-do-tempo
     return
 
 do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
-<<<<<<< HEAD
-  Portal.apps.geolocation()
-=======
   Portal.apps.previsaoDoTempo()
->>>>>>> previsao-do-tempo
   return
