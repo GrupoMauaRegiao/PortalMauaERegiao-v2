@@ -111,6 +111,18 @@ Portal.apps =
 
       botao.addEventListener 'click', _apagar
 
+  diminuirTexto: (texto, max) ->
+    indicador = "…"
+
+    if texto.length >= max
+      novoTexto = texto.substring 0, max
+      if novoTexto.charAt(novoTexto.length - 1) is ' '
+        novoTexto = novoTexto.substring 0, max - 1
+      texto = novoTexto + indicador
+    else
+      texto = texto
+    texto
+
   previsaoDoTempo: ->
     # Implementa previsão do tempo no header da página com:
     # Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
@@ -180,23 +192,40 @@ Portal.apps =
           # Obtém informações sobre o clima conforme a cidade
           $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&units=metric&lang=pt', (dados) ->
             cidade = dados.name
-            tempMax = dados.main.temp_max
-            tempMin = dados.main.temp_min
+            cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
+            tempMax = dados.main.temp_max.toFixed()
+            tempMin = dados.main.temp_min.toFixed()
             codIcone = dados.weather[0].icon
             clima = dados.weather[0].description
             vento = dados.wind.speed
 
-            # Corrige português de Portugal
+            # Corrige texto sobre "nuvens quebrados"
             if clima is 'nuvens quebrados'
-              clima = 'nuvens quebradas'
+              clima = 'muitas nuvens'
+
+            # Corrige temperatura quando ambas (máxima e mínima) forem iguais
+            if tempMin is tempMax
+              tempMin = tempMin - 1
 
             icone.css 'background', 'url("http://openweathermap.org/img/w/' + codIcone + '.png") no-repeat'
-            container.attr 'title', 'Descrição: ' + clima + ' com ' + converterBeauFort vento
-            containerTemperatura.html tempMax.toFixed() + '°, ' + tempMin.toFixed() + '° '
-            containerLocalidade.html cidade
+            container.attr 'title', 'Descrição: ' + clima +
+                                    ' com ' + converterBeauFort(vento) +
+                                    ' em ' + cidade + '.' +
+                                    ' Máxima:' + tempMax + '°, Mínima: ' + tempMin + '°'
+            containerTemperatura.html tempMax + '°, ' + tempMin + '° '
+            containerLocalidade.html cidadeCompacto
 
             imagemLoading.addClass 'esconder'
             container.removeClass 'esconder'
+
+            _exibirNomeCompletoCidade = (e) ->
+              containerLocalidade.html cidade
+
+            _exibirNomeCompactoCidade = (e) ->
+              containerLocalidade.html cidadeCompacto
+
+            containerLocalidade.on 'mouseenter', _exibirNomeCompletoCidade
+            containerLocalidade.on 'mouseleave', _exibirNomeCompactoCidade
         return
 
     _adicionarPrevisaoDoTempo()
