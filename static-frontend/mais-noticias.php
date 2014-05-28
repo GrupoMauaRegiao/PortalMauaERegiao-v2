@@ -123,9 +123,13 @@ header('Access-Control-Allow-Methods: POST, PUT, GET');
             </section>
 
             <section class="previsao-do-tempo">
-              <section class="icone"></section>
-              <section class="temperatura"></section>
-              <section class="localidade"></section>
+              <section class="loading"></section>
+
+              <section class="elementos esconder">
+                <section class="icone"></section>
+                <section class="temperatura"></section>
+                <section class="localidade"></section>
+              </section>
             </section>
 
             <section class="busca">

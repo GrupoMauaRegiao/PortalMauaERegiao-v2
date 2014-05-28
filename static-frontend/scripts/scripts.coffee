@@ -111,14 +111,62 @@ Portal.apps =
 
       botao.addEventListener 'click', _apagar
 
-  geolocation: ->
-    # Cria a previsão do tempo no header da página
+  previsaoDoTempo: ->
+    # Implementa previsão do tempo no header da página com:
+    # Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
+    # Fonte da escala: http://pt.wikipedia.org/wiki/Escala_de_Beaufort
 
-    _localizar = ->
+    converterBeauFort = (velocidade) ->
+      tipoVento =
+          'calmo': 'calmo'
+          'aragem': 'aragem'
+          'brisaLeve': 'brisa leve'
+          'brisaFraca': 'brisa fraca'
+          'brisaModerada': 'brisa moderada'
+          'brisaForte': 'brisa forte'
+          'ventoFresco': 'vento fresco'
+          'ventoForte': 'vento forte'
+          'ventania': 'ventania'
+          'ventaniaForte': 'ventania forte'
+          'tempestade': 'tempestade'
+          'tempestadeViolenta': 'tempestade violenta'
+          'furacao': 'furacão'
+
+      if velocidade < 0.3
+        vento = tipoVento.calmo
+      else if velocidade is 0.3 or velocidade <= 1.5
+        vento = tipoVento.aragem
+      else if velocidade is 1.6 or velocidade <= 3.3
+        vento = tipoVento.brisaLeve
+      else if velocidade is 3.4 or velocidade <= 5.4
+        vento = tipoVento.brisaFraca
+      else if velocidade is 5.5 or velocidade <= 7.9
+        vento = tipoVento.brisaModerada
+      else if velocidade is 8.0 or velocidade <= 10.7
+        vento = tipoVento.brisaForte
+      else if velocidade is 10.8 or velocidade <= 13.8
+        vento = tipoVento.ventoFresco
+      else if velocidade is 13.9 or velocidade <= 17.1
+        vento = tipoVento.ventoForte
+      else if velocidade is 17.2 or velocidade <= 20.7
+        vento = tipoVento.ventania
+      else if velocidade is 20.8 or velocidade <= 24.4
+        vento = tipoVento.ventaniaForte
+      else if velocidade is 24.5 or velocidade <= 28.4
+        vento = tipoVento.tempestade
+      else if velocidade is 28.5 or velocidade <= 32.6
+        vento = tipoVento.tempestadeViolenta
+      else if velocidade >= 32.7
+        vento = tipoVento.furacao
+
+      vento
+
+    _adicionarPrevisaoDoTempo = ->
+      container = $ '.elementos'
+      imagemLoading = $ '.loading'
+      icone = $ '.previsao-do-tempo .icone'
       containerTemperatura = $ '.temperatura'
       containerLocalidade = $ '.localidade'
-
-      containerTemperatura.html 'Obtendo informações...'
 
       navigator.geolocation.getCurrentPosition (posicao) ->
         # Obtém a latitude e a longitude
@@ -131,21 +179,32 @@ Portal.apps =
 
           # Obtém informações sobre o clima conforme a cidade
           $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&units=metric&lang=pt', (dados) ->
-
             cidade = dados.name
             tempMax = dados.main.temp_max
             tempMin = dados.main.temp_min
+            codIcone = dados.weather[0].icon
+            clima = dados.weather[0].description
+            vento = dados.wind.speed
 
+            # Corrige português de Portugal
+            if clima is 'nuvens quebrados'
+              clima = 'nuvens quebradas'
+
+            icone.css 'background', 'url("http://openweathermap.org/img/w/' + codIcone + '.png") no-repeat'
+            container.attr 'title', 'Descrição: ' + clima + ' com ' + converterBeauFort vento
             containerTemperatura.html tempMax.toFixed() + '°, ' + tempMin.toFixed() + '° '
             containerLocalidade.html cidade
+
+            imagemLoading.addClass 'esconder'
+            container.removeClass 'esconder'
         return
 
-    _localizar()
+    _adicionarPrevisaoDoTempo()
     return
 
 do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
-  Portal.apps.geolocation()
+  Portal.apps.previsaoDoTempo()
   return
