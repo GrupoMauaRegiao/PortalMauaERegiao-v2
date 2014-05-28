@@ -211,7 +211,7 @@ Portal.apps =
             container.attr 'title', 'Descrição: ' + clima +
                                     ' com ' + converterBeauFort(vento) +
                                     ' em ' + cidade + '.' +
-                                    ' Máxima:' + tempMax + '°, Mínima: ' + tempMin + '°'
+                                    ' Máxima: ' + tempMax + '°, Mínima: ' + tempMin + '°'
             containerTemperatura.html tempMax + '°, ' + tempMin + '° '
             containerLocalidade.html cidadeCompacto
 
