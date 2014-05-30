@@ -53,9 +53,7 @@
 
                   <section class="lista">
                     <ul>
-                      <li><a href="#">Mauá</a></li>
-                      <li><a href="#">Ribeirão Pires</a></li>
-                      <li><a href="#">Rio G. da Serra</a></li>
+                      <?php echo categorias_sem_title('Cidade'); ?>
                     </ul>
                   </section>
                 </section>
@@ -67,9 +65,7 @@
 
                   <section class="lista">
                     <ul>
-                      <li><a href="#">Mauá</a></li>
-                      <li><a href="#">Ribeirão Pires</a></li>
-                      <li><a href="#">Rio G. da Serra</a></li>
+                      <?php echo categorias_sem_title('Política'); ?>
                     </ul>
                   </section>
                 </section>
@@ -80,23 +76,14 @@
                   </section>
 
                   <section class="lista">
-                    <ul>
-                      <li><a href="#">Acidentes</a></li>
-                      <li><a href="#">Brasil</a></li>
-                      <li><a href="#">Curiosidades</a></li>
-                      <li><a href="#">Educação</a></li>
+                    <ul class="grupo-1">
+                      <?php echo categorias_sem_title('Mais Grupo 1'); ?>
                     </ul>
-                    <ul>
-                      <li><a href="#">Esportes</a></li>
-                      <li><a href="#">LGBT</a></li>
-                      <li><a href="#">Mauá e região</a></li>
-                      <li><a href="#">Meio ambiente</a></li>
+                    <ul class="grupo-2">
+                      <?php echo categorias_sem_title('Mais Grupo 2'); ?>
                     </ul>
-                    <ul>
-                      <li><a href="#">Moda</a></li>
-                      <li><a href="#">Música</a></li>
-                      <li><a href="#">Saúde</a></li>
-                      <li><a href="#">Tecnologia</a></li>
+                    <ul class="grupo-3">
+                      <?php echo categorias_sem_title('Mais Grupo 3'); ?>
                     </ul>
                   </section>
                 </section>

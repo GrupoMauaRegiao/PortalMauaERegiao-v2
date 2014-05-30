@@ -197,4 +197,18 @@ add_action("init", "post_type_jornal_criar");
 add_action("add_meta_boxes", "meta_box_jornal_adicionar");
 add_action("save_post", "meta_box_jornal_salvar");
 
+// Funções gerais
+function categorias_sem_title($categoria) {
+    $args = array(
+            "orderby" => "name",
+            "hide_empty" => 0,
+            "echo" => 0,
+            "title_li" => "",
+            "child_of" => get_cat_ID($categoria)
+    );
+    $cats = wp_list_categories($args);
+    $cats = preg_replace('/title=\"(.*?)\"/', "", $cats); // Remove atributo title
+    return $cats;
+}
+
 ?>
