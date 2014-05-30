@@ -27,7 +27,7 @@ function post_type_revista_criar() {
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
-            "menu_position" => null,
+            "menu_position" => 5,
             "supports" => array("title")
     );
 
@@ -126,7 +126,7 @@ function post_type_jornal_criar() {
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
-            "menu_position" => null,
+            "menu_position" => 5,
             "supports" => array("title")
     );
 
