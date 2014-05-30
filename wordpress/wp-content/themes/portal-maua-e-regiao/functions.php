@@ -1,7 +1,5 @@
 <?php
-/**
- * post_type: revista
- */
+// post_type: revista
 function post_type_revista_criar() {
     $labels = array(
             "name" => _x("Revista", "post type general name"),
@@ -100,9 +98,7 @@ add_action("init", "post_type_revista_criar");
 add_action("add_meta_boxes", "meta_box_revista_adicionar");
 add_action("save_post", "meta_box_revista_salvar");
 
-/**
- * post_type: jornal
- */
+// post_type: jornal
 function post_type_jornal_criar() {
     $labels = array(
             "name" => _x("Jornal", "post type general name"),
