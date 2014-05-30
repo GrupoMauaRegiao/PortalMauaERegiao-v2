@@ -1320,7 +1320,6 @@ header('Access-Control-Allow-Methods: POST, PUT, GET');
 
     <script src="scripts/libs/jquery-2.1.1.min.js"></script>
     <script src="scripts/libs/jPages.js"></script>
-    <scriptsrc="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=weather"></script>
     <script src="scripts/scripts.js"></script>
 
   </body>
