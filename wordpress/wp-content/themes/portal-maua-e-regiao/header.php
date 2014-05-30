@@ -173,7 +173,16 @@
 
               <section class="ver-jornal">
                 <section class="embed">
-                  <iframe width="400" height="300" src="https://e.issuu.com/embed.html#5123040/7578641" frameborder="0" allowfullscreen></iframe>
+                  <?php query_posts("showposts=1&post_type=jornal"); ?>
+                  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+                    <?php echo get_post_meta($post -> ID, "iframe-issuu", true); ?>
+
+                  <?php endwhile; else: ?>
+
+                    <p>Nenhum jornal publicado ainda.</p>
+
+                  <?php endif; ?>
                 </section>
 
                 <section class="ver-todos">
