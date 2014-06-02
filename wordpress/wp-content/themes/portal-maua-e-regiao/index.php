@@ -4,59 +4,35 @@
   <section class="conteudo">
     <section class="noticias">
       <section class="box-com-3">
-        <a href="#" title="Lixo e bichos em terreno baldio incomodam">
-          <section class="noticia">
-            <section class="imagem">
-              <img src="imagens/materias/materia1.jpg" alt="" title="">
-            </section>
-            <section class="informacoes">
-              <section class="marca">
-                <span>Guapituba</span>
-              </section>
-              <section class="titulo">
-                <h2>
-                  <span>Lixo e bichos em terreno baldio incomodam</span>
-                </h2>
-              </section>
-            </section>
-          </section>
-        </a>
-        
-        <a href="#" title="Estação Sé incentiva 'calor humano'">
-          <section class="noticia">
-            <section class="imagem">
-              <img src="imagens/materias/materia2.jpg" alt="" title="">
-            </section>
-            <section class="informacoes">
-              <section class="marca">
-                <span>São Paulo</span>
-              </section>
-              <section class="titulo">
-                <h2>
-                  <span>Estação Sé incentiva 'calor humano'</span>
-                </h2>
-              </section>
-            </section>
-          </section>
-        </a>
+        <?php query_posts("order=desc&showposts=3&post_type=destaque_esquerda"); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <a href="#" title="Teatro tem programação para o Dia da Mulher">
-          <section class="noticia">
-            <section class="imagem">
-              <img src="imagens/materias/materia4.jpg" alt="" title="">
-            </section>
-            <section class="informacoes">
-              <section class="marca">
-                <span>Cultura na cidade</span>
+          <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <section class="noticia">
+                <section class="imagem">
+                  <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                </section>
+                <section class="informacoes">
+                  <section class="marca">
+                    <span><?php echo get_post_meta($post -> ID, 'expressao-chave', true); ?></span>
+                  </section>
+                  <section class="titulo">
+                    <h2>
+                      <span><?php the_title(); ?></span>
+                    </h2>
+                  </section>
+                </section>
               </section>
-              <section class="titulo">
-                <h2>
-                  <span>Teatro tem programação para o Dia da Mulher</span>
-                </h2>
-              </section>
-            </section>
-          </section>
-        </a>
+            </a>
+          <?php endif; ?>
+
+        <?php endwhile; else: ?>
+
+          <p>Nenhuma notícia publicada ainda.</p>
+
+        <?php endif; ?>
+
       </section>
 
       <section class="box-com-1">

@@ -231,9 +231,27 @@ Portal.apps =
     _adicionarPrevisaoDoTempo()
     return
 
+  diminuirTitulo: ->
+    titulos = $ '.box-com-3 .noticia .titulo h2 span'
+
+    if titulos[0]
+      for item in titulos
+        title = Portal.apps.diminuirTexto $(item).text(), 45
+        $(item).text title
+
+  corrigirTamanhoImagemDestaque: ->
+    imagens = $ '.box-com-3 .noticia .imagem img'
+
+    if imagens[0]
+      for item in imagens
+        if $(item).width() < 302
+          $(item).css 'width', '302px'
+
 do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
   Portal.apps.previsaoDoTempo()
+  Portal.apps.diminuirTitulo()
+  Portal.apps.corrigirTamanhoImagemDestaque()
   return
