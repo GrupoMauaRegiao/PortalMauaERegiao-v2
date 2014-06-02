@@ -1,0 +1,2065 @@
+@import "reset.sass"
+@import "cores.sass"
+@import "tipografia.sass"
+@import "imagens-datauri.sass"
+
+$tamanhoLayout: 1000px
+$areaUtilLayout: 950px
+
+@mixin decoracaoHeader($total, $linhaGrossa, $corGrossa, $corFina)
+  .decoracao
+    width: $total
+    margin: 0 0 20px 0
+    float: left
+
+    .linha-grossa
+      width: $linhaGrossa
+      height: 3px
+      background: $corGrossa
+      float: left
+
+    .linha-fina
+      width: $total - $linhaGrossa
+      height: 1px
+      margin: 1px 0 0 0
+      background: $corFina
+      float: left
+
+body
+  background-image: url("../imagens/sombra-body.png"), url("../imagens/background-body.jpg")
+  background-repeat: no-repeat, repeat-x
+  background-position: -5px -5px, 50% 0
+  background-size: 103% 306px, auto auto
+  font-family: Gotham, Arial, sans-serif
+
+.layout
+  width: 100%
+  margin: 0 auto
+  overflow: hidden
+
+  header
+    width: 100%
+    background: url("../imagens/background-menu.png") 50% 100% no-repeat
+    float: left
+
+    .conteudo-header
+      width: $tamanhoLayout
+      margin: 0 auto
+      margin-top: 15px
+
+      .facebook
+        width: $areaUtilLayout
+        margin: 0 0 15px 0
+        text-align: right
+        float: left
+
+      a
+        .logotipo
+          width: 170px
+          height: 75px
+          margin: 0 60px 0 0
+          background: url("../imagens/sprite.png") no-repeat -5px -92px
+          float: left
+
+      .publicidade-topo
+        margin: 0 0 25px 0
+        float: left
+
+        a
+          .imagem
+            width: 730px
+            height: 100px
+            border-radius: 20px
+            background: $cinzaTituloMat
+
+      .topo
+        width: $tamanhoLayout
+        height: 30px
+        margin: 0 0 10px
+        font-size: 14px
+        letter-spacing: 0.5px
+        text-transform: uppercase
+        font-weight: bold
+        color: $branco
+        float: left
+
+        .categorias
+          padding: 8px 23px 8px 23px
+
+          .lista-categorias
+            cursor: default
+            display: none
+
+            .cidade,
+            .politica
+              height: 170px
+              border-right: 2px solid $azulSubmenu
+
+            .politica,
+            .e-mais
+              border-left: 3px solid $branco
+
+            .cidade,
+            .politica,
+            .e-mais
+              float: left
+
+              .header
+                font-size: 16px
+                padding: 30px 10px 0 43px
+                background: $azulSubmenu
+
+              .lista
+                ul
+                  li
+                    padding: 5px 10px 5px 23px
+                    margin: 2px 0 0 20px
+
+                    a
+                      font-size: 14px
+                      color: $cinzaTituloBox
+                      text-decoration: none
+
+                  li:hover
+                    background: $azulSubmenu
+
+                    a
+                      cursor: pointer
+                      color: $branco
+
+            .e-mais
+              .lista
+                ul
+                  float: left
+
+        .categorias:hover
+          .lista-categorias
+            z-index: 1
+            position: absolute
+            margin: 15px 0 0 -23px
+            background: $branco
+            box-shadow: -2px 8px 8px transparentize($preto, 0.8)
+            display: block
+
+        .revista,
+        .jornal
+          .ver-revista,
+          .ver-jornal
+            display: none
+
+          .embed
+            width: 200px
+            height: 230px
+
+            iframe
+              width: 200px
+              height: 230px
+              border-radius: 5px
+
+          .ver-todas,
+          .ver-todos
+            margin: 10px 0 0
+
+            a
+              text-decoration: none
+              color: $branco
+              cursor: pointer
+
+        .revista:hover,
+        .jornal:hover
+          .ver-revista,
+          .ver-jornal
+            z-index: 1
+            margin: 15px 0 0 -15px
+            padding: 10px 10px 3px 10px
+            background: $azulSubmenu
+            position: absolute
+            box-shadow: -2px 8px 8px transparentize($preto, 0.8)
+            display: block
+
+        .entretenimento
+          padding: 8px 15px
+
+        .previsao-do-tempo
+          padding: 8px
+
+        .busca
+          padding: 8px 25px
+
+        .revista,
+        .jornal,
+          padding: 8px 15px
+
+        .empresas
+          padding: 8px 21px
+
+        .categorias,
+        .entretenimento,
+        .previsao-do-tempo,
+        .busca,
+        .revista,
+        .jornal,
+        .empresas
+          float: left
+
+          .header
+            cursor: pointer
+
+            .titulo
+              float: left
+
+          .seta
+            width: 8px
+            height: 5px
+            background: url("../imagens/sprite.png") no-repeat -139px -195px
+            margin: 3px 0 0 5px
+            float: left
+
+        .busca
+          .icone
+            width: 16px
+            height: 16px
+            background: url("../imagens/sprite.png") no-repeat -113px -189px
+            float: left
+
+          .formulario-busca
+            display: none
+
+        .previsao-do-tempo
+          width: 200px
+          margin: 0 -15px 0
+          overflow: hidden
+
+          .loading
+            width: 16px
+            height: 16px
+            margin: 0 auto
+            background: url("../imagens/loading.gif") no-repeat
+
+          .esconder
+            display: none
+
+          .elementos
+            cursor: pointer
+
+            .icone
+              width: 50px
+              height: 50px
+              background-size: 50px 50px
+              margin: -18px 5px 0
+              float: left
+
+            .temperatura,
+            .localidade
+              float: left
+
+            .temperatura
+              margin: 0 5px 0
+
+            .localidade
+              border-radius: 3px
+              padding: 5px
+              margin: -5px 0 0 125px
+              position: absolute
+
+            .localidade:hover
+              box-shadow: 0 0 1px $cinzaBGDestaquesLateral
+              background: $azulClaroBusca
+
+        .empresas
+          .header
+            .icone
+              width: 17px
+              height: 17px
+              background: url("../imagens/sprite.png") no-repeat -5px -5px
+              margin: -2px 7px 0
+              float: left
+
+          .formulario-busca-empresas
+            width: 381px
+            cursor: default
+            display: none
+
+        .empresas:hover
+          .formulario-busca-empresas
+            z-index: 1
+            margin: 15px 0 0 -247px
+            padding: 20px 0 0
+            background: $azulSubmenu
+            position: absolute
+            box-shadow: -2px 8px 8px transparentize($preto, 0.8)
+            display: block
+
+            form
+              input[type="text"]
+                width: 335px
+                height: 35px
+                color: $cinzaTextoBuscaTopo
+                text-transform: uppercase
+                font: 16px $fontePadrao
+                outline: 0
+                border: 0
+                padding: 5px
+                margin: 10px 18px 0
+                float: left
+
+              input[type="text"]:focus
+                color: $azulEscuroRodape
+
+              input[type="submit"]
+                width: 16px
+                height: 16px
+                background: url("../imagens/sprite.png") no-repeat 0 -223px $branco
+                border: 0
+                outline: 0
+                margin: 24px 0 0 -42px
+                cursor: pointer
+                float: left
+
+            .links
+              width: 380px
+              margin: 20px 0 5px
+              text-align: center
+              float: left
+
+              a
+                color: $branco
+                font-size: 12px
+                letter-spacing: 0
+                text-decoration: none
+                cursor: pointer
+
+              a:first-child
+                margin: 0 25px 0 0
+
+        .categorias:hover,
+        .entretenimento:hover,
+        .revista:hover,
+        .jornal:hover,
+        .empresas:hover
+          cursor: pointer
+          background: $azulSubmenu
+
+  .homepage-noticias
+    width: 100%
+    margin: 0 0 20px
+    float: left
+
+    .conteudo
+      width: $tamanhoLayout
+      margin: 0 auto
+
+      .noticias
+        background: $branco
+        padding: 25px 25px 0
+        float: left
+
+        .box-com-1,
+        .box-com-2,
+        .box-com-3
+          width: 302px
+          height: auto
+          margin: 0 22px 0 0
+          float: left
+
+          a
+            text-decoration: none
+
+            .noticia
+              width: 302px
+              height: 150px
+              margin: 0 0 22px 0
+              background: $branco
+
+              .imagem
+                width: 302px
+                height: 150px
+                overflow: hidden
+
+                img
+                  width: 302px
+                  height: auto
+
+              .informacoes
+                position: relative
+                color: $branco
+                margin: -69px 0 0
+                z-index: 0
+
+                .marca
+                  margin: 0 0 5px
+
+                  span
+                    width: auto
+                    text-transform: uppercase
+                    font-size: 14px
+                    padding: 5px 5px 5px 15px
+                    background: $azul
+
+                .titulo
+                  overflow: hidden
+
+                  h2
+                    font-size: 20px
+                    line-height: 24px
+                    padding: 0 0 0 15px
+
+                    span
+                      padding: 3px 10px 5px 0
+                      box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                      background: $cinzaDestaques
+
+          a
+            .noticia:hover
+              cursor: pointer
+
+              .informacoes
+                .titulo
+                  span
+                    box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
+                    background: $cinzaDestCentral
+
+        .box-com-1
+          a
+            .noticia
+              height: 554px
+
+              .imagem
+                width: 302px
+                height: 554px
+                overflow: hidden
+
+                img
+                  width: auto
+                  height: 554px
+
+              .informacoes
+                margin: -155px 0 0 0
+
+                .marca
+                  margin-bottom: 15px
+
+                  span
+                    font-size: 16px
+
+                .titulo
+                  h2
+                    span
+                      box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
+                      background: $cinzaDestCentral
+                      font-size: 28px
+                      line-height: 31px
+
+            .noticia:hover
+              .informacoes
+                .titulo
+                  span
+                    box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                    background: $cinzaDestaques
+
+        .box-com-2
+          margin-right: 0
+
+          a
+            .noticia
+              height: 266px
+
+              .imagem
+                width: 302px
+                height: 266px
+                overflow: hidden
+
+                img
+                  width: auto
+                  height: 266px
+
+        .box-com-3
+          a:nth-child(2),
+          a:nth-child(3)
+            .noticia
+              height: 180px
+
+              .imagem
+                width: 302px
+                height: 180px
+                overflow: hidden
+
+      .outros-destaques
+        width: $areaUtilLayout
+        padding: 0 25px 0 25px
+        float: left
+
+        .header-outros-destaques
+          width: $areaUtilLayout
+          margin: 20px 0 40px 0
+          background: url("../imagens/background-titulo-secao.jpg") repeat-x -70% 0
+
+          h1
+            font-size: 18px
+            text-transform: uppercase
+            text-align: center
+            color: $cinzaTituloBox
+
+            span
+              background: $branco
+              box-shadow: 10px 0 0 $branco, -10px 0 0 $branco
+
+              strong
+                font-weight: bold
+
+        .box-com-destaques
+          width: 617px
+          margin: 0 0 20px 0
+          float: left
+
+          .destaque
+            width: 620px
+            height: 135px
+            margin: 0 0 15px 0
+            float: left
+
+            .imagem
+              width: 302px
+              height: 135px
+              margin: 0 15px 0 0
+              overflow: hidden
+              border-radius: 15px
+              background: $preto
+              float: left
+
+              img
+                width: 302px
+                height: auto
+
+            .categoria
+              font-size: 18px
+              text-transform: uppercase
+              color: $cinzaTituloBox
+              margin: 15px 0 5px 0
+
+              strong
+                font-weight: bold
+
+            @include decoracaoHeader(300px, 85px, $azul, $cinzaTituloMat)
+
+            .titulo
+              width: 280px
+              font-size: 20px
+              color: $cinzaTituloMat
+              float: left
+
+          .destaque:hover
+            .titulo
+              text-decoration: underline
+
+        .publicidade-destaques
+          width: 302px
+          height: 285px
+          margin: 0 0 0 31px
+          float: left
+
+          a
+            width: 302px
+            height: 285px
+            background: $cinzaTituloMat
+            float: left
+
+        .sombra
+          width: 720px
+          height: 50px
+          background: url("../imagens/sombra-inferior.jpg") no-repeat 50% 0
+          float: left
+
+      .midias
+        width: $areaUtilLayout
+        margin: 0 0 20px 0
+        padding: 0 25px 0 25px
+        float: left
+
+        .f-e-f-pub
+          width: 720px
+          float: left
+
+          .fatos-e-fotos
+            .header-fatos-e-fotos
+              width: 720px
+              margin: 0px 0 40px 0
+              background: url("../imagens/background-titulo-secao.jpg") repeat-x
+
+              h1
+                font-size: 18px
+                text-transform: uppercase
+                text-align: center
+                color: $cinzaTituloBox
+
+                span
+                  background: $branco
+                  box-shadow: 10px 0 0 $branco, -10px 0 0 $branco
+
+                  strong
+                    font-weight: bold
+
+            .galerias
+              width: 720px
+              margin: 0 0 40px 0
+              float: left
+
+              a
+                .galeria
+                  width: 180px
+                  float: left
+
+                  .imagens
+                    width: 180px
+                    float: left
+
+                    .imagem
+                      width: 135px
+                      height: 135px
+                      border-radius: 100%
+                      overflow: hidden
+                      background: $azul
+                      float: left
+
+                      img
+                        width: auto
+                        height: 135px
+
+                    .subimagem
+                      width: 75px
+                      height: 75px
+                      position: relative
+                      border: 7px solid $branco
+                      margin: -80px 0 0 48px
+                      border-radius: 100%
+                      overflow: hidden
+                      background: $cinzaDestaques
+                      -webkit-transition: -webkit-transform 0.5s ease
+                      transition: transform 0.5s ease
+                      float: left
+
+                      img
+                        width: auto
+                        height: 75px
+
+                    .imagem:hover + .subimagem,
+                    .subimagem:hover
+                      -webkit-transform: translateX(-25px) translateY(-31px)
+                      transform: translateX(-25px) translateY(-31px)
+
+                  .imagens:first-child
+                    margin: 0
+
+                  .titulo
+                    margin: 5px 0 0 30px
+                    text-decoration: none
+                    font-size: 18px
+                    color: $azulSubmenu
+                    float: left
+
+                .galeria:hover
+                  .titulo
+                    text-decoration: underline
+
+              a:nth-child(2),
+              a:last-child
+                .galeria
+                  .imagens
+                    .subimagem
+                      margin: -80px 0 0 25px
+
+                    .imagem:hover + .subimagem,
+                    .subimagem:hover
+                      -webkit-transform: translateX(-1px) translateY(-31px)
+                      transform: translateX(-1px) translateY(-31px)
+
+          .publicidade-fatos-e-fotos
+            width: 720px
+            height: 200px
+            float: left
+
+            a
+              .publicidade
+                width: 350px
+                height: 200px
+                margin: 0 20px 0 0
+                background: $cinzaTituloMat
+                float: left
+
+            a:last-child
+              .publicidade
+                margin: 0
+
+        .revista-e-jornal
+          width: 210px
+          margin: -66px 0 0 20px
+          float: left
+
+          .revista,
+          .jornal,
+            margin: 0 0 8px 0
+            float: left
+
+            .header
+              font-size: 18px
+              text-transform: uppercase
+              color: $cinzaTituloBox
+              margin: 15px 0 5px 0
+
+              strong
+                font-weight: bold
+
+            @include decoracaoHeader(210px, 80px, $azul, $cinzaTituloMat)
+
+            .issuu-embed
+              width: 210px
+              height: 230px
+              background: $cinzaTituloMat
+              float: left
+
+      .outras-noticias
+        width: $areaUtilLayout
+        margin: 15px 0 20px 0
+        padding: 0 25px 0 25px
+        float: left
+
+        .itens
+          width: 720px
+          margin: 0 20px 0 0
+          float: left
+
+          .destacadas
+            width: 740px
+            float: left
+
+            .destaque
+              width: 300px
+              height: 350px
+              margin: 0 20px 0 0
+              float: left
+
+              a
+                text-decoration: none
+
+                .noticia
+                  width: 300px
+                  height: 350px
+                  float: left
+
+                  .imagem
+                    width: 300px
+                    height: 350px
+                    overflow: hidden
+                    background: $azul
+
+                    img
+                      width: auto
+                      height: 350px
+
+                  .informacoes
+                    position: relative
+                    color: $branco
+                    margin: -90px 0 0
+                    z-index: 1
+
+                    .marca
+                      margin: 0 0 5px
+
+                      span
+                        text-transform: uppercase
+                        font-size: 14px
+                        width: auto
+                        padding: 5px 5px 5px 15px
+                        background: $azul
+
+                    .titulo
+                      overflow: hidden
+
+                      h2
+                        font-size: 20px
+                        line-height: 25px
+                        padding: 0 0 0 15px
+
+                        span
+                          padding: 3px 10px 5px 0
+                          box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                          background: $cinzaDestaques
+
+                .noticia:hover
+                  .informacoes
+                    .titulo
+                      span
+                        box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
+                        background: $cinzaDestCentral
+
+          .outras
+            width: 400px
+            float: left
+
+            a
+              text-decoration: none
+
+              .noticia
+                width: 400px
+                margin: 0 0 18px
+
+                .imagem
+                  width: 400px
+                  height: 140px
+                  overflow: hidden
+                  background: $azul
+
+                  img
+                    width: 400px
+                    height: auto
+
+                .informacoes
+                  position: relative
+                  color: $branco
+                  margin: -39px 0 0
+                  z-index: 1
+
+                  .marca
+                    margin: 0 0 3px
+
+                    span
+                      text-transform: uppercase
+                      font-size: 14px
+                      width: auto
+                      padding: 5px 5px 5px 15px
+                      background: $azul
+
+                  .titulo
+                    overflow: hidden
+
+                    h2
+                      font-size: 18px
+                      line-height: 20px
+                      padding: 0 0 0 15px
+
+                      span
+                        padding: 0 10px 5px 0
+                        box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                        background: $cinzaDestaques
+
+              .noticia:hover
+                .informacoes
+                  .titulo
+                    span
+                      box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
+                      background: $cinzaDestCentral
+
+            a:nth-child(2)
+              .noticia
+                width: 190px
+                margin: 0 20px 0 0
+                float: left
+
+                .imagem
+                  width: 190px
+                  height: 193px
+
+                .informacoes
+                  margin: -79px 0 0
+
+            a:nth-child(3)
+              .publicidade
+                width: 190px
+
+                .imagem
+                  width: 190px
+                  height: 193px
+
+                .informacoes
+                  margin: -86px 0 0
+
+            .publicidade
+              float: left
+
+              a
+                .imagem
+                  width: 190px
+                  height: 193px
+                  background: $cinzaTituloMat
+
+          .tematicas
+            .noticias
+              width: 720px
+              padding: 0
+              float: left
+
+              a
+                text-decoration: none
+
+                .noticia
+                  width: 226px
+                  margin: 0 20px 0 0
+                  float: left
+
+                  .header-noticia
+                    .header
+                      font-size: 18px
+                      text-transform: uppercase
+                      color: $cinzaTituloBox
+                      margin: 15px 0 5px 0
+
+                      strong
+                        font-weight: bold
+
+                    @include decoracaoHeader(226px, 100px, $laranjaBrasil, $cinzaTituloMat)
+
+                  .imagem
+                    width: 226px
+                    height: 130px
+                    overflow: hidden
+
+                    img
+                      width: 233px
+                      height: auto
+
+                  .informacoes
+                    margin: 15px 0 0 0
+
+                    .titulo
+                      h2
+                        font-size: 16px
+                        color: $cinzaEscuroLateral
+
+              a:nth-child(2)
+                .noticia
+                  .header-noticia
+                    .decoracao
+                      .linha-grossa
+                        background: $verdeMeioAmb
+
+              a:hover
+                .informacoes
+                  .titulo
+                    h2
+                      text-decoration: underline
+
+              a:last-child
+                .noticia
+                  margin: 0
+
+                  .header-noticia
+                    .decoracao
+                      .linha-grossa
+                        background: $rosaTecnologia
+
+        .publicidades-lateral
+          width: 210px
+          line-height: 9px
+          float: left
+
+          .header
+            font-size: 14px
+            text-transform: uppercase
+            margin: 0 0 5px 0
+
+          .publicidades
+            .publicidade
+              width: 210px
+              height: 130px
+              margin: 0 0 20px 0
+
+              a
+                .imagem
+                  width: 210px
+                  height: 130px
+                  background: $cinzaTituloMat
+
+      .strip-publicidade
+        width: $areaUtilLayout
+        float: left
+
+        .publicidade
+          margin: 0 20px 0 0
+          float: left
+
+          a
+            .imagem
+              width: 222.5px
+              height: 200px
+              background: $cinzaTituloMat
+
+        .publicidade:last-child
+          margin: 0
+
+// Últimas notícias
+.ultimas-noticias
+  width: 100%
+  margin: 0 0 20px
+  float: left
+
+  .layout-ultimas-noticias
+    width: $tamanhoLayout
+    margin: 0 auto
+
+    .conteudo
+      width: $areaUtilLayout
+      background: $branco
+      padding: 25px 25px 0
+      float: left
+
+      .principal
+        width: 630px
+        float: left
+
+        .header
+          .titulo
+            font-size: 30px
+            text-transform: uppercase
+            color: $cinzaTituloBox
+            margin: 15px 0 5px 0
+
+            strong
+              font-weight: bold
+
+          @include decoracaoHeader(630px, 110px, $azul, $cinzaTituloMat)
+
+        .noticias
+          float: left
+
+          .header
+            color: $azulSubmenu
+            font-size: 20px
+            text-transform: uppercase
+            margin: 0 0 5px 0
+
+          .ontem
+            margin-top: 30px
+            float: left
+
+          .chamadas
+            float: left
+
+            a
+              text-decoration: none
+
+              .chamada
+                width: 610px
+                height: 130px
+                background: $cinzaBGChamadas
+                margin: 0 0 10px 0
+                box-shadow: 0 5px 5px transparentize($preto, 0.8)
+                float: left
+
+                .imagem
+                  float: left
+
+                  .foto-materia
+                    width: 180px
+                    height: 130px
+                    overflow: hidden
+                    float: left
+
+                    img
+                      width: auto
+                      height: 130px
+
+                  .corte
+                    width: 50px
+                    height: 130px
+                    z-index: -1
+                    margin: 0 0 0 -45px
+                    background: $corte-cinza no-repeat
+                    float: left
+
+                .titulo
+                  width: 460px
+                  padding: 15px
+                  margin: 10px 0 0 -65px
+                  float: left
+
+                  .header
+                    width: 475px
+                    font-size: 14px
+                    float: left
+
+                    .decoracao
+                      width: 320px
+                      height: 20px
+                      color: $azul
+                      margin: 0
+                      float: left
+
+                      .linha
+                        width: 459px
+                        height: 1px
+                        margin: 15px 0 0 0
+                        background: $cinzaLinhaChamadas
+
+                    .categoria
+                      width: 455px
+                      font-size: 15px
+                      margin: -10px 20px 0
+                      position: absolute
+
+                    .horario
+                      width: 460px
+                      font-size: 14px
+                      text-align: right
+                      text-transform: lowercase
+
+                  .texto
+                    font-size: 20px
+                    line-height: 22px
+                    margin: 0 0 10px 10px
+                    color: $cinzaTituloBox
+                    float: left
+
+              // Chamada destacada
+              .chamada.destaque
+                width: 630px
+                height: 150px
+                background: $azulSubmenu
+
+                .imagem
+                  float: left
+
+                  .foto-materia
+                    width: 200px
+                    height: 150px
+                    overflow: hidden
+                    float: left
+
+                    img
+                      width: auto
+                      height: 150px
+
+                  .corte
+                    width: 50px
+                    height: 150px
+                    z-index: -1
+                    margin: 0 0 0 -45px
+                    background: $corte-azul no-repeat
+                    float: left
+
+                .titulo
+                  width: 460px
+                  padding: 15px
+                  margin: 10px 0 0 -65px
+                  float: left
+
+                  .header
+                    width: 475px
+                    font-size: 14px
+                    color: $branco
+                    float: left
+
+                    .decoracao
+                      width: 335px
+                      height: 20px
+                      margin: 0 5px 0 0
+                      float: left
+
+                      .linha
+                        width: 335px
+                        height: 1px
+                        margin: 0
+                        background: $branco
+
+                    .categoria
+                      font-size: 15px
+                      margin: -7px 0 0 0
+                      position: static
+
+                    .horario
+                      display: none
+
+                  .texto
+                    font-size: 22px
+                    line-height: 27px
+                    margin: 0 0 10px 10px
+                    color: $branco
+                    float: left
+              // end Chamada destacada
+
+            a:hover
+              .chamada
+                background: $branco
+
+                .imagem
+                  .corte
+                    background: $corte-branco no-repeat
+
+                .titulo
+                  .texto
+                    text-decoration: underline
+
+              .chamada.destaque
+                background: $azulSubmenu
+
+                .imagem
+                  .corte
+                    background: $corte-azul no-repeat
+
+          .outras-noticias
+            margin: 20px 0 0 0
+            float: left
+
+            a
+              color: $azulSubmenu
+              font-weight: bold
+              font-size: 14px
+              text-decoration: none
+
+              span
+                font-size: 12px
+
+            a:hover
+              text-decoration: underline
+
+        .publicidade
+          margin: 25px 0 0 0
+          float: left
+
+          a
+            .imagem
+              width: 630px
+              height: 200px
+              background: $cinzaTituloMat
+
+      .lateral
+        width: 300px
+        margin: 0 0 0 20px
+        float: left
+
+        .header
+          .titulo
+            font-size: 25px
+            text-transform: uppercase
+            color: $cinzaTituloBox
+            margin: 20px 0 5px 0
+
+            strong
+              font-weight: bold
+
+          @include decoracaoHeader(300px, 100px, $azul, $cinzaTituloMat)
+
+        .redes-sociais
+          .icones
+            a
+              .icone
+                width: 40px
+                height: 40px
+                border-radius: 100%
+                background: $laranjaBrasil
+                margin: 0 6px 0 0
+                float: left
+
+        .publicidade
+          margin: 45px 0 0 0
+          float: left
+
+          a
+            .imagem
+              width: 300px
+              height: 250px
+              background: $cinzaTituloMat
+
+        .destaques
+          margin: 15px 0 0
+          float: left
+
+          .header
+            .decoracao
+              margin-bottom: 15px
+
+          .lista-destaques
+            float: left
+
+            a
+              color: $cinzaEscuroLateral
+              text-transform: uppercase
+              text-decoration: none
+
+              .destaque
+                width: 270px
+                padding: 15px
+                border-top: 2px solid $cinzaEscuroLateral
+                margin: 0 0 10px 0
+                background: $cinzaBGDestaquesLateral
+
+            a:nth-child(2)
+              .destaque
+                width: 260px
+                margin-left: 10px
+
+            a:last-child
+              .destaque
+                width: 250px
+                margin-left: 20px
+
+            a:hover
+              text-decoration: underline
+
+              .destaque
+                background: $cinzaBGChamadas
+
+        .revista,
+        .jornal
+          margin: 0 0 5px 0
+          float: left
+
+          .header
+            .decoracao
+              margin-bottom: 15px
+
+          .ver-revista,
+          .ver-jornal
+            width: 300px
+            height: 230px
+            float: left
+// end Últimas notícias
+
+// Ler notícia
+.ultimas-noticias
+  width: 100%
+  margin: 0 0 20px
+  float: left
+
+  .layout-ultimas-noticias
+    width: $tamanhoLayout
+    margin: 0 auto
+
+    .conteudo
+      width: $areaUtilLayout
+      background: $branco
+      padding: 25px 25px 0
+      float: left
+
+      .principal
+        width: 630px
+        float: left
+
+        .header
+          .titulo
+            font-size: 30px
+            text-transform: uppercase
+            color: $cinzaTituloBox
+            margin: 15px 0 5px 0
+
+            strong
+              font-weight: bold
+
+          @include decoracaoHeader(630px, 110px, $azul, $cinzaTituloMat)
+
+        .publicidade
+          margin-top: 15px
+
+        .tematicas
+          margin: 0 0 40px 0
+          float: left
+
+          .header-outros-destaques
+            width: 630px
+            margin: 40px 0 15px 0
+            background: url("../imagens/background-titulo-secao.jpg") repeat-x
+            float: left
+
+            h1
+              font-size: 18px
+              text-transform: uppercase
+              text-align: center
+              color: $cinzaTituloBox
+
+              span
+                background: $branco
+                box-shadow: 10px 0 0 $branco, -10px 0 0 $branco
+
+                strong
+                  font-weight: bold
+
+          .noticias
+            width: 630px
+            padding: 0
+            float: left
+
+            a
+              text-decoration: none
+
+              .noticia
+                width: 196px
+                margin: 0 20px 0 0
+                float: left
+
+                .header-noticia
+                  .header
+                    font-size: 18px
+                    text-transform: uppercase
+                    color: $cinzaTituloBox
+                    margin: 15px 0 5px 0
+
+                    strong
+                      font-weight: bold
+
+                  @include decoracaoHeader(196px, 100px, $laranjaBrasil, $cinzaTituloMat)
+
+                .imagem
+                  width: 196px
+                  height: 130px
+                  overflow: hidden
+
+                  img
+                    width: 196px
+                    height: auto
+
+                .informacoes
+                  margin: 15px 0 0 0
+
+                  .titulo
+                    h2
+                      font-size: 16px
+                      color: $cinzaEscuroLateral
+
+            a:nth-child(2)
+              .noticia
+                .header-noticia
+                  .decoracao
+                    .linha-grossa
+                      background: $verdeMeioAmb
+
+            a:hover
+              .informacoes
+                .titulo
+                  h2
+                    text-decoration: underline
+
+            a:last-child
+              .noticia
+                margin: 0
+
+                .header-noticia
+                  .decoracao
+                    .linha-grossa
+                      background: $rosaTecnologia
+
+        article.materia
+          .data
+            font-size: 14px
+
+          .titulo
+            margin: 20px 0
+            font-size: 30px
+            line-height: 35px
+            color: $azulClaroRodape
+
+          .resumo
+            font-size: 18px
+            color: $cinzaResumoMateria
+            border-bottom: 1px solid $cinzaLinhaResumoMateria
+            padding: 0 0 20px 0
+            margin: 0 0 30px 0
+            line-height: 25px
+
+          .creditos
+            width: 315px
+            font-style: italic
+            font-size: 12px
+            line-height: 16px
+            color: $cinzaTituloBox
+            float: left
+
+            strong
+              font-weight: bold
+
+          .social
+            width: 315px
+            text-align: right
+            float: left
+
+            .twitter,
+            .facebook
+              padding: 7px 0 0
+              display: inline-block
+
+            .facebook
+              line-height: 9px
+
+          .ilustracao
+            margin: 15px 0 0
+            float: left
+
+            .imagem
+              width: 630px
+              height: 450px
+              overflow: hidden
+
+              img
+                width: auto
+                height: 450px
+
+            .legenda
+              background: $cinzaBGDestaquesLateral
+              color: $cinzaLegandaNoticia
+              font-style: italic
+              font-size: 12px
+              padding: 10px
+
+          .texto
+            margin: 30px 0 10px 0
+            font-size: 14px
+            line-height: 18px
+            float: left
+
+            p
+              margin: 0 0 15px 0
+
+              img
+                width: 315px
+                height: 300px
+                margin: 15px 15px 15px 0
+                float: left
+
+            strong
+              font-weight: bold
+
+            em
+              font-style: italic
+
+            ul
+              list-style-type: disc
+              margin: 0 0 15px 10px
+// end Ler notícia
+
+// Paginador
+.paginacao
+  width: 630px
+  font-size: 16px
+  margin: 50px 0 40px
+  color: $branco
+  text-align: center
+  line-height: 22px
+  float: left
+
+  .indice
+    height: 20px
+    background: $azulEscuroRodape
+    margin: 0 7px 7px 0
+    padding: 10px
+    font-weight: bold
+    float: left
+
+  .elementos
+    width: 630px
+    display: inline-block
+
+    .paginador
+      float: left
+
+      a
+        color: $branco
+        text-decoration: none
+
+      a,
+      a[class=""],
+      .jp-current
+        width: 38px
+        height: 20px
+        cursor: pointer
+        margin: 0 7px 7px 0
+        background: $azulEscuroRodape
+        padding: 10px
+        float: left
+
+      .jp-current
+        background: $azulClaroRodape
+
+      a[class=""]:hover,
+      .jp-current:hover,
+      a:hover
+        background: $azulClaroRodape
+
+  .controles
+    width: 520px
+    margin: -7px 0 0 0
+    display: inline-block
+
+    .primeira,
+    .proxima,
+    .anterior,
+    .ultima
+      height: 20px
+      margin: 0 7px 0 0
+      float: left
+      cursor: pointer
+      text-align: center
+      padding: 10px
+      background: $azulEscuroRodape
+      line-height: 18px
+
+    .primeira:hover,
+    .proxima:hover,
+    .anterior:hover,
+    .ultima:hover
+      background: $azulClaroRodape
+
+    .jp-disabled
+      cursor: text
+      background: transparentize($cinzaLinhaChamadas, 0.7)
+
+    .jp-disabled:hover
+      background: transparentize($cinzaLinhaChamadas, 0.7)
+
+  .input-pagina
+    float: left
+
+    input
+      width: 160px
+      height: 20px
+      padding: 10px 0 10px 10px
+      border: 0
+      color: $branco
+      font: 16px $fontePadrao
+      background: $azulEscuroRodape
+      outline: none
+
+    input:focus
+      background: $azulClaroRodape
+// end Paginador
+
+// Agenda
+.agenda-chamada
+  padding: 0 0 20px 0
+  margin: 0 0 20px 0
+  border-bottom: 1px solid $cinzaLinhaChamadas
+
+  p
+    font-size: 18px
+    color: $cinzaTituloMat
+
+.agenda
+  color: $cinzaTituloMat
+  text-decoration: none
+
+  .evento
+    width: 630px
+    height: auto
+    background: $branco
+    margin: 0 0 30px 0
+    float: left
+
+    .imagem
+      float: left
+
+      .foto-materia
+        width: 180px
+        height: 130px
+        overflow: hidden
+        float: left
+
+        img
+          width: auto
+          height: 130px
+
+      .corte
+        width: 50px
+        height: 130px
+        z-index: -1
+        margin: 0 0 0 -45px
+        background: $corte-branco no-repeat
+        float: left
+
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          width: 495px
+          height: 13px
+          margin: 0 0 18px -50px
+          float: left
+
+        .linha-fina
+          width: 350px
+          height: 1px
+          margin: 0 0 0 -50px
+          background: $cinzaTituloMat
+          float: left
+
+        .data-horario
+          margin: -3px 0 0 2px
+          float: left
+
+    .informacoes
+      margin: -90px 0 15px 150px
+      float: left
+
+      .titulo
+        width: 325px
+        margin: 0 0 10px 10px
+        font-size: 24px
+
+    .localizacao
+      width: 610px
+      padding: 10px
+      height: auto
+      color: $preto
+      float: left
+
+  .evento-verde
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $verdeEvento
+
+    .localizacao
+      background: $verdeEvento
+
+  .evento-azul
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $azulEvento
+
+    .localizacao
+      background: $azulEvento
+
+  .evento-amarelo
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $amareloEvento
+
+    .localizacao
+      background: $amareloEvento
+
+  .evento-rosa
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $rosaEvento
+
+    .localizacao
+      background: $rosaEvento
+
+  .evento-amarelo
+    .agenda-header
+      .decoracao
+        .linha-grossa
+          background: $amareloEvento
+
+    .localizacao
+      background: $amareloEvento
+// end Agenda
+
+// Fale Conosco
+.erro
+  border: 1px solid $vermelho !important
+  background: lighten($vermelho, 47%) !important
+
+.fale-conosco-chamada
+  padding: 0 0 20px 0
+  margin: 0 0 20px 0
+  border-bottom: 1px solid $cinzaLinhaChamadas
+
+  p
+    font-size: 18px
+    color: $cinzaTituloMat
+
+.fale-conosco
+  .formulario-fale-conosco
+    .exibir
+      display: block
+
+    .esconder
+      display: none
+
+    .mensagem-sucesso
+      p
+        font-size: 25px
+        color: $cinzaTituloMat
+
+    form
+      input[type="text"],
+      input[type="email"],
+      textarea
+        height: 35px
+        font: 18px $fontePadrao
+        border: 1px solid $branco
+        outline: 0
+        resize: none
+        border-radius: 30px
+        margin: 0 0 5px
+        padding: 10px
+        background: $cinzaBGDestaquesLateral
+        text-transform: uppercase
+
+      input[name="nome"],
+      input[name="email"]
+        width: 400px
+
+      input[name="assunto"],
+      textarea
+        width: 500px
+
+      textarea
+        height: 100px
+        border-radius: 20px
+        border-right: 5px solid $cinzaBGDestaquesLateral
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus
+        border: 1px solid $azul
+        background: $branco
+
+      textarea::-webkit-scrollbar
+        width: 30px
+
+      textarea::-webkit-scrollbar-track
+        border-radius: 35px
+        margin: 5px 20px
+        background: $branco
+
+      textarea::-webkit-scrollbar-thumb
+        border-radius: 30px
+        border: 2px solid $branco
+        background: $azul
+
+    // -- Botões --
+    input[type="submit"],
+    input[type="button"]
+      border: 0
+      position: relative
+      border-radius: 30px
+      padding: 5px 40px
+      font: 20px $fontePadrao
+      color: $cinzaTituloMat
+      cursor: pointer
+      text-transform: uppercase
+
+    input[type="submit"]
+      background: $cinzaBGDestaquesLateral
+      z-index: 1
+
+    input[type="button"]
+      z-index: 0
+      margin: 0 0 0 -20px
+      background: $cinzaBotaoApagar
+      border-radius: 0 30px 30px 0
+
+    input[type="submit"]:hover,
+      background: darken($cinzaBGDestaquesLateral, 10%)
+
+    input[type="button"]:hover
+      background: darken($cinzaBotaoApagar, 5%)
+
+  .redes-sociais
+    margin: 50px 0 50px
+
+    .decoracao
+      .linha
+        width: 475px
+        height: 1px
+        background: $cinzaLinhaChamadas
+
+    .icones
+      width: 630px
+      text-align: right
+      margin: -24px 0 0
+      float: left
+
+      a
+        border: 0
+        outline: 0
+        color: transparent
+
+        section
+          width: 45px
+          height: 45px
+          margin: 0 0 0 5px
+          display: inline-block
+
+      a:first-child
+        section
+          background: url("../imagens/sprite.png") no-repeat -376px 0
+
+      a:nth-child(2)
+        section
+          background: url("../imagens/sprite.png") no-repeat 0 -239px
+
+      a:last-child
+        section
+          background: url("../imagens/sprite.png") no-repeat -45px -239px
+
+  .informacoes-contato
+    font: 20px $fontePadrao
+    color: $cinzaTituloMat
+
+    .telefone,
+    .email a
+      border-radius: 20px
+      margin: 0 0 20px
+      padding: 10px
+      background: $cinzaBGDestaquesLateral
+      text-decoration: none
+      color: $cinzaTituloMat
+
+    .telefone
+      width: 280px
+
+    .email
+      a:hover
+        text-decoration: underline
+
+.conteudo-ajuda
+  p
+    color: $cinzaTituloMat
+    margin: 20px 0 40px
+    font-size: 18px
+
+  p:first-child
+    margin-bottom: 10px
+
+  h2
+    color: $azul
+    font-size: 22px
+    padding: 10px
+    background: $cinzaBGChamadas
+// end Fale Conosco
+
+footer
+  width: 100%
+  float: left
+
+  .conteudo-rodape
+    width: 100%
+    background: $azulClaroRodape
+    float: left
+
+    .cabecalho-rodape
+      width: $tamanhoLayout
+      margin: 0 auto
+
+      .conteudo
+        width: 1000px
+        margin: 30px 0 20px
+        float: left
+
+        .lateral
+          width: 760px
+          float: left
+
+          .logotipo
+            width: 100px
+            height: 80px
+            padding: 20px
+            border-right: 2px solid $branco
+            float: left
+
+            a
+              .logotipo-grupo-maua-e-regiao
+                background: url("../imagens/sprite.png") no-repeat -32px -5px
+                width: 75px
+                height: 77px
+
+          .links
+            width: 578px
+            margin: 70px 0 0 40px
+            float: left
+
+            ul
+              line-height: 30px
+
+              li
+                a
+                  color: $branco
+                  text-decoration: none
+                  text-transform: uppercase
+
+                  strong
+                    font-weight: bold
+
+                a:hover
+                  text-decoration: underline
+
+        .busca-rodape
+          width: 240px
+          margin: 80px 0 0 -25px
+          float: left
+
+          form
+            input[type="text"]
+              width: 235px
+              height: 30px
+              background: $azulClaroBusca
+              border: 1px solid $azulClaroRodape
+              padding: 5px 0 5px 5px
+              color: $branco
+              font: 20px $fontePadrao
+              outline: 0
+              float: left
+
+            input[type="text"]:focus
+              border: 1px solid $azulClaroBusca
+              background: darken($azulClaroBusca, 3)
+
+            input[type="submit"]
+              width: 16px
+              height: 16px
+              background: url("../imagens/sprite.png") no-repeat 0 -223px
+              border: 0
+              outline: 0
+              margin: 12px 0 0 -25px
+              cursor: pointer
+
+  .copyright-marcas
+    width: 100%
+    padding: 20px 0 20px
+    border-top: 2px solid $azulClaroBusca
+    background: $azulEscuroRodape
+    float: left
+
+    .conteudo-copyright-marcas
+      width: $tamanhoLayout
+      margin: 0 auto
+
+      .copyright
+        width: 499.5px
+        height: auto
+        color: $branco
+        font-size: 18px
+        line-height: 25px
+        float: left
+
+        strong
+          font-weight: bold
+
+      .marcas
+        width: 499.5px
+        height: auto
+        float: left
+
+        a
+          section
+            margin: 0 43px 0 0
+
+        a:first-child
+          section
+            width: 71px
+            height: 41px
+            background: url("../imagens/sprite.png") no-repeat -300px -109px
+            float: left
+
+        a:nth-child(2)
+          section
+            width: 73px
+            height: 41px
+            background: url("../imagens/sprite.png") no-repeat -117px -23px
+            float: left
+
+        a:nth-child(3)
+          section
+            width: 105px
+            height: 46px
+            background: url("../imagens/sprite.png") no-repeat -185px -106px
+            float: left
+
+        a:last-child
+          section
+            width: 98px
+            height: 41px
+            margin-right: 0
+            background: url("../imagens/sprite.png") no-repeat -5px -177px
+            float: left
