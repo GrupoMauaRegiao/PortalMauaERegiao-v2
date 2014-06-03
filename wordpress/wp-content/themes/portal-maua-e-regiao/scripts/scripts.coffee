@@ -4,60 +4,57 @@ Portal.apps =
   paginador: ->
     # Cria paginador para página onde constará todas as notícias do Portal.
 
-    $ ->
-      paginas = $ '.paginador'
+    paginas = $ '.paginador'
+    if paginas.length
+      indice = $ '.indice'
+      inputPagina = $ 'input[name="digitar-pagina"]'
 
-      if paginas.length
-        indice = $ '.indice'
-        inputPagina = $ 'input[name="digitar-pagina"]'
+      paginas.jPages {
+        containerID: 'chamadas'
+        perPage: 5
+        startRange: 5
+        endRange: 5
+        first: '.primeira'
+        last: '.ultima'
+        next: '.proxima'
+        previous: '.anterior'
+        callback: (paginas, itens) ->
+          mostrarIndice = ->
+            indice.html('Página ' + paginas.current + ' de ' + paginas.count)
 
-        paginas.jPages {
-          containerID: 'chamadas'
-          perPage: 5
-          startRange: 5
-          endRange: 5
-          first: '.primeira'
-          last: '.ultima'
-          next: '.proxima'
-          previous: '.anterior'
-          callback: (paginas, itens) ->
-            mostrarIndice = ->
-              indice.html('Página ' + paginas.current + ' de ' + paginas.count)
+          controlarExibicaoPaginador = ->
+            containerPaginador = $ '.paginacao'
 
-            controlarExibicaoPaginador = ->
-              containerPaginador = $ '.paginacao'
+            if itens.count > 5
+              containerPaginador.show()
+            else
+              containerPaginador.hide()
 
-              if itens.count > 5
-                containerPaginador.show()
-              else
-                containerPaginador.hide()
+          mostrarIndice()
+          controlarExibicaoPaginador()
+          return
+      }
 
-            mostrarIndice()
-            controlarExibicaoPaginador()
-            return
-        }
+      _moverParaPagina = ->
+        pagina = parseInt(inputPagina.val())
+        paginas.jPages pagina
 
-        _moverParaPagina = ->
-          pagina = parseInt(inputPagina.val())
-          paginas.jPages pagina
-
-        inputPagina.on 'input', _moverParaPagina
+      inputPagina.on 'input', _moverParaPagina
 
   enviarEmail: ->
     # Efetua a validação dos campos e executa o envio das mensagens com método
     # GET a partir de um formulário HTML.
 
-    formulario = document.querySelector '.formulario-fale-conosco form'
-
+    formulario = $ '.formulario-fale-conosco form'
     if formulario
-      cNome = document.querySelector '#nome'
-      cEmail = document.querySelector '#email'
-      cAssunto = document.querySelector '#assunto'
-      cMsg = document.querySelector '#mensagem'
-      msgSucesso = document.querySelector '.mensagem-sucesso'
-      botao = document.querySelector '#enviar'
+      cNome = $ '#nome'
+      cEmail = $ '#email'
+      cAssunto = $ '#assunto'
+      cMsg = $ '#mensagem'
+      msgSucesso = $ '.mensagem-sucesso'
+      botao = $ '#enviar'
 
-      botao.addEventListener 'click', (evt) ->
+      botao.on 'click', (evt) ->
         xhr = new XMLHttpRequest()
         regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
         msg = ''
@@ -93,14 +90,13 @@ Portal.apps =
   limparFormularioContato: ->
     # Apaga todos os campos do formulario de contato [página Fale Conosco].
 
-    formulario = document.querySelector '.formulario-fale-conosco form'
-
+    formulario = $ '.formulario-fale-conosco form'
     if formulario
-      cNome = document.querySelector '#nome'
-      cEmail = document.querySelector '#email'
-      cAssunto = document.querySelector '#assunto'
-      cMsg = document.querySelector '#mensagem'
-      botao = document.querySelector '#apagar'
+      cNome = $ '#nome'
+      cEmail = $ '#email'
+      cAssunto = $ '#assunto'
+      cMsg = $ '#mensagem'
+      botao = $ '#apagar'
 
       _apagar = ->
         cNome.value = ''
@@ -109,11 +105,10 @@ Portal.apps =
         cMsg.value = ''
         return
 
-      botao.addEventListener 'click', _apagar
+      botao.on 'click', _apagar
 
   diminuirTexto: (texto, max) ->
     indicador = "…"
-
     if texto.length >= max
       novoTexto = texto.substring 0, max
       if novoTexto.charAt(novoTexto.length - 1) is ' '
@@ -235,17 +230,14 @@ Portal.apps =
     titulosBoxCom3 = $ '.box-com-3 .noticia .titulo h2 span'
     titulosBoxCom1 = $ '.box-com-1 .noticia .titulo h2 span'
     titulosBoxCom2 = $ '.box-com-2 .noticia .titulo h2 span'
-
     if titulosBoxCom3[0]
       for item in titulosBoxCom3
         title = Portal.apps.diminuirTexto $(item).text(), 45
         $(item).text title
-
     if titulosBoxCom1[0]
       for item in titulosBoxCom1
         title = Portal.apps.diminuirTexto $(item).text(), 55
         $(item).text title
-
     if titulosBoxCom2[0]
       for item in titulosBoxCom2
         title = Portal.apps.diminuirTexto $(item).text(), 55
@@ -253,7 +245,6 @@ Portal.apps =
 
   corrigirTamanhoImagemDestaque: ->
     imagens = $ '.box-com-3 .noticia .imagem img'
-
     if imagens[0]
       for item in imagens
         if $(item).width() < 302
