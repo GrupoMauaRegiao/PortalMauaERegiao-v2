@@ -1,4 +1,6 @@
 <?php
+include 'custom-post-com-rewrite.php';
+
 // post_type: revista
 function post_type_revista_criar() {
     $labels = array(
@@ -23,7 +25,7 @@ function post_type_revista_criar() {
             "publicly_queryable" => true,
             "show_ui" => true,
             "show_in_menu" => true,
-            "rewrite" => true,
+            "rewrite" => false,
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
@@ -122,7 +124,7 @@ function post_type_jornal_criar() {
             "publicly_queryable" => true,
             "show_ui" => true,
             "show_in_menu" => true,
-            "rewrite" => true,
+            "rewrite" => false,
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
@@ -221,14 +223,11 @@ function post_type_noticia_destaque_esquerda_criar() {
             "publicly_queryable" => true,
             "show_ui" => true,
             "show_in_menu" => true,
-            "rewrite" => array(
-                'slug' => '',
-                'with_front' => false
-            ),
+            "rewrite" => false,
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
-            "menu_position" => 5,
+            "menu_position" => 10,
             "supports" => array(
                     "title",
                     "editor",
@@ -238,7 +237,12 @@ function post_type_noticia_destaque_esquerda_criar() {
             "taxonomies" => array('category')
     );
 
-    register_post_type("destaque_esquerda", $args);
+    $rewrite = array(
+            'front'=> 'destaque',
+            'structure'=>'%day%/%monthnum%/%year%/%destaque_esquerda%'
+    );
+
+    register_post_type_com_rewrite_rules("destaque_esquerda", $args, $rewrite);
 }
 
 // Campo: Expressão-chave
@@ -371,14 +375,11 @@ function post_type_noticia_destaque_centro_criar() {
             "publicly_queryable" => true,
             "show_ui" => true,
             "show_in_menu" => true,
-            "rewrite" => array(
-                'slug' => '',
-                'with_front' => false
-            ),
+            "rewrite" => false,
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
-            "menu_position" => 5,
+            "menu_position" => 10,
             "supports" => array(
                     "title",
                     "editor",
@@ -388,7 +389,12 @@ function post_type_noticia_destaque_centro_criar() {
             "taxonomies" => array('category')
     );
 
-    register_post_type("destaque_centro", $args);
+    $rewrite = array(
+            'front'=> 'destaque',
+            'structure'=>'%day%/%monthnum%/%year%/%destaque_centro%'
+    );
+
+    register_post_type_com_rewrite_rules("destaque_centro", $args, $rewrite);
 }
 
 // Campo: Expressão-chave
@@ -521,13 +527,11 @@ function post_type_noticia_destaque_direita_criar() {
             "publicly_queryable" => true,
             "show_ui" => true,
             "show_in_menu" => true,
-            "rewrite" => array(
-                'slug' => ''
-            ),
+            "rewrite" => false,
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
-            "menu_position" => 5,
+            "menu_position" => 10,
             "supports" => array(
                     "title",
                     "editor",
@@ -537,7 +541,12 @@ function post_type_noticia_destaque_direita_criar() {
             "taxonomies" => array('category')
     );
 
-    register_post_type("destaque_direita", $args);
+    $rewrite = array(
+            'front'=> 'destaque',
+            'structure'=>'%day%/%monthnum%/%year%/%destaque_direita%'
+    );
+
+    register_post_type_com_rewrite_rules("destaque_direita", $args, $rewrite);
 }
 
 // Campo: Expressão-chave
@@ -659,5 +668,4 @@ function categorias_sem_title($categoria) {
     $cats = preg_replace('/title=\"(.*?)\"/', "", $cats); // Remove atributo title
     return $cats;
 }
-
 ?>

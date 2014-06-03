@@ -22,7 +22,7 @@
             </a>
           </section>
 
-          <a href="#" title="Portal Mauá e Região">
+          <a href="<?php bloginfo('url'); ?>" title="Portal Mauá e Região">
             <section class="logotipo"></section>
           </a>
 
