@@ -232,11 +232,23 @@ Portal.apps =
     return
 
   diminuirTitulo: ->
-    titulos = $ '.box-com-3 .noticia .titulo h2 span'
+    titulosBoxCom3 = $ '.box-com-3 .noticia .titulo h2 span'
+    titulosBoxCom1 = $ '.box-com-1 .noticia .titulo h2 span'
+    titulosBoxCom2 = $ '.box-com-2 .noticia .titulo h2 span'
 
-    if titulos[0]
-      for item in titulos
+    if titulosBoxCom3[0]
+      for item in titulosBoxCom3
         title = Portal.apps.diminuirTexto $(item).text(), 45
+        $(item).text title
+
+    if titulosBoxCom1[0]
+      for item in titulosBoxCom1
+        title = Portal.apps.diminuirTexto $(item).text(), 55
+        $(item).text title
+
+    if titulosBoxCom2[0]
+      for item in titulosBoxCom2
+        title = Portal.apps.diminuirTexto $(item).text(), 55
         $(item).text title
 
   corrigirTamanhoImagemDestaque: ->

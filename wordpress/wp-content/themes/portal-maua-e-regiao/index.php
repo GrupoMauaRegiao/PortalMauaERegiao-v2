@@ -36,23 +36,35 @@
       </section>
 
       <section class="box-com-1">
-        <a href="#" title="Homem põe fogo em monitor que não ligou">
-          <section class="noticia">
-            <section class="imagem">
-              <img src="imagens/materias/materia5.jpg" alt="" title="">
-            </section>
-            <section class="informacoes">
-              <section class="marca">
-                <span>Estresse</span>
+        <?php query_posts("order=desc&showposts=1&post_type=destaque_centro"); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+          <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <section class="noticia">
+                <section class="imagem">
+                  <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                </section>
+                <section class="informacoes">
+                  <section class="marca">
+                    <span><?php echo get_post_meta($post -> ID, 'expressao-chave', true); ?></span>
+                  </section>
+                  <section class="titulo">
+                    <h2>
+                      <span><?php the_title(); ?></span>
+                    </h2>
+                  </section>
+                </section>
               </section>
-              <section class="titulo">
-                <h2>
-                  <span>Homem põe fogo em monitor que não ligou</span>
-                </h2>
-              </section>
-            </section>
-          </section>
-        </a>
+            </a>
+          <?php endif; ?>
+
+        <?php endwhile; else: ?>
+
+          <p>Nenhuma notícia publicada ainda.</p>
+
+        <?php endif; ?>
+
       </section>
 
       <section class="box-com-2">
