@@ -1,5 +1,5 @@
 <?php
-include 'custom-post-com-rewrite.php';
+include 'custom-post-type-com-rewrite.php';
 
 // post_type: revista
 function post_type_revista_criar() {
@@ -654,6 +654,107 @@ add_action("add_meta_boxes", "meta_box_noticia_destaque_direita_expressao_chave_
 add_action("save_post", "meta_box_noticia_destaque_direita_expressao_chave_salvar");
 add_action("add_meta_boxes", "meta_box_noticia_destaque_direita_imagem_adicionar");
 add_action("save_post", "meta_box_noticia_destaque_direita_imagem_salvar");
+
+// post_type: outros_destaques
+function post_type_outros_destaques_criar() {
+    $labels = array(
+            "name" => _x("Outros Destaques", "post type general name"),
+            "singular_name" => _x("Outros Destaques", "post type singular name"),
+            "add_new" => _x("Adicionar Destaque", "jornal"),
+            "add_new_item" => __("Adicionar Novo Destaque"),
+            "edit_item" => __("Editar Destaque"),
+            "new_item" => __("Novo Destaque"),
+            "all_items" => __("Todos os Destaques"),
+            "view_item" => __("Ver Destaque"),
+            "search_items" => __("Buscar Destaques"),
+            "not_found" => __("Nenhum Destaque Encontrado"),
+            "not_found_in_trash" => __("Nenhum Destaque Encontrado na Lixeira"),
+            "parent_item_colon" => "",
+            "menu_name" => "Outros Destaques"
+    );
+
+    $args = array(
+            "labels" => $labels,
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "rewrite" => false,
+            "capability_type" => "post",
+            "has_archive" => true,
+            "hierarchical" => false,
+            "menu_position" => 10,
+            "supports" => array(
+                    "title",
+                    "editor",
+                    "author",
+                    "excerpt"
+            ),
+            "taxonomies" => array('category')
+    );
+
+    $rewrite = array(
+            'front'=> 'outros-destaques',
+            'structure'=>'%day%/%monthnum%/%year%/%outros_destaques%'
+    );
+
+    register_post_type_com_rewrite_rules("outros_destaques", $args, $rewrite);
+}
+
+// Campo: Imagem
+function meta_box_outros_destaques_imagem_adicionar() {
+    add_meta_box(
+            "meta_box_outros_destaques_imagem_id",
+            "Imagem",
+            "meta_box_outros_destaques_imagem",
+            "outros_destaques",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_outros_destaques_imagem() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='imagem'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
+                Imagens devem possuir as DIMENSÕES APROXIMADAS:<br><br>
+                LARGURA: 302 pixels<br>
+                ALTURA: 266 pixels
+            </p>
+    ";
+}
+
+function meta_box_outros_destaques_imagem_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['imagem'])) {
+        update_post_meta(
+                $post_id,
+                'imagem',
+                $_POST['imagem']
+        );
+    }
+}
+
+add_action("init", "post_type_outros_destaques_criar");
+add_action("add_meta_boxes", "meta_box_outros_destaques_imagem_adicionar");
+add_action("save_post", "meta_box_outros_destaques_imagem_salvar");
 
 // Funções gerais
 function categorias_sem_title($categoria) {

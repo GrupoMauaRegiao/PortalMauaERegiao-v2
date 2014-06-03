@@ -104,45 +104,70 @@
         <h1><span>Outros <strong>Destaques</strong></span></h1>
       </section>
       <section class="box-com-destaques">
-        <a href="#" title="Parceria entre Mauá e Centro Paula Souza traz Via Rápida com três cursos">
-          <section class="destaque">
-            <section class="imagem">
-              <img src="imagens/materias/materia3.jpg" alt="">
-            </section>
-            <section class="categoria">
-              Cidade <strong>Mauá</strong>
-            </section>
-            <section class="decoracao">
-              <section class="linha-grossa"></section>
-              <section class="linha-fina"></section>
-            </section>
-            <section class="titulo">
-              <h3>
-                Parceria entre Mauá e Centro Paula Souza traz Via Rápida com três cursos
-              </h3>
-            </section>
-          </section>
-        </a>
+        <?php query_posts("order=desc&showposts=1&post_type=outros_destaques&category_name=maua"); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <a href="#" title="Fim de semana no parque ajuda idoso a se movimentarem mais">
-          <section class="destaque">
-            <section class="imagem">
-              <img src="imagens/materias/materia5.jpg" alt="">
-            </section>
-            <section class="categoria">
-              Cidade <strong>Ribeirão Pires</strong>
-            </section>
-            <section class="decoracao">
-              <section class="linha-grossa"></section>
-              <section class="linha-fina"></section>
-            </section>
-            <section class="titulo">
-              <h3>
-                Fim de semana no parque ajuda idoso a se movimentarem mais
-              </h3>
-            </section>
-          </section>
-        </a>
+          <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <section class="destaque">
+                <section class="imagem">
+                  <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                </section>
+                <section class="categoria">
+                  Cidade <strong>Mauá</strong>
+                </section>
+                <section class="decoracao">
+                  <section class="linha-grossa"></section>
+                  <section class="linha-fina"></section>
+                </section>
+                <section class="titulo">
+                  <h3>
+                    <?php the_title(); ?>
+                  </h3>
+                </section>
+              </section>
+            </a>
+
+          <?php endif; ?>
+
+        <?php endwhile; else: ?>
+
+          <p>Nenhuma notícia publicada ainda.</p>
+
+        <?php endif; ?>
+
+        <?php query_posts("order=desc&showposts=1&post_type=outros_destaques&category_name=ribeirao-pires"); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+          <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <section class="destaque">
+                <section class="imagem">
+                  <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                </section>
+                <section class="categoria">
+                  Cidade <strong>Ribeirão Pires</strong>
+                </section>
+                <section class="decoracao">
+                  <section class="linha-grossa"></section>
+                  <section class="linha-fina"></section>
+                </section>
+                <section class="titulo">
+                  <h3>
+                    <?php the_title(); ?>
+                  </h3>
+                </section>
+              </section>
+            </a>
+
+          <?php endif; ?>
+
+        <?php endwhile; else: ?>
+
+          <p>Nenhuma notícia publicada ainda.</p>
+
+        <?php endif; ?>
+
       </section>
 
       <!-- ///////////////// PUBLICIDADE ////////////////// -->

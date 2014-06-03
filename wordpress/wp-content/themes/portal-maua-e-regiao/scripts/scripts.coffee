@@ -5,6 +5,7 @@ Portal.apps =
     # Cria paginador para página onde constará todas as notícias do Portal.
 
     paginas = $ '.paginador'
+
     if paginas.length
       indice = $ '.indice'
       inputPagina = $ 'input[name="digitar-pagina"]'
@@ -46,6 +47,7 @@ Portal.apps =
     # GET a partir de um formulário HTML.
 
     formulario = $ '.formulario-fale-conosco form'
+
     if formulario
       cNome = $ '#nome'
       cEmail = $ '#email'
@@ -109,6 +111,7 @@ Portal.apps =
 
   diminuirTexto: (texto, max) ->
     indicador = "…"
+
     if texto.length >= max
       novoTexto = texto.substring 0, max
       if novoTexto.charAt(novoTexto.length - 1) is ' '
@@ -230,21 +233,31 @@ Portal.apps =
     titulosBoxCom3 = $ '.box-com-3 .noticia .titulo h2 span'
     titulosBoxCom1 = $ '.box-com-1 .noticia .titulo h2 span'
     titulosBoxCom2 = $ '.box-com-2 .noticia .titulo h2 span'
+    outrosDestaques = $ '.destaque .titulo h3'
+
     if titulosBoxCom3[0]
       for item in titulosBoxCom3
         title = Portal.apps.diminuirTexto $(item).text(), 45
         $(item).text title
+
     if titulosBoxCom1[0]
       for item in titulosBoxCom1
         title = Portal.apps.diminuirTexto $(item).text(), 55
         $(item).text title
+
     if titulosBoxCom2[0]
       for item in titulosBoxCom2
         title = Portal.apps.diminuirTexto $(item).text(), 45
         $(item).text title
 
+    if outrosDestaques[0]
+      for item in outrosDestaques
+        title = Portal.apps.diminuirTexto $(item).text(), 95
+        $(item).text title
+
   corrigirTamanhoImagemDestaque: ->
     imagens = $ '.box-com-3 .noticia .imagem img'
+
     if imagens[0]
       for item in imagens
         if $(item).width() < 302
