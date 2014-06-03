@@ -240,7 +240,7 @@ Portal.apps =
         $(item).text title
     if titulosBoxCom2[0]
       for item in titulosBoxCom2
-        title = Portal.apps.diminuirTexto $(item).text(), 55
+        title = Portal.apps.diminuirTexto $(item).text(), 45
         $(item).text title
 
   corrigirTamanhoImagemDestaque: ->
