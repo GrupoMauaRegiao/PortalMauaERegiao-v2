@@ -312,7 +312,16 @@
             <section class="linha-fina"></section>
           </section>
           <section class="issuu-embed">
-            <!-- ISSUU Revista -->
+            <?php query_posts("showposts=1&post_type=revista"); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+              <?php echo get_post_meta($post -> ID, "iframe-issuu", true); ?>
+
+            <?php endwhile; else: ?>
+
+              <p>Nenhuma revista publicada ainda.</p>
+
+            <?php endif; ?>
           </section>
         </section>
 
@@ -325,7 +334,16 @@
             <section class="linha-fina"></section>
           </section>
           <section class="issuu-embed">
-            <!-- ISSUU Jornal -->
+            <?php query_posts("showposts=1&post_type=jornal"); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+              <?php echo get_post_meta($post -> ID, "iframe-issuu", true); ?>
+
+            <?php endwhile; else: ?>
+
+              <p>Nenhuma revista publicada ainda.</p>
+
+            <?php endif; ?>
           </section>
         </section>
       </section>

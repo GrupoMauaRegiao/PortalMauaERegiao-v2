@@ -188,7 +188,7 @@ Portal.apps =
           cidade = dados.results[0].address_components[3].short_name
 
           # Obtém informações sobre o clima conforme a cidade
-          $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&units=metric&lang=pt', (dados) ->
+          $.getJSON 'http://api.openweathermap.org/data/2.5/weazther?q=' + cidade + ',br&units=metric&lang=pt', (dados) ->
             cidade = dados.name
             cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
             tempMax = dados.main.temp_max.toFixed()
