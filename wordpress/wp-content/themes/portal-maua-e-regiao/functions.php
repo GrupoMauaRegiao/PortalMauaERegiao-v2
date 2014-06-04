@@ -1,5 +1,5 @@
 <?php
-include 'custom-post-type-com-rewrite.php';
+include "custom-post-type-com-rewrite.php";
 
 // post_type: revista
 function post_type_revista_criar() {
@@ -29,7 +29,8 @@ function post_type_revista_criar() {
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
-            "menu_position" => 5,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-book-alt",
             "supports" => array("title")
     );
 
@@ -128,7 +129,8 @@ function post_type_jornal_criar() {
             "capability_type" => "post",
             "has_archive" => true,
             "hierarchical" => false,
-            "menu_position" => 5,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-id-alt",
             "supports" => array("title")
     );
 
@@ -202,8 +204,8 @@ add_action("save_post", "meta_box_jornal_salvar");
 // post_type: noticia_destaque_esquerda
 function post_type_noticia_destaque_esquerda_criar() {
     $labels = array(
-            "name" => _x("Notícias Destaques da Esquerda", "post type general name"),
-            "singular_name" => _x("Notícia Destaque da Esquerda", "post type singular name"),
+            "name" => _x("Notícia Destaque [esquerda]", "post type general name"),
+            "singular_name" => _x("Notícia Destaque [esquerda]", "post type singular name"),
             "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
             "add_new_item" => __("Adicionar Nova Notícia Destaque"),
             "edit_item" => __("Editar Notícia Destaque"),
@@ -214,7 +216,7 @@ function post_type_noticia_destaque_esquerda_criar() {
             "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque da Esquerda"
+            "menu_name" => "Notícia Destaque [esquerda]"
     );
 
     $args = array(
@@ -228,6 +230,7 @@ function post_type_noticia_destaque_esquerda_criar() {
             "has_archive" => true,
             "hierarchical" => false,
             "menu_position" => 10,
+            "menu_icon" => "dashicons-text",
             "supports" => array(
                     "title",
                     "editor",
@@ -316,7 +319,7 @@ function meta_box_noticia_destaque_esquerda_imagem() {
             <p>
                 <label for='imagem'>Link para a imagem: </label><br>
                 <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
-                Imagens devem possuir as DIMENSÕES APROXIMADAS:<br><br>
+                A imagem deve possuir as DIMENSÕES APROXIMADAS:<br><br>
                 LARGURA: 302 pixels<br>
                 ALTURA: 180 pixels
             </p>
@@ -354,8 +357,8 @@ add_action("save_post", "meta_box_noticia_destaque_esquerda_imagem_salvar");
 // post_type: noticia_destaque_centro
 function post_type_noticia_destaque_centro_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque do Centro", "post type general name"),
-            "singular_name" => _x("Notícia Destaque do Centro", "post type singular name"),
+            "name" => _x("Notícia Destaque [centro]", "post type general name"),
+            "singular_name" => _x("Notícia Destaque [centro]", "post type singular name"),
             "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
             "add_new_item" => __("Adicionar Nova Notícia Destaque"),
             "edit_item" => __("Editar Notícia Destaque"),
@@ -366,7 +369,7 @@ function post_type_noticia_destaque_centro_criar() {
             "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque do Centro"
+            "menu_name" => "Notícia Destaque [centro]"
     );
 
     $args = array(
@@ -380,6 +383,7 @@ function post_type_noticia_destaque_centro_criar() {
             "has_archive" => true,
             "hierarchical" => false,
             "menu_position" => 10,
+            "menu_icon" => "dashicons-text",
             "supports" => array(
                     "title",
                     "editor",
@@ -468,7 +472,7 @@ function meta_box_noticia_destaque_centro_imagem() {
             <p>
                 <label for='imagem'>Link para a imagem: </label><br>
                 <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
-                Imagens devem possuir as DIMENSÕES APROXIMADAS:<br><br>
+                A imagem deve possuir as DIMENSÕES APROXIMADAS:<br><br>
                 LARGURA: 302 pixels<br>
                 ALTURA: 554 pixels
             </p>
@@ -506,8 +510,8 @@ add_action("save_post", "meta_box_noticia_destaque_centro_imagem_salvar");
 // post_type: noticia_destaque_direita
 function post_type_noticia_destaque_direita_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque da Direita", "post type general name"),
-            "singular_name" => _x("Notícia Destaque da Direita", "post type singular name"),
+            "name" => _x("Notícia Destaque [direita]", "post type general name"),
+            "singular_name" => _x("Notícia Destaque [direita]", "post type singular name"),
             "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
             "add_new_item" => __("Adicionar Nova Notícia Destaque"),
             "edit_item" => __("Editar Notícia Destaque"),
@@ -518,7 +522,7 @@ function post_type_noticia_destaque_direita_criar() {
             "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque da Direita"
+            "menu_name" => "Notícia Destaque [direita]"
     );
 
     $args = array(
@@ -532,6 +536,7 @@ function post_type_noticia_destaque_direita_criar() {
             "has_archive" => true,
             "hierarchical" => false,
             "menu_position" => 10,
+            "menu_icon" => "dashicons-text",
             "supports" => array(
                     "title",
                     "editor",
@@ -620,7 +625,7 @@ function meta_box_noticia_destaque_direita_imagem() {
             <p>
                 <label for='imagem'>Link para a imagem: </label><br>
                 <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
-                Imagens devem possuir as DIMENSÕES APROXIMADAS:<br><br>
+                A imagem devem possuir as DIMENSÕES APROXIMADAS:<br><br>
                 LARGURA: 302 pixels<br>
                 ALTURA: 266 pixels
             </p>
@@ -658,8 +663,8 @@ add_action("save_post", "meta_box_noticia_destaque_direita_imagem_salvar");
 // post_type: outros_destaques
 function post_type_outros_destaques_criar() {
     $labels = array(
-            "name" => _x("Outros Destaques", "post type general name"),
-            "singular_name" => _x("Outros Destaques", "post type singular name"),
+            "name" => _x("Notícia Destaque [outros]", "post type general name"),
+            "singular_name" => _x("Notícia Destaque [outros]", "post type singular name"),
             "add_new" => _x("Adicionar Destaque", "jornal"),
             "add_new_item" => __("Adicionar Novo Destaque"),
             "edit_item" => __("Editar Destaque"),
@@ -670,7 +675,7 @@ function post_type_outros_destaques_criar() {
             "not_found" => __("Nenhum Destaque Encontrado"),
             "not_found_in_trash" => __("Nenhum Destaque Encontrado na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Outros Destaques"
+            "menu_name" => "Notícia Destaque [outros]"
     );
 
     $args = array(
@@ -684,6 +689,7 @@ function post_type_outros_destaques_criar() {
             "has_archive" => true,
             "hierarchical" => false,
             "menu_position" => 10,
+            "menu_icon" => "dashicons-text",
             "supports" => array(
                     "title",
                     "editor",
@@ -723,7 +729,7 @@ function meta_box_outros_destaques_imagem() {
             <p>
                 <label for='imagem'>Link para a imagem: </label><br>
                 <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
-                Imagens devem possuir as DIMENSÕES APROXIMADAS:<br><br>
+                A imagem deve possuir as DIMENSÕES APROXIMADAS:<br><br>
                 LARGURA: 302 pixels<br>
                 ALTURA: 266 pixels
             </p>
@@ -755,6 +761,203 @@ function meta_box_outros_destaques_imagem_salvar($post_id) {
 add_action("init", "post_type_outros_destaques_criar");
 add_action("add_meta_boxes", "meta_box_outros_destaques_imagem_adicionar");
 add_action("save_post", "meta_box_outros_destaques_imagem_salvar");
+
+// post_type: pub_outros_destaques
+function post_type_pub_outros_destaques_criar() {
+    $labels = array(
+            "name" => _x("Publicidade ..... [302 x 285]", "post type general name"),
+            "singular_name" => _x("Publicidade ..... [302 x 285]", "post type singular name"),
+            "add_new" => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item" => __("Adicionar Nova Publicidade"),
+            "edit_item" => __("Editar Publicidade"),
+            "new_item" => __("Nova Publicidade"),
+            "all_items" => __("Todas as Publicidades"),
+            "view_item" => __("Ver Publicidade"),
+            "search_items" => __("Buscar Publicidades"),
+            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
+            "parent_item_colon" => "",
+            "menu_name" => "Publicidade ..... [302 x 285]"
+    );
+
+    $args = array(
+            "labels" => $labels,
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "rewrite" => false,
+            "capability_type" => "post",
+            "has_archive" => true,
+            "hierarchical" => false,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-megaphone",
+            "supports" => array(
+                "title",
+                "editor"
+            )
+    );
+
+    register_post_type("pub_outros_destaques", $args);
+}
+
+// Campo: Link
+function meta_box_pub_outros_destaques_expressao_chave_adicionar() {
+    add_meta_box(
+            "meta_box_pub_outros_destaques_expressao_chave_id",
+            "Website do cliente",
+            "meta_box_pub_outros_destaques_expressao_chave",
+            "pub_outros_destaques",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_outros_destaques_expressao_chave() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='link'>Link do website: </label><br>
+                <input style='width: 100%;' type='text' name='link' id='link' value='$conteudo'>
+            </p>
+    ";
+}
+
+function meta_box_pub_outros_destaques_expressao_chave_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['link'])) {
+        update_post_meta(
+                $post_id,
+                'link',
+                $_POST['link']
+        );
+    }
+}
+
+// Campo: Imagem
+function meta_box_pub_outros_destaques_imagem_adicionar() {
+    add_meta_box(
+            "meta_box_pub_outros_destaques_imagem_id",
+            "Imagem",
+            "meta_box_pub_outros_destaques_imagem",
+            "pub_outros_destaques",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_outros_destaques_imagem() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='imagem'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
+                A imagem deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 302 pixels<br>
+                ALTURA: 285 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_outros_destaques_imagem_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['imagem'])) {
+        update_post_meta(
+                $post_id,
+                'imagem',
+                $_POST['imagem']
+        );
+    }
+}
+
+// Campo: Object (swf)
+function meta_box_pub_outros_destaques_object_adicionar() {
+    add_meta_box(
+            "meta_box_pub_outros_destaques_object_id",
+            "Objeto Flash",
+            "meta_box_pub_outros_destaques_object",
+            "pub_outros_destaques",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_outros_destaques_object() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='object'>Link para arquivo .swf: </label><br>
+                <input style='width: 100%;' type='text' name='object' id='object' value='$conteudo'><br><br>
+                O arquivo deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 302 pixels<br>
+                ALTURA: 285 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_outros_destaques_object_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['object'])) {
+        update_post_meta(
+                $post_id,
+                'object',
+                $_POST['object']
+        );
+    }
+}
+
+add_action("init", "post_type_pub_outros_destaques_criar");
+add_action("add_meta_boxes", "meta_box_pub_outros_destaques_expressao_chave_adicionar");
+add_action("save_post", "meta_box_pub_outros_destaques_expressao_chave_salvar");
+add_action("add_meta_boxes", "meta_box_pub_outros_destaques_imagem_adicionar");
+add_action("save_post", "meta_box_pub_outros_destaques_imagem_salvar");
+add_action("add_meta_boxes", "meta_box_pub_outros_destaques_object_adicionar");
+add_action("save_post", "meta_box_pub_outros_destaques_object_salvar");
 
 // Funções gerais
 function categorias_sem_title($categoria) {

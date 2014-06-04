@@ -172,11 +172,33 @@
 
       <!-- ///////////////// PUBLICIDADE ////////////////// -->
       <section class="publicidade-destaques">
-        <a href="#" title="">
-          <section class="imagem">
-            <img src="#" alt="">
-          </section>
-        </a>
+        <?php query_posts("order=desc&showposts=1&post_type=pub_outros_destaques"); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+          <a target="_blank" href="<?php echo get_post_meta($post -> ID, "link", true); ?>" title="Publicidade">
+
+            <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
+
+              <section class="imagem">
+                <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+              </section>
+
+            <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
+
+              <section class="object">
+                <object data="<?php echo get_post_meta($post -> ID, "object", true); ?>"
+                        type="application/x-shockwave-flash">
+                  <param name="movie" value="<?php echo get_post_meta($post -> ID, "object", true); ?>">
+                  <param name="quality" value="high">
+                </object>
+              </section>
+
+            <?php endif; ?>
+          </a>
+        <?php endwhile; else: ?>
+
+          <p>Nenhuma notícia publicada ainda.</p>
+
+        <?php endif; ?>
       </section>
       <!-- ///////////////// close PUBLICIDADE ////////////////// -->
 
@@ -474,7 +496,7 @@
               </section>
             </a>
           </section>
-          
+
           <section class="publicidade">
             <a href="#" title="">
               <section class="imagem">
