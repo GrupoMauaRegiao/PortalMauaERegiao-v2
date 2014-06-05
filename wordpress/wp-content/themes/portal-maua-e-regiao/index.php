@@ -172,7 +172,7 @@
 
       <!-- ///////////////// PUBLICIDADE ////////////////// -->
       <section class="publicidade-destaques">
-        <?php query_posts("order=desc&showposts=1&post_type=pub_outros_destaques"); ?>
+        <?php query_posts("order=desc&showposts=1&post_type=pub_302_x_285"); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <a target="_blank" href="<?php echo get_post_meta($post -> ID, "link", true); ?>" title="Publicidade">
 
@@ -196,7 +196,7 @@
           </a>
         <?php endwhile; else: ?>
 
-          <p>Nenhuma notícia publicada ainda.</p>
+          <p>ANUNCIE AQUI</p>
 
         <?php endif; ?>
       </section>

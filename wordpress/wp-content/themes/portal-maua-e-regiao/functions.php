@@ -762,11 +762,11 @@ add_action("init", "post_type_outros_destaques_criar");
 add_action("add_meta_boxes", "meta_box_outros_destaques_imagem_adicionar");
 add_action("save_post", "meta_box_outros_destaques_imagem_salvar");
 
-// post_type: pub_outros_destaques
-function post_type_pub_outros_destaques_criar() {
+// post_type: pub_302_x_285
+function post_type_pub_302_x_285_criar() {
     $labels = array(
-            "name" => _x("Publicidade ..... [302 x 285]", "post type general name"),
-            "singular_name" => _x("Publicidade ..... [302 x 285]", "post type singular name"),
+            "name" => _x("Publicidade 302 x 285", "post type general name"),
+            "singular_name" => _x("Publicidade 302 x 285", "post type singular name"),
             "add_new" => _x("Adicionar Publicidade", "jornal"),
             "add_new_item" => __("Adicionar Nova Publicidade"),
             "edit_item" => __("Editar Publicidade"),
@@ -777,7 +777,7 @@ function post_type_pub_outros_destaques_criar() {
             "not_found" => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Publicidade ..... [302 x 285]"
+            "menu_name" => "Publicidade 302 x 285"
     );
 
     $args = array(
@@ -798,22 +798,22 @@ function post_type_pub_outros_destaques_criar() {
             )
     );
 
-    register_post_type("pub_outros_destaques", $args);
+    register_post_type("pub_302_x_285", $args);
 }
 
 // Campo: Link
-function meta_box_pub_outros_destaques_expressao_chave_adicionar() {
+function meta_box_pub_302_x_285_expressao_chave_adicionar() {
     add_meta_box(
-            "meta_box_pub_outros_destaques_expressao_chave_id",
+            "meta_box_pub_302_x_285_expressao_chave_id",
             "Website do cliente",
-            "meta_box_pub_outros_destaques_expressao_chave",
-            "pub_outros_destaques",
+            "meta_box_pub_302_x_285_expressao_chave",
+            "pub_302_x_285",
             "normal",
             "high"
     );
 }
 
-function meta_box_pub_outros_destaques_expressao_chave() {
+function meta_box_pub_302_x_285_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
@@ -827,7 +827,7 @@ function meta_box_pub_outros_destaques_expressao_chave() {
     ";
 }
 
-function meta_box_pub_outros_destaques_expressao_chave_salvar($post_id) {
+function meta_box_pub_302_x_285_expressao_chave_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -850,18 +850,18 @@ function meta_box_pub_outros_destaques_expressao_chave_salvar($post_id) {
 }
 
 // Campo: Imagem
-function meta_box_pub_outros_destaques_imagem_adicionar() {
+function meta_box_pub_302_x_285_imagem_adicionar() {
     add_meta_box(
-            "meta_box_pub_outros_destaques_imagem_id",
+            "meta_box_pub_302_x_285_imagem_id",
             "Imagem",
-            "meta_box_pub_outros_destaques_imagem",
-            "pub_outros_destaques",
+            "meta_box_pub_302_x_285_imagem",
+            "pub_302_x_285",
             "normal",
             "high"
     );
 }
 
-function meta_box_pub_outros_destaques_imagem() {
+function meta_box_pub_302_x_285_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
@@ -878,7 +878,7 @@ function meta_box_pub_outros_destaques_imagem() {
     ";
 }
 
-function meta_box_pub_outros_destaques_imagem_salvar($post_id) {
+function meta_box_pub_302_x_285_imagem_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -901,18 +901,18 @@ function meta_box_pub_outros_destaques_imagem_salvar($post_id) {
 }
 
 // Campo: Object (swf)
-function meta_box_pub_outros_destaques_object_adicionar() {
+function meta_box_pub_302_x_285_object_adicionar() {
     add_meta_box(
-            "meta_box_pub_outros_destaques_object_id",
+            "meta_box_pub_302_x_285_object_id",
             "Objeto Flash",
-            "meta_box_pub_outros_destaques_object",
-            "pub_outros_destaques",
+            "meta_box_pub_302_x_285_object",
+            "pub_302_x_285",
             "normal",
             "high"
     );
 }
 
-function meta_box_pub_outros_destaques_object() {
+function meta_box_pub_302_x_285_object() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
@@ -929,7 +929,7 @@ function meta_box_pub_outros_destaques_object() {
     ";
 }
 
-function meta_box_pub_outros_destaques_object_salvar($post_id) {
+function meta_box_pub_302_x_285_object_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -951,13 +951,13 @@ function meta_box_pub_outros_destaques_object_salvar($post_id) {
     }
 }
 
-add_action("init", "post_type_pub_outros_destaques_criar");
-add_action("add_meta_boxes", "meta_box_pub_outros_destaques_expressao_chave_adicionar");
-add_action("save_post", "meta_box_pub_outros_destaques_expressao_chave_salvar");
-add_action("add_meta_boxes", "meta_box_pub_outros_destaques_imagem_adicionar");
-add_action("save_post", "meta_box_pub_outros_destaques_imagem_salvar");
-add_action("add_meta_boxes", "meta_box_pub_outros_destaques_object_adicionar");
-add_action("save_post", "meta_box_pub_outros_destaques_object_salvar");
+add_action("init", "post_type_pub_302_x_285_criar");
+add_action("add_meta_boxes", "meta_box_pub_302_x_285_expressao_chave_adicionar");
+add_action("save_post", "meta_box_pub_302_x_285_expressao_chave_salvar");
+add_action("add_meta_boxes", "meta_box_pub_302_x_285_imagem_adicionar");
+add_action("save_post", "meta_box_pub_302_x_285_imagem_salvar");
+add_action("add_meta_boxes", "meta_box_pub_302_x_285_object_adicionar");
+add_action("save_post", "meta_box_pub_302_x_285_object_salvar");
 
 // Funções gerais
 function categorias_sem_title($categoria) {
