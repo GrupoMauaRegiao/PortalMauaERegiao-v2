@@ -802,7 +802,7 @@ function post_type_pub_302_x_285_criar() {
 }
 
 // Campo: Link
-function meta_box_pub_302_x_285_expressao_chave_adicionar() {
+function meta_box_pub_302_x_285_link_adicionar() {
     add_meta_box(
             "meta_box_pub_302_x_285_expressao_chave_id",
             "Website do cliente",
@@ -827,7 +827,7 @@ function meta_box_pub_302_x_285_expressao_chave() {
     ";
 }
 
-function meta_box_pub_302_x_285_expressao_chave_salvar($post_id) {
+function meta_box_pub_302_x_285_link_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -952,8 +952,8 @@ function meta_box_pub_302_x_285_object_salvar($post_id) {
 }
 
 add_action("init", "post_type_pub_302_x_285_criar");
-add_action("add_meta_boxes", "meta_box_pub_302_x_285_expressao_chave_adicionar");
-add_action("save_post", "meta_box_pub_302_x_285_expressao_chave_salvar");
+add_action("add_meta_boxes", "meta_box_pub_302_x_285_link_adicionar");
+add_action("save_post", "meta_box_pub_302_x_285_link_salvar");
 add_action("add_meta_boxes", "meta_box_pub_302_x_285_imagem_adicionar");
 add_action("save_post", "meta_box_pub_302_x_285_imagem_salvar");
 add_action("add_meta_boxes", "meta_box_pub_302_x_285_object_adicionar");
