@@ -215,105 +215,70 @@
           </section>
 
           <section class="galerias">
-            <a href="#" title="Inauguração Clínica Infinity Vision">
-              <section class="galeria">
-                <section class="imagens" title="Inauguração Clínica Infinity Vision">
-                  <section class="imagem">
-                    <img src="imagens/materias/materia1.jpg" alt="" title="">
-                  </section>
-                  <section class="subimagem">
-                    <img src="imagens/materias/materia2.jpg" alt="" title="">
-                  </section>
-                </section>
-                <section class="titulo">
-                  Inauguração Clínica Infinity Vision
-                </section>
-              </section>
-            </a>
+            <section class="publicidade-destaques">
 
-            <a href="#" title="Galera curtindo no Rancho do Serjão">
-              <section class="galeria">
-                <section class="imagens" title="Galera curtindo no Rancho do Serjão">
-                  <section class="imagem">
-                    <img src="imagens/materias/materia3.jpg" alt="" title="">
-                  </section>
-                  <section class="subimagem">
-                    <img src="imagens/materias/materia4.jpg" alt="" title="">
-                  </section>
-                </section>
-                <section class="titulo">
-                  Galera curtindo no Rancho do Serjão
-                </section>
-              </section>
-            </a>
+              <?php query_posts("order=desc&showposts=4&post_type=fatos_e_fotos"); ?>
+              <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-            <a href="#" title="Viagem pela América do Sul Vinicius">
-              <section class="galeria">
-                <section class="imagens" title="Viagem pela América do Sul Vinicius">
-                  <section class="imagem">
-                    <img src="imagens/materias/materia5.jpg" alt="" title="">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                  <section class="galeria">
+                    <section class="imagens" title="<?php the_title(); ?>">
+                      <section class="imagem">
+                        <img src="<?php echo get_post_meta($post -> ID, "capa_fundo_imagem_maior", true); ?>" alt="">
+                      </section>
+                      <section class="subimagem">
+                        <img src="<?php echo get_post_meta($post -> ID, "capa_fundo_imagem_menor", true); ?>" alt="">
+                      </section>
+                    </section>
+                    <section class="titulo">
+                      <?php the_title(); ?>
+                    </section>
                   </section>
-                  <section class="subimagem">
-                    <img src="imagens/materias/materia6.jpg" alt="" title="">
-                  </section>
-                </section>
-                <section class="titulo">
-                  Viagem pela América do Sul Vinicius
-                </section>
-              </section>
-            </a>
+                </a>
 
-            <a href="#" title="Inauguração Nova Morada do Vinho">
-              <section class="galeria">
-                <section class="imagens" title="Inauguração Nova Morada do Vinho">
-                  <section class="imagem">
-                    <img src="imagens/materias/materia2.jpg" alt="" title="">
-                  </section>
-                  <section class="subimagem">
-                    <img src="imagens/materias/materia7.jpg" alt="" title="">
-                  </section>
-                </section>
-                <section class="titulo">
-                  Inauguração Nova Morada do Vinho
-                </section>
-              </section>
-            </a>
+              <?php endwhile; else: ?>
+
+                <p>Nenhum evento foi publicado ainda.</p>
+
+              <?php endif; ?>
+
           </section>
         </section>
 
-        <!-- //////////////// PUBLICIDADE ////////////////// -->
-        <section class="publicidade-fatos-e-fotos">
-          <?php query_posts("orderby=rand&showposts=2&post_type=pub_350_x_200"); ?>
-          <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <a target="_blank" href="<?php echo get_post_meta($post -> ID, "link", true); ?>" title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
+          <!-- //////////////// PUBLICIDADE ////////////////// -->
+          <section class="publicidade-fatos-e-fotos">
+            <?php query_posts("orderby=rand&showposts=2&post_type=pub_350_x_200"); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+              <a target="_blank" href="<?php echo get_post_meta($post -> ID, "link", true); ?>" title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
 
-              <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
+                <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
 
-                <section class="publicidade">
-                  <section class="imagem">
-                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                  <section class="publicidade">
+                    <section class="imagem">
+                      <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                    </section>
                   </section>
-                </section>
 
-              <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
+                <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
 
-                <section class="object publicidade">
-                  <object data="<?php echo get_post_meta($post -> ID, "object", true); ?>"
-                          type="application/x-shockwave-flash">
-                    <param name="movie" value="<?php echo get_post_meta($post -> ID, "object", true); ?>">
-                    <param name="quality" value="high">
-                  </object>
-                </section>
+                  <section class="object publicidade">
+                    <object data="<?php echo get_post_meta($post -> ID, "object", true); ?>"
+                            type="application/x-shockwave-flash">
+                      <param name="movie" value="<?php echo get_post_meta($post -> ID, "object", true); ?>">
+                      <param name="quality" value="high">
+                    </object>
+                  </section>
 
-              <?php endif; ?>
-            </a>
-          <?php endwhile; else: ?>
+                <?php endif; ?>
+              </a>
+            <?php endwhile; else: ?>
 
-            <p>ANUNCIE AQUI</p>
+              <p>ANUNCIE AQUI</p>
 
-          <?php endif; ?>
+            <?php endif; ?>
+          </section>
+          <!-- //////////////// close PUBLICIDADE ////////////////// -->
         </section>
-        <!-- //////////////// close PUBLICIDADE ////////////////// -->
       </section>
 
       <section class="revista-e-jornal">

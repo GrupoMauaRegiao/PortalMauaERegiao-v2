@@ -1747,6 +1747,152 @@ add_action("save_post", "meta_box_pub_223_x_200_imagem_salvar");
 add_action("add_meta_boxes", "meta_box_pub_223_x_200_object_adicionar");
 add_action("save_post", "meta_box_pub_223_x_200_object_salvar");
 
+// post_type: fatos_e_fotos
+function post_type_fatos_e_fotos_criar() {
+    $labels = array(
+            "name" => _x("Fatos e Fotos", "post type general name"),
+            "singular_name" => _x("Fatos e Fotos", "post type singular name"),
+            "add_new" => _x("Adicionar Evento", "jornal"),
+            "add_new_item" => __("Adicionar Novo Evento"),
+            "edit_item" => __("Editar Evento"),
+            "new_item" => __("Novo Evento"),
+            "all_items" => __("Todos os Eventos"),
+            "view_item" => __("Ver Evento"),
+            "search_items" => __("Buscar Evento"),
+            "not_found" => __("Nenhum Evento Encontrado"),
+            "not_found_in_trash" => __("Nenhum Evento Encontrado na Lixeira"),
+            "parent_item_colon" => "",
+            "menu_name" => "Fatos e Fotos"
+    );
+
+    $args = array(
+            "labels" => $labels,
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "rewrite" => false,
+            "capability_type" => "post",
+            "has_archive" => true,
+            "hierarchical" => false,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-format-gallery",
+            "supports" => array(
+                "title",
+                "editor"
+            )
+    );
+
+    $rewrite = array(
+            'front'=> 'evento',
+            'structure'=>'%day%/%monthnum%/%year%/%fatos_e_fotos%'
+    );
+
+    register_post_type("fatos_e_fotos", $args, $rewrite);
+}
+
+// Campo: Capa (fundo, imagem maior)
+function meta_box_fatos_e_fotos_imagem_maior_adicionar() {
+    add_meta_box(
+            "meta_box_fatos_e_fotos_imagem_maior_id",
+            "Capa (IMAGEM MAIOR)",
+            "meta_box_fatos_e_fotos_imagem_maior",
+            "fatos_e_fotos",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_fatos_e_fotos_imagem_maior() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["capa_fundo_imagem_maior"]) ? esc_attr($campos["capa_fundo_imagem_maior"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='capa_fundo_imagem_maior'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='capa_fundo_imagem_maior' id='capa_fundo_imagem_maior' value='$conteudo'><br>
+            </p>
+    ";
+}
+
+function meta_box_fatos_e_fotos_imagem_maior_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['capa_fundo_imagem_maior'])) {
+        update_post_meta(
+                $post_id,
+                'capa_fundo_imagem_maior',
+                $_POST['capa_fundo_imagem_maior']
+        );
+    }
+}
+
+// Campo: Capa (fundo, imagem menor)
+function meta_box_fatos_e_fotos_imagem_menor_adicionar() {
+    add_meta_box(
+            "meta_box_fatos_e_fotos_imagem_menor_id",
+            "Capa (IMAGEM MENOR)",
+            "meta_box_fatos_e_fotos_imagem_menor",
+            "fatos_e_fotos",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_fatos_e_fotos_imagem_menor() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["capa_fundo_imagem_menor"]) ? esc_attr($campos["capa_fundo_imagem_menor"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='capa_fundo_imagem_menor'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='capa_fundo_imagem_menor' id='capa_fundo_imagem_menor' value='$conteudo'><br>
+            </p>
+    ";
+}
+
+function meta_box_fatos_e_fotos_imagem_menor_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['capa_fundo_imagem_menor'])) {
+        update_post_meta(
+                $post_id,
+                'capa_fundo_imagem_menor',
+                $_POST['capa_fundo_imagem_menor']
+        );
+    }
+}
+
+add_action("init", "post_type_fatos_e_fotos_criar");
+add_action("add_meta_boxes", "meta_box_fatos_e_fotos_imagem_maior_adicionar");
+add_action("save_post", "meta_box_fatos_e_fotos_imagem_maior_salvar");
+add_action("add_meta_boxes", "meta_box_fatos_e_fotos_imagem_menor_adicionar");
+add_action("save_post", "meta_box_fatos_e_fotos_imagem_menor_salvar");
+
 // Funções gerais
 function categorias_sem_title($categoria) {
     $args = array(
