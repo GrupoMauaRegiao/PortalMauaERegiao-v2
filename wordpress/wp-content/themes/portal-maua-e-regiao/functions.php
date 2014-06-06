@@ -1353,6 +1353,203 @@ add_action("save_post", "meta_box_pub_190_x_193_imagem_salvar");
 add_action("add_meta_boxes", "meta_box_pub_190_x_193_object_adicionar");
 add_action("save_post", "meta_box_pub_190_x_193_object_salvar");
 
+// post_type: pub_210_x_130
+function post_type_pub_210_x_130_criar() {
+    $labels = array(
+            "name" => _x("Publicidade 210 x 130", "post type general name"),
+            "singular_name" => _x("Publicidade 210 x 130", "post type singular name"),
+            "add_new" => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item" => __("Adicionar Nova Publicidade"),
+            "edit_item" => __("Editar Publicidade"),
+            "new_item" => __("Nova Publicidade"),
+            "all_items" => __("Todas as Publicidades"),
+            "view_item" => __("Ver Publicidade"),
+            "search_items" => __("Buscar Publicidades"),
+            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
+            "parent_item_colon" => "",
+            "menu_name" => "Publicidade 210 x 130"
+    );
+
+    $args = array(
+            "labels" => $labels,
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "rewrite" => false,
+            "capability_type" => "post",
+            "has_archive" => true,
+            "hierarchical" => false,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-megaphone",
+            "supports" => array(
+                "title",
+                "editor"
+            )
+    );
+
+    register_post_type("pub_210_x_130", $args);
+}
+
+// Campo: Link
+function meta_box_pub_210_x_130_link_adicionar() {
+    add_meta_box(
+            "meta_box_pub_210_x_130_link_id",
+            "Website do cliente",
+            "meta_box_pub_210_x_130_link",
+            "pub_210_x_130",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_210_x_130_link() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='link'>Link do website: </label><br>
+                <input style='width: 100%;' type='text' name='link' id='link' value='$conteudo'>
+            </p>
+    ";
+}
+
+function meta_box_pub_210_x_130_link_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['link'])) {
+        update_post_meta(
+                $post_id,
+                'link',
+                $_POST['link']
+        );
+    }
+}
+
+// Campo: Imagem
+function meta_box_pub_210_x_130_imagem_adicionar() {
+    add_meta_box(
+            "meta_box_pub_210_x_130_imagem_id",
+            "Imagem",
+            "meta_box_pub_210_x_130_imagem",
+            "pub_210_x_130",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_210_x_130_imagem() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='imagem'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
+                A imagem deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 210 pixels<br>
+                ALTURA: 130 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_210_x_130_imagem_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['imagem'])) {
+        update_post_meta(
+                $post_id,
+                'imagem',
+                $_POST['imagem']
+        );
+    }
+}
+
+// Campo: Object (swf)
+function meta_box_pub_210_x_130_object_adicionar() {
+    add_meta_box(
+            "meta_box_pub_210_x_130_object_id",
+            "Objeto Flash",
+            "meta_box_pub_210_x_130_object",
+            "pub_210_x_130",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_210_x_130_object() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
+
+    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+
+    echo "
+            <p>
+                <label for='object'>Link para arquivo .swf: </label><br>
+                <input style='width: 100%;' type='text' name='object' id='object' value='$conteudo'><br><br>
+                O arquivo deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 210 pixels<br>
+                ALTURA: 130 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_210_x_130_object_salvar($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+        return;
+    }
+
+    if (!current_user_can('edit_post')) {
+        return;
+    }
+
+    if (isset($_POST['object'])) {
+        update_post_meta(
+                $post_id,
+                'object',
+                $_POST['object']
+        );
+    }
+}
+
+add_action("init", "post_type_pub_210_x_130_criar");
+add_action("add_meta_boxes", "meta_box_pub_210_x_130_link_adicionar");
+add_action("save_post", "meta_box_pub_210_x_130_link_salvar");
+add_action("add_meta_boxes", "meta_box_pub_210_x_130_imagem_adicionar");
+add_action("save_post", "meta_box_pub_210_x_130_imagem_salvar");
+add_action("add_meta_boxes", "meta_box_pub_210_x_130_object_adicionar");
+add_action("save_post", "meta_box_pub_210_x_130_object_salvar");
+
 // Funções gerais
 function categorias_sem_title($categoria) {
     $args = array(
