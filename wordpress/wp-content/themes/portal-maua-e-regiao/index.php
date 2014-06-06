@@ -581,39 +581,39 @@
 
       <!-- //////////////// PUBLICIDADE ////////////////// -->
       <section class="strip-publicidade">
-        <section class="publicidade">
-          <a href="#" title="">
-            <section class="imagem">
-              <img src="#" alt="">
-            </section>
-          </a>
-        </section>
+        <?php query_posts("orderby=rand&showposts=4&post_type=pub_223_x_200"); ?>
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-        <section class="publicidade">
-          <a href="#" title="">
-            <section class="imagem">
-              <img src="#" alt="">
-            </section>
-          </a>
-        </section>
+          <section class="publicidade">
+            <a target="_blank" href="<?php echo get_post_meta($post -> ID, "link", true); ?>" title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
 
-        <section class="publicidade">
-          <a href="#" title="">
-            <section class="imagem">
-              <img src="#" alt="">
-            </section>
-          </a>
-        </section>
+              <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
 
-        <section class="publicidade">
-          <a href="#" title="">
-            <section class="imagem">
-              <img src="#" alt="">
-            </section>
-          </a>
-        </section>
+                <section class="imagem">
+                  <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                </section>
+
+              <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
+
+                <section class="object publicidade">
+                  <object data="<?php echo get_post_meta($post -> ID, "object", true); ?>"
+                          type="application/x-shockwave-flash">
+                    <param name="movie" value="<?php echo get_post_meta($post -> ID, "object", true); ?>">
+                    <param name="quality" value="high">
+                  </object>
+                </section>
+
+              <?php endif; ?>
+            </a>
+          </section>
+        <?php endwhile; else: ?>
+
+          <p>ANUNCIE AQUI</p>
+
+        <?php endif; ?>
       </section>
       <!-- //////////////// close PUBLICIDADE ////////////////// -->
+
     </section>
   </section>
 </section>
