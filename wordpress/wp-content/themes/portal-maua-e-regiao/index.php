@@ -332,23 +332,33 @@
       <section class="itens">
         <section class="destacadas">
           <section class="destaque">
-            <a href="#" title="MH370: navio capta mais 2 sínais no Índico">
-              <section class="noticia">
-                <section class="imagem">
-                  <img src="imagens/materias/materia8.jpg" alt="" title="">
-                </section>
-                <section class="informacoes">
-                  <section class="marca">
-                    <span>Malaysia Airlines</span>
+            <?php query_posts("order=desc&showposts=1&post_type=noticia_destacada"); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <section class="noticia">
+                  <section class="imagem">
+                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
                   </section>
-                  <section class="titulo">
-                    <h2>
-                      <span>MH370: navio capta mais 2 sínais no Índico</span>
-                    </h2>
+                  <section class="informacoes">
+                    <section class="marca">
+                      <span><?php echo get_post_meta($post -> ID, "expressao-chave", true); ?></span>
+                    </section>
+                    <section class="titulo">
+                      <h2>
+                        <span><?php the_title(); ?></span>
+                      </h2>
+                    </section>
                   </section>
                 </section>
-              </section>
-            </a>
+              </a>
+
+            <?php endwhile; else: ?>
+
+              <p>Nenhuma notícia foi publicada ainda.</p>
+
+            <?php endif; ?>
+
           </section>
 
           <section class="outras">
@@ -424,6 +434,7 @@
 
         <section class="tematicas">
           <section class="noticias">
+
             <a href="#" title="ONU: países de América Latina lideram índice de homicídios no mundo">
               <section class="noticia">
                 <section class="header-noticia">
