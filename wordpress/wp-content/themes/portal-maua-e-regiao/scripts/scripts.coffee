@@ -239,25 +239,31 @@ Portal.apps =
     titulosBoxCom1 = $ '.box-com-1 .noticia .titulo h2 span'
     titulosBoxCom2 = $ '.box-com-2 .noticia .titulo h2 span'
     outrosDestaques = $ '.destaque .titulo h3'
+    tituloFatosFotos = $ '.galerias .galeria .titulo'
 
     if titulosBoxCom3[0]
       for item in titulosBoxCom3
-        title = Portal.apps.diminuirTexto $(item).text(), 45
+        title = Portal.apps.diminuirTexto $(item).text().trim(), 45
         $(item).text title
 
     if titulosBoxCom1[0]
       for item in titulosBoxCom1
-        title = Portal.apps.diminuirTexto $(item).text(), 55
+        title = Portal.apps.diminuirTexto $(item).text().trim(), 55
         $(item).text title
 
     if titulosBoxCom2[0]
       for item in titulosBoxCom2
-        title = Portal.apps.diminuirTexto $(item).text(), 45
+        title = Portal.apps.diminuirTexto $(item).text().trim(), 45
         $(item).text title
 
     if outrosDestaques[0]
       for item in outrosDestaques
-        title = Portal.apps.diminuirTexto $(item).text(), 95
+        title = Portal.apps.diminuirTexto $(item).text().trim(), 95
+        $(item).text title
+
+    if tituloFatosFotos[0]
+      for item in tituloFatosFotos
+        title = Portal.apps.diminuirTexto $(item).text().trim(), 35
         $(item).text title
 
   corrigirTamanhoImagemDestaque: ->
