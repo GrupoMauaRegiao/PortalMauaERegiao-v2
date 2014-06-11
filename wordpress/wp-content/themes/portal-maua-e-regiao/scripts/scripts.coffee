@@ -238,8 +238,14 @@ Portal.apps =
     titulosBoxCom3 = $ '.box-com-3 .noticia .titulo h2 span'
     titulosBoxCom1 = $ '.box-com-1 .noticia .titulo h2 span'
     titulosBoxCom2 = $ '.box-com-2 .noticia .titulo h2 span'
+    noticiasDestacadas = $ '.destacadas .noticia .titulo h2 span'
     outrosDestaques = $ '.destaque .titulo h3'
     tituloFatosFotos = $ '.galerias .galeria .titulo'
+
+    if noticiasDestacadas[0]
+      for item in noticiasDestacadas
+        title = Portal.apps.diminuirTexto $(item).text().trim(), 38
+        $(item).text title
 
     if titulosBoxCom3[0]
       for item in titulosBoxCom3
