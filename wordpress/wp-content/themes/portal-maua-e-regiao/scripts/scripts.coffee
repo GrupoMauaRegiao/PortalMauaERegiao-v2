@@ -178,7 +178,7 @@ Portal.apps =
       containerTemperatura = $ '.temperatura'
       containerLocalidade = $ '.localidade'
 
-      navigator.geolocation.getCurrentPosition (posicao) ->
+      _success = (posicao) ->
         # Obtém a latitude e a longitude
         lt = posicao.coords.latitude
         lg = posicao.coords.longitude
@@ -188,7 +188,7 @@ Portal.apps =
           cidade = dados.results[0].address_components[3].short_name
 
           # Obtém informações sobre o clima conforme a cidade
-          $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + ',br&units=metric&lang=pt', (dados) ->
+          $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&units=metric&lang=pt', (dados) ->
             cidade = dados.name
             cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
             tempMax = dados.main.temp_max.toFixed()
@@ -225,6 +225,11 @@ Portal.apps =
             containerLocalidade.on 'mouseenter', _exibirNomeCompletoCidade
             containerLocalidade.on 'mouseleave', _exibirNomeCompactoCidade
         return
+
+      _error = (erro) ->
+        console.warn 'ERROR(' + erro.code + '): ' + erro.message
+
+      navigator.geolocation.getCurrentPosition _success, _error
 
     _adicionarPrevisaoDoTempo()
     return

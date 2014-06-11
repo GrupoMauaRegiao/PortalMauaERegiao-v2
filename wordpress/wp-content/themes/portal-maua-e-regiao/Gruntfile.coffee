@@ -35,6 +35,12 @@ module.exports = (grunt) ->
         files:
           'styles/styles.min.css': 'styles/styles.sass'
 
+    shell:
+      makeDeploy:
+        options:
+          stderr: false
+        command: './deployit.sh'
+
     watch:
       coffeelint:
         files: ['scripts/scripts.coffee']
@@ -42,15 +48,15 @@ module.exports = (grunt) ->
 
       coffee:
         files: ['scripts/scripts.coffee']
-        tasks: ['coffee']
-      
+        tasks: ['coffee', 'shell']
+
       jshintMin:
         files: ['scripts/scripts.js']
         tasks: ['jshint', 'min']
 
       sass:
         files: ['styles/styles.sass']
-        tasks: ['sass']
+        tasks: ['sass', 'shell']
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-coffeelint'
@@ -58,5 +64,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-yui-compressor'
   grunt.loadNpmTasks 'grunt-contrib-sass'
+  grunt.loadNpmTasks 'grunt-shell'
   grunt.registerTask 'all', ['watch']
   return

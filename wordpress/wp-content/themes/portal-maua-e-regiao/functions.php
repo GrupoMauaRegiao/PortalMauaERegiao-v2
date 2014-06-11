@@ -241,8 +241,8 @@ function post_type_noticia_destaque_esquerda_criar() {
     );
 
     $rewrite = array(
-            'front'=> 'destaque',
-            'structure'=>'%day%/%monthnum%/%year%/%destaque_esquerda%'
+            'front'=> 'noticia',
+            'structure'=>'%year%/%monthnum%/%day%/%destaque_esquerda%'
     );
 
     register_post_type_com_rewrite_rules("destaque_esquerda", $args, $rewrite);
@@ -394,8 +394,8 @@ function post_type_noticia_destaque_centro_criar() {
     );
 
     $rewrite = array(
-            'front'=> 'destaque',
-            'structure'=>'%day%/%monthnum%/%year%/%destaque_centro%'
+            'front'=> 'noticia',
+            'structure'=>'%year%/%monthnum%/%day%/%destaque_centro%'
     );
 
     register_post_type_com_rewrite_rules("destaque_centro", $args, $rewrite);
@@ -547,8 +547,8 @@ function post_type_noticia_destaque_direita_criar() {
     );
 
     $rewrite = array(
-            'front'=> 'destaque',
-            'structure'=>'%day%/%monthnum%/%year%/%destaque_direita%'
+            'front'=> 'noticia',
+            'structure'=>'%year%/%monthnum%/%day%/%destaque_direita%'
     );
 
     register_post_type_com_rewrite_rules("destaque_direita", $args, $rewrite);
@@ -700,8 +700,8 @@ function post_type_outros_destaques_criar() {
     );
 
     $rewrite = array(
-            'front'=> 'outros-destaques',
-            'structure'=>'%day%/%monthnum%/%year%/%outros_destaques%'
+            'front'=> 'noticia',
+            'structure'=>'%year%/%monthnum%/%day%/%outros_destaques%'
     );
 
     register_post_type_com_rewrite_rules("outros_destaques", $args, $rewrite);
@@ -802,8 +802,8 @@ function post_type_noticia_destacada_criar() {
     );
 
     $rewrite = array(
-            'front'=> 'noticia_destacada',
-            'structure'=>'%day%/%monthnum%/%year%/%noticia_destacada%'
+            'front'=> 'noticia',
+            'structure'=>'%year%/%monthnum%/%day%/%noticia_destacada%'
     );
 
     register_post_type_com_rewrite_rules("noticia_destacada", $args, $rewrite);
@@ -1938,10 +1938,10 @@ function post_type_fatos_e_fotos_criar() {
 
     $rewrite = array(
             'front'=> 'evento',
-            'structure'=>'%day%/%monthnum%/%year%/%fatos_e_fotos%'
+            'structure'=>'%year%/%monthnum%/%day%/%fatos_e_fotos%'
     );
 
-    register_post_type("fatos_e_fotos", $args, $rewrite);
+    register_post_type_com_rewrite_rules("fatos_e_fotos", $args, $rewrite);
 }
 
 // Campo: Capa (fundo, imagem maior)

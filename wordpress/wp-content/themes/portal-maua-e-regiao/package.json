@@ -11,7 +11,8 @@
     "grunt-contrib-coffee": "~0.10",
     "grunt-contrib-jshint": "~0.9",
     "grunt-yui-compressor": "~0.3",
-    "grunt-contrib-sass": "~0.7"
+    "grunt-contrib-sass": "~0.7",
+    "grunt-shell": "^0.7.0"
   },
   "repository": {
     "type": "git",
