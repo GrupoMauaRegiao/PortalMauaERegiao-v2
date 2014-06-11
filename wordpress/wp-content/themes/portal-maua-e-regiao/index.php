@@ -389,23 +389,32 @@
 
             <?php endif; ?>
 
-            <a href="#" title="Insatisfeitos, médicos e pacientes criam alternativas a plano de saúde">
-              <section class="noticia">
-                <section class="imagem">
-                  <img src="imagens/materias/materia9.jpg" alt="" title="">
-                </section>
-                <section class="informacoes">
-                  <section class="marca">
-                    <span>Crise</span>
+            <?php query_posts("order=desc&showposts=1&post_type=noticia_dstq_3"); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <section class="noticia">
+                  <section class="imagem">
+                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
                   </section>
-                  <section class="titulo">
-                    <h2>
-                      <span>Insatisfeitos, médicos e pacientes criam</span>
-                    </h2>
+                  <section class="informacoes">
+                    <section class="marca">
+                      <span><?php echo get_post_meta($post -> ID, "expressao-chave", true); ?></span>
+                    </section>
+                    <section class="titulo">
+                      <h2>
+                        <span><?php the_title(); ?></span>
+                      </h2>
+                    </section>
                   </section>
                 </section>
-              </section>
-            </a>
+              </a>
+
+            <?php endwhile; else: ?>
+
+              <p>Nenhuma notícia foi publicada ainda.</p>
+
+            <?php endif; ?>
 
             <!-- ///////////////// PUBLICIDADE ////////////////// -->
             <section class="publicidade">
