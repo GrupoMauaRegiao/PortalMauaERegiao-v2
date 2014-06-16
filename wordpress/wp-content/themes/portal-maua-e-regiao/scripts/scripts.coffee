@@ -238,12 +238,13 @@ Portal.apps =
     titulosBoxCom3 = $ '.box-com-3 .noticia .titulo h2 span'
     titulosBoxCom1 = $ '.box-com-1 .noticia .titulo h2 span'
     titulosBoxCom2 = $ '.box-com-2 .noticia .titulo h2 span'
-    noticiasDestacadas = $ '.destacadas .noticia .titulo h2 span'
-    outrosDestaques = $ '.destaque .titulo h3'
-    tituloFatosFotos = $ '.galerias .galeria .titulo'
+    titulosDestacadas = $ '.destacadas .noticia .titulo h2 span'
+    titulosOutrosDestaques = $ '.destaque .titulo h3'
+    titulosFatosFotos = $ '.galerias .galeria .titulo'
+    titulosTematicas = $ '.tematicas .noticia .titulo h2 span'
 
-    if noticiasDestacadas[0]
-      for item in noticiasDestacadas
+    if titulosDestacadas[0]
+      for item in titulosDestacadas
         title = Portal.apps.diminuirTexto $(item).text().trim(), 38
         $(item).text title
 
@@ -262,14 +263,19 @@ Portal.apps =
         title = Portal.apps.diminuirTexto $(item).text().trim(), 45
         $(item).text title
 
-    if outrosDestaques[0]
-      for item in outrosDestaques
+    if titulosOutrosDestaques[0]
+      for item in titulosOutrosDestaques
         title = Portal.apps.diminuirTexto $(item).text().trim(), 95
         $(item).text title
 
-    if tituloFatosFotos[0]
-      for item in tituloFatosFotos
+    if titulosFatosFotos[0]
+      for item in titulosFatosFotos
         title = Portal.apps.diminuirTexto $(item).text().trim(), 35
+        $(item).text title
+
+    if titulosTematicas[0]
+      for item in titulosTematicas
+        title = Portal.apps.diminuirTexto $(item).text().trim(), 66
         $(item).text title
 
   corrigirTamanhoImagemDestaque: ->
@@ -280,7 +286,7 @@ Portal.apps =
         if $(item).width() < 302
           $(item).css 'width', '302px'
 
-do ->
+window.onload = ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()

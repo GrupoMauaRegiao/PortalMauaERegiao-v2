@@ -58,6 +58,10 @@ module.exports = (grunt) ->
         files: ['styles/styles.sass']
         tasks: ['sass', 'shell']
 
+      phpsave:
+        files: ['*.php']
+        tasks: ['shell']
+
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-coffee'

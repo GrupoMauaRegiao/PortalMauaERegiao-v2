@@ -453,80 +453,39 @@
         <section class="tematicas">
           <section class="noticias">
 
-            <a href="#" title="ONU: países de América Latina lideram índice de homicídios no mundo">
-              <section class="noticia">
-                <section class="header-noticia">
-                  <section class="header">
-                    Brasil
-                  </section>
-                  <section class="decoracao">
-                    <section class="linha-grossa"></section>
-                    <section class="linha-fina"></section>
-                  </section>
-                </section>
+            <?php query_posts("order=desc&showposts=3&post_type=noticia&category_name=destaque"); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                <section class="imagem">
-                  <img src="imagens/materias/materia10.jpg" alt="" title="">
-                </section>
-                <section class="informacoes">
-                  <section class="titulo">
-                    <h2>
-                      <span>ONU: países de América Latina lideram índice de homicídios no mundo</span>
-                    </h2>
+              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <section class="noticia">
+                  <section class="header-noticia">
+                    <section class="header">
+                      <?php echo categoria_noticia(); ?>
+                    </section>
+                    <section class="decoracao">
+                      <section class="linha-grossa"></section>
+                      <section class="linha-fina"></section>
+                    </section>
                   </section>
-                </section>
-              </section>
-            </a>
 
-            <a href="#" title="Tempo está se esgotando para reduzir aquecimento global, diz estudo da ONU">
-              <section class="noticia">
-                <section class="header-noticia">
-                  <section class="header">
-                    Meio Ambiente
+                  <section class="imagem">
+                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
                   </section>
-                  <section class="decoracao">
-                    <section class="linha-grossa"></section>
-                    <section class="linha-fina"></section>
+                  <section class="informacoes">
+                    <section class="titulo">
+                      <h2>
+                        <span><?php the_title(); ?></span>
+                      </h2>
+                    </section>
                   </section>
                 </section>
+              </a>
 
-                <section class="imagem">
-                  <img src="imagens/materias/materia11.jpg" alt="" title="">
-                </section>
-                <section class="informacoes">
-                  <section class="titulo">
-                    <h2>
-                      <span>Tempo está se esgotando para reduzir aquecimento global, diz estudo da ONU</span>
-                    </h2>
-                  </section>
-                </section>
-              </section>
-            </a>
+            <?php endwhile; else: ?>
 
-            <a href="#" title="Facebook vai esconder posts que pedem curtidas e compartilhamentos">
-              <section class="noticia">
-                <section class="header-noticia">
-                  <section class="header">
-                    Tecnologia
-                  </section>
-                  <section class="decoracao">
-                    <section class="linha-grossa"></section>
-                    <section class="linha-fina"></section>
-                  </section>
-                </section>
+              <p>Nenhuma notícia foi publicada ainda.</p>
 
-                <section class="imagem">
-                  <img src="imagens/materias/materia12.jpg" alt="" title="">
-                </section>
-                <section class="informacoes">
-                  <section class="titulo">
-                    <h2>
-                      <span>Facebook vai esconder posts que pedem curtidas e compartilhamentos</span>
-                    </h2>
-                  </section>
-                </section>
-              </section>
-            </a>
+            <?php endif; ?>
           </section>
         </section>
       </section>
