@@ -6,6 +6,23 @@
 $tamanhoLayout: 1000px
 $areaUtilLayout: 950px
 
+// Pace theme: minimal
+.pace .pace-progress
+  background: $azul
+  position: fixed
+  z-index: 2000
+  top: 0
+  left: 0
+  height: 2px
+  box-shadow: 0 2px 10px $cinzaTituloMat
+  -webkit-transition: width 1s
+  -moz-transition: width 1s
+  -o-transition: width 1s
+  transition: width 1s
+
+.pace-inactive
+  display: none
+
 @mixin decoracaoHeader($total, $linhaGrossa, $corGrossa, $corFina)
   .decoracao
     width: $total

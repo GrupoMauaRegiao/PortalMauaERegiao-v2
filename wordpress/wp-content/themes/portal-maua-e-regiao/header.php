@@ -2,11 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8">
+
+    <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/pace.min.js"></script>
+    <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/pace.config.js"></script>
+
     <meta name="keywords" content="portal maua e regiao, maua e regiao, maua, portal maua, noticias, ultimas noticias, qualidade, melhor, website maua, melhor website, melhor site, ribeirao pires, rio grande da serra, noticias de ribeirao pires, noticias de rio grande da serra, santo andre, noticias de santo andre, portal de noticias do abc, abc sao paulo, sao paulo abc">
     <meta name="description" content="Portal de notícias do Grupo Mauá e Região de Comunicação">
     <meta name="author" content="Grupo Mauá e Região de Comunicação">
+
     <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/imagens/favicon.ico">
     <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/styles.min.css">
+
     <title>Portal Mauá e Região</title>
   </head>
   <body>
