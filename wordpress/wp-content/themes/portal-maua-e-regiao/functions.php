@@ -2523,4 +2523,37 @@ function categoria_noticia() {
   $categorias = get_the_category();
   return $categorias[1] -> name;
 }
+
+function limitar_titulos() {
+  global $current_screen;
+  $tipo_post = $current_screen -> post_type;
+  $scripts = get_template_directory_uri() . "\/scripts\/scripts.js";
+  $limites = array(
+      0 => array("destaque_esquerda", 40),
+      1 => array("destaque_centro", 50),
+      2 => array("destaque_direita", 40),
+      3 => array("outros_destaques", 70),
+      4 => array("noticia_destacada", 50),
+      5 => array("noticia_dstq_2", 80),
+      6 => array("noticia_dstq_3", 40),
+      7 => array("noticia", 70),
+      8 => array("fatos_e_fotos", 40)
+  );
+
+  echo "<script src='$scripts'></script>";
+
+  for ($i = 0; $i <= count($limites); $i += 1) {
+    if ($tipo_post == $limites[$i][0]) {
+      echo "
+        <script>
+          window.onload = function () {
+            Portal.apps.limitarCaracteresTitulo(" . $limites[$i][1] . ");
+          };
+        </script>";
+    }
+  }
+}
+
+add_action('admin_footer', 'limitar_titulos');
+
 ?>

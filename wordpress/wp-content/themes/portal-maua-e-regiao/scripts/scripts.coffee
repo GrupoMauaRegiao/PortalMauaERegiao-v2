@@ -234,50 +234,6 @@ Portal.apps =
     _adicionarPrevisaoDoTempo()
     return
 
-  diminuirTitulo: ->
-    titulosBoxCom3 = $ '.box-com-3 .noticia .titulo h2 span'
-    titulosBoxCom1 = $ '.box-com-1 .noticia .titulo h2 span'
-    titulosBoxCom2 = $ '.box-com-2 .noticia .titulo h2 span'
-    titulosDestacadas = $ '.destacadas .noticia .titulo h2 span'
-    titulosOutrosDestaques = $ '.destaque .titulo h3'
-    titulosFatosFotos = $ '.galerias .galeria .titulo'
-    titulosTematicas = $ '.tematicas .noticia .titulo h2 span'
-
-    if titulosDestacadas[0]
-      for item in titulosDestacadas
-        title = Portal.apps.diminuirTexto $(item).text().trim(), 38
-        $(item).text title
-
-    if titulosBoxCom3[0]
-      for item in titulosBoxCom3
-        title = Portal.apps.diminuirTexto $(item).text().trim(), 45
-        $(item).text title
-
-    if titulosBoxCom1[0]
-      for item in titulosBoxCom1
-        title = Portal.apps.diminuirTexto $(item).text().trim(), 55
-        $(item).text title
-
-    if titulosBoxCom2[0]
-      for item in titulosBoxCom2
-        title = Portal.apps.diminuirTexto $(item).text().trim(), 45
-        $(item).text title
-
-    if titulosOutrosDestaques[0]
-      for item in titulosOutrosDestaques
-        title = Portal.apps.diminuirTexto $(item).text().trim(), 95
-        $(item).text title
-
-    if titulosFatosFotos[0]
-      for item in titulosFatosFotos
-        title = Portal.apps.diminuirTexto $(item).text().trim(), 35
-        $(item).text title
-
-    if titulosTematicas[0]
-      for item in titulosTematicas
-        title = Portal.apps.diminuirTexto $(item).text().trim(), 66
-        $(item).text title
-
   corrigirTamanhoImagemDestaque: ->
     imagens = $ '.box-com-3 .noticia .imagem img'
 
@@ -286,11 +242,17 @@ Portal.apps =
         if $(item).width() < 302
           $(item).css 'width', '302px'
 
+  limitarCaracteresTitulo: (limite) ->
+    jQuery('[name="post_title"]').on 'keyup', ->
+      $this = jQuery this
+
+      if $this.val().length > limite
+        $this.val $this.val().substr 0, limite
+
 window.onload = ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
   Portal.apps.previsaoDoTempo()
-  Portal.apps.diminuirTitulo()
   Portal.apps.corrigirTamanhoImagemDestaque()
   return
