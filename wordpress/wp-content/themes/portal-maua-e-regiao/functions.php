@@ -2524,7 +2524,7 @@ function categoria_noticia() {
   return $categorias[1] -> name;
 }
 
-function limitar_titulos() {
+function limitar_caracteres_titulos() {
   global $current_screen;
   $tipo_post = $current_screen -> post_type;
   $scripts = get_template_directory_uri() . "\/scripts\/scripts.js";
@@ -2547,13 +2547,13 @@ function limitar_titulos() {
       echo "
         <script>
           window.onload = function () {
-            Portal.apps.limitarCaracteresTitulo(" . $limites[$i][1] . ");
+            Portal.apps.limitarCaracteresTitulos(" . $limites[$i][1] . ");
           };
         </script>";
     }
   }
 }
 
-add_action('admin_footer', 'limitar_titulos');
+add_action('admin_footer', 'limitar_caracteres_titulos');
 
 ?>

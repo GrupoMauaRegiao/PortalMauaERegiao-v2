@@ -242,7 +242,7 @@ Portal.apps =
         if $(item).width() < 302
           $(item).css 'width', '302px'
 
-  limitarCaracteresTitulo: (limite) ->
+  limitarCaracteresTitulos: (limite) ->
     jQuery('[name="post_title"]').on 'keyup', ->
       $this = jQuery this
 
