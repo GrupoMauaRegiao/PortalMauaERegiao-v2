@@ -2533,9 +2533,9 @@ function limitar_caracteres_titulos() {
       1 => array("destaque_centro", 50),
       2 => array("destaque_direita", 40),
       3 => array("outros_destaques", 70),
-      4 => array("noticia_destacada", 50),
-      5 => array("noticia_dstq_2", 80),
-      6 => array("noticia_dstq_3", 40),
+      4 => array("noticia_destacada", 45),
+      5 => array("noticia_dstq_2", 40),
+      6 => array("noticia_dstq_3", 30),
       7 => array("noticia", 70),
       8 => array("fatos_e_fotos", 40)
   );
