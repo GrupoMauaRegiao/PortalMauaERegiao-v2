@@ -354,11 +354,11 @@ add_action("save_post", "meta_box_noticia_destaque_3_itens_expressao_chave_salva
 add_action("add_meta_boxes", "meta_box_noticia_destaque_3_itens_imagem_adicionar");
 add_action("save_post", "meta_box_noticia_destaque_3_itens_imagem_salvar");
 
-// post_type: noticia_destaque_centro
-function post_type_noticia_destaque_centro_criar() {
+// post_type: noticia_destaque_1_item
+function post_type_noticia_destaque_1_item_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque [centro]", "post type general name"),
-            "singular_name" => _x("Notícia Destaque [centro]", "post type singular name"),
+            "name" => _x("Notícia Destaque com 1", "post type general name"),
+            "singular_name" => _x("Notícia Destaque com 1", "post type singular name"),
             "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
             "add_new_item" => __("Adicionar Nova Notícia Destaque"),
             "edit_item" => __("Editar Notícia Destaque"),
@@ -369,7 +369,7 @@ function post_type_noticia_destaque_centro_criar() {
             "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque [centro]"
+            "menu_name" => "Notícia Destaque com 1"
     );
 
     $args = array(
@@ -395,25 +395,25 @@ function post_type_noticia_destaque_centro_criar() {
 
     $rewrite = array(
             'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%destaque_centro%'
+            'structure'=>'%year%/%monthnum%/%day%/%destaque_1_item%'
     );
 
-    register_post_type_com_rewrite_rules("destaque_centro", $args, $rewrite);
+    register_post_type_com_rewrite_rules("destaque_1_item", $args, $rewrite);
 }
 
 // Campo: Expressão-chave
-function meta_box_noticia_destaque_centro_expressao_chave_adicionar() {
+function meta_box_noticia_destaque_1_item_expressao_chave_adicionar() {
     add_meta_box(
-            "meta_box_noticia_destaque_centro_expressao_chave_id",
+            "meta_box_noticia_destaque_1_item_expressao_chave_id",
             "Expressão-chave",
-            "meta_box_noticia_destaque_centro_expressao_chave",
-            "destaque_centro",
+            "meta_box_noticia_destaque_1_item_expressao_chave",
+            "destaque_1_item",
             "normal",
             "high"
     );
 }
 
-function meta_box_noticia_destaque_centro_expressao_chave() {
+function meta_box_noticia_destaque_1_item_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
@@ -428,7 +428,7 @@ function meta_box_noticia_destaque_centro_expressao_chave() {
     ";
 }
 
-function meta_box_noticia_destaque_centro_expressao_chave_salvar($post_id) {
+function meta_box_noticia_destaque_1_item_expressao_chave_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -451,18 +451,18 @@ function meta_box_noticia_destaque_centro_expressao_chave_salvar($post_id) {
 }
 
 // Campo: Imagem
-function meta_box_noticia_destaque_centro_imagem_adicionar() {
+function meta_box_noticia_destaque_1_item_imagem_adicionar() {
     add_meta_box(
-            "meta_box_noticia_destaque_centro_imagem_id",
+            "meta_box_noticia_destaque_1_item_imagem_id",
             "Imagem",
-            "meta_box_noticia_destaque_centro_imagem",
-            "destaque_centro",
+            "meta_box_noticia_destaque_1_item_imagem",
+            "destaque_1_item",
             "normal",
             "high"
     );
 }
 
-function meta_box_noticia_destaque_centro_imagem() {
+function meta_box_noticia_destaque_1_item_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
@@ -479,7 +479,7 @@ function meta_box_noticia_destaque_centro_imagem() {
     ";
 }
 
-function meta_box_noticia_destaque_centro_imagem_salvar($post_id) {
+function meta_box_noticia_destaque_1_item_imagem_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -501,11 +501,11 @@ function meta_box_noticia_destaque_centro_imagem_salvar($post_id) {
     }
 }
 
-add_action("init", "post_type_noticia_destaque_centro_criar");
-add_action("add_meta_boxes", "meta_box_noticia_destaque_centro_expressao_chave_adicionar");
-add_action("save_post", "meta_box_noticia_destaque_centro_expressao_chave_salvar");
-add_action("add_meta_boxes", "meta_box_noticia_destaque_centro_imagem_adicionar");
-add_action("save_post", "meta_box_noticia_destaque_centro_imagem_salvar");
+add_action("init", "post_type_noticia_destaque_1_item_criar");
+add_action("add_meta_boxes", "meta_box_noticia_destaque_1_item_expressao_chave_adicionar");
+add_action("save_post", "meta_box_noticia_destaque_1_item_expressao_chave_salvar");
+add_action("add_meta_boxes", "meta_box_noticia_destaque_1_item_imagem_adicionar");
+add_action("save_post", "meta_box_noticia_destaque_1_item_imagem_salvar");
 
 // post_type: noticia_destaque_direita
 function post_type_noticia_destaque_direita_criar() {
@@ -2530,7 +2530,7 @@ function limitar_caracteres_titulos() {
   $scripts = get_template_directory_uri() . "\/scripts\/scripts.js";
   $limites = array(
       0 => array("destaque_3_itens", 40),
-      1 => array("destaque_centro", 50),
+      1 => array("destaque_1_item", 50),
       2 => array("destaque_direita", 40),
       3 => array("outros_destaques", 70),
       4 => array("noticia_destacada", 45),
