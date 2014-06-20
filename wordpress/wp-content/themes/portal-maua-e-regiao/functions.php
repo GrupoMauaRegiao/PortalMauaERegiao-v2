@@ -507,8 +507,8 @@ add_action("save_post", "meta_box_noticia_destaque_1_item_expressao_chave_salvar
 add_action("add_meta_boxes", "meta_box_noticia_destaque_1_item_imagem_adicionar");
 add_action("save_post", "meta_box_noticia_destaque_1_item_imagem_salvar");
 
-// post_type: noticia_destaque_direita
-function post_type_noticia_destaque_direita_criar() {
+// post_type: noticia_destaque_2_itens
+function post_type_noticia_destaque_2_itens_criar() {
     $labels = array(
             "name" => _x("Notícia Destaque [direita]", "post type general name"),
             "singular_name" => _x("Notícia Destaque [direita]", "post type singular name"),
@@ -548,25 +548,25 @@ function post_type_noticia_destaque_direita_criar() {
 
     $rewrite = array(
             'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%destaque_direita%'
+            'structure'=>'%year%/%monthnum%/%day%/%destaque_2_itens%'
     );
 
-    register_post_type_com_rewrite_rules("destaque_direita", $args, $rewrite);
+    register_post_type_com_rewrite_rules("destaque_2_itens", $args, $rewrite);
 }
 
 // Campo: Expressão-chave
-function meta_box_noticia_destaque_direita_expressao_chave_adicionar() {
+function meta_box_noticia_destaque_2_itens_expressao_chave_adicionar() {
     add_meta_box(
-            "meta_box_noticia_destaque_direita_expressao_chave_id",
+            "meta_box_noticia_destaque_2_itens_expressao_chave_id",
             "Expressão-chave",
-            "meta_box_noticia_destaque_direita_expressao_chave",
-            "destaque_direita",
+            "meta_box_noticia_destaque_2_itens_expressao_chave",
+            "destaque_2_itens",
             "normal",
             "high"
     );
 }
 
-function meta_box_noticia_destaque_direita_expressao_chave() {
+function meta_box_noticia_destaque_2_itens_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
@@ -581,7 +581,7 @@ function meta_box_noticia_destaque_direita_expressao_chave() {
     ";
 }
 
-function meta_box_noticia_destaque_direita_expressao_chave_salvar($post_id) {
+function meta_box_noticia_destaque_2_itens_expressao_chave_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -604,18 +604,18 @@ function meta_box_noticia_destaque_direita_expressao_chave_salvar($post_id) {
 }
 
 // Campo: Imagem
-function meta_box_noticia_destaque_direita_imagem_adicionar() {
+function meta_box_noticia_destaque_2_itens_imagem_adicionar() {
     add_meta_box(
-            "meta_box_noticia_destaque_direita_imagem_id",
+            "meta_box_noticia_destaque_2_itens_imagem_id",
             "Imagem",
-            "meta_box_noticia_destaque_direita_imagem",
-            "destaque_direita",
+            "meta_box_noticia_destaque_2_itens_imagem",
+            "destaque_2_itens",
             "normal",
             "high"
     );
 }
 
-function meta_box_noticia_destaque_direita_imagem() {
+function meta_box_noticia_destaque_2_itens_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
@@ -632,7 +632,7 @@ function meta_box_noticia_destaque_direita_imagem() {
     ";
 }
 
-function meta_box_noticia_destaque_direita_imagem_salvar($post_id) {
+function meta_box_noticia_destaque_2_itens_imagem_salvar($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
@@ -654,11 +654,11 @@ function meta_box_noticia_destaque_direita_imagem_salvar($post_id) {
     }
 }
 
-add_action("init", "post_type_noticia_destaque_direita_criar");
-add_action("add_meta_boxes", "meta_box_noticia_destaque_direita_expressao_chave_adicionar");
-add_action("save_post", "meta_box_noticia_destaque_direita_expressao_chave_salvar");
-add_action("add_meta_boxes", "meta_box_noticia_destaque_direita_imagem_adicionar");
-add_action("save_post", "meta_box_noticia_destaque_direita_imagem_salvar");
+add_action("init", "post_type_noticia_destaque_2_itens_criar");
+add_action("add_meta_boxes", "meta_box_noticia_destaque_2_itens_expressao_chave_adicionar");
+add_action("save_post", "meta_box_noticia_destaque_2_itens_expressao_chave_salvar");
+add_action("add_meta_boxes", "meta_box_noticia_destaque_2_itens_imagem_adicionar");
+add_action("save_post", "meta_box_noticia_destaque_2_itens_imagem_salvar");
 
 // post_type: outros_destaques
 function post_type_outros_destaques_criar() {
@@ -2531,7 +2531,7 @@ function limitar_caracteres_titulos() {
   $limites = array(
       0 => array("destaque_3_itens", 40),
       1 => array("destaque_1_item", 50),
-      2 => array("destaque_direita", 40),
+      2 => array("destaque_2_itens", 40),
       3 => array("outros_destaques", 70),
       4 => array("noticia_destacada", 45),
       5 => array("noticia_dstq_2", 40),
