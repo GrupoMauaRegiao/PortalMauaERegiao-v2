@@ -663,8 +663,8 @@ add_action("save_post", "meta_box_noticia_destaque_2_itens_imagem_salvar");
 // post_type: outros_destaques
 function post_type_outros_destaques_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque [outros]", "post type general name"),
-            "singular_name" => _x("Notícia Destaque [outros]", "post type singular name"),
+            "name" => _x("Outros Destaques", "post type general name"),
+            "singular_name" => _x("Outros Destaques", "post type singular name"),
             "add_new" => _x("Adicionar Destaque", "jornal"),
             "add_new_item" => __("Adicionar Novo Destaque"),
             "edit_item" => __("Editar Destaque"),
@@ -675,7 +675,7 @@ function post_type_outros_destaques_criar() {
             "not_found" => __("Nenhum Destaque Encontrado"),
             "not_found_in_trash" => __("Nenhum Destaque Encontrado na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque [outros]"
+            "menu_name" => "Outros Destaques"
     );
 
     $args = array(
