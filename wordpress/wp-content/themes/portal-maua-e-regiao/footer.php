@@ -59,6 +59,7 @@
     <?php wp_reset_query(); ?>
     <?php wp_footer(); ?>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jquery-2.1.1.min.js"></script>
+    <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jquery.iecors.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jPages.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/scripts.js"></script>
 

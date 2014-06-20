@@ -498,7 +498,7 @@
 
         <section class="publicidades">
 
-          <?php query_posts("orderby=rand&showposts=5&post_type=pub_210_x_130"); ?>
+          <?php query_posts("orderby=rand&showposts=4&post_type=pub_210_x_130"); ?>
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
             <section class="publicidade">

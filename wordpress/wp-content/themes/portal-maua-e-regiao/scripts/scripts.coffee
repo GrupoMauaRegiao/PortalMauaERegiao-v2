@@ -109,6 +109,20 @@ Portal.apps =
 
       botao.on 'click', _apagar
 
+  removerAcentos: (texto) ->
+    mapa =
+        a : /[\xE0-\xE6]/g
+        e : /[\xE8-\xEB]/g
+        i : /[\xEC-\xEF]/g
+        o : /[\xF2-\xF6]/g
+        u : /[\xF9-\xFC]/g
+        c : /\xE7/g
+        n : /\xF1/g
+
+    for letra of mapa
+      texto = texto.replace mapa[letra], letra
+    texto
+
   diminuirTexto: (texto, max) ->
     indicador = "…"
 
@@ -184,11 +198,22 @@ Portal.apps =
         lg = posicao.coords.longitude
 
         # Obtém o nome da cidade conforme a latitude e a longitude
-        $.getJSON 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lt + ',' + lg, (dados) ->
+        $.ajax {
+          url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lt + ',' + lg
+          dataType: 'json'
+        }
+        .done (dados) ->
           cidade = dados.results[0].address_components[3].short_name
 
           # Obtém informações sobre o clima conforme a cidade
-          $.getJSON 'http://api.openweathermap.org/data/2.5/weather?q=' + cidade + '&units=metric&lang=pt', (dados) ->
+          $.ajax {
+            url: 'http://api.openweathermap.org/data/2.5/weather?' +
+                'q=' + Portal.apps.removerAcentos(cidade) + ',brasil&' +
+                'units=metric&' +
+                'lang=pt'
+            dataType: 'json'
+          }
+          .done (dados) ->
             cidade = dados.name
             cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
             tempMax = dados.main.temp_max.toFixed()
@@ -197,19 +222,12 @@ Portal.apps =
             clima = dados.weather[0].description
             vento = dados.wind.speed
 
-            # Corrige texto sobre "nuvens quebrados"
-            if clima is 'nuvens quebrados'
-              clima = 'muitas nuvens'
-
-            # Corrige temperatura quando ambas (máxima e mínima) forem iguais
-            if tempMin is tempMax
-              tempMin = tempMin - 1
-
             icone.css 'background', 'url("http://openweathermap.org/img/w/' + codIcone + '.png") no-repeat'
-            container.attr 'title', 'Descrição: ' + clima +
+            container.attr 'title', 'Descrição: ' + clima.toLowerCase() +
                                     ' com ' + converterBeauFort(vento) +
                                     ' em ' + cidade + '.' +
-                                    ' Máxima: ' + tempMax + '°, Mínima: ' + tempMin + '°'
+                                    ' Máxima: ' + tempMax + '°,' +
+                                    ' Mínima: ' + tempMin + '°'
             containerTemperatura.html tempMax + '°, ' + tempMin + '° '
             containerLocalidade.html cidadeCompacto
 
@@ -224,12 +242,24 @@ Portal.apps =
 
             containerLocalidade.on 'mouseenter', _exibirNomeCompletoCidade
             containerLocalidade.on 'mouseleave', _exibirNomeCompactoCidade
+            return
+
+          .fail (jqxhr, status, error) ->
+            err = 'Status: ' + status + ', Erro: ' + error
+            console.warn err
+
+        .fail (jqxhr, status, error) ->
+          err = 'Status: ' + status + ', Erro: ' + error
+          console.warn err
         return
 
       _error = (erro) ->
-        console.warn 'ERROR(' + erro.code + '): ' + erro.message
+        console.warn 'Erro: ' + erro.code + ', Mensagem: ' + erro.message
 
-      navigator.geolocation.getCurrentPosition _success, _error
+      _options =
+        maximumAge: 75000
+
+      navigator.geolocation.getCurrentPosition _success, _error, _options
 
     _adicionarPrevisaoDoTempo()
     return
@@ -243,8 +273,11 @@ Portal.apps =
           $(item).css 'width', '302px'
 
   limitarCaracteresTitulos: (limite) ->
+    textoTitulo = document.title
+
     jQuery('[name="post_title"]').on 'keyup', ->
       $this = jQuery this
+      document.title = '(' + $this.val().length + ' de ' + limite + ' caracteres) ' + textoTitulo
 
       if $this.val().length > limite
         $this.val $this.val().substr 0, limite
