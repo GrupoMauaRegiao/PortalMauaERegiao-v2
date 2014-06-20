@@ -58,7 +58,11 @@ Portal.apps =
 
       botao.on 'click', (evt) ->
         xhr = new XMLHttpRequest()
-        regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+        regexEmail = ///
+            ^([a-zA-Z0-9_\.\-])
+            +\@(([a-zA-Z0-9\-])
+            +\.)+([a-zA-Z0-9]{2,4})+$
+        ///
         msg = ''
 
         if cNome.value isnt ''
@@ -135,12 +139,14 @@ Portal.apps =
       texto = texto
     texto
 
-  previsaoDoTempo: ->
-    # Implementa previsão do tempo no header da página com:
-    # Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
-    # Fonte da escala: http://pt.wikipedia.org/wiki/Escala_de_Beaufort
+  obterPrevisaoDoTempo: (cidade) ->
+    container = $ '.elementos'
+    imagemLoading = $ '.loading'
+    icone = $ '.previsao-do-tempo .icone'
+    containerTemperatura = $ '.temperatura'
+    containerLocalidade = $ '.localidade'
 
-    converterBeauFort = (velocidade) ->
+    _converterBeauFort = (velocidade) ->
       tipoVento =
           'calmo': 'calmo'
           'aragem': 'aragem'
@@ -182,16 +188,58 @@ Portal.apps =
         vento = tipoVento.tempestadeViolenta
       else if velocidade >= 32.7
         vento = tipoVento.furacao
-
       vento
 
-    _adicionarPrevisaoDoTempo = ->
-      container = $ '.elementos'
-      imagemLoading = $ '.loading'
-      icone = $ '.previsao-do-tempo .icone'
-      containerTemperatura = $ '.temperatura'
-      containerLocalidade = $ '.localidade'
+    # Obtém informações sobre o clima conforme a cidade
+    $.ajax {
+      url: 'http://api.openweathermap.org/data/2.5/weather?' +
+          'q=' + Portal.apps.removerAcentos(cidade) + ',brasil&' +
+          'units=metric&' +
+          'lang=pt'
+      dataType: 'json'
+    }
+    .done (dados) ->
+      cidade = dados.name
+      cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
+      tempMax = dados.main.temp_max.toFixed()
+      tempMin = dados.main.temp_min.toFixed()
+      codIcone = dados.weather[0].icon
+      clima = dados.weather[0].description
+      vento = dados.wind.speed
+      urlIcone = 'http://openweathermap.org/img/w/' + codIcone + '.png'
 
+      # Corrige temperatura quando ambas (máxima e mínima) forem iguais
+      if tempMin is tempMax
+        tempMin = tempMin - 1
+
+      icone.css 'background', 'url(' + urlIcone + ') no-repeat'
+      container.attr 'title', 'Descrição: ' + clima.toLowerCase() +
+                              ' com ' + _converterBeauFort(vento) +
+                              ' em ' + cidade + '.' +
+                              ' Máxima: ' + tempMax + '°,' +
+                              ' Mínima: ' + tempMin + '°'
+      containerTemperatura.html tempMax + '°, ' + tempMin + '° '
+      containerLocalidade.html cidadeCompacto
+
+      imagemLoading.addClass 'esconder'
+      container.removeClass 'esconder'
+
+      _exibirNomeCompletoCidade = (e) ->
+        containerLocalidade.html cidade
+
+      _exibirNomeCompactoCidade = (e) ->
+        containerLocalidade.html cidadeCompacto
+
+      containerLocalidade.on 'mouseenter', _exibirNomeCompletoCidade
+      containerLocalidade.on 'mouseleave', _exibirNomeCompactoCidade
+      return
+
+  previsaoDoTempo: ->
+    # Implementa previsão do tempo no header da página com:
+    # Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
+    # Fonte da escala: http://pt.wikipedia.org/wiki/Escala_de_Beaufort
+
+    _adicionarPrevisaoDoTempo = ->
       _success = (posicao) ->
         # Obtém a latitude e a longitude
         lt = posicao.coords.latitude
@@ -199,62 +247,17 @@ Portal.apps =
 
         # Obtém o nome da cidade conforme a latitude e a longitude
         $.ajax {
-          url: 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + lt + ',' + lg
+          url: 'http://maps.googleapis.com/maps/api/geocode/json?' +
+               'latlng=' + lt + ',' + lg
           dataType: 'json'
         }
         .done (dados) ->
           cidade = dados.results[0].address_components[3].short_name
-
-          # Obtém informações sobre o clima conforme a cidade
-          $.ajax {
-            url: 'http://api.openweathermap.org/data/2.5/weather?' +
-                'q=' + Portal.apps.removerAcentos(cidade) + ',brasil&' +
-                'units=metric&' +
-                'lang=pt'
-            dataType: 'json'
-          }
-          .done (dados) ->
-            cidade = dados.name
-            cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
-            tempMax = dados.main.temp_max.toFixed()
-            tempMin = dados.main.temp_min.toFixed()
-            codIcone = dados.weather[0].icon
-            clima = dados.weather[0].description
-            vento = dados.wind.speed
-
-            icone.css 'background', 'url("http://openweathermap.org/img/w/' + codIcone + '.png") no-repeat'
-            container.attr 'title', 'Descrição: ' + clima.toLowerCase() +
-                                    ' com ' + converterBeauFort(vento) +
-                                    ' em ' + cidade + '.' +
-                                    ' Máxima: ' + tempMax + '°,' +
-                                    ' Mínima: ' + tempMin + '°'
-            containerTemperatura.html tempMax + '°, ' + tempMin + '° '
-            containerLocalidade.html cidadeCompacto
-
-            imagemLoading.addClass 'esconder'
-            container.removeClass 'esconder'
-
-            _exibirNomeCompletoCidade = (e) ->
-              containerLocalidade.html cidade
-
-            _exibirNomeCompactoCidade = (e) ->
-              containerLocalidade.html cidadeCompacto
-
-            containerLocalidade.on 'mouseenter', _exibirNomeCompletoCidade
-            containerLocalidade.on 'mouseleave', _exibirNomeCompactoCidade
-            return
-
-          .fail (jqxhr, status, error) ->
-            err = 'Status: ' + status + ', Erro: ' + error
-            console.warn err
-
-        .fail (jqxhr, status, error) ->
-          err = 'Status: ' + status + ', Erro: ' + error
-          console.warn err
+          Portal.apps.obterPrevisaoDoTempo cidade
         return
 
       _error = (erro) ->
-        console.warn 'Erro: ' + erro.code + ', Mensagem: ' + erro.message
+        Portal.apps.obterPrevisaoDoTempo 'Maua'
 
       _options =
         maximumAge: 75000
@@ -277,7 +280,8 @@ Portal.apps =
 
     jQuery('[name="post_title"]').on 'keyup', ->
       $this = jQuery this
-      document.title = '(' + $this.val().length + ' de ' + limite + ' caracteres) ' + textoTitulo
+      document.title = '(' + $this.val().length +
+                       ' de ' + limite + ' caracteres) ' + textoTitulo
 
       if $this.val().length > limite
         $this.val $this.val().substr 0, limite

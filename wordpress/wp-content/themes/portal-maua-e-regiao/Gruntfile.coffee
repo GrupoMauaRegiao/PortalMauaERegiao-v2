@@ -48,17 +48,17 @@ module.exports = (grunt) ->
 
       coffee:
         files: ['scripts/scripts.coffee']
-        tasks: ['coffee', 'shell']
+        tasks: ['coffee']
 
       jshintMin:
         files: ['scripts/scripts.js']
-        tasks: ['jshint', 'min']
+        tasks: ['jshint', 'min', 'shell']
 
       sass:
         files: ['styles/styles.sass']
         tasks: ['sass', 'shell']
 
-      phpsave:
+      php:
         files: ['*.php']
         tasks: ['shell']
 
