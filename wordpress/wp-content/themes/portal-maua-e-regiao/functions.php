@@ -52,7 +52,7 @@ function meta_box_revista() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["iframe-issuu"]) ? esc_attr($campos["iframe-issuu"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -63,15 +63,15 @@ function meta_box_revista() {
 }
 
 function meta_box_revista_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
@@ -85,12 +85,12 @@ function meta_box_revista_salvar($post_id) {
             )
     );
 
-    if (isset($_POST['iframe-issuu'])) {
+    if (isset($_POST["iframe-issuu"])) {
         update_post_meta(
                 $post_id,
-                'iframe-issuu',
+                "iframe-issuu",
                 wp_kses(
-                        $_POST['iframe-issuu'],
+                        $_POST["iframe-issuu"],
                         $tags_permitidas
                 )
         );
@@ -152,7 +152,7 @@ function meta_box_jornal() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["iframe-issuu"]) ? esc_attr($campos["iframe-issuu"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -163,15 +163,15 @@ function meta_box_jornal() {
 }
 
 function meta_box_jornal_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
@@ -185,12 +185,12 @@ function meta_box_jornal_salvar($post_id) {
             )
     );
 
-    if (isset($_POST['iframe-issuu'])) {
+    if (isset($_POST["iframe-issuu"])) {
         update_post_meta(
                 $post_id,
-                'iframe-issuu',
+                "iframe-issuu",
                 wp_kses(
-                        $_POST['iframe-issuu'],
+                        $_POST["iframe-issuu"],
                         $tags_permitidas
                 )
         );
@@ -237,12 +237,12 @@ function post_type_noticia_destaque_3_itens_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%destaque_3_itens%'
+            "front" => "destaques---",
+            "structure" => "%year%/%monthnum%/%day%/%destaque_3_itens%"
     );
 
     register_post_type_com_rewrite_rules("destaque_3_itens", $args, $rewrite);
@@ -264,7 +264,7 @@ function meta_box_noticia_destaque_3_itens_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -276,23 +276,23 @@ function meta_box_noticia_destaque_3_itens_expressao_chave() {
 }
 
 function meta_box_noticia_destaque_3_itens_expressao_chave_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['expressao-chave'])) {
+    if (isset($_POST["expressao-chave"])) {
         update_post_meta(
                 $post_id,
-                'expressao-chave',
-                $_POST['expressao-chave']
+                "expressao-chave",
+                $_POST["expressao-chave"]
         );
     }
 }
@@ -313,7 +313,7 @@ function meta_box_noticia_destaque_3_itens_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -327,23 +327,23 @@ function meta_box_noticia_destaque_3_itens_imagem() {
 }
 
 function meta_box_noticia_destaque_3_itens_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -390,12 +390,12 @@ function post_type_noticia_destaque_1_item_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%destaque_1_item%'
+            "front" => "destaques-",
+            "structure" => "%year%/%monthnum%/%day%/%destaque_1_item%"
     );
 
     register_post_type_com_rewrite_rules("destaque_1_item", $args, $rewrite);
@@ -417,7 +417,7 @@ function meta_box_noticia_destaque_1_item_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -429,23 +429,23 @@ function meta_box_noticia_destaque_1_item_expressao_chave() {
 }
 
 function meta_box_noticia_destaque_1_item_expressao_chave_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['expressao-chave'])) {
+    if (isset($_POST["expressao-chave"])) {
         update_post_meta(
                 $post_id,
-                'expressao-chave',
-                $_POST['expressao-chave']
+                "expressao-chave",
+                $_POST["expressao-chave"]
         );
     }
 }
@@ -466,7 +466,7 @@ function meta_box_noticia_destaque_1_item_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -480,23 +480,23 @@ function meta_box_noticia_destaque_1_item_imagem() {
 }
 
 function meta_box_noticia_destaque_1_item_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -510,8 +510,8 @@ add_action("save_post", "meta_box_noticia_destaque_1_item_imagem_salvar");
 // post_type: noticia_destaque_2_itens
 function post_type_noticia_destaque_2_itens_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque [direita]", "post type general name"),
-            "singular_name" => _x("Notícia Destaque [direita]", "post type singular name"),
+            "name" => _x("Notícia Destaque com 2", "post type general name"),
+            "singular_name" => _x("Notícia Destaque com 2", "post type singular name"),
             "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
             "add_new_item" => __("Adicionar Nova Notícia Destaque"),
             "edit_item" => __("Editar Notícia Destaque"),
@@ -522,7 +522,7 @@ function post_type_noticia_destaque_2_itens_criar() {
             "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
             "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque [direita]"
+            "menu_name" => "Notícia Destaque com 2"
     );
 
     $args = array(
@@ -543,12 +543,12 @@ function post_type_noticia_destaque_2_itens_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%destaque_2_itens%'
+            "front" => "destaques--",
+            "structure" => "%year%/%monthnum%/%day%/%destaque_2_itens%"
     );
 
     register_post_type_com_rewrite_rules("destaque_2_itens", $args, $rewrite);
@@ -570,7 +570,7 @@ function meta_box_noticia_destaque_2_itens_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -582,23 +582,23 @@ function meta_box_noticia_destaque_2_itens_expressao_chave() {
 }
 
 function meta_box_noticia_destaque_2_itens_expressao_chave_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['expressao-chave'])) {
+    if (isset($_POST["expressao-chave"])) {
         update_post_meta(
                 $post_id,
-                'expressao-chave',
-                $_POST['expressao-chave']
+                "expressao-chave",
+                $_POST["expressao-chave"]
         );
     }
 }
@@ -619,7 +619,7 @@ function meta_box_noticia_destaque_2_itens_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -633,23 +633,23 @@ function meta_box_noticia_destaque_2_itens_imagem() {
 }
 
 function meta_box_noticia_destaque_2_itens_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], 'my_meta_box_nonce')) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -696,12 +696,12 @@ function post_type_outros_destaques_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%outros_destaques%'
+            "front" => "outros-destaques",
+            "structure" => "%year%/%monthnum%/%day%/%outros_destaques%"
     );
 
     register_post_type_com_rewrite_rules("outros_destaques", $args, $rewrite);
@@ -723,7 +723,7 @@ function meta_box_outros_destaques_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -737,23 +737,23 @@ function meta_box_outros_destaques_imagem() {
 }
 
 function meta_box_outros_destaques_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -798,12 +798,12 @@ function post_type_noticia_destacada_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%noticia_destacada%'
+            "front" => "noticias-",
+            "structure" => "%year%/%monthnum%/%day%/%noticia_destacada%"
     );
 
     register_post_type_com_rewrite_rules("noticia_destacada", $args, $rewrite);
@@ -825,7 +825,7 @@ function meta_box_noticia_destacada_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -837,23 +837,23 @@ function meta_box_noticia_destacada_expressao_chave() {
 }
 
 function meta_box_noticia_destacada_expressao_chave_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['expressao-chave'])) {
+    if (isset($_POST["expressao-chave"])) {
         update_post_meta(
                 $post_id,
-                'expressao-chave',
-                $_POST['expressao-chave']
+                "expressao-chave",
+                $_POST["expressao-chave"]
         );
     }
 }
@@ -874,7 +874,7 @@ function meta_box_noticia_destacada_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -888,23 +888,23 @@ function meta_box_noticia_destacada_imagem() {
 }
 
 function meta_box_noticia_destacada_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -951,12 +951,12 @@ function post_type_noticia_dstq_2_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%noticia_dstq_2%'
+            "front" => "noticias--",
+            "structure" => "%year%/%monthnum%/%day%/%noticia_dstq_2%"
     );
 
     register_post_type_com_rewrite_rules("noticia_dstq_2", $args, $rewrite);
@@ -978,7 +978,7 @@ function meta_box_noticia_dstq_2_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -990,23 +990,23 @@ function meta_box_noticia_dstq_2_expressao_chave() {
 }
 
 function meta_box_noticia_dstq_2_expressao_chave_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['expressao-chave'])) {
+    if (isset($_POST["expressao-chave"])) {
         update_post_meta(
                 $post_id,
-                'expressao-chave',
-                $_POST['expressao-chave']
+                "expressao-chave",
+                $_POST["expressao-chave"]
         );
     }
 }
@@ -1027,7 +1027,7 @@ function meta_box_noticia_dstq_2_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1041,23 +1041,23 @@ function meta_box_noticia_dstq_2_imagem() {
 }
 
 function meta_box_noticia_dstq_2_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -1104,12 +1104,12 @@ function post_type_noticia_dstq_3_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%noticia_dstq_3%'
+            "front" => "noticias---",
+            "structure" => "%year%/%monthnum%/%day%/%noticia_dstq_3%"
     );
 
     register_post_type_com_rewrite_rules("noticia_dstq_3", $args, $rewrite);
@@ -1131,7 +1131,7 @@ function meta_box_noticia_dstq_3_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1143,23 +1143,23 @@ function meta_box_noticia_dstq_3_expressao_chave() {
 }
 
 function meta_box_noticia_dstq_3_expressao_chave_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['expressao-chave'])) {
+    if (isset($_POST["expressao-chave"])) {
         update_post_meta(
                 $post_id,
-                'expressao-chave',
-                $_POST['expressao-chave']
+                "expressao-chave",
+                $_POST["expressao-chave"]
         );
     }
 }
@@ -1180,7 +1180,7 @@ function meta_box_noticia_dstq_3_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1194,23 +1194,23 @@ function meta_box_noticia_dstq_3_imagem() {
 }
 
 function meta_box_noticia_dstq_3_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -1257,12 +1257,12 @@ function post_type_noticia_criar() {
                     "author",
                     "excerpt"
             ),
-            "taxonomies" => array('category')
+            "taxonomies" => array("category")
     );
 
     $rewrite = array(
-            'front'=> 'noticia',
-            'structure'=>'%year%/%monthnum%/%day%/%noticia%'
+            "front" => "tematicas",
+            "structure" => "%year%/%monthnum%/%day%/%noticia%"
     );
 
     register_post_type_com_rewrite_rules("noticia", $args, $rewrite);
@@ -1284,7 +1284,7 @@ function meta_box_noticia_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1296,23 +1296,23 @@ function meta_box_noticia_expressao_chave() {
 }
 
 function meta_box_noticia_expressao_chave_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['expressao-chave'])) {
+    if (isset($_POST["expressao-chave"])) {
         update_post_meta(
                 $post_id,
-                'expressao-chave',
-                $_POST['expressao-chave']
+                "expressao-chave",
+                $_POST["expressao-chave"]
         );
     }
 }
@@ -1333,7 +1333,7 @@ function meta_box_noticia_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1347,23 +1347,23 @@ function meta_box_noticia_imagem() {
 }
 
 function meta_box_noticia_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -1429,7 +1429,7 @@ function meta_box_pub_302_x_285_expressao_chave() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1440,23 +1440,23 @@ function meta_box_pub_302_x_285_expressao_chave() {
 }
 
 function meta_box_pub_302_x_285_link_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['link'])) {
+    if (isset($_POST["link"])) {
         update_post_meta(
                 $post_id,
-                'link',
-                $_POST['link']
+                "link",
+                $_POST["link"]
         );
     }
 }
@@ -1477,7 +1477,7 @@ function meta_box_pub_302_x_285_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1491,23 +1491,23 @@ function meta_box_pub_302_x_285_imagem() {
 }
 
 function meta_box_pub_302_x_285_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -1528,7 +1528,7 @@ function meta_box_pub_302_x_285_object() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1542,23 +1542,23 @@ function meta_box_pub_302_x_285_object() {
 }
 
 function meta_box_pub_302_x_285_object_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['object'])) {
+    if (isset($_POST["object"])) {
         update_post_meta(
                 $post_id,
-                'object',
-                $_POST['object']
+                "object",
+                $_POST["object"]
         );
     }
 }
@@ -1626,7 +1626,7 @@ function meta_box_pub_350_x_200_link() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1637,23 +1637,23 @@ function meta_box_pub_350_x_200_link() {
 }
 
 function meta_box_pub_350_x_200_link_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['link'])) {
+    if (isset($_POST["link"])) {
         update_post_meta(
                 $post_id,
-                'link',
-                $_POST['link']
+                "link",
+                $_POST["link"]
         );
     }
 }
@@ -1674,7 +1674,7 @@ function meta_box_pub_350_x_200_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1688,23 +1688,23 @@ function meta_box_pub_350_x_200_imagem() {
 }
 
 function meta_box_pub_350_x_200_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -1725,7 +1725,7 @@ function meta_box_pub_350_x_200_object() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1739,23 +1739,23 @@ function meta_box_pub_350_x_200_object() {
 }
 
 function meta_box_pub_350_x_200_object_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['object'])) {
+    if (isset($_POST["object"])) {
         update_post_meta(
                 $post_id,
-                'object',
-                $_POST['object']
+                "object",
+                $_POST["object"]
         );
     }
 }
@@ -1823,7 +1823,7 @@ function meta_box_pub_190_x_193_link() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1834,23 +1834,23 @@ function meta_box_pub_190_x_193_link() {
 }
 
 function meta_box_pub_190_x_193_link_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['link'])) {
+    if (isset($_POST["link"])) {
         update_post_meta(
                 $post_id,
-                'link',
-                $_POST['link']
+                "link",
+                $_POST["link"]
         );
     }
 }
@@ -1871,7 +1871,7 @@ function meta_box_pub_190_x_193_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1885,23 +1885,23 @@ function meta_box_pub_190_x_193_imagem() {
 }
 
 function meta_box_pub_190_x_193_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -1922,7 +1922,7 @@ function meta_box_pub_190_x_193_object() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -1936,23 +1936,23 @@ function meta_box_pub_190_x_193_object() {
 }
 
 function meta_box_pub_190_x_193_object_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['object'])) {
+    if (isset($_POST["object"])) {
         update_post_meta(
                 $post_id,
-                'object',
-                $_POST['object']
+                "object",
+                $_POST["object"]
         );
     }
 }
@@ -2020,7 +2020,7 @@ function meta_box_pub_210_x_130_link() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2031,23 +2031,23 @@ function meta_box_pub_210_x_130_link() {
 }
 
 function meta_box_pub_210_x_130_link_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['link'])) {
+    if (isset($_POST["link"])) {
         update_post_meta(
                 $post_id,
-                'link',
-                $_POST['link']
+                "link",
+                $_POST["link"]
         );
     }
 }
@@ -2068,7 +2068,7 @@ function meta_box_pub_210_x_130_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2082,23 +2082,23 @@ function meta_box_pub_210_x_130_imagem() {
 }
 
 function meta_box_pub_210_x_130_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -2119,7 +2119,7 @@ function meta_box_pub_210_x_130_object() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2133,23 +2133,23 @@ function meta_box_pub_210_x_130_object() {
 }
 
 function meta_box_pub_210_x_130_object_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['object'])) {
+    if (isset($_POST["object"])) {
         update_post_meta(
                 $post_id,
-                'object',
-                $_POST['object']
+                "object",
+                $_POST["object"]
         );
     }
 }
@@ -2217,7 +2217,7 @@ function meta_box_pub_223_x_200_link() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2228,23 +2228,23 @@ function meta_box_pub_223_x_200_link() {
 }
 
 function meta_box_pub_223_x_200_link_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['link'])) {
+    if (isset($_POST["link"])) {
         update_post_meta(
                 $post_id,
-                'link',
-                $_POST['link']
+                "link",
+                $_POST["link"]
         );
     }
 }
@@ -2265,7 +2265,7 @@ function meta_box_pub_223_x_200_imagem() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2279,23 +2279,23 @@ function meta_box_pub_223_x_200_imagem() {
 }
 
 function meta_box_pub_223_x_200_imagem_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['imagem'])) {
+    if (isset($_POST["imagem"])) {
         update_post_meta(
                 $post_id,
-                'imagem',
-                $_POST['imagem']
+                "imagem",
+                $_POST["imagem"]
         );
     }
 }
@@ -2316,7 +2316,7 @@ function meta_box_pub_223_x_200_object() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2330,23 +2330,23 @@ function meta_box_pub_223_x_200_object() {
 }
 
 function meta_box_pub_223_x_200_object_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['object'])) {
+    if (isset($_POST["object"])) {
         update_post_meta(
                 $post_id,
-                'object',
-                $_POST['object']
+                "object",
+                $_POST["object"]
         );
     }
 }
@@ -2396,8 +2396,8 @@ function post_type_fatos_e_fotos_criar() {
     );
 
     $rewrite = array(
-            'front'=> 'evento',
-            'structure'=>'%year%/%monthnum%/%day%/%fatos_e_fotos%'
+            "front" => "eventos",
+            "structure" => "%year%/%monthnum%/%day%/%fatos_e_fotos%",
     );
 
     register_post_type_com_rewrite_rules("fatos_e_fotos", $args, $rewrite);
@@ -2419,7 +2419,7 @@ function meta_box_fatos_e_fotos_imagem_maior() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["capa_fundo_imagem_maior"]) ? esc_attr($campos["capa_fundo_imagem_maior"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2430,23 +2430,23 @@ function meta_box_fatos_e_fotos_imagem_maior() {
 }
 
 function meta_box_fatos_e_fotos_imagem_maior_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['capa_fundo_imagem_maior'])) {
+    if (isset($_POST["capa_fundo_imagem_maior"])) {
         update_post_meta(
                 $post_id,
-                'capa_fundo_imagem_maior',
-                $_POST['capa_fundo_imagem_maior']
+                "capa_fundo_imagem_maior",
+                $_POST["capa_fundo_imagem_maior"]
         );
     }
 }
@@ -2467,7 +2467,7 @@ function meta_box_fatos_e_fotos_imagem_menor() {
     $campos = get_post_custom($post -> ID);
     $conteudo = isset($campos["capa_fundo_imagem_menor"]) ? esc_attr($campos["capa_fundo_imagem_menor"][0]) : "";
 
-    wp_nonce_field('my_meta_box_nonce', 'meta_box_nonce');
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
 
     echo "
             <p>
@@ -2478,23 +2478,23 @@ function meta_box_fatos_e_fotos_imagem_menor() {
 }
 
 function meta_box_fatos_e_fotos_imagem_menor_salvar($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return;
     }
 
-    if (!isset($_POST['meta_box_nonce']) || !wp_verify_nonce($_POST['meta_box_nonce'], 'my_meta_box_nonce')) {
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
         return;
     }
 
-    if (!current_user_can('edit_post')) {
+    if (!current_user_can("edit_post")) {
         return;
     }
 
-    if (isset($_POST['capa_fundo_imagem_menor'])) {
+    if (isset($_POST["capa_fundo_imagem_menor"])) {
         update_post_meta(
                 $post_id,
-                'capa_fundo_imagem_menor',
-                $_POST['capa_fundo_imagem_menor']
+                "capa_fundo_imagem_menor",
+                $_POST["capa_fundo_imagem_menor"]
         );
     }
 }
@@ -2554,6 +2554,6 @@ function limitar_caracteres_titulos() {
   }
 }
 
-add_action('admin_footer', 'limitar_caracteres_titulos');
+add_action("admin_footer", "limitar_caracteres_titulos");
 
 ?>

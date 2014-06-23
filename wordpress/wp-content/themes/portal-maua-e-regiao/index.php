@@ -4,7 +4,7 @@
   <section class="conteudo">
     <section class="noticias">
       <section class="box-com-3">
-        <?php query_posts("order=desc&showposts=3&post_type=destaque_esquerda"); ?>
+        <?php query_posts("order=desc&showposts=3&post_type=destaque_3_itens"); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
           <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
@@ -36,7 +36,7 @@
       </section>
 
       <section class="box-com-1">
-        <?php query_posts("order=desc&showposts=1&post_type=destaque_centro"); ?>
+        <?php query_posts("order=desc&showposts=1&post_type=destaque_1_item"); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
           <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
@@ -68,7 +68,7 @@
       </section>
 
       <section class="box-com-2">
-        <?php query_posts("order=desc&showposts=2&post_type=destaque_direita"); ?>
+        <?php query_posts("order=desc&showposts=2&post_type=destaque_2_itens"); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
           <?php if (get_post_meta($post -> ID, "imagem", true)): ?>

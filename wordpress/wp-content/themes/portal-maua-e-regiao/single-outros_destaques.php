@@ -1,5 +1,6 @@
 <?php get_header() ?>
 <?php wp_reset_query(); ?>
+
 <section class="ultimas-noticias">
   <section class="layout-ultimas-noticias">
     <section class="conteudo">
