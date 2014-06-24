@@ -29,7 +29,7 @@
           <section class="copyright-marcas">
             <section class="conteudo-copyright-marcas">
               <section class="copyright">
-                &copy; 2014 &#8212; Portal Mauá e Região<br>
+                &copy; <?php echo date("Y"); ?> &#8212; Portal Mauá e Região<br>
                 <strong>Todos os direitos reservados</strong>
               </section>
 
@@ -62,6 +62,22 @@
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jquery.iecors.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jPages.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/scripts.js"></script>
-
+    <!-- Twitter button -->
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+    <!-- close Twitter button -->
+    <!-- Facebook button -->
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- close Facebook button -->
   </body>
 </html>

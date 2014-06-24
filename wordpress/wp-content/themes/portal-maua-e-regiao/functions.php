@@ -241,7 +241,7 @@ function post_type_noticia_destaque_3_itens_criar() {
     );
 
     $rewrite = array(
-            "front" => "destaques---",
+            "front" => "3",
             "structure" => "%year%/%monthnum%/%day%/%destaque_3_itens%"
     );
 
@@ -394,7 +394,7 @@ function post_type_noticia_destaque_1_item_criar() {
     );
 
     $rewrite = array(
-            "front" => "destaques-",
+            "front" => "0",
             "structure" => "%year%/%monthnum%/%day%/%destaque_1_item%"
     );
 
@@ -547,7 +547,7 @@ function post_type_noticia_destaque_2_itens_criar() {
     );
 
     $rewrite = array(
-            "front" => "destaques--",
+            "front" => "1",
             "structure" => "%year%/%monthnum%/%day%/%destaque_2_itens%"
     );
 
@@ -802,7 +802,7 @@ function post_type_noticia_destacada_criar() {
     );
 
     $rewrite = array(
-            "front" => "noticias-",
+            "front" => "0/1",
             "structure" => "%year%/%monthnum%/%day%/%noticia_destacada%"
     );
 
@@ -955,7 +955,7 @@ function post_type_noticia_dstq_2_criar() {
     );
 
     $rewrite = array(
-            "front" => "noticias--",
+            "front" => "0/2",
             "structure" => "%year%/%monthnum%/%day%/%noticia_dstq_2%"
     );
 
@@ -1108,7 +1108,7 @@ function post_type_noticia_dstq_3_criar() {
     );
 
     $rewrite = array(
-            "front" => "noticias---",
+            "front" => "0/3",
             "structure" => "%year%/%monthnum%/%day%/%noticia_dstq_3%"
     );
 
@@ -2359,6 +2359,400 @@ add_action("save_post", "meta_box_pub_223_x_200_imagem_salvar");
 add_action("add_meta_boxes", "meta_box_pub_223_x_200_object_adicionar");
 add_action("save_post", "meta_box_pub_223_x_200_object_salvar");
 
+// post_type: pub_300_x_250
+function post_type_pub_300_x_250_criar() {
+    $labels = array(
+            "name" => _x("Publicidade 300 x 250 (lateral)", "post type general name"),
+            "singular_name" => _x("Publicidade 300 x 250 (lateral)", "post type singular name"),
+            "add_new" => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item" => __("Adicionar Nova Publicidade"),
+            "edit_item" => __("Editar Publicidade"),
+            "new_item" => __("Nova Publicidade"),
+            "all_items" => __("Todas as Publicidades"),
+            "view_item" => __("Ver Publicidade"),
+            "search_items" => __("Buscar Publicidades"),
+            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
+            "parent_item_colon" => "",
+            "menu_name" => "Publicidade 300 x 250 (lateral)"
+    );
+
+    $args = array(
+            "labels" => $labels,
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "rewrite" => false,
+            "capability_type" => "post",
+            "has_archive" => true,
+            "hierarchical" => false,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-megaphone",
+            "supports" => array(
+                "title",
+                "editor"
+            )
+    );
+
+    register_post_type("pub_300_x_250", $args);
+}
+
+// Campo: Link
+function meta_box_pub_300_x_250_link_adicionar() {
+    add_meta_box(
+            "meta_box_pub_300_x_250_link_id",
+            "Website do cliente",
+            "meta_box_pub_300_x_250_link",
+            "pub_300_x_250",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_300_x_250_link() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='link'>Link do website: </label><br>
+                <input style='width: 100%;' type='text' name='link' id='link' value='$conteudo'>
+            </p>
+    ";
+}
+
+function meta_box_pub_300_x_250_link_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["link"])) {
+        update_post_meta(
+                $post_id,
+                "link",
+                $_POST["link"]
+        );
+    }
+}
+
+// Campo: Imagem
+function meta_box_pub_300_x_250_imagem_adicionar() {
+    add_meta_box(
+            "meta_box_pub_300_x_250_imagem_id",
+            "Imagem",
+            "meta_box_pub_300_x_250_imagem",
+            "pub_300_x_250",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_300_x_250_imagem() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='imagem'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
+                A imagem deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 300 pixels<br>
+                ALTURA: 250 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_300_x_250_imagem_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["imagem"])) {
+        update_post_meta(
+                $post_id,
+                "imagem",
+                $_POST["imagem"]
+        );
+    }
+}
+
+// Campo: Object (swf)
+function meta_box_pub_300_x_250_object_adicionar() {
+    add_meta_box(
+            "meta_box_pub_300_x_250_object_id",
+            "Objeto Flash",
+            "meta_box_pub_300_x_250_object",
+            "pub_300_x_250",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_300_x_250_object() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='object'>Link para arquivo .swf: </label><br>
+                <input style='width: 100%;' type='text' name='object' id='object' value='$conteudo'><br><br>
+                O arquivo deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 300 pixels<br>
+                ALTURA: 250 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_300_x_250_object_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["object"])) {
+        update_post_meta(
+                $post_id,
+                "object",
+                $_POST["object"]
+        );
+    }
+}
+
+add_action("init", "post_type_pub_300_x_250_criar");
+add_action("add_meta_boxes", "meta_box_pub_300_x_250_link_adicionar");
+add_action("save_post", "meta_box_pub_300_x_250_link_salvar");
+add_action("add_meta_boxes", "meta_box_pub_300_x_250_imagem_adicionar");
+add_action("save_post", "meta_box_pub_300_x_250_imagem_salvar");
+add_action("add_meta_boxes", "meta_box_pub_300_x_250_object_adicionar");
+add_action("save_post", "meta_box_pub_300_x_250_object_salvar");
+
+// post_type: pub_630_x_200
+function post_type_pub_630_x_200_criar() {
+    $labels = array(
+            "name" => _x("Publicidade 630 x 200 (matéria)", "post type general name"),
+            "singular_name" => _x("Publicidade 630 x 200 (matéria)", "post type singular name"),
+            "add_new" => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item" => __("Adicionar Nova Publicidade"),
+            "edit_item" => __("Editar Publicidade"),
+            "new_item" => __("Nova Publicidade"),
+            "all_items" => __("Todas as Publicidades"),
+            "view_item" => __("Ver Publicidade"),
+            "search_items" => __("Buscar Publicidades"),
+            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
+            "parent_item_colon" => "",
+            "menu_name" => "Publicidade 630 x 200 (matéria)"
+    );
+
+    $args = array(
+            "labels" => $labels,
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "rewrite" => false,
+            "capability_type" => "post",
+            "has_archive" => true,
+            "hierarchical" => false,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-megaphone",
+            "supports" => array(
+                "title",
+                "editor"
+            )
+    );
+
+    register_post_type("pub_630_x_200", $args);
+}
+
+// Campo: Link
+function meta_box_pub_630_x_200_link_adicionar() {
+    add_meta_box(
+            "meta_box_pub_630_x_200_link_id",
+            "Website do cliente",
+            "meta_box_pub_630_x_200_link",
+            "pub_630_x_200",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_630_x_200_link() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='link'>Link do website: </label><br>
+                <input style='width: 100%;' type='text' name='link' id='link' value='$conteudo'>
+            </p>
+    ";
+}
+
+function meta_box_pub_630_x_200_link_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["link"])) {
+        update_post_meta(
+                $post_id,
+                "link",
+                $_POST["link"]
+        );
+    }
+}
+
+// Campo: Imagem
+function meta_box_pub_630_x_200_imagem_adicionar() {
+    add_meta_box(
+            "meta_box_pub_630_x_200_imagem_id",
+            "Imagem",
+            "meta_box_pub_630_x_200_imagem",
+            "pub_630_x_200",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_630_x_200_imagem() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='imagem'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
+                A imagem deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 630 pixels<br>
+                ALTURA: 200 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_630_x_200_imagem_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["imagem"])) {
+        update_post_meta(
+                $post_id,
+                "imagem",
+                $_POST["imagem"]
+        );
+    }
+}
+
+// Campo: Object (swf)
+function meta_box_pub_630_x_200_object_adicionar() {
+    add_meta_box(
+            "meta_box_pub_630_x_200_object_id",
+            "Objeto Flash",
+            "meta_box_pub_630_x_200_object",
+            "pub_630_x_200",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_pub_630_x_200_object() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='object'>Link para arquivo .swf: </label><br>
+                <input style='width: 100%;' type='text' name='object' id='object' value='$conteudo'><br><br>
+                O arquivo deve possuir as DIMENSÕES:<br><br>
+                LARGURA: 630 pixels<br>
+                ALTURA: 200 pixels
+            </p>
+    ";
+}
+
+function meta_box_pub_630_x_200_object_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["object"])) {
+        update_post_meta(
+                $post_id,
+                "object",
+                $_POST["object"]
+        );
+    }
+}
+
+add_action("init", "post_type_pub_630_x_200_criar");
+add_action("add_meta_boxes", "meta_box_pub_630_x_200_link_adicionar");
+add_action("save_post", "meta_box_pub_630_x_200_link_salvar");
+add_action("add_meta_boxes", "meta_box_pub_630_x_200_imagem_adicionar");
+add_action("save_post", "meta_box_pub_630_x_200_imagem_salvar");
+add_action("add_meta_boxes", "meta_box_pub_630_x_200_object_adicionar");
+add_action("save_post", "meta_box_pub_630_x_200_object_salvar");
+
 // post_type: fatos_e_fotos
 function post_type_fatos_e_fotos_criar() {
     $labels = array(
@@ -2524,6 +2918,11 @@ function categoria_noticia() {
   return $categorias[1] -> name;
 }
 
+function categoria() {
+    $categorias = get_the_category();
+    return $categorias[0] -> name;
+}
+
 function limitar_caracteres_titulos() {
   global $current_screen;
   $tipo_post = $current_screen -> post_type;
@@ -2555,5 +2954,16 @@ function limitar_caracteres_titulos() {
 }
 
 add_action("admin_footer", "limitar_caracteres_titulos");
+
+function query_noticias($post_type, $ID = null) {
+    $query = array(
+            "order" => "desc",
+            "showposts" => "1",
+            "post_type" => $post_type,
+            "post__not_in" => array($ID)
+    );
+
+    return $query;
+}
 
 ?>

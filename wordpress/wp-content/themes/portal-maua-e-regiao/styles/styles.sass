@@ -1253,10 +1253,14 @@ body
           float: left
 
           a
-            .imagem
+            .imagem,
+            .object
               width: 630px
               height: 200px
-              background: $cinzaTituloMat
+
+              object
+                width: 630px
+                height: 200px
 
       .lateral
         width: 300px
@@ -1346,9 +1350,12 @@ body
 
           .ver-revista,
           .ver-jornal
-            width: 300px
-            height: 230px
             float: left
+
+            .embed
+              iframe
+                width: 300px
+                height: 230px
 // end Últimas notícias
 
 // Ler notícia
@@ -1536,7 +1543,7 @@ body
               padding: 10px
 
           .texto
-            margin: 30px 0 10px 0
+            margin: 15px 0 10px 0
             font-size: 14px
             line-height: 18px
             float: left
@@ -1544,11 +1551,45 @@ body
             p
               margin: 0 0 15px 0
 
-              img
-                width: 315px
-                height: 300px
-                margin: 15px 15px 15px 0
-                float: left
+              a
+                img
+                  margin: 0 15px 15px 0
+                  display: block
+
+                .aligncenter
+                  margin: 0 auto
+
+                .alignleft
+                  float: left
+
+                .alignright
+                  float: right
+
+            .wp-caption
+              margin: 0 15px 15px 0
+              color: $cinzaLegandaNoticia
+              font-size: 12px
+              font-style: italic
+
+              a
+                img
+                  display: block
+
+              p
+                margin: 0
+                line-height: 12px
+                padding: 10px 5px 5px
+                background: $cinzaBGDestaquesLateral
+                box-shadow: inset -10px 0 0 $branco
+
+            .aligncenter
+              margin: 0 auto
+
+            .alignleft
+              float: left
+
+            .alignright
+              float: right
 
             strong
               font-weight: bold
