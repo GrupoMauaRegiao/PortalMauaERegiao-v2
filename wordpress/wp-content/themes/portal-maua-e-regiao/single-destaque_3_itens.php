@@ -43,7 +43,7 @@
 
             <section class="facebook">
               <div class="fb-like"
-                   data-href="http://portalmauaeregiao.com.br"
+                   data-href="<?php the_permalink(); ?>"
                    data-layout="button_count"
                    data-action="recommend"
                    data-show-faces="false"
