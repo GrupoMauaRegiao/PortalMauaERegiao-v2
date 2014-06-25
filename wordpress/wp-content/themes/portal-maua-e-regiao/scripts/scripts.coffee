@@ -286,10 +286,21 @@ Portal.apps =
       if $this.val().length > limite
         $this.val $this.val().substr 0, limite
 
+  adicionarAtributoLightbox: ->
+    links = $ '.texto div a, .texto p a'
+
+    if links[0]
+      titulo = $ 'article .titulo'
+
+      for link, i in links
+        $(link).attr 'data-lightbox', 'roadtrip'
+        $(link).attr 'data-title', titulo.text()
+
 window.onload = ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
   Portal.apps.previsaoDoTempo()
   Portal.apps.corrigirTamanhoImagemDestaque()
+  Portal.apps.adicionarAtributoLightbox()
   return
