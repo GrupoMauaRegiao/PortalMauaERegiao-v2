@@ -2928,13 +2928,13 @@ function limitar_caracteres_titulos() {
   $tipo_post = $current_screen -> post_type;
   $scripts = get_template_directory_uri() . "\/scripts\/scripts.js";
   $limites = array(
-      0 => array("destaque_3_itens", 40),
-      1 => array("destaque_1_item", 50),
-      2 => array("destaque_2_itens", 40),
+      0 => array("destaque_3_itens", 55),
+      1 => array("destaque_1_item", 60),
+      2 => array("destaque_2_itens", 50),
       3 => array("outros_destaques", 70),
-      4 => array("noticia_destacada", 45),
-      5 => array("noticia_dstq_2", 40),
-      6 => array("noticia_dstq_3", 30),
+      4 => array("noticia_destacada", 50),
+      5 => array("noticia_dstq_2", 45),
+      6 => array("noticia_dstq_3", 35),
       7 => array("noticia", 70),
       8 => array("fatos_e_fotos", 40)
   );
