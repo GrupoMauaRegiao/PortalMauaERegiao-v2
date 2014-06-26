@@ -1151,8 +1151,21 @@ body
                     color: $cinzaTituloBox
                     float: left
 
-              // Chamada destacada
-              .chamada.destaque
+            a:hover
+              .chamada
+                background: $branco
+
+                .imagem
+                  .corte
+                    background: $corte-branco no-repeat
+
+                .titulo
+                  .texto
+                    text-decoration: underline
+
+            // Chamada destacada
+            a:first-child
+              .chamada
                 width: 630px
                 height: 150px
                 background: $azulSubmenu
@@ -1168,7 +1181,8 @@ body
 
                     img
                       width: auto
-                      height: 150px
+                      height: 335px
+                      margin: -80px 0 0
 
                   .corte
                     width: 50px
@@ -1191,13 +1205,13 @@ body
                     float: left
 
                     .decoracao
-                      width: 335px
+                      width: 300px
                       height: 20px
                       margin: 0 5px 0 0
                       float: left
 
                       .linha
-                        width: 335px
+                        width: 300px
                         height: 1px
                         margin: 0
                         background: $branco
@@ -1216,26 +1230,7 @@ body
                     margin: 0 0 10px 10px
                     color: $branco
                     float: left
-              // end Chamada destacada
-
-            a:hover
-              .chamada
-                background: $branco
-
-                .imagem
-                  .corte
-                    background: $corte-branco no-repeat
-
-                .titulo
-                  .texto
-                    text-decoration: underline
-
-              .chamada.destaque
-                background: $azulSubmenu
-
-                .imagem
-                  .corte
-                    background: $corte-azul no-repeat
+            // end Chamada destacada
 
           .outras-noticias
             margin: 20px 0 0 0

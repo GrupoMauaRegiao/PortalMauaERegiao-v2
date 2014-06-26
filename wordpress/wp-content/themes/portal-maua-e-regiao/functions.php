@@ -2910,16 +2910,19 @@ function categorias_sem_title($categoria) {
     );
     $cats = wp_list_categories($args);
     $cats = preg_replace('/title=\"(.*?)\"/', "", $cats); // Remove atributo title
+
     return $cats;
 }
 
 function categoria_noticia() {
   $categorias = get_the_category();
+
   return $categorias[1] -> name;
 }
 
 function categoria() {
     $categorias = get_the_category();
+
     return $categorias[0] -> name;
 }
 
@@ -2955,15 +2958,42 @@ function limitar_caracteres_titulos() {
 
 add_action("admin_footer", "limitar_caracteres_titulos");
 
-function query_noticias($post_type, $ID = null) {
+function query_noticias_um_post($tipo_post, $IDIgnorado = null) {
     $query = array(
             "order" => "desc",
             "showposts" => "1",
-            "post_type" => $post_type,
-            "post__not_in" => array($ID)
+            "post_type" => $tipo_post,
+            "post__not_in" => array($IDIgnorado)
     );
 
     return $query;
+}
+
+function query_todas_noticias() {
+    $query = array(
+            "order" => "desc",
+            "post_per_page" => "-1",
+            "post_type" => array(
+                    "destaque_3_itens",
+                    "destaque_1_item",
+                    "destaque_2_itens",
+                    "outros_destaques",
+                    "noticia_destacada",
+                    "noticia_dstq_2",
+                    "noticia_dstq_3",
+                    "noticia"
+            )
+    );
+
+    return $query;
+}
+
+function mostrar_tempo_transcorrido() {
+    date_default_timezone_set("UTC-3");
+    $hora_atual = current_time("timestamp");
+    $hora_post = get_the_time("U");
+
+    return "Há " . human_time_diff($hora_post, $hora_atual);
 }
 
 ?>

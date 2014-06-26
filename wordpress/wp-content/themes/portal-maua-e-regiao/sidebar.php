@@ -81,7 +81,7 @@
        <section class="lista-destaques">
 
         <?php wp_reset_query(); ?>
-        <?php query_posts(query_noticias("destaque_3_itens", $post -> ID)); ?>
+        <?php query_posts(query_noticias_um_post("destaque_3_itens", $post -> ID)); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
           <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
@@ -100,7 +100,7 @@
 
         <?php endif; ?>
 
-        <?php query_posts(query_noticias("destaque_1_item", $post -> ID)); ?>
+        <?php query_posts(query_noticias_um_post("destaque_1_item", $post -> ID)); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
           <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
@@ -118,7 +118,7 @@
           <p>Nenhuma notícia publicada ainda.</p>
 
         <?php endif; ?>
-        <?php query_posts(query_noticias("destaque_2_itens", $post -> ID)); ?>
+        <?php query_posts(query_noticias_um_post("destaque_2_itens", $post -> ID)); ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
           <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
