@@ -21,6 +21,9 @@ Portal.apps =
         previous: '.anterior'
         callback: (paginas, itens) ->
           if paginas.count >= 1
+            ajustarMaxNumerosInput = ->
+              inputPagina.attr 'max', paginas.count
+
             mostrarIndice = ->
               indice.html('Página ' + paginas.current + ' de ' + paginas.count)
 
@@ -31,6 +34,7 @@ Portal.apps =
               else
                 containerPaginador.hide()
 
+            ajustarMaxNumerosInput()
             mostrarIndice()
             controlarExibicaoPaginador()
           return
