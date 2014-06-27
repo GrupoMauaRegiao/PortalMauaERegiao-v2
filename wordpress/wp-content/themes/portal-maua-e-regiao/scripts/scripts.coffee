@@ -6,33 +6,33 @@ Portal.apps =
 
     paginas = $ '.paginador'
 
-    if paginas.length
+    if paginas[0]
       indice = $ '.indice'
       inputPagina = $ 'input[name="digitar-pagina"]'
 
       paginas.jPages {
-        containerID: 'chamadas'
+        container: '.chamadas'
         perPage: 5
-        startRange: 5
-        endRange: 5
+        startRange: 1
+        endRange: 1
         first: '.primeira'
         last: '.ultima'
         next: '.proxima'
         previous: '.anterior'
         callback: (paginas, itens) ->
-          mostrarIndice = ->
-            indice.html('Página ' + paginas.current + ' de ' + paginas.count)
+          if paginas.count >= 1
+            mostrarIndice = ->
+              indice.html('Página ' + paginas.current + ' de ' + paginas.count)
 
-          controlarExibicaoPaginador = ->
-            containerPaginador = $ '.paginacao'
+            controlarExibicaoPaginador = ->
+              containerPaginador = $ '.paginacao'
+              if itens.count > 5
+                containerPaginador.show()
+              else
+                containerPaginador.hide()
 
-            if itens.count > 5
-              containerPaginador.show()
-            else
-              containerPaginador.hide()
-
-          mostrarIndice()
-          controlarExibicaoPaginador()
+            mostrarIndice()
+            controlarExibicaoPaginador()
           return
       }
 
