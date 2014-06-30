@@ -2926,6 +2926,12 @@ function categoria() {
     return $categorias[0] -> name;
 }
 
+function slug() {
+    $categoria = get_query_var("cat");
+
+    return get_category($categoria) -> slug;
+}
+
 function limitar_caracteres_titulos() {
   global $current_screen;
   $tipo_post = $current_screen -> post_type;
@@ -2969,8 +2975,9 @@ function query_noticias_um_post($tipo_post, $IDIgnorado = null) {
     return $query;
 }
 
-function query_todas_noticias() {
+function query_todas_noticias($categoria = null) {
     $query = array(
+            "category_name" => $categoria,
             "order" => "desc",
             "post_per_page" => "-1",
             "post_type" => array(

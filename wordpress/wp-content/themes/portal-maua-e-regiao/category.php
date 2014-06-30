@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php wp_reset_query(); ?>
 
 <section class="ultimas-noticias">
   <section class="layout-ultimas-noticias">
@@ -6,7 +7,7 @@
       <section class="principal">
         <section class="header">
           <section class="titulo">
-            Todas as <strong>notícias</strong>
+            <?php echo single_cat_title(); ?>
           </section>
           <section class="decoracao">
             <section class="linha-grossa"></section>
@@ -16,7 +17,8 @@
 
         <section class="noticias">
           <section id="chamadas" class="chamadas">
-            <?php query_posts(query_todas_noticias()); ?>
+            <?php $slug = slug(); ?>
+            <?php query_posts(query_todas_noticias($slug)); ?>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <section class="chamada">
@@ -48,7 +50,7 @@
               </a>
             <?php endwhile; else: ?>
 
-              <p>Nenhuma notícia foi publicada ainda.</p>
+              <p>Nenhuma notícia foi encontrada.</p>
 
             <?php endif; ?>
           </section>
