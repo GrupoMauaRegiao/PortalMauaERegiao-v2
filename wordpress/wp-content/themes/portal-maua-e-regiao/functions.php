@@ -3003,4 +3003,25 @@ function mostrar_tempo_transcorrido() {
     return "Há " . human_time_diff($hora_post, $hora_atual);
 }
 
+function mostrar_titulo() {
+    $nome = get_bloginfo("name");
+    $descricao  = get_bloginfo("description");
+    $categoria = single_cat_title("", false);
+
+    if (is_home()) {
+        $titulo = $nome . " &#8212; " . $descricao;
+    } elseif (is_single()) {
+        $titulo = $nome . " &#8212 " .
+                  get_the_title() . " &#8212 " .
+                  get_the_date("j \d\e F \d\e Y") .
+                  " (" . mostrar_tempo_transcorrido() . ")";
+    } elseif (is_category()) {
+        $titulo = $nome . " &#8212 Notícias sobre " . $categoria;
+    } else {
+        $titulo = $nome . " &#8212; " . $descricao;
+    }
+
+    return $titulo;
+}
+
 ?>

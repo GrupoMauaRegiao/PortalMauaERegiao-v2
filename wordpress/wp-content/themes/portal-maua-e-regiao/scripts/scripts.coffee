@@ -300,7 +300,7 @@ Portal.apps =
         $(link).attr 'data-lightbox', 'roadtrip'
         $(link).attr 'data-title', titulo.text()
 
-window.onload = ->
+do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()

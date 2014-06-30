@@ -17,7 +17,7 @@
               </section>
 
               <section class="busca-rodape">
-                <form action="">
+                <form action="#">
                   <input type="text" name="s">
                   <input type="submit" value=" " title="Buscar">
                 </form>
@@ -60,7 +60,7 @@
     <?php wp_footer(); ?>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jquery-2.1.1.min.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jquery.iecors.js"></script>
-    <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jPages.js"></script>
+    <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jPages.min.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/lightbox.min.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/scripts.js"></script>
     <!-- Twitter button -->
