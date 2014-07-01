@@ -83,11 +83,18 @@ body
         float: left
 
         a
-          .imagem
+          .imagem,
+          .object
             width: 730px
             height: 100px
+            overflow: hidden
             border-radius: 20px
             background: $cinzaTituloMat
+
+            img,
+            object
+              width: 730px
+              height: 100px
 
       .topo
         width: $tamanhoLayout

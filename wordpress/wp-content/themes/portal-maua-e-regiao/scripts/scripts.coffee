@@ -1,9 +1,9 @@
 Portal = {}
 
 Portal.apps =
+  # Cria paginador com o plugin `jPages` em páginas onde constará listas de
+  # notícias do Portal, divididas por categorias.
   paginador: ->
-    # Cria paginador para página onde constará todas as notícias do Portal.
-
     paginas = $ '.paginador'
 
     if paginas[0]
@@ -46,10 +46,9 @@ Portal.apps =
 
       inputPagina.on 'input', _moverParaPagina
 
+  # Efetua a validação dos campos e executa o envio de mensagens com método
+  # GET a partir de um formulário HTML comum.
   enviarEmail: ->
-    # Efetua a validação dos campos e executa o envio das mensagens com método
-    # GET a partir de um formulário HTML.
-
     formulario = $ '.formulario-fale-conosco form'
 
     if formulario
@@ -97,9 +96,8 @@ Portal.apps =
         evt.stopPropagation()
         return
 
+  # Apaga todos os campos do formulario de contato `Fale Conosco`.
   limparFormularioContato: ->
-    # Apaga todos os campos do formulario de contato [página Fale Conosco].
-
     formulario = $ '.formulario-fale-conosco form'
     if formulario
       cNome = $ '#nome'
@@ -117,6 +115,8 @@ Portal.apps =
 
       botao.on 'click', _apagar
 
+  # Remove acentuação gráfica de letras utilizando um mapa de caracteres
+  # hexadecimais.
   removerAcentos: (texto) ->
     mapa =
         a : /[\xE0-\xE6]/g
@@ -131,6 +131,8 @@ Portal.apps =
       texto = texto.replace mapa[letra], letra
     texto
 
+  # Diminui um texto (`texto`) para um tamanho máximo (`max`) e acrescenta
+  # reticências ao final.
   diminuirTexto: (texto, max) ->
     indicador = "…"
 
@@ -143,7 +145,9 @@ Portal.apps =
       texto = texto
     texto
 
-  obterPrevisaoDoTempo: (cidade) ->
+  # Obtem informações sobre as condições climáticas conforme a localização
+  # geográfica do usuário.
+  obterCondicoesClimaticas: (cidade) ->
     container = $ '.elementos'
     imagemLoading = $ '.loading'
     icone = $ '.previsao-do-tempo .icone'
@@ -238,12 +242,11 @@ Portal.apps =
       containerLocalidade.on 'mouseleave', _exibirNomeCompactoCidade
       return
 
-  previsaoDoTempo: ->
-    # Implementa previsão do tempo no header da página com:
-    # Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
-    # Fonte da escala: http://pt.wikipedia.org/wiki/Escala_de_Beaufort
-
-    _adicionarPrevisaoDoTempo = ->
+  # Implementa a exibição climática no header da página com:
+  # Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
+  # Fonte da escala: http://pt.wikipedia.org/wiki/Escala_de_Beaufort
+  adicionarCondicoesClimaticas: ->
+    _adicionarCondicoesClimaticas = ->
       _success = (posicao) ->
         # Obtém a latitude e a longitude
         lt = posicao.coords.latitude
@@ -257,18 +260,18 @@ Portal.apps =
         }
         .done (dados) ->
           cidade = dados.results[0].address_components[3].short_name
-          Portal.apps.obterPrevisaoDoTempo cidade
+          Portal.apps.obterCondicoesClimaticas cidade
         return
 
       _error = (erro) ->
-        Portal.apps.obterPrevisaoDoTempo 'Maua'
+        Portal.apps.obterCondicoesClimaticas 'Maua'
 
       _options =
         maximumAge: 75000
 
       navigator.geolocation.getCurrentPosition _success, _error, _options
 
-    _adicionarPrevisaoDoTempo()
+    _adicionarCondicoesClimaticas()
     return
 
   corrigirTamanhoImagemDestaque: ->
@@ -279,6 +282,9 @@ Portal.apps =
         if $(item).width() < 302
           $(item).css 'width', '302px'
 
+  # Limita o número de caracteres do título de uma matéria no Painel do
+  # WordPress e apresenta total e número máximo de caracteres na barra de
+  # títulos do navegador do usuário.
   limitarCaracteresTitulos: (limite) ->
     textoTitulo = document.title
 
@@ -290,6 +296,7 @@ Portal.apps =
       if $this.val().length > limite
         $this.val $this.val().substr 0, limite
 
+  # Implementa atributos para que o plugin `LightBox2` possa funcionar.
   adicionarAtributoLightbox: ->
     links = $ '.texto div a, .texto p a'
 
@@ -304,7 +311,7 @@ do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
-  Portal.apps.previsaoDoTempo()
+  Portal.apps.adicionarCondicoesClimaticas()
   Portal.apps.corrigirTamanhoImagemDestaque()
   Portal.apps.adicionarAtributoLightbox()
   return

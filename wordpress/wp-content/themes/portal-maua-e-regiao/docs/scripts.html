@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>scripts.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>scripts.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>Portal = {}
+
+Portal.apps =</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Cria paginador com o plugin <code>jPages</code> em páginas onde constará listas de
+notícias do Portal, divididas por categorias.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">paginador</span>:<span class="hljs-function"> -&gt;</span>
+    paginas = $ <span class="hljs-string">'.paginador'</span>
+
+    <span class="hljs-keyword">if</span> paginas[<span class="hljs-number">0</span>]
+      indice = $ <span class="hljs-string">'.indice'</span>
+      inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
+
+      paginas.jPages {
+        <span class="hljs-attribute">container</span>: <span class="hljs-string">'.chamadas'</span>
+        <span class="hljs-attribute">perPage</span>: <span class="hljs-number">5</span>
+        <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
+        <span class="hljs-attribute">endRange</span>: <span class="hljs-number">1</span>
+        <span class="hljs-attribute">first</span>: <span class="hljs-string">'.primeira'</span>
+        <span class="hljs-attribute">last</span>: <span class="hljs-string">'.ultima'</span>
+        <span class="hljs-attribute">next</span>: <span class="hljs-string">'.proxima'</span>
+        <span class="hljs-attribute">previous</span>: <span class="hljs-string">'.anterior'</span>
+        <span class="hljs-attribute">callback</span>: <span class="hljs-function"><span class="hljs-params">(paginas, itens)</span> -&gt;</span>
+          <span class="hljs-keyword">if</span> paginas.count &gt;= <span class="hljs-number">1</span>
+            <span class="hljs-function"><span class="hljs-title">ajustarMaxNumerosInput</span> = -&gt;</span>
+              inputPagina.attr <span class="hljs-string">'max'</span>, paginas.count
+
+            <span class="hljs-function"><span class="hljs-title">mostrarIndice</span> = -&gt;</span>
+              indice.html(<span class="hljs-string">'Página '</span> + paginas.current + <span class="hljs-string">' de '</span> + paginas.count)
+
+            <span class="hljs-function"><span class="hljs-title">controlarExibicaoPaginador</span> = -&gt;</span>
+              containerPaginador = $ <span class="hljs-string">'.paginacao'</span>
+              <span class="hljs-keyword">if</span> itens.count &gt; <span class="hljs-number">5</span>
+                containerPaginador.show()
+              <span class="hljs-keyword">else</span>
+                containerPaginador.hide()
+
+            ajustarMaxNumerosInput()
+            mostrarIndice()
+            controlarExibicaoPaginador()
+          <span class="hljs-keyword">return</span>
+      }
+
+      <span class="hljs-function"><span class="hljs-title">_moverParaPagina</span> = -&gt;</span>
+        pagina = parseInt(inputPagina.val())
+        paginas.jPages pagina
+
+      inputPagina.<span class="hljs-literal">on</span> <span class="hljs-string">'input'</span>, _moverParaPagina</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Efetua a validação dos campos e executa o envio de mensagens com método
+GET a partir de um formulário HTML comum.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">enviarEmail</span>:<span class="hljs-function"> -&gt;</span>
+    formulario = $ <span class="hljs-string">'.formulario-fale-conosco form'</span>
+
+    <span class="hljs-keyword">if</span> formulario
+      cNome = $ <span class="hljs-string">'#nome'</span>
+      cEmail = $ <span class="hljs-string">'#email'</span>
+      cAssunto = $ <span class="hljs-string">'#assunto'</span>
+      cMsg = $ <span class="hljs-string">'#mensagem'</span>
+      msgSucesso = $ <span class="hljs-string">'.mensagem-sucesso'</span>
+      botao = $ <span class="hljs-string">'#enviar'</span>
+
+      botao.<span class="hljs-literal">on</span> <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">(evt)</span> -&gt;</span>
+        xhr = <span class="hljs-keyword">new</span> XMLHttpRequest()
+        regexEmail = <span class="hljs-regexp">///
+            ^([a-zA-Z0-9_\.\-])
+            +\@(([a-zA-Z0-9\-])
+            +\.)+([a-zA-Z0-9]{2,4})+$
+        ///</span>
+        msg = <span class="hljs-string">''</span>
+
+        <span class="hljs-keyword">if</span> cNome.value <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
+          <span class="hljs-keyword">if</span> cEmail.value <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span> cEmail.value.match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
+            <span class="hljs-keyword">if</span> cMsg.value <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
+              msg += <span class="hljs-string">'nome='</span> + encodeURI(cNome.value)
+              msg += <span class="hljs-string">'&amp;email='</span> + encodeURI(cEmail.value)
+              msg += <span class="hljs-string">'&amp;assunto='</span> + encodeURI(cAssunto.value)
+              msg += <span class="hljs-string">'&amp;mensagem='</span> + encodeURI(cMsg.value)
+
+              xhr.open formulario.method, formulario.action + <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
+              xhr.send msg
+              xhr.<span class="hljs-function"><span class="hljs-title">onreadystatechange</span> = -&gt;</span>
+                <span class="hljs-keyword">if</span> xhr.readyState <span class="hljs-keyword">is</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> xhr.status <span class="hljs-keyword">is</span> <span class="hljs-number">200</span>
+                  formulario.style.display = <span class="hljs-string">'none'</span>
+                  msgSucesso.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'mensagem-sucesso exibir'</span>
+            <span class="hljs-keyword">else</span>
+              cMsg.focus()
+              cMsg.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+          <span class="hljs-keyword">else</span>
+            cEmail.focus()
+            cEmail.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+        <span class="hljs-keyword">else</span>
+          cNome.focus()
+          cNome.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+
+        evt.preventDefault()
+        evt.stopPropagation()
+        <span class="hljs-keyword">return</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Apaga todos os campos do formulario de contato <code>Fale Conosco</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">limparFormularioContato</span>:<span class="hljs-function"> -&gt;</span>
+    formulario = $ <span class="hljs-string">'.formulario-fale-conosco form'</span>
+    <span class="hljs-keyword">if</span> formulario
+      cNome = $ <span class="hljs-string">'#nome'</span>
+      cEmail = $ <span class="hljs-string">'#email'</span>
+      cAssunto = $ <span class="hljs-string">'#assunto'</span>
+      cMsg = $ <span class="hljs-string">'#mensagem'</span>
+      botao = $ <span class="hljs-string">'#apagar'</span>
+
+      <span class="hljs-function"><span class="hljs-title">_apagar</span> = -&gt;</span>
+        cNome.value = <span class="hljs-string">''</span>
+        cEmail.value = <span class="hljs-string">''</span>
+        cAssunto.value = <span class="hljs-string">''</span>
+        cMsg.value = <span class="hljs-string">''</span>
+        <span class="hljs-keyword">return</span>
+
+      botao.<span class="hljs-literal">on</span> <span class="hljs-string">'click'</span>, _apagar</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Remove acentuação gráfica de letras utilizando um mapa de caracteres
+hexadecimais.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">removerAcentos</span>: <span class="hljs-function"><span class="hljs-params">(texto)</span> -&gt;</span>
+    mapa =
+        a : <span class="hljs-regexp">/[\xE0-\xE6]/g</span>
+        e : <span class="hljs-regexp">/[\xE8-\xEB]/g</span>
+        i : <span class="hljs-regexp">/[\xEC-\xEF]/g</span>
+        o : <span class="hljs-regexp">/[\xF2-\xF6]/g</span>
+        u : <span class="hljs-regexp">/[\xF9-\xFC]/g</span>
+        c : <span class="hljs-regexp">/\xE7/g</span>
+        n : <span class="hljs-regexp">/\xF1/g</span>
+
+    <span class="hljs-keyword">for</span> letra <span class="hljs-keyword">of</span> mapa
+      texto = texto.replace mapa[letra], letra
+    texto</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Diminui um texto (<code>texto</code>) para um tamanho máximo (<code>max</code>) e acrescenta
+reticências ao final.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">diminuirTexto</span>: <span class="hljs-function"><span class="hljs-params">(texto, max)</span> -&gt;</span>
+    indicador = <span class="hljs-string">"…"</span>
+
+    <span class="hljs-keyword">if</span> texto.length &gt;= max
+      novoTexto = texto.substring <span class="hljs-number">0</span>, max
+      <span class="hljs-keyword">if</span> novoTexto.charAt(novoTexto.length - <span class="hljs-number">1</span>) <span class="hljs-keyword">is</span> <span class="hljs-string">' '</span>
+        novoTexto = novoTexto.substring <span class="hljs-number">0</span>, max - <span class="hljs-number">1</span>
+      texto = novoTexto + indicador
+    <span class="hljs-keyword">else</span>
+      texto = texto
+    texto</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Obtem informações sobre as condições climáticas conforme a localização
+geográfica do usuário.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">obterCondicoesClimaticas</span>: <span class="hljs-function"><span class="hljs-params">(cidade)</span> -&gt;</span>
+    container = $ <span class="hljs-string">'.elementos'</span>
+    imagemLoading = $ <span class="hljs-string">'.loading'</span>
+    icone = $ <span class="hljs-string">'.previsao-do-tempo .icone'</span>
+    containerTemperatura = $ <span class="hljs-string">'.temperatura'</span>
+    containerLocalidade = $ <span class="hljs-string">'.localidade'</span>
+
+    <span class="hljs-function"><span class="hljs-title">_converterBeauFort</span> = <span class="hljs-params">(velocidade)</span> -&gt;</span>
+      tipoVento =
+          <span class="hljs-string">'calmo'</span>: <span class="hljs-string">'calmo'</span>
+          <span class="hljs-string">'aragem'</span>: <span class="hljs-string">'aragem'</span>
+          <span class="hljs-string">'brisaLeve'</span>: <span class="hljs-string">'brisa leve'</span>
+          <span class="hljs-string">'brisaFraca'</span>: <span class="hljs-string">'brisa fraca'</span>
+          <span class="hljs-string">'brisaModerada'</span>: <span class="hljs-string">'brisa moderada'</span>
+          <span class="hljs-string">'brisaForte'</span>: <span class="hljs-string">'brisa forte'</span>
+          <span class="hljs-string">'ventoFresco'</span>: <span class="hljs-string">'vento fresco'</span>
+          <span class="hljs-string">'ventoForte'</span>: <span class="hljs-string">'vento forte'</span>
+          <span class="hljs-string">'ventania'</span>: <span class="hljs-string">'ventania'</span>
+          <span class="hljs-string">'ventaniaForte'</span>: <span class="hljs-string">'ventania forte'</span>
+          <span class="hljs-string">'tempestade'</span>: <span class="hljs-string">'tempestade'</span>
+          <span class="hljs-string">'tempestadeViolenta'</span>: <span class="hljs-string">'tempestade violenta'</span>
+          <span class="hljs-string">'furacao'</span>: <span class="hljs-string">'furacão'</span>
+
+      <span class="hljs-keyword">if</span> velocidade &lt; <span class="hljs-number">0.3</span>
+        vento = tipoVento.calmo
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">0.3</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">1.5</span>
+        vento = tipoVento.aragem
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">1.6</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">3.3</span>
+        vento = tipoVento.brisaLeve
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">3.4</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">5.4</span>
+        vento = tipoVento.brisaFraca
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">5.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">7.9</span>
+        vento = tipoVento.brisaModerada
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">8.0</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">10.7</span>
+        vento = tipoVento.brisaForte
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">10.8</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">13.8</span>
+        vento = tipoVento.ventoFresco
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">13.9</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">17.1</span>
+        vento = tipoVento.ventoForte
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">17.2</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">20.7</span>
+        vento = tipoVento.ventania
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">20.8</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">24.4</span>
+        vento = tipoVento.ventaniaForte
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">24.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">28.4</span>
+        vento = tipoVento.tempestade
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">28.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">32.6</span>
+        vento = tipoVento.tempestadeViolenta
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade &gt;= <span class="hljs-number">32.7</span>
+        vento = tipoVento.furacao
+      vento</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Obtém informações sobre o clima conforme a cidade</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $.ajax {
+      <span class="hljs-attribute">url</span>: <span class="hljs-string">'http://api.openweathermap.org/data/2.5/weather?'</span> +
+          <span class="hljs-string">'q='</span> + Portal.apps.removerAcentos(cidade) + <span class="hljs-string">',brasil&amp;'</span> +
+          <span class="hljs-string">'units=metric&amp;'</span> +
+          <span class="hljs-string">'lang=pt'</span>
+      <span class="hljs-attribute">dataType</span>: <span class="hljs-string">'json'</span>
+    }
+    .done <span class="hljs-function"><span class="hljs-params">(dados)</span> -&gt;</span>
+      cidade = dados.name
+      cidadeCompacto = Portal.apps.diminuirTexto cidade, <span class="hljs-number">5</span>
+      tempMax = dados.main.temp_max.toFixed()
+      tempMin = dados.main.temp_min.toFixed()
+      codIcone = dados.weather[<span class="hljs-number">0</span>].icon
+      clima = dados.weather[<span class="hljs-number">0</span>].description
+      vento = dados.wind.speed
+      urlIcone = <span class="hljs-string">'http://openweathermap.org/img/w/'</span> + codIcone + <span class="hljs-string">'.png'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Corrige temperatura quando ambas (máxima e mínima) forem iguais</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-keyword">if</span> tempMin <span class="hljs-keyword">is</span> tempMax
+        tempMin = tempMin - <span class="hljs-number">1</span>
+
+      icone.css <span class="hljs-string">'background'</span>, <span class="hljs-string">'url('</span> + urlIcone + <span class="hljs-string">') no-repeat'</span>
+      container.attr <span class="hljs-string">'title'</span>, <span class="hljs-string">'Descrição: '</span> + clima.toLowerCase() +
+                              <span class="hljs-string">' com '</span> + _converterBeauFort(vento) +
+                              <span class="hljs-string">' em '</span> + cidade + <span class="hljs-string">'.'</span> +
+                              <span class="hljs-string">' Máxima: '</span> + tempMax + <span class="hljs-string">'°,'</span> +
+                              <span class="hljs-string">' Mínima: '</span> + tempMin + <span class="hljs-string">'°'</span>
+      containerTemperatura.html tempMax + <span class="hljs-string">'°, '</span> + tempMin + <span class="hljs-string">'° '</span>
+      containerLocalidade.html cidadeCompacto
+
+      imagemLoading.addClass <span class="hljs-string">'esconder'</span>
+      container.removeClass <span class="hljs-string">'esconder'</span>
+
+      <span class="hljs-function"><span class="hljs-title">_exibirNomeCompletoCidade</span> = <span class="hljs-params">(e)</span> -&gt;</span>
+        containerLocalidade.html cidade
+
+      <span class="hljs-function"><span class="hljs-title">_exibirNomeCompactoCidade</span> = <span class="hljs-params">(e)</span> -&gt;</span>
+        containerLocalidade.html cidadeCompacto
+
+      containerLocalidade.<span class="hljs-literal">on</span> <span class="hljs-string">'mouseenter'</span>, _exibirNomeCompletoCidade
+      containerLocalidade.<span class="hljs-literal">on</span> <span class="hljs-string">'mouseleave'</span>, _exibirNomeCompactoCidade
+      <span class="hljs-keyword">return</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Implementa a exibição climática no header da página com:
+Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
+Fonte da escala: <a href="http://pt.wikipedia.org/wiki/Escala_de_Beaufort">http://pt.wikipedia.org/wiki/Escala_de_Beaufort</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">adicionarCondicoesClimaticas</span>:<span class="hljs-function"> -&gt;</span>
+    <span class="hljs-function"><span class="hljs-title">_adicionarCondicoesClimaticas</span> = -&gt;</span>
+      <span class="hljs-function"><span class="hljs-title">_success</span> = <span class="hljs-params">(posicao)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Obtém a latitude e a longitude</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        lt = posicao.coords.latitude
+        lg = posicao.coords.longitude</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Obtém o nome da cidade conforme a latitude e a longitude</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        $.ajax {
+          <span class="hljs-attribute">url</span>: <span class="hljs-string">'http://maps.googleapis.com/maps/api/geocode/json?'</span> +
+               <span class="hljs-string">'latlng='</span> + lt + <span class="hljs-string">','</span> + lg
+          <span class="hljs-attribute">dataType</span>: <span class="hljs-string">'json'</span>
+        }
+        .done <span class="hljs-function"><span class="hljs-params">(dados)</span> -&gt;</span>
+          cidade = dados.results[<span class="hljs-number">0</span>].address_components[<span class="hljs-number">3</span>].short_name
+          Portal.apps.obterCondicoesClimaticas cidade
+        <span class="hljs-keyword">return</span>
+
+      <span class="hljs-function"><span class="hljs-title">_error</span> = <span class="hljs-params">(erro)</span> -&gt;</span>
+        Portal.apps.obterCondicoesClimaticas <span class="hljs-string">'Maua'</span>
+
+      _options =
+        <span class="hljs-attribute">maximumAge</span>: <span class="hljs-number">75000</span>
+
+      navigator.geolocation.getCurrentPosition _success, _error, _options
+
+    _adicionarCondicoesClimaticas()
+    <span class="hljs-keyword">return</span>
+
+  <span class="hljs-attribute">corrigirTamanhoImagemDestaque</span>:<span class="hljs-function"> -&gt;</span>
+    imagens = $ <span class="hljs-string">'.box-com-3 .noticia .imagem img'</span>
+
+    <span class="hljs-keyword">if</span> imagens[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> imagens
+        <span class="hljs-keyword">if</span> $(item).width() &lt; <span class="hljs-number">302</span>
+          $(item).css <span class="hljs-string">'width'</span>, <span class="hljs-string">'302px'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Limita o número de caracteres do título de uma matéria no Painel do
+WordPress e apresenta total e número máximo de caracteres na barra de
+títulos do navegador do usuário.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">limitarCaracteresTitulos</span>: <span class="hljs-function"><span class="hljs-params">(limite)</span> -&gt;</span>
+    textoTitulo = <span class="hljs-built_in">document</span>.title
+
+    jQuery(<span class="hljs-string">'[name="post_title"]'</span>).<span class="hljs-literal">on</span> <span class="hljs-string">'keyup'</span>,<span class="hljs-function"> -&gt;</span>
+      $<span class="hljs-keyword">this</span> = jQuery <span class="hljs-keyword">this</span>
+      <span class="hljs-built_in">document</span>.title = <span class="hljs-string">'('</span> + $<span class="hljs-keyword">this</span>.val().length +
+                       <span class="hljs-string">' de '</span> + limite + <span class="hljs-string">' caracteres) '</span> + textoTitulo
+
+      <span class="hljs-keyword">if</span> $<span class="hljs-keyword">this</span>.val().length &gt; limite
+        $<span class="hljs-keyword">this</span>.val $<span class="hljs-keyword">this</span>.val().substr <span class="hljs-number">0</span>, limite</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Implementa atributos para que o plugin <code>LightBox2</code> possa funcionar.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">adicionarAtributoLightbox</span>:<span class="hljs-function"> -&gt;</span>
+    links = $ <span class="hljs-string">'.texto div a, .texto p a'</span>
+
+    <span class="hljs-keyword">if</span> links[<span class="hljs-number">0</span>]
+      titulo = $ <span class="hljs-string">'article .titulo'</span>
+
+      <span class="hljs-keyword">for</span> link, i <span class="hljs-keyword">in</span> links
+        $(link).attr <span class="hljs-string">'data-lightbox'</span>, <span class="hljs-string">'roadtrip'</span>
+        $(link).attr <span class="hljs-string">'data-title'</span>, titulo.text()
+
+<span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
+  Portal.apps.paginador()
+  Portal.apps.enviarEmail()
+  Portal.apps.limparFormularioContato()
+  Portal.apps.adicionarCondicoesClimaticas()
+  Portal.apps.corrigirTamanhoImagemDestaque()
+  Portal.apps.adicionarAtributoLightbox()
+  <span class="hljs-keyword">return</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
