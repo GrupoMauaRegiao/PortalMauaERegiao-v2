@@ -22,11 +22,14 @@
       <header>
         <section class="conteudo-header">
           <section class="facebook">
-            <section class="fb-botao"></section>
-
-            <a href="facebook.com">
-              <section class="fb-icone"></section>
-            </a>
+            <section class="facebook">
+              <div class="fb-like"
+                   data-href="<?php bloginfo('url'); ?>"
+                   data-layout="button_count"
+                   data-action="like"
+                   data-show-faces="false"
+                   data-share="false"></div>
+            </section>
           </section>
 
           <a href="<?php bloginfo('url'); ?>" title="Portal Mauá e Região">
