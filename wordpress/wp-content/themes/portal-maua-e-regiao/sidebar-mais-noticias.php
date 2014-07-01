@@ -15,18 +15,12 @@
          href="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546" title="Facebook">
         <section class="icone"></section>
       </a>
+
       <a target="_blank"
          href="https://twitter.com/tvmauaeregiao" title="Twitter">
         <section class="icone"></section>
       </a>
-      <a target="_blank"
-         href="#" title="Instagram">
-        <section class="icone"></section>
-      </a>
-      <a target="_blank"
-         href="#" title="Tumblr">
-        <section class="icone"></section>
-      </a>
+
       <a target="_blank"
          href="https://www.youtube.com/user/portalmauaeregiao" title="YouTube">
         <section class="icone"></section>
