@@ -10,8 +10,8 @@
                 </section>
                 <section class="links">
                   <ul>
-                    <li><a href="#"><strong>Anuncie</strong></a></li>
-                    <li><a href="#">Fale <strong>conosco</strong></a></li>
+                    <li><a href="<?php bloginfo('url'); ?>/anuncie"><strong>Anuncie</strong></a></li>
+                    <li><a href="<?php bloginfo('url'); ?>/fale-conosco">Fale <strong>conosco</strong></a></li>
                   </ul>
                 </section>
               </section>

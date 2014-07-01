@@ -68,29 +68,29 @@ Portal.apps =
         ///
         msg = ''
 
-        if cNome.value isnt ''
-          if cEmail.value isnt '' and cEmail.value.match(regexEmail) isnt null
-            if cMsg.value isnt ''
-              msg += 'nome=' + encodeURI(cNome.value)
-              msg += '&email=' + encodeURI(cEmail.value)
-              msg += '&assunto=' + encodeURI(cAssunto.value)
-              msg += '&mensagem=' + encodeURI(cMsg.value)
+        if cNome.val() isnt ''
+          if cEmail.val() isnt '' and cEmail.val().match(regexEmail) isnt null
+            if cMsg.val() isnt ''
+              msg += 'nome=' + encodeURI(cNome.val())
+              msg += '&email=' + encodeURI(cEmail.val())
+              msg += '&assunto=' + encodeURI(cAssunto.val())
+              msg += '&mensagem=' + encodeURI(cMsg.val())
 
-              xhr.open formulario.method, formulario.action + '?' + msg, true
+              xhr.open formulario.attr('method'), formulario.attr('action') + '?' + msg, true
               xhr.send msg
               xhr.onreadystatechange = ->
                 if xhr.readyState is 4 and xhr.status is 200
-                  formulario.style.display = 'none'
-                  msgSucesso.setAttribute 'class', 'mensagem-sucesso exibir'
+                  formulario.css 'display', 'none'
+                  msgSucesso.attr 'class', 'mensagem-sucesso exibir'
             else
               cMsg.focus()
-              cMsg.setAttribute 'class', 'erro'
+              cMsg.attr 'class', 'erro'
           else
             cEmail.focus()
-            cEmail.setAttribute 'class', 'erro'
+            cEmail.attr 'class', 'erro'
         else
           cNome.focus()
-          cNome.setAttribute 'class', 'erro'
+          cNome.attr 'class', 'erro'
 
         evt.preventDefault()
         evt.stopPropagation()
@@ -107,10 +107,10 @@ Portal.apps =
       botao = $ '#apagar'
 
       _apagar = ->
-        cNome.value = ''
-        cEmail.value = ''
-        cAssunto.value = ''
-        cMsg.value = ''
+        cNome.val ""
+        cEmail.val ""
+        cAssunto.val ""
+        cMsg.val ""
         return
 
       botao.on 'click', _apagar
