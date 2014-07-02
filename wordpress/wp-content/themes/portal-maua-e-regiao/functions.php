@@ -3221,4 +3221,38 @@ function mostrar_titulo() {
     return $titulo;
 }
 
+function implementar_open_graph() {
+    global $wp_query;
+    $id_post = $wp_query -> post -> ID;
+    $tipo = "website";
+
+    if (is_home()) {
+        $titulo = get_bloginfo("name");
+        $descricao = "Portal de notícias do Grupo Mauá e Região de Comunicação; " . get_bloginfo("description");
+        $url = get_bloginfo("url");
+        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $og = "
+            <meta property='og:title' content='$titulo' />
+            <meta property='og:type' content='$tipo' />
+            <meta property='og:description' content='$descricao' />
+            <meta property='og:url' content='$url' />
+            <meta property='og:image' content='$imagem' />
+        ";
+    } elseif (is_single()) {
+        $titulo = get_the_title();
+        $descricao = get_the_excerpt();
+        $url = post_permalink($post -> ID);
+        $imagem = get_post_meta($id_post, "imagem", true);
+        $og = "
+            <meta property='og:title' content='$titulo' />
+            <meta property='og:type' content='$tipo' />
+            <meta property='og:description' content='$descricao' />
+            <meta property='og:url' content='$url' />
+            <meta property='og:image' content='$imagem' />
+        ";
+    }
+
+    return $og;
+}
+
 ?>

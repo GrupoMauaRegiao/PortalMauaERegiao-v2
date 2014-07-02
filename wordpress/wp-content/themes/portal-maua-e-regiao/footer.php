@@ -4,7 +4,7 @@
             <section class="conteudo">
               <section class="lateral">
                 <section class="logotipo">
-                  <a href="#" title="Grupo Mauá e Região de Comunicação">
+                  <a href="<?php bloginfo('url'); ?>" title="Grupo Mauá e Região de Comunicação">
                     <section class="logotipo-grupo-maua-e-regiao"></section>
                   </a>
                 </section>
@@ -63,11 +63,13 @@
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jPages.min.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/lightbox.min.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/scripts.js"></script>
+
     <!-- Twitter button -->
     <script>
       !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
     </script>
     <!-- close Twitter button -->
+
     <!-- Facebook button -->
     <div id="fb-root"></div>
     <script>

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/styles.min.css">
 
     <title><?php echo mostrar_titulo(); ?></title>
+
+    <?php echo implementar_open_graph(); ?>
+
   </head>
   <body>
 
