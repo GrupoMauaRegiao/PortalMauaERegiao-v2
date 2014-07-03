@@ -3277,6 +3277,19 @@ function implementar_open_graph() {
             <meta property='og:url' content='$url' />
             <meta property='og:image' content='$imagem' />
         ";
+    } elseif (is_search()) {
+        $termos_busca = get_search_query();
+        $titulo = get_bloginfo("name");
+        $descricao = "Buscando por: " . $termos_busca;
+        $url = get_bloginfo("url") . "/s=" . $termos_busca;
+        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $og = "
+            <meta property='og:title' content='$titulo' />
+            <meta property='og:type' content='$tipo' />
+            <meta property='og:description' content='$descricao' />
+            <meta property='og:url' content='$url' />
+            <meta property='og:image' content='$imagem' />
+        ";
     }
 
     return $og;
