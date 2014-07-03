@@ -3264,6 +3264,19 @@ function implementar_open_graph() {
             <meta property='og:url' content='$url' />
             <meta property='og:image' content='$imagem' />
         ";
+    } elseif (is_page()) {
+        $nome_pagina = $wp_query -> post -> post_title;
+        $titulo = get_bloginfo("name") . " &#8212; " . $nome_pagina;
+        $descricao = "Clique para visitar a página " . $nome_pagina;
+        $url = get_permalink();
+        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $og = "
+            <meta property='og:title' content='$titulo' />
+            <meta property='og:type' content='$tipo' />
+            <meta property='og:description' content='$descricao' />
+            <meta property='og:url' content='$url' />
+            <meta property='og:image' content='$imagem' />
+        ";
     }
 
     return $og;
