@@ -3241,7 +3241,7 @@ function implementar_open_graph() {
     } elseif (is_single()) {
         $titulo = get_the_title();
         $descricao = get_the_excerpt();
-        $url = post_permalink($post -> ID);
+        $url = post_permalink();
         $imagem = get_post_meta($id_post, "imagem", true);
         $og = "
             <meta property='og:title' content='$titulo' />
@@ -3280,6 +3280,17 @@ function implementar_open_graph() {
     }
 
     return $og;
+}
+
+function obter_resultados_busca() {
+    global $wp_query;
+    $args = query_todas_noticias();
+    $args = array_merge(
+            $args,
+            $wp_query -> query
+    );
+
+    return $args;
 }
 
 ?>

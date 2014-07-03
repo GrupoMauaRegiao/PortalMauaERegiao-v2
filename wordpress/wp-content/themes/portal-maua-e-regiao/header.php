@@ -151,8 +151,14 @@
             <section class="busca">
               <section class="icone"></section>
               <section class="formulario-busca">
-                <form action="#">
-                  <input type="text" name="s" placeholder="Procurar">
+                <form method="get"
+                      action="/">
+                  <input type="text"
+                         name="s"
+                         placeholder="Procurar">
+                  <input type="submit"
+                         value=" "
+                         title="Buscar">
                 </form>
               </section>
             </section>

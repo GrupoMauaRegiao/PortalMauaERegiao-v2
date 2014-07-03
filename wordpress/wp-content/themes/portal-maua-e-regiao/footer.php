@@ -17,9 +17,12 @@
               </section>
 
               <section class="busca-rodape">
-                <form action="#">
+                <form method="get"
+                      action="/">
                   <input type="text" name="s">
-                  <input type="submit" value=" " title="Buscar">
+                  <input type="submit"
+                         value=" "
+                         title="Buscar">
                 </form>
               </section>
             </section>
