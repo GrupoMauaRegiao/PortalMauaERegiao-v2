@@ -3250,6 +3250,20 @@ function implementar_open_graph() {
             <meta property='og:url' content='$url' />
             <meta property='og:image' content='$imagem' />
         ";
+    } elseif (is_category()) {
+        $titulo = get_bloginfo("name");
+        $categoria = single_cat_title("", false);
+        $id_categoria = get_cat_id($categoria);
+        $descricao = "Acompanhe as últimas notícias sobre " . $categoria;
+        $url = get_category_link($id_categoria);
+        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $og = "
+            <meta property='og:title' content='$titulo' />
+            <meta property='og:type' content='$tipo' />
+            <meta property='og:description' content='$descricao' />
+            <meta property='og:url' content='$url' />
+            <meta property='og:image' content='$imagem' />
+        ";
     }
 
     return $og;
