@@ -18,7 +18,6 @@
 
         <section class="noticias">
           <section id="chamadas" class="chamadas">
-            <?php $slug = slug(); ?>
             <?php query_posts(obter_resultados_busca()); ?>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
