@@ -9,7 +9,9 @@ module.exports = (grunt) ->
           level: "warn"
         "no_trailing_semicolons":
           level: "warn"
-      app: ['scripts/scripts.coffee']
+      app: [
+          'scripts/scripts.coffee'
+      ]
 
     coffee:
       compile:
@@ -21,7 +23,10 @@ module.exports = (grunt) ->
     jshint:
       options:
         browser: true
-      all: ['Gruntfile.js', 'scripts/scripts.js']
+      all: [
+          'Gruntfile.js',
+          'scripts/scripts.js'
+      ]
 
     min:
       code:
@@ -41,26 +46,62 @@ module.exports = (grunt) ->
           stderr: false
         command: './deployit.sh'
 
+    notify_hooks:
+      options:
+        title: "Portal Mauá e Região v2"
+
+    notify:
+      shell:
+        options:
+          title: 'Tarefa completada'
+          message: 'Os arquivos foram enviados para o servidor.'
+
     watch:
       coffeelint:
-        files: ['scripts/scripts.coffee']
-        tasks: ['coffeelint']
+        files: [
+            'scripts/scripts.coffee'
+        ]
+        tasks: [
+            'coffeelint'
+        ]
 
       coffee:
-        files: ['scripts/scripts.coffee']
-        tasks: ['coffee']
+        files: [
+            'scripts/scripts.coffee'
+        ]
+        tasks: [
+            'coffee'
+        ]
 
       jshintMin:
-        files: ['scripts/scripts.js']
-        tasks: ['jshint', 'min', 'shell']
+        files: [
+            'scripts/scripts.js'
+        ]
+        tasks: [
+            'jshint'
+            'min'
+            'shell'
+            'notify:shell'
+        ]
 
       sass:
-        files: ['styles/styles.sass']
-        tasks: ['sass', 'shell']
+        files: [
+            'styles/styles.sass'
+        ]
+        tasks: [
+            'sass'
+            'shell'
+            'notify:shell'
+        ]
 
       php:
-        files: ['*.php']
-        tasks: ['shell']
+        files: [
+            '*.php'
+        ]
+        tasks: [
+            'shell'
+            'notify:shell'
+        ]
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-coffeelint'
@@ -69,5 +110,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-yui-compressor'
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-shell'
+  grunt.loadNpmTasks 'grunt-notify'
   grunt.registerTask 'all', ['watch']
   return

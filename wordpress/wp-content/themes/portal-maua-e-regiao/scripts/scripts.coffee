@@ -11,7 +11,7 @@ Portal.apps =
       inputPagina = $ 'input[name="digitar-pagina"]'
 
       paginas.jPages {
-        container: '.chamadas'
+        container: '.chamadas, .resultados'
         perPage: 5
         startRange: 1
         endRange: 1
@@ -98,6 +98,7 @@ Portal.apps =
 
   # Apaga todos os campos do formulario de contato `Fale Conosco`.
   limparFormularioContato: ->
+
     formulario = $ '.formulario-fale-conosco form'
     if formulario
       cNome = $ '#nome'

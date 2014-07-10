@@ -13,7 +13,8 @@
     "grunt-yui-compressor": "~0.3",
     "grunt-contrib-sass": "~0.7",
     "grunt-shell": "^0.7.0",
-    "docco": "^0.6.3"
+    "docco": "^0.6.3",
+    "grunt-notify": "^0.3.0"
   },
   "repository": {
     "type": "git",

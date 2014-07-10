@@ -16,7 +16,7 @@
         </section>
 
         <section class="noticias">
-          <section id="chamadas" class="chamadas">
+          <section class="chamadas">
             <?php $slug = slug(); ?>
             <?php query_posts(query_todas_noticias($slug)); ?>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>

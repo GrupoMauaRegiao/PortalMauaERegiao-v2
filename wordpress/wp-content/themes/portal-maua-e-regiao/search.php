@@ -17,11 +17,11 @@
         </section>
 
         <section class="noticias">
-          <section id="chamadas" class="chamadas">
+          <section class="resultados">
             <?php query_posts(obter_resultados_busca()); ?>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                <section class="chamada">
+                <section class="resultado">
                   <section class="imagem">
                     <section class="foto-materia">
                       <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
@@ -31,20 +31,23 @@
 
                   <section class="titulo">
                     <section class="header">
+                      <section class="titulo-materia">
+                        <?php exibir_titulo_destacado(); ?>
+                      </section>
                       <section class="decoracao">
                         <section class="linha"></section>
-                      </section>
-                      <section class="categoria">
-                        <?php echo categoria(); ?>
-                      </section>
-                      <section class="horario" title="<?php echo get_the_time('j \d\e F \d\e Y'); ?>">
-                        <?php echo mostrar_tempo_transcorrido(); ?>
                       </section>
                     </section>
 
                     <section class="texto">
-                      <?php the_title(); ?>
+                      <?php exibir_texto_destacado(); ?>
                     </section>
+
+                    <section class="horario"
+                             title="<?php echo get_the_time('j \d\e F \d\e Y'); ?>">
+                      <?php echo mostrar_tempo_transcorrido(); ?>
+                    </section>
+
                   </section>
                 </section>
               </a>

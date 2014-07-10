@@ -3306,4 +3306,119 @@ function obter_resultados_busca() {
     return $args;
 }
 
+// Ignorar acentuação na palavra buscada
+function ignorar_acentos($busca) {
+    $substitutos = Array(
+            "a" => "[aáàâäã]",
+            "e" => "[eéèêëẽ]",
+            "i" => "[iíìîïĩ]",
+            "o" => "[oóòôöõ]",
+            "u" => "[uúùûüũ]"
+    );
+    $caracteres = str_replace(array_keys($substitutos), $substitutos, $busca);
+
+    return $caracteres;
+}
+
+// Obtém a posição da string com regex
+function obter_posicao($texto, $regex) {
+    $pos = preg_match($regex, $texto, $palavras, PREG_OFFSET_CAPTURE)
+               ? $palavras[0][1]
+               : false;
+
+    return $pos;
+}
+
+// Remove tags HTML e marcações de plugins do WordPress
+function remover_tags($texto) {
+    $regex_tags_wordpress = "/\[.*?\]/";
+    $texto_final = preg_replace(
+            $regex_tags_wordpress,
+            "",
+            $texto
+    );
+    $texto_final = strip_tags($texto_final);
+
+    return $texto_final;
+}
+
+// Destacar itens procurados (highlight, título)
+function exibir_titulo_destacado() {
+    // Título de uma notícia
+    $titulo = get_the_title();
+    // Todas as palavras procuradas
+    $termos = explode(" ", get_search_query());
+    // Elemento HTML que será usado pelo CSS
+    $substituto = '<span>\0</span>';
+
+    foreach($termos as $termo) {
+        $titulo = preg_replace(
+                // Regex para encontrar correspondências no texto,
+                // ignorando acentuação e letras maiúsculas/minúsculas
+                "/(" . ignorar_acentos($termo) . ")/ui",
+                $substituto,
+                $titulo
+        );
+    }
+
+    echo "<p>" . $titulo . "</p>";
+}
+
+function exibir_texto_destacado() {
+    // Quantidade de caracteres antes/depois do texto
+    $qtde_caract = 40;
+    // Quantidade máxima permitida dentro de um box de resultados
+    $max_caract = 70;
+    // Texto sem tags
+    $texto = remover_tags(get_the_content());
+    // Todas as palavras procuradas
+    $termos = explode(" ", get_search_query());
+    // Apenas a última palavra será destacada
+    $termo = end($termos);
+    // Regex para encontrar correspondências no texto, ignorando acentuação e
+    // letras maiúsculas/minúsculas
+    $regex = "/(" . ignorar_acentos($termo) . ")/ui";
+    // Posição da palavra procurada
+    $pos_palavra = obter_posicao($texto, $regex);
+    // Tamanho total do texto
+    $tam_texto = strlen($texto);
+    // Elemento HTML que será usado pelo CSS
+    $substituto = '<span>\0</span>';
+
+    // Caso exista correspodência entre a palavra procurada e o texto
+    if (($pos_palavra) && ($pos_palavra != 0)) {
+        // Se a posicao da palavra procurada está próxima ao final do texto
+        if ($pos_palavra > ($tam_texto - $qtde_caract)) {
+            $texto = substr($texto, ($pos_palavra - $qtde_caract), $tam_texto);
+            $texto_final = preg_replace($regex, $substituto, $texto);
+            $texto_final = "..." . $texto_final;
+        // Se a posição da palavra procurada é menor que a quantidade de
+        // texto permitida no box de resultados
+        } elseif ($pos_palavra < $qtde_caract) {
+            $texto = substr($texto, 0, $max_caract);
+            $texto_final = preg_replace($regex, $substituto, $texto);
+            $texto_final = $texto_final . "...";
+        // Se o tamanho total do texto é maior que a quantidade de texto
+        // permitida no box de resultados
+        } elseif ($tam_texto > $max_caract) {
+            $texto = substr($texto, ($pos_palavra - $qtde_caract), -($tam_texto - $pos_palavra) + $qtde_caract);
+            $texto_final = preg_replace($regex, $substituto, $texto);
+            $texto_final = "..." . $texto_final . "...";
+        } else {
+            $texto_final = $texto;
+        }
+    // Se não houver correspodência entre a palavra procurada e o texto
+    } elseif ((!$pos_palavra) || ($pos_palavra == 0)) {
+        $texto = substr($texto, 0, $max_caract);
+        $texto_final = preg_replace($regex, $substituto, $texto);
+        $texto_final = $texto_final . "...";
+        // Se não houver texto
+        if ($tam_texto == 0) {
+            $texto_final = "Não há texto nesta notícia.";
+        }
+    }
+
+    echo $texto_final;
+}
+
 ?>

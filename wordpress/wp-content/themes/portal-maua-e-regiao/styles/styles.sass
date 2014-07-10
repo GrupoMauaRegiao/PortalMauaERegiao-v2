@@ -1084,13 +1084,48 @@ body
             margin-top: 30px
             float: left
 
-          .chamadas
+          .resultados
+            a
+              .resultado
+                .titulo
+                  .header
+                    margin: 0 0 -10px 0
+
+                    .titulo-materia
+                      margin: 0 25px
+                      height: 27px
+
+                      p
+                        span
+                          background: $amareloEvento
+
+                    .decoracao
+                      margin: 0
+
+                      .linha
+                        margin: 5px 0 0 !important
+
+                  .texto
+                    width: 465px
+                    height: 40px
+
+                    span
+                      background: $amareloEvento
+
+                  .horario
+                    font-size: 14px
+                    color: $azul
+                    float: right
+
+          .chamadas,
+          .resultados
             float: left
 
             a
               text-decoration: none
 
-              .chamada
+              .chamada,
+              .resultado
                 width: 610px
                 height: 130px
                 background: $cinzaBGChamadas
@@ -1163,7 +1198,8 @@ body
                     float: left
 
             a:hover
-              .chamada
+              .chamada,
+              .resultado
                 background: $branco
 
                 .imagem
