@@ -56,7 +56,7 @@ notícias do Portal, divididas por categorias.</p>
       inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
 
       paginas.jPages {
-        <span class="hljs-attribute">container</span>: <span class="hljs-string">'.chamadas'</span>
+        <span class="hljs-attribute">container</span>: <span class="hljs-string">'.chamadas, .resultados'</span>
         <span class="hljs-attribute">perPage</span>: <span class="hljs-number">5</span>
         <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
         <span class="hljs-attribute">endRange</span>: <span class="hljs-number">1</span>
@@ -125,29 +125,29 @@ GET a partir de um formulário HTML comum.</p>
         ///</span>
         msg = <span class="hljs-string">''</span>
 
-        <span class="hljs-keyword">if</span> cNome.value <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
-          <span class="hljs-keyword">if</span> cEmail.value <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span> cEmail.value.match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
-            <span class="hljs-keyword">if</span> cMsg.value <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
-              msg += <span class="hljs-string">'nome='</span> + encodeURI(cNome.value)
-              msg += <span class="hljs-string">'&amp;email='</span> + encodeURI(cEmail.value)
-              msg += <span class="hljs-string">'&amp;assunto='</span> + encodeURI(cAssunto.value)
-              msg += <span class="hljs-string">'&amp;mensagem='</span> + encodeURI(cMsg.value)
+        <span class="hljs-keyword">if</span> cNome.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
+          <span class="hljs-keyword">if</span> cEmail.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span> cEmail.val().match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
+            <span class="hljs-keyword">if</span> cMsg.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
+              msg += <span class="hljs-string">'nome='</span> + encodeURI(cNome.val())
+              msg += <span class="hljs-string">'&amp;email='</span> + encodeURI(cEmail.val())
+              msg += <span class="hljs-string">'&amp;assunto='</span> + encodeURI(cAssunto.val())
+              msg += <span class="hljs-string">'&amp;mensagem='</span> + encodeURI(cMsg.val())
 
-              xhr.open formulario.method, formulario.action + <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
+              xhr.open formulario.attr(<span class="hljs-string">'method'</span>), formulario.attr(<span class="hljs-string">'action'</span>) + <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
               xhr.send msg
               xhr.<span class="hljs-function"><span class="hljs-title">onreadystatechange</span> = -&gt;</span>
                 <span class="hljs-keyword">if</span> xhr.readyState <span class="hljs-keyword">is</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> xhr.status <span class="hljs-keyword">is</span> <span class="hljs-number">200</span>
-                  formulario.style.display = <span class="hljs-string">'none'</span>
-                  msgSucesso.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'mensagem-sucesso exibir'</span>
+                  formulario.css <span class="hljs-string">'display'</span>, <span class="hljs-string">'none'</span>
+                  msgSucesso.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'mensagem-sucesso exibir'</span>
             <span class="hljs-keyword">else</span>
               cMsg.focus()
-              cMsg.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+              cMsg.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
           <span class="hljs-keyword">else</span>
             cEmail.focus()
-            cEmail.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+            cEmail.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
         <span class="hljs-keyword">else</span>
           cNome.focus()
-          cNome.setAttribute <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+          cNome.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
 
         evt.preventDefault()
         evt.stopPropagation()
@@ -176,10 +176,10 @@ GET a partir de um formulário HTML comum.</p>
       botao = $ <span class="hljs-string">'#apagar'</span>
 
       <span class="hljs-function"><span class="hljs-title">_apagar</span> = -&gt;</span>
-        cNome.value = <span class="hljs-string">''</span>
-        cEmail.value = <span class="hljs-string">''</span>
-        cAssunto.value = <span class="hljs-string">''</span>
-        cMsg.value = <span class="hljs-string">''</span>
+        cNome.val <span class="hljs-string">""</span>
+        cEmail.val <span class="hljs-string">""</span>
+        cAssunto.val <span class="hljs-string">""</span>
+        cMsg.val <span class="hljs-string">""</span>
         <span class="hljs-keyword">return</span>
 
       botao.<span class="hljs-literal">on</span> <span class="hljs-string">'click'</span>, _apagar</pre></div></div>
