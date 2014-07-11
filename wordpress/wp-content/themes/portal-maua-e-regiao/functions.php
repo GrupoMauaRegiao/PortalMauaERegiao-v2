@@ -3342,7 +3342,7 @@ function remover_tags($texto) {
     return $texto_final;
 }
 
-// Destacar itens procurados (highlight, título)
+// Destacar itens procurados (título)
 function exibir_titulo_destacado() {
     // Título de uma notícia
     $titulo = get_the_title();
@@ -3364,6 +3364,7 @@ function exibir_titulo_destacado() {
     echo "<p>" . $titulo . "</p>";
 }
 
+// Destacar itens procurados (corpo do texto)
 function exibir_texto_destacado() {
     // Quantidade de caracteres antes/depois do texto
     $qtde_caract = 40;
