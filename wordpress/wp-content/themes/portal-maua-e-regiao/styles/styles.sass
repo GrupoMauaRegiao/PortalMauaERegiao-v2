@@ -241,16 +241,6 @@ body
             margin: 3px 0 0 5px
             float: left
 
-        .busca
-          .icone
-            width: 16px
-            height: 16px
-            background: url("../imagens/sprite.png") no-repeat -113px -189px
-            float: left
-
-          .formulario-busca
-            display: block
-
         .previsao-do-tempo
           width: 200px
           margin: 0 -15px 0
@@ -292,7 +282,8 @@ body
               box-shadow: 0 0 1px $cinzaBGDestaquesLateral
               background: $azulClaroBusca
 
-        .empresas
+        .empresas,
+        .busca
           .header
             .icone
               width: 17px
@@ -301,31 +292,36 @@ body
               margin: -2px 7px 0
               float: left
 
-          .formulario-busca-empresas
+          .formulario-busca-empresas,
+          .formulario-busca
             width: 381px
+            background: $azulSubmenu
+            padding: 20px 0 0
+            margin: 15px 0 0 -247px
+            box-shadow: -2px 8px 8px transparentize($preto, 0.8)
+            position: absolute
             cursor: default
             display: none
-
-        .empresas:hover
-          .formulario-busca-empresas
             z-index: 1
-            margin: 15px 0 0 -247px
-            padding: 20px 0 0
-            background: $azulSubmenu
-            position: absolute
-            box-shadow: -2px 8px 8px transparentize($preto, 0.8)
+
+        .empresas:hover,
+        .busca:hover
+          background: $azulSubmenu
+
+          .formulario-busca-empresas,
+          .formulario-busca
             display: block
 
             form
               input[type="text"]
-                width: 335px
+                width: 310px
                 height: 35px
                 color: $cinzaTextoBuscaTopo
                 text-transform: uppercase
                 font: 16px $fontePadrao
                 outline: 0
                 border: 0
-                padding: 5px
+                padding: 5px 30px 5px 5px
                 margin: 10px 18px 0
                 float: left
 
@@ -357,6 +353,17 @@ body
 
               a:first-child
                 margin: 0 25px 0 0
+
+        .busca
+          .header
+            .icone
+              width: 16px
+              height: 16px
+              background: url("../imagens/sprite.png") no-repeat -113px -189px
+              float: left
+
+          .formulario-busca
+            padding: 20px 0 20px !important
 
         .categorias:hover,
         .entretenimento:hover,
@@ -2127,11 +2134,11 @@ footer
 
           form
             input[type="text"]
-              width: 235px
+              width: 202px
               height: 30px
               background: $azulClaroBusca
               border: 1px solid $azulClaroRodape
-              padding: 5px 0 5px 5px
+              padding: 5px 30px 5px 5px
               color: $branco
               font: 20px $fontePadrao
               outline: 0

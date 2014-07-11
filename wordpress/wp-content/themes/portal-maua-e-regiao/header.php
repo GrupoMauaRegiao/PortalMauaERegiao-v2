@@ -149,7 +149,9 @@
             </section>
 
             <section class="busca">
-              <section class="icone"></section>
+              <section class="header">
+                <section class="icone"></section>
+              </section>
               <section class="formulario-busca">
                 <form method="get"
                       action="/">
@@ -229,8 +231,12 @@
 
               <section class="formulario-busca-empresas">
                 <form action="#">
-                  <input type="text" name="s" placeholder="Buscar (nome, CEP, ramo, ...)">
-                  <input type="submit" value=" " title="Buscar">
+                  <input type="text"
+                         name="s"
+                         placeholder="Buscar (nome, CEP, ramo, ...)">
+                  <input type="submit"
+                         value=" "
+                         title="Buscar">
                 </form>
 
                 <section class="links">
