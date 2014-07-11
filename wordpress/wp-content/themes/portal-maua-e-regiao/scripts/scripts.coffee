@@ -98,7 +98,6 @@ Portal.apps =
 
   # Apaga todos os campos do formulario de contato `Fale Conosco`.
   limparFormularioContato: ->
-
     formulario = $ '.formulario-fale-conosco form'
     if formulario
       cNome = $ '#nome'
