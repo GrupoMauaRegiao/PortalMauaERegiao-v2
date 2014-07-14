@@ -495,7 +495,32 @@ títulos do navegador do usuário.</p>
 
       <span class="hljs-keyword">for</span> link, i <span class="hljs-keyword">in</span> links
         $(link).attr <span class="hljs-string">'data-lightbox'</span>, <span class="hljs-string">'roadtrip'</span>
-        $(link).attr <span class="hljs-string">'data-title'</span>, titulo.text()
+        $(link).attr <span class="hljs-string">'data-title'</span>, titulo.text()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Formata data do padrão YYYY-MM-DD para DD/MM/YYYY</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">formatarData</span>:<span class="hljs-function"> -&gt;</span>
+    datas = $ <span class="hljs-string">'.data-horario .data'</span>
+
+    <span class="hljs-keyword">if</span> datas[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">for</span> data, i <span class="hljs-keyword">in</span> datas
+        arrData = $(data).text().split(<span class="hljs-string">':'</span>)[<span class="hljs-number">1</span>]
+        arrData = arrData.split <span class="hljs-string">'-'</span>
+        dia = arrData[<span class="hljs-number">2</span>].trim()
+        mes = arrData[<span class="hljs-number">1</span>].trim()
+        ano = arrData[<span class="hljs-number">0</span>].trim()
+        $(data).text <span class="hljs-string">"Data: "</span> + dia + <span class="hljs-string">"/"</span> + mes + <span class="hljs-string">"/"</span> + ano
 
 <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
   Portal.apps.paginador()
@@ -504,6 +529,7 @@ títulos do navegador do usuário.</p>
   Portal.apps.adicionarCondicoesClimaticas()
   Portal.apps.corrigirTamanhoImagemDestaque()
   Portal.apps.adicionarAtributoLightbox()
+  Portal.apps.formatarData()
   <span class="hljs-keyword">return</span></pre></div></div>
             
         </li>
