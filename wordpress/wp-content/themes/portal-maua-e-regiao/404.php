@@ -18,7 +18,7 @@
         <section class="erro-chamada">
           <section>
             <section class="icone-erro"></section>
-            Desculpe-nos! Mas a página que você procurou não existe.
+            Desculpe-nos! A página que você procurou não existe.
           </section>
         </section>
       </section>
