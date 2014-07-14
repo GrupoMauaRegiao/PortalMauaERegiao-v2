@@ -307,6 +307,19 @@ Portal.apps =
         $(link).attr 'data-lightbox', 'roadtrip'
         $(link).attr 'data-title', titulo.text()
 
+  # Formata data do padrão YYYY-MM-DD para DD/MM/YYYY
+  formatarData: ->
+    datas = $ '.data-horario .data'
+
+    if datas[0]
+      for data, i in datas
+        arrData = $(data).text().split(':')[1]
+        arrData = arrData.split '-'
+        dia = arrData[2].trim()
+        mes = arrData[1].trim()
+        ano = arrData[0].trim()
+        $(data).text "Data: " + dia + "/" + mes + "/" + ano
+
 do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
@@ -314,4 +327,5 @@ do ->
   Portal.apps.adicionarCondicoesClimaticas()
   Portal.apps.corrigirTamanhoImagemDestaque()
   Portal.apps.adicionarAtributoLightbox()
+  Portal.apps.formatarData()
   return

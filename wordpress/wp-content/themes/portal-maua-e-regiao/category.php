@@ -50,7 +50,7 @@
               </a>
             <?php endwhile; else: ?>
 
-              <p>Nenhuma notícia foi encontrada.</p>
+              <p>Nenhuma notícia foi publicada ainda.</p>
 
             <?php endif; ?>
           </section>

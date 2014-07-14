@@ -1374,6 +1374,407 @@ add_action("save_post", "meta_box_noticia_expressao_chave_salvar");
 add_action("add_meta_boxes", "meta_box_noticia_imagem_adicionar");
 add_action("save_post", "meta_box_noticia_imagem_salvar");
 
+// post_type: agenda
+function post_type_agenda_criar() {
+    $labels = array(
+            "name" => _x("Agenda", "post type general name"),
+            "singular_name" => _x("Agenda", "post type singular name"),
+            "add_new" => _x("Adicionar Evento", "jornal"),
+            "add_new_item" => __("Adicionar Novo Evento"),
+            "edit_item" => __("Editar Evento"),
+            "new_item" => __("Novo Evento"),
+            "all_items" => __("Todas os Eventos"),
+            "view_item" => __("Ver Evento"),
+            "search_items" => __("Buscar Eventos"),
+            "not_found" => __("Nenhum Evento Encontrado"),
+            "not_found_in_trash" => __("Nenhum Evento Encontrado na Lixeira"),
+            "parent_item_colon" => "",
+            "menu_name" => "Agenda"
+    );
+
+    $args = array(
+            "labels" => $labels,
+            "public" => true,
+            "publicly_queryable" => true,
+            "show_ui" => true,
+            "show_in_menu" => true,
+            "rewrite" => false,
+            "capability_type" => "post",
+            "has_archive" => true,
+            "hierarchical" => false,
+            "menu_position" => 10,
+            "menu_icon" => "dashicons-exerpt-view",
+            "supports" => array(
+                    "title",
+                    "editor"
+            ),
+            "taxonomies" => array("category")
+    );
+
+    register_post_type("agenda", $args);
+}
+
+// Campo: Cor do Box (caixa)
+function meta_box_agenda_cor_box_adicionar() {
+    add_meta_box(
+            "meta_box_agenda_cor_box_id",
+            "Cor da caixa",
+            "meta_box_agenda_cor_box",
+            "agenda",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_agenda_cor_box() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["cor_box"]) ? esc_attr($campos["cor_box"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='cor_box'>Cor: </label><br>
+                <input style='width: 100%;' type='text' name='cor_box' id='cor_box' value='$conteudo'><br><br>
+                Opções: verde -- rosa -- amarelo -- azul -- violeta -- laranja
+            </p>
+    ";
+}
+
+function meta_box_agenda_cor_box_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["cor_box"])) {
+        update_post_meta(
+                $post_id,
+                "cor_box",
+                $_POST["cor_box"]
+        );
+    }
+}
+
+// Campo: Data
+function meta_box_agenda_data_adicionar() {
+    add_meta_box(
+            "meta_box_agenda_data_id",
+            "Data",
+            "meta_box_agenda_data",
+            "agenda",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_agenda_data() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["data"]) ? esc_attr($campos["data"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='data'>Data: </label><br>
+                <input style='width: 100%;' type='date' name='data' id='data' value='$conteudo'><br><br>
+                Exemplo: 20/03/1987
+            </p>
+    ";
+}
+
+function meta_box_agenda_data_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["data"])) {
+        update_post_meta(
+                $post_id,
+                "data",
+                $_POST["data"]
+        );
+    }
+}
+
+// Campo: Hora
+function meta_box_agenda_hora_adicionar() {
+    add_meta_box(
+            "meta_box_agenda_hora_id",
+            "Hora",
+            "meta_box_agenda_hora",
+            "agenda",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_agenda_hora() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["hora"]) ? esc_attr($campos["hora"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='hora'>Hora: </label><br>
+                <input style='width: 100%;' type='time' name='hora' id='hora' value='$conteudo'><br><br>
+                Exemplos: 10:00 -- 20:00 -- 21:30 -- 22:30 -- 09:00
+            </p>
+    ";
+}
+
+function meta_box_agenda_hora_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["hora"])) {
+        update_post_meta(
+                $post_id,
+                "hora",
+                $_POST["hora"]
+        );
+    }
+}
+
+// Campo: Local
+function meta_box_agenda_local_adicionar() {
+    add_meta_box(
+            "meta_box_agenda_local_id",
+            "Local",
+            "meta_box_agenda_local",
+            "agenda",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_agenda_local() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["local"]) ? esc_attr($campos["local"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='local'>Local do evento: </label><br>
+                <input style='width: 100%;' type='text' name='local' id='local' value='$conteudo'><br><br>
+                Exemplo: Casa de Danças Morpheu
+            </p>
+    ";
+}
+
+function meta_box_agenda_local_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["local"])) {
+        update_post_meta(
+                $post_id,
+                "local",
+                $_POST["local"]
+        );
+    }
+}
+
+// Campo: Endereço
+function meta_box_agenda_endereco_adicionar() {
+    add_meta_box(
+            "meta_box_agenda_endereco_id",
+            "Endereço",
+            "meta_box_agenda_endereco",
+            "agenda",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_agenda_endereco() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["endereco"]) ? esc_attr($campos["endereco"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='endereco'>Endereço: </label><br>
+                <input style='width: 100%;' type='text' name='endereco' id='endereco' value='$conteudo'><br><br>
+                Exemplo: Rua José Alves do Nascimento, 75 - Jardim Mauá - Mauá - SP.
+            </p>
+    ";
+}
+
+function meta_box_agenda_endereco_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["endereco"])) {
+        update_post_meta(
+                $post_id,
+                "endereco",
+                $_POST["endereco"]
+        );
+    }
+}
+
+// Campo: Valor do Ingresso
+function meta_box_agenda_valor_ingresso_adicionar() {
+    add_meta_box(
+            "meta_box_agenda_valor_ingresso_id",
+            "Valor do ingresso",
+            "meta_box_agenda_valor_ingresso",
+            "agenda",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_agenda_valor_ingresso() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["valor-ingresso"]) ? esc_attr($campos["valor-ingresso"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='valor-ingresso'>Valor: </label><br>
+                <input style='width: 100%;' type='text' name='valor-ingresso' id='valor-ingresso' value='$conteudo'><br><br>
+                Exemplos: R$ 20,00 -- R$ 0,67 -- R$ 100,50 -- U$ 0,60 -- gratuito -- 1 kg de alimento não perecível
+            </p>
+    ";
+}
+
+function meta_box_agenda_valor_ingresso_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["valor-ingresso"])) {
+        update_post_meta(
+                $post_id,
+                "valor-ingresso",
+                $_POST["valor-ingresso"]
+        );
+    }
+}
+
+// Campo: Imagem
+function meta_box_agenda_imagem_adicionar() {
+    add_meta_box(
+            "meta_box_agenda_imagem_id",
+            "Imagem",
+            "meta_box_agenda_imagem",
+            "agenda",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_agenda_imagem() {
+    $campos = get_post_custom($post -> ID);
+    $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='imagem'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
+                A imagem deve possuir as DIMENSÕES APROXIMADAS:<br><br>
+                LARGURA: 160 pixels<br>
+                ALTURA: 150 pixels
+            </p>
+    ";
+}
+
+function meta_box_agenda_imagem_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["imagem"])) {
+        update_post_meta(
+                $post_id,
+                "imagem",
+                $_POST["imagem"]
+        );
+    }
+}
+
+add_action("init", "post_type_agenda_criar");
+add_action("add_meta_boxes", "meta_box_agenda_cor_box_adicionar");
+add_action("save_post", "meta_box_agenda_cor_box_salvar");
+add_action("add_meta_boxes", "meta_box_agenda_data_adicionar");
+add_action("save_post", "meta_box_agenda_data_salvar");
+add_action("add_meta_boxes", "meta_box_agenda_hora_adicionar");
+add_action("save_post", "meta_box_agenda_hora_salvar");
+add_action("add_meta_boxes", "meta_box_agenda_local_adicionar");
+add_action("save_post", "meta_box_agenda_local_salvar");
+add_action("add_meta_boxes", "meta_box_agenda_endereco_adicionar");
+add_action("save_post", "meta_box_agenda_endereco_salvar");
+add_action("add_meta_boxes", "meta_box_agenda_valor_ingresso_adicionar");
+add_action("save_post", "meta_box_agenda_valor_ingresso_salvar");
+add_action("add_meta_boxes", "meta_box_agenda_imagem_adicionar");
+add_action("save_post", "meta_box_agenda_imagem_salvar");
+
 // post_type: pub_302_x_285
 function post_type_pub_302_x_285_criar() {
     $labels = array(
@@ -3192,6 +3593,20 @@ function query_todas_noticias($categoria = null) {
     return $query;
 }
 
+function query_agenda() {
+    $query = array(
+            "meta_key" => "data",
+            "post_per_page" => "30",
+            "orderby" => "meta_value",
+            "order" => "asc",
+            "post_type" => array(
+                    "agenda"
+            )
+    );
+
+    return $query;
+}
+
 function mostrar_tempo_transcorrido() {
     date_default_timezone_set("UTC-3");
     $hora_atual = current_time("timestamp");
@@ -3254,7 +3669,9 @@ function implementar_open_graph() {
         $titulo = get_bloginfo("name");
         $categoria = single_cat_title("", false);
         $id_categoria = get_cat_id($categoria);
-        $descricao = "Acompanhe as últimas notícias sobre " . $categoria;
+        $descricao = is_category("agenda")
+                     ? "Calendário de eventos"
+                     : "Acompanhe as últimas notícias sobre " . $categoria;
         $url = get_category_link($id_categoria);
         $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
         $og = "
@@ -3342,7 +3759,7 @@ function remover_tags($texto) {
     return $texto_final;
 }
 
-// Destacar itens procurados (título)
+// Destacar itens procurados (highlight, título)
 function exibir_titulo_destacado() {
     // Título de uma notícia
     $titulo = get_the_title();
@@ -3364,7 +3781,6 @@ function exibir_titulo_destacado() {
     echo "<p>" . $titulo . "</p>";
 }
 
-// Destacar itens procurados (corpo do texto)
 function exibir_texto_destacado() {
     // Quantidade de caracteres antes/depois do texto
     $qtde_caract = 40;
@@ -3413,7 +3829,7 @@ function exibir_texto_destacado() {
         $texto = substr($texto, 0, $max_caract);
         $texto_final = preg_replace($regex, $substituto, $texto);
         $texto_final = $texto_final . "...";
-        // Se não houver texto
+        // Se não houve
         if ($tam_texto == 0) {
             $texto_final = "Não há texto nesta notícia.";
         }
