@@ -133,7 +133,8 @@ GET a partir de um formulário HTML comum.</p>
               msg += <span class="hljs-string">'&amp;assunto='</span> + encodeURI(cAssunto.val())
               msg += <span class="hljs-string">'&amp;mensagem='</span> + encodeURI(cMsg.val())
 
-              xhr.open formulario.attr(<span class="hljs-string">'method'</span>), formulario.attr(<span class="hljs-string">'action'</span>) + <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
+              xhr.open formulario.attr(<span class="hljs-string">'method'</span>), formulario.attr(<span class="hljs-string">'action'</span>) +
+                                                  <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
               xhr.send msg
               xhr.<span class="hljs-function"><span class="hljs-title">onreadystatechange</span> = -&gt;</span>
                 <span class="hljs-keyword">if</span> xhr.readyState <span class="hljs-keyword">is</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> xhr.status <span class="hljs-keyword">is</span> <span class="hljs-number">200</span>
@@ -520,9 +521,48 @@ títulos do navegador do usuário.</p>
         dia = arrData[<span class="hljs-number">2</span>].trim()
         mes = arrData[<span class="hljs-number">1</span>].trim()
         ano = arrData[<span class="hljs-number">0</span>].trim()
-        $(data).text <span class="hljs-string">"Data: "</span> + dia + <span class="hljs-string">"/"</span> + mes + <span class="hljs-string">"/"</span> + ano
+        $(data).text <span class="hljs-string">"Data: "</span> + dia + <span class="hljs-string">"/"</span> + mes + <span class="hljs-string">"/"</span> + ano</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Cria efeito de exibição aleatória nas notícias principais da homepage</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">criarEfeitoAleatorioNoticias</span>:<span class="hljs-function"> -&gt;</span>
+    containerNoticias = $ <span class="hljs-string">'.conteudo .noticias'</span>
+
+    <span class="hljs-keyword">if</span> containerNoticias[<span class="hljs-number">0</span>]
+      boxCom1 = $ <span class="hljs-string">'.box-com-1'</span>
+      boxCom2 = $ <span class="hljs-string">'.box-com-2'</span>
+      boxCom3 = $ <span class="hljs-string">'.box-com-3'</span>
+      arranjos = [
+          [boxCom1, boxCom2, boxCom3]
+          [boxCom2, boxCom1, boxCom3]
+          [boxCom1, boxCom3, boxCom2]
+          [boxCom3, boxCom1, boxCom2]
+          [boxCom3, boxCom2, boxCom1]
+          [boxCom2, boxCom3, boxCom1]
+      ]
+
+      boxCom1.remove()
+      boxCom2.remove()
+      boxCom3.remove()
+
+      <span class="hljs-function"><span class="hljs-title">_numeroAleatorio</span> = <span class="hljs-params">(max)</span> -&gt;</span>
+        Math.floor Math.random() * max
+
+      $(containerNoticias[<span class="hljs-number">0</span>]).append arranjos[_numeroAleatorio arranjos.length]
 
 <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
+  Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()

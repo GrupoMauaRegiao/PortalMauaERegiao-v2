@@ -76,7 +76,8 @@ Portal.apps =
               msg += '&assunto=' + encodeURI(cAssunto.val())
               msg += '&mensagem=' + encodeURI(cMsg.val())
 
-              xhr.open formulario.attr('method'), formulario.attr('action') + '?' + msg, true
+              xhr.open formulario.attr('method'), formulario.attr('action') +
+                                                  '?' + msg, true
               xhr.send msg
               xhr.onreadystatechange = ->
                 if xhr.readyState is 4 and xhr.status is 200
@@ -320,7 +321,34 @@ Portal.apps =
         ano = arrData[0].trim()
         $(data).text "Data: " + dia + "/" + mes + "/" + ano
 
+  # Cria efeito de exibição aleatória nas notícias principais da homepage
+  criarEfeitoAleatorioNoticias: ->
+    containerNoticias = $ '.conteudo .noticias'
+
+    if containerNoticias[0]
+      boxCom1 = $ '.box-com-1'
+      boxCom2 = $ '.box-com-2'
+      boxCom3 = $ '.box-com-3'
+      arranjos = [
+          [boxCom1, boxCom2, boxCom3]
+          [boxCom2, boxCom1, boxCom3]
+          [boxCom1, boxCom3, boxCom2]
+          [boxCom3, boxCom1, boxCom2]
+          [boxCom3, boxCom2, boxCom1]
+          [boxCom2, boxCom3, boxCom1]
+      ]
+
+      boxCom1.remove()
+      boxCom2.remove()
+      boxCom3.remove()
+
+      _numeroAleatorio = (max) ->
+        Math.floor Math.random() * max
+
+      $(containerNoticias[0]).append arranjos[_numeroAleatorio arranjos.length]
+
 do ->
+  Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
