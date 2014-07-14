@@ -3628,7 +3628,9 @@ function mostrar_titulo() {
                   get_the_date("j \d\e F \d\e Y") .
                   " (" . mostrar_tempo_transcorrido() . ")";
     } elseif (is_category()) {
-        $titulo = $nome . " &#8212 Notícias sobre " . $categoria;
+        $titulo = is_category("agenda")
+                  ? $nome . " &#8212 Últimos eventos"
+                  : $nome . " &#8212 Notícias sobre " . $categoria;
     } else {
         $titulo = $nome . " &#8212; " . $descricao;
     }
