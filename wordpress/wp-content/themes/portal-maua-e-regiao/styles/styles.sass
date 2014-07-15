@@ -833,8 +833,12 @@ body
                     background: $branco
 
                     img
-                      width: auto
+                      width: 300px
                       height: 350px
+                      object-fit: cover
+
+                      @-moz-document url-prefix()
+                        width: auto
 
                   .informacoes
                     position: relative
