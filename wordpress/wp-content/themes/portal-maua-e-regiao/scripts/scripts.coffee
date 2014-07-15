@@ -275,14 +275,6 @@ Portal.apps =
     _adicionarCondicoesClimaticas()
     return
 
-  corrigirTamanhoImagemDestaque: ->
-    imagens = $ '.box-com-3 .noticia .imagem img'
-
-    if imagens[0]
-      for item in imagens
-        if $(item).width() < 302
-          $(item).css 'width', '302px'
-
   # Limita o número de caracteres do título de uma matéria no Painel do
   # WordPress e apresenta total e número máximo de caracteres na barra de
   # títulos do navegador do usuário.
@@ -353,7 +345,6 @@ do ->
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
   Portal.apps.adicionarCondicoesClimaticas()
-  Portal.apps.corrigirTamanhoImagemDestaque()
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   return

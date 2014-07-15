@@ -540,8 +540,12 @@ body
                 overflow: hidden
 
                 img
-                  width: auto
+                  width: 302px
                   height: 180px
+                  object-fit: cover
+
+                  @-moz-document url-prefix()
+                    width: auto
 
       .outros-destaques
         width: $areaUtilLayout
@@ -588,7 +592,11 @@ body
 
               img
                 width: 302px
-                height: auto
+                height: 135px
+                object-fit: cover
+
+                @-moz-document url-prefix()
+                  height: auto
 
             .categoria
               font-size: 18px
