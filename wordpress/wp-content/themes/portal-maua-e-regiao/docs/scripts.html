@@ -439,15 +439,7 @@ Fonte da escala: <a href="http://pt.wikipedia.org/wiki/Escala_de_Beaufort">http:
       navigator.geolocation.getCurrentPosition _success, _error, _options
 
     _adicionarCondicoesClimaticas()
-    <span class="hljs-keyword">return</span>
-
-  <span class="hljs-attribute">corrigirTamanhoImagemDestaque</span>:<span class="hljs-function"> -&gt;</span>
-    imagens = $ <span class="hljs-string">'.box-com-3 .noticia .imagem img'</span>
-
-    <span class="hljs-keyword">if</span> imagens[<span class="hljs-number">0</span>]
-      <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> imagens
-        <span class="hljs-keyword">if</span> $(item).width() &lt; <span class="hljs-number">302</span>
-          $(item).css <span class="hljs-string">'width'</span>, <span class="hljs-string">'302px'</span></pre></div></div>
+    <span class="hljs-keyword">return</span></pre></div></div>
             
         </li>
         
@@ -567,7 +559,6 @@ títulos do navegador do usuário.</p>
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
   Portal.apps.adicionarCondicoesClimaticas()
-  Portal.apps.corrigirTamanhoImagemDestaque()
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   <span class="hljs-keyword">return</span></pre></div></div>
