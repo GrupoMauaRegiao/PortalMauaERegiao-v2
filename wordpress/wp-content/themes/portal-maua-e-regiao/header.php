@@ -134,7 +134,19 @@
               </section>
 
               <section class="lista-entretenimento">
-                <!-- Conteúdo Entretenimento -->
+                <section class="cidade">
+                  <section class="header">
+
+                  </section>
+
+                  <section class="lista">
+                    <ul>
+                      <li><a href="<?php bloginfo('url') ?>/categorias/agenda">Agenda</a></li>
+                      <li><a target="_blank" href="http://tvmauaeregiao.com.br/categorias/programas/rapidinha/?canal=1">Rapidinha</a></li>
+                      <li><a target="_blank" href="http://tvmauaeregiao.com.br/categorias/programas/entrevista/?canal=1">Entrevistas</a></li>
+                    </ul>
+                  </section>
+                </section>
               </section>
             </section>
 

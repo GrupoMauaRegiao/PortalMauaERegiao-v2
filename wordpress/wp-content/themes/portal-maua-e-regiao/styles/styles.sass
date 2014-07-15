@@ -107,10 +107,12 @@ body
         color: $branco
         float: left
 
-        .categorias
+        .categorias,
+        .entretenimento
           padding: 8px 23px 8px 23px
 
-          .lista-categorias
+          .lista-categorias,
+          .lista-entretenimento
             cursor: default
             display: none
 
@@ -158,14 +160,22 @@ body
                 ul
                   float: left
 
-        .categorias:hover
-          .lista-categorias
+        .categorias:hover,
+        .entretenimento:hover
+          .lista-categorias,
+          .lista-entretenimento
             z-index: 1
             position: absolute
             margin: 15px 0 0 -23px
             background: $branco
             box-shadow: -2px 8px 8px transparentize($preto, 0.8)
             display: block
+
+          .lista-entretenimento
+            margin-left: -15px
+
+            .cidade
+              width: 178px
 
         .revista,
         .jornal
@@ -365,6 +375,7 @@ body
 
           .formulario-busca
             padding: 20px 0 20px !important
+            margin-left: -25px
 
         .categorias:hover,
         .entretenimento:hover,
@@ -411,7 +422,11 @@ body
 
                 img
                   width: 302px
-                  height: auto
+                  height: 150px
+                  object-fit: cover
+
+                  @-moz-document url-prefix()
+                    height: auto
 
               .informacoes
                 position: relative
@@ -464,8 +479,12 @@ body
                 overflow: hidden
 
                 img
-                  width: auto
+                  width: 302px
                   height: 554px
+                  object-fit: cover
+
+                  @-moz-document url-prefix()
+                    width: auto
 
               .informacoes
                 margin: -155px 0 0 0
@@ -503,8 +522,11 @@ body
                 overflow: hidden
 
                 img
-                  width: auto
+                  width: 302px
                   height: 266px
+
+                  @-moz-document url-prefix()
+                    width: auto
 
         .box-com-3
           a:nth-child(2),
@@ -1157,8 +1179,12 @@ body
                     float: left
 
                     img
-                      width: auto
+                      width: 153px
                       height: 130px
+                      object-fit: cover
+
+                      @-moz-document url-prefix()
+                        width: auto
 
                   .corte
                     width: 50px
