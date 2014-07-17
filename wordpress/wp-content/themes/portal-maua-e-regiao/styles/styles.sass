@@ -896,7 +896,11 @@ body
 
                   img
                     width: 400px
-                    height: auto
+                    height: 140px
+                    object-fit: cover
+
+                    @-moz-document url-prefix()
+                      height: auto
 
                 .informacoes
                   position: relative
@@ -944,6 +948,11 @@ body
                 .imagem
                   width: 190px
                   height: 193px
+
+                  img
+                    width: 190px
+                    height: 193px
+                    object-fit: cover
 
                 .informacoes
                   margin: -79px 0 0
@@ -1000,8 +1009,12 @@ body
                     overflow: hidden
 
                     img
-                      width: auto
+                      width: 226px
                       height: 166px
+                      object-fit: cover
+
+                      @-moz-document url-prefix()
+                        width: auto
 
                   .informacoes
                     margin: 15px 0 0 0
