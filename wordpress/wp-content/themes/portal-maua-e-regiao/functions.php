@@ -49,7 +49,7 @@ function meta_box_revista_adicionar() {
 }
 
 function meta_box_revista() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["iframe-issuu"]) ? esc_attr($campos["iframe-issuu"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -149,7 +149,7 @@ function meta_box_jornal_adicionar() {
 }
 
 function meta_box_jornal() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["iframe-issuu"]) ? esc_attr($campos["iframe-issuu"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -261,7 +261,7 @@ function meta_box_noticia_destaque_3_itens_expressao_chave_adicionar() {
 }
 
 function meta_box_noticia_destaque_3_itens_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -310,7 +310,7 @@ function meta_box_noticia_destaque_3_itens_imagem_adicionar() {
 }
 
 function meta_box_noticia_destaque_3_itens_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -414,7 +414,7 @@ function meta_box_noticia_destaque_1_item_expressao_chave_adicionar() {
 }
 
 function meta_box_noticia_destaque_1_item_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -463,7 +463,7 @@ function meta_box_noticia_destaque_1_item_imagem_adicionar() {
 }
 
 function meta_box_noticia_destaque_1_item_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -567,7 +567,7 @@ function meta_box_noticia_destaque_2_itens_expressao_chave_adicionar() {
 }
 
 function meta_box_noticia_destaque_2_itens_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -616,7 +616,7 @@ function meta_box_noticia_destaque_2_itens_imagem_adicionar() {
 }
 
 function meta_box_noticia_destaque_2_itens_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -720,7 +720,7 @@ function meta_box_outros_destaques_imagem_adicionar() {
 }
 
 function meta_box_outros_destaques_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -822,7 +822,7 @@ function meta_box_noticia_destacada_expressao_chave_adicionar() {
 }
 
 function meta_box_noticia_destacada_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -871,7 +871,7 @@ function meta_box_noticia_destacada_imagem_adicionar() {
 }
 
 function meta_box_noticia_destacada_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -975,7 +975,7 @@ function meta_box_noticia_dstq_2_expressao_chave_adicionar() {
 }
 
 function meta_box_noticia_dstq_2_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1024,7 +1024,7 @@ function meta_box_noticia_dstq_2_imagem_adicionar() {
 }
 
 function meta_box_noticia_dstq_2_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1128,7 +1128,7 @@ function meta_box_noticia_dstq_3_expressao_chave_adicionar() {
 }
 
 function meta_box_noticia_dstq_3_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1177,7 +1177,7 @@ function meta_box_noticia_dstq_3_imagem_adicionar() {
 }
 
 function meta_box_noticia_dstq_3_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1281,7 +1281,7 @@ function meta_box_noticia_expressao_chave_adicionar() {
 }
 
 function meta_box_noticia_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1330,7 +1330,7 @@ function meta_box_noticia_imagem_adicionar() {
 }
 
 function meta_box_noticia_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1427,7 +1427,7 @@ function meta_box_agenda_cor_box_adicionar() {
 }
 
 function meta_box_agenda_cor_box() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["cor_box"]) ? esc_attr($campos["cor_box"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1476,7 +1476,7 @@ function meta_box_agenda_data_adicionar() {
 }
 
 function meta_box_agenda_data() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["data"]) ? esc_attr($campos["data"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1525,7 +1525,7 @@ function meta_box_agenda_hora_adicionar() {
 }
 
 function meta_box_agenda_hora() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["hora"]) ? esc_attr($campos["hora"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1574,7 +1574,7 @@ function meta_box_agenda_local_adicionar() {
 }
 
 function meta_box_agenda_local() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["local"]) ? esc_attr($campos["local"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1623,7 +1623,7 @@ function meta_box_agenda_endereco_adicionar() {
 }
 
 function meta_box_agenda_endereco() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["endereco"]) ? esc_attr($campos["endereco"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1672,7 +1672,7 @@ function meta_box_agenda_valor_ingresso_adicionar() {
 }
 
 function meta_box_agenda_valor_ingresso() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["valor-ingresso"]) ? esc_attr($campos["valor-ingresso"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1721,7 +1721,7 @@ function meta_box_agenda_imagem_adicionar() {
 }
 
 function meta_box_agenda_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1827,7 +1827,7 @@ function meta_box_pub_302_x_285_link_adicionar() {
 }
 
 function meta_box_pub_302_x_285_expressao_chave() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1875,7 +1875,7 @@ function meta_box_pub_302_x_285_imagem_adicionar() {
 }
 
 function meta_box_pub_302_x_285_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -1926,7 +1926,7 @@ function meta_box_pub_302_x_285_object_adicionar() {
 }
 
 function meta_box_pub_302_x_285_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2024,7 +2024,7 @@ function meta_box_pub_350_x_200_link_adicionar() {
 }
 
 function meta_box_pub_350_x_200_link() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2072,7 +2072,7 @@ function meta_box_pub_350_x_200_imagem_adicionar() {
 }
 
 function meta_box_pub_350_x_200_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2123,7 +2123,7 @@ function meta_box_pub_350_x_200_object_adicionar() {
 }
 
 function meta_box_pub_350_x_200_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2221,7 +2221,7 @@ function meta_box_pub_190_x_193_link_adicionar() {
 }
 
 function meta_box_pub_190_x_193_link() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2269,7 +2269,7 @@ function meta_box_pub_190_x_193_imagem_adicionar() {
 }
 
 function meta_box_pub_190_x_193_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2320,7 +2320,7 @@ function meta_box_pub_190_x_193_object_adicionar() {
 }
 
 function meta_box_pub_190_x_193_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2418,7 +2418,7 @@ function meta_box_pub_210_x_130_link_adicionar() {
 }
 
 function meta_box_pub_210_x_130_link() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2466,7 +2466,7 @@ function meta_box_pub_210_x_130_imagem_adicionar() {
 }
 
 function meta_box_pub_210_x_130_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2517,7 +2517,7 @@ function meta_box_pub_210_x_130_object_adicionar() {
 }
 
 function meta_box_pub_210_x_130_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2615,7 +2615,7 @@ function meta_box_pub_223_x_200_link_adicionar() {
 }
 
 function meta_box_pub_223_x_200_link() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2663,7 +2663,7 @@ function meta_box_pub_223_x_200_imagem_adicionar() {
 }
 
 function meta_box_pub_223_x_200_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2714,7 +2714,7 @@ function meta_box_pub_223_x_200_object_adicionar() {
 }
 
 function meta_box_pub_223_x_200_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2812,7 +2812,7 @@ function meta_box_pub_300_x_250_link_adicionar() {
 }
 
 function meta_box_pub_300_x_250_link() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2860,7 +2860,7 @@ function meta_box_pub_300_x_250_imagem_adicionar() {
 }
 
 function meta_box_pub_300_x_250_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -2911,7 +2911,7 @@ function meta_box_pub_300_x_250_object_adicionar() {
 }
 
 function meta_box_pub_300_x_250_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3009,7 +3009,7 @@ function meta_box_pub_630_x_200_link_adicionar() {
 }
 
 function meta_box_pub_630_x_200_link() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3057,7 +3057,7 @@ function meta_box_pub_630_x_200_imagem_adicionar() {
 }
 
 function meta_box_pub_630_x_200_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3108,7 +3108,7 @@ function meta_box_pub_630_x_200_object_adicionar() {
 }
 
 function meta_box_pub_630_x_200_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3206,7 +3206,7 @@ function meta_box_pub_730_x_100_link_adicionar() {
 }
 
 function meta_box_pub_730_x_100_link() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["link"]) ? esc_attr($campos["link"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3254,7 +3254,7 @@ function meta_box_pub_730_x_100_imagem_adicionar() {
 }
 
 function meta_box_pub_730_x_100_imagem() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3305,7 +3305,7 @@ function meta_box_pub_730_x_100_object_adicionar() {
 }
 
 function meta_box_pub_730_x_100_object() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["object"]) ? esc_attr($campos["object"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3408,7 +3408,7 @@ function meta_box_fatos_e_fotos_imagem_maior_adicionar() {
 }
 
 function meta_box_fatos_e_fotos_imagem_maior() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["capa_fundo_imagem_maior"]) ? esc_attr($campos["capa_fundo_imagem_maior"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
@@ -3456,7 +3456,7 @@ function meta_box_fatos_e_fotos_imagem_menor_adicionar() {
 }
 
 function meta_box_fatos_e_fotos_imagem_menor() {
-    $campos = get_post_custom($post -> ID);
+    $campos   = get_post_custom($post -> ID);
     $conteudo = isset($campos["capa_fundo_imagem_menor"]) ? esc_attr($campos["capa_fundo_imagem_menor"][0]) : "";
 
     wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
