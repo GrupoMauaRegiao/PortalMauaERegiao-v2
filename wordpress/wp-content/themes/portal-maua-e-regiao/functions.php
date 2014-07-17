@@ -3533,8 +3533,8 @@ function slug() {
 function limitar_caracteres_titulos() {
   global $current_screen;
   $tipo_post = $current_screen -> post_type;
-  $scripts = get_template_directory_uri() . "\/scripts\/scripts.js";
-  $limites = array(
+  $scripts   = get_template_directory_uri() . "\/scripts\/scripts.js";
+  $limites   = array(
       0 => array("destaque_3_itens", 55),
       1 => array("destaque_1_item", 60),
       2 => array("destaque_2_itens", 50),
@@ -3610,15 +3610,15 @@ function query_agenda() {
 function mostrar_tempo_transcorrido() {
     date_default_timezone_set("UTC-3");
     $hora_atual = current_time("timestamp");
-    $hora_post = get_the_time("U");
+    $hora_post  = get_the_time("U");
 
     return "Há " . human_time_diff($hora_post, $hora_atual);
 }
 
 function mostrar_titulo() {
-    $nome = get_bloginfo("name");
+    $nome       = get_bloginfo("name");
     $descricao  = get_bloginfo("description");
-    $categoria = single_cat_title("", false);
+    $categoria  = single_cat_title("", false);
 
     if (is_home()) {
         $titulo = $nome . " &#8212; " . $descricao;
@@ -3641,13 +3641,13 @@ function mostrar_titulo() {
 function implementar_open_graph() {
     global $wp_query;
     $id_post = $wp_query -> post -> ID;
-    $tipo = "website";
+    $tipo    = "website";
 
     if (is_home()) {
-        $titulo = get_bloginfo("name");
+        $titulo    = get_bloginfo("name");
         $descricao = "Portal de notícias do Grupo Mauá e Região de Comunicação; " . get_bloginfo("description");
-        $url = get_bloginfo("url");
-        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $url       = get_bloginfo("url");
+        $imagem    = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
         $og = "
             <meta property='og:title' content='$titulo' />
             <meta property='og:type' content='$tipo' />
@@ -3656,26 +3656,31 @@ function implementar_open_graph() {
             <meta property='og:image' content='$imagem' />
         ";
     } elseif (is_single()) {
-        $titulo = get_the_title();
-        $descricao = get_the_excerpt();
-        $url = post_permalink();
-        $imagem = get_post_meta($id_post, "imagem", true);
+        $titulo      = get_the_title();
+        $tipo        = "article";
+        $descricao   = get_the_excerpt();
+        $localizacao = "pt_BR";
+        $url         = post_permalink();
+        $site        = get_bloginfo("name");
+        $imagem      = get_post_meta($id_post, "imagem", true);
         $og = "
             <meta property='og:title' content='$titulo' />
             <meta property='og:type' content='$tipo' />
             <meta property='og:description' content='$descricao' />
+            <meta property='og:locale' content='$localizacao' />
             <meta property='og:url' content='$url' />
+            <meta property='og:site_name' content='$site' />
             <meta property='og:image' content='$imagem' />
         ";
     } elseif (is_category()) {
-        $titulo = get_bloginfo("name");
-        $categoria = single_cat_title("", false);
+        $titulo       = get_bloginfo("name");
+        $categoria    = single_cat_title("", false);
         $id_categoria = get_cat_id($categoria);
-        $descricao = is_category("agenda")
-                     ? "Calendário de eventos"
-                     : "Acompanhe as últimas notícias sobre " . $categoria;
-        $url = get_category_link($id_categoria);
-        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $descricao    = is_category("agenda")
+                        ? "Calendário de eventos"
+                        : "Acompanhe as últimas notícias sobre " . $categoria;
+        $url          = get_category_link($id_categoria);
+        $imagem       = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
         $og = "
             <meta property='og:title' content='$titulo' />
             <meta property='og:type' content='$tipo' />
@@ -3685,10 +3690,10 @@ function implementar_open_graph() {
         ";
     } elseif (is_page()) {
         $nome_pagina = $wp_query -> post -> post_title;
-        $titulo = get_bloginfo("name") . " &#8212; " . $nome_pagina;
-        $descricao = "Clique para visitar a página " . $nome_pagina;
-        $url = get_permalink();
-        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $titulo      = get_bloginfo("name") . " &#8212; " . $nome_pagina;
+        $descricao   = "Clique para visitar a página " . $nome_pagina;
+        $url         = get_permalink();
+        $imagem      = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
         $og = "
             <meta property='og:title' content='$titulo' />
             <meta property='og:type' content='$tipo' />
@@ -3698,10 +3703,10 @@ function implementar_open_graph() {
         ";
     } elseif (is_search()) {
         $termos_busca = get_search_query();
-        $titulo = get_bloginfo("name");
-        $descricao = "Buscando por: " . $termos_busca;
-        $url = get_bloginfo("url") . "/s=" . $termos_busca;
-        $imagem = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
+        $titulo       = get_bloginfo("name");
+        $descricao    = "Buscando por: " . $termos_busca;
+        $url          = get_bloginfo("url") . "/s=" . $termos_busca;
+        $imagem       = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
         $og = "
             <meta property='og:title' content='$titulo' />
             <meta property='og:type' content='$tipo' />
@@ -3742,8 +3747,8 @@ function ignorar_acentos($busca) {
 // Obtém a posição da string com regex
 function obter_posicao($texto, $regex) {
     $pos = preg_match($regex, $texto, $palavras, PREG_OFFSET_CAPTURE)
-               ? $palavras[0][1]
-               : false;
+           ? $palavras[0][1]
+           : false;
 
     return $pos;
 }
@@ -3751,12 +3756,12 @@ function obter_posicao($texto, $regex) {
 // Remove tags HTML e marcações de plugins do WordPress
 function remover_tags($texto) {
     $regex_tags_wordpress = "/\[.*?\]/";
-    $texto_final = preg_replace(
+    $texto_final          = preg_replace(
             $regex_tags_wordpress,
             "",
             $texto
     );
-    $texto_final = strip_tags($texto_final);
+    $texto_final          = strip_tags($texto_final);
 
     return $texto_final;
 }
@@ -3764,9 +3769,9 @@ function remover_tags($texto) {
 // Destacar itens procurados (highlight, título)
 function exibir_titulo_destacado() {
     // Título de uma notícia
-    $titulo = get_the_title();
+    $titulo     = get_the_title();
     // Todas as palavras procuradas
-    $termos = explode(" ", get_search_query());
+    $termos     = explode(" ", get_search_query());
     // Elemento HTML que será usado pelo CSS
     $substituto = '<span>\0</span>';
 
@@ -3787,40 +3792,40 @@ function exibir_texto_destacado() {
     // Quantidade de caracteres antes/depois do texto
     $qtde_caract = 40;
     // Quantidade máxima permitida dentro de um box de resultados
-    $max_caract = 70;
+    $max_caract  = 70;
     // Texto sem tags
-    $texto = remover_tags(get_the_content());
+    $texto       = remover_tags(get_the_content());
     // Todas as palavras procuradas
-    $termos = explode(" ", get_search_query());
+    $termos      = explode(" ", get_search_query());
     // Apenas a última palavra será destacada
-    $termo = end($termos);
+    $termo       = end($termos);
     // Regex para encontrar correspondências no texto, ignorando acentuação e
     // letras maiúsculas/minúsculas
-    $regex = "/(" . ignorar_acentos($termo) . ")/ui";
+    $regex       = "/(" . ignorar_acentos($termo) . ")/ui";
     // Posição da palavra procurada
     $pos_palavra = obter_posicao($texto, $regex);
     // Tamanho total do texto
-    $tam_texto = strlen($texto);
+    $tam_texto   = strlen($texto);
     // Elemento HTML que será usado pelo CSS
-    $substituto = '<span>\0</span>';
+    $substituto  = '<span>\0</span>';
 
     // Caso exista correspodência entre a palavra procurada e o texto
     if (($pos_palavra) && ($pos_palavra != 0)) {
         // Se a posicao da palavra procurada está próxima ao final do texto
         if ($pos_palavra > ($tam_texto - $qtde_caract)) {
-            $texto = substr($texto, ($pos_palavra - $qtde_caract), $tam_texto);
+            $texto       = substr($texto, ($pos_palavra - $qtde_caract), $tam_texto);
             $texto_final = preg_replace($regex, $substituto, $texto);
             $texto_final = "..." . $texto_final;
         // Se a posição da palavra procurada é menor que a quantidade de
         // texto permitida no box de resultados
         } elseif ($pos_palavra < $qtde_caract) {
-            $texto = substr($texto, 0, $max_caract);
+            $texto       = substr($texto, 0, $max_caract);
             $texto_final = preg_replace($regex, $substituto, $texto);
             $texto_final = $texto_final . "...";
         // Se o tamanho total do texto é maior que a quantidade de texto
         // permitida no box de resultados
         } elseif ($tam_texto > $max_caract) {
-            $texto = substr($texto, ($pos_palavra - $qtde_caract), -($tam_texto - $pos_palavra) + $qtde_caract);
+            $texto       = substr($texto, ($pos_palavra - $qtde_caract), -($tam_texto - $pos_palavra) + $qtde_caract);
             $texto_final = preg_replace($regex, $substituto, $texto);
             $texto_final = "..." . $texto_final . "...";
         } else {
@@ -3828,7 +3833,7 @@ function exibir_texto_destacado() {
         }
     // Se não houver correspodência entre a palavra procurada e o texto
     } elseif ((!$pos_palavra) || ($pos_palavra == 0)) {
-        $texto = substr($texto, 0, $max_caract);
+        $texto       = substr($texto, 0, $max_caract);
         $texto_final = preg_replace($regex, $substituto, $texto);
         $texto_final = $texto_final . "...";
         // Se não houve
@@ -3840,4 +3845,15 @@ function exibir_texto_destacado() {
     echo $texto_final;
 }
 
+function ajustar_nomes_arquivos_upload($nome_arquivo) {
+    $localizacao = pathinfo($nome_arquivo);
+    $extensao    = empty($localizacao["extension"])
+                   ? ""
+                   : "." . $localizacao["extension"];
+    $nome        = basename($nome_arquivo, $extensao);
+
+    return md5($nome) . $extensao;
+}
+
+add_filter("sanitize_file_name", "ajustar_nomes_arquivos_upload", 10);
 ?>
