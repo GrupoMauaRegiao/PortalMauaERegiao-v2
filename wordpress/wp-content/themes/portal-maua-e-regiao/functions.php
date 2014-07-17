@@ -4,34 +4,34 @@ include "custom-post-type-com-rewrite.php";
 // post_type: revista
 function post_type_revista_criar() {
     $labels = array(
-            "name" => _x("Revista", "post type general name"),
-            "singular_name" => _x("Revista", "post type singular name"),
-            "add_new" => _x("Adicionar Nova", "revista"),
-            "add_new_item" => __("Adicionar Nova Revista"),
-            "edit_item" => __("Editar Revista"),
-            "new_item" => __("Nova Revista"),
-            "all_items" => __("Todas as Revistas"),
-            "view_item" => __("Ver Revista"),
-            "search_items" => __("Buscar Revistas"),
-            "not_found" => __("Nenhuma Revista Encontrada"),
+            "name"               => _x("Revista", "post type general name"),
+            "singular_name"      => _x("Revista", "post type singular name"),
+            "add_new"            => _x("Adicionar Nova", "revista"),
+            "add_new_item"       => __("Adicionar Nova Revista"),
+            "edit_item"          => __("Editar Revista"),
+            "new_item"           => __("Nova Revista"),
+            "all_items"          => __("Todas as Revistas"),
+            "view_item"          => __("Ver Revista"),
+            "search_items"       => __("Buscar Revistas"),
+            "not_found"          => __("Nenhuma Revista Encontrada"),
             "not_found_in_trash" => __("Nenhuma Revista Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Revista ISSUU"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Revista ISSUU"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-book-alt",
-            "supports" => array("title")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-book-alt",
+            "supports"           => array("title")
     );
 
     register_post_type("revista", $args);
@@ -77,10 +77,10 @@ function meta_box_revista_salvar($post_id) {
 
     $tags_permitidas = array(
             "iframe" => array(
-                    "width" => array(),
-                    "height" => array(),
-                    "src" => array(),
-                    "frameborder" => array(),
+                    "width"           => array(),
+                    "height"          => array(),
+                    "src"             => array(),
+                    "frameborder"     => array(),
                     "allowfullscreen" => array()
             )
     );
@@ -104,34 +104,34 @@ add_action("save_post", "meta_box_revista_salvar");
 // post_type: jornal
 function post_type_jornal_criar() {
     $labels = array(
-            "name" => _x("Jornal", "post type general name"),
-            "singular_name" => _x("Jornal", "post type singular name"),
-            "add_new" => _x("Adicionar Novo", "jornal"),
-            "add_new_item" => __("Adicionar Novo Jornal"),
-            "edit_item" => __("Editar Jornal"),
-            "new_item" => __("Novo Jornal"),
-            "all_items" => __("Todos os Jornais"),
-            "view_item" => __("Ver Jornal"),
-            "search_items" => __("Buscar Jornais"),
-            "not_found" => __("Nenhum Jornal Encontrado"),
+            "name"               => _x("Jornal", "post type general name"),
+            "singular_name"      => _x("Jornal", "post type singular name"),
+            "add_new"            => _x("Adicionar Novo", "jornal"),
+            "add_new_item"       => __("Adicionar Novo Jornal"),
+            "edit_item"          => __("Editar Jornal"),
+            "new_item"           => __("Novo Jornal"),
+            "all_items"          => __("Todos os Jornais"),
+            "view_item"          => __("Ver Jornal"),
+            "search_items"       => __("Buscar Jornais"),
+            "not_found"          => __("Nenhum Jornal Encontrado"),
             "not_found_in_trash" => __("Nenhum Jornal Encontrado na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Jornal ISSUU"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Jornal ISSUU"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-id-alt",
-            "supports" => array("title")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-id-alt",
+            "supports"           => array("title")
     );
 
     register_post_type("jornal", $args);
@@ -177,10 +177,10 @@ function meta_box_jornal_salvar($post_id) {
 
     $tags_permitidas = array(
             "iframe" => array(
-                    "width" => array(),
-                    "height" => array(),
-                    "src" => array(),
-                    "frameborder" => array(),
+                    "width"           => array(),
+                    "height"          => array(),
+                    "src"             => array(),
+                    "frameborder"     => array(),
                     "allowfullscreen" => array()
             )
     );
@@ -204,44 +204,44 @@ add_action("save_post", "meta_box_jornal_salvar");
 // post_type: noticia_destaque_3_itens
 function post_type_noticia_destaque_3_itens_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque com 3", "post type general name"),
-            "singular_name" => _x("Notícia Destaque com 3", "post type singular name"),
-            "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
-            "add_new_item" => __("Adicionar Nova Notícia Destaque"),
-            "edit_item" => __("Editar Notícia Destaque"),
-            "new_item" => __("Nova Notícia Destaque"),
-            "all_items" => __("Todas as Notícias Destaques"),
-            "view_item" => __("Ver Notícia Destaque"),
-            "search_items" => __("Buscar Notícias Destaques"),
-            "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
+            "name"               => _x("Notícia Destaque com 3", "post type general name"),
+            "singular_name"      => _x("Notícia Destaque com 3", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia Destaque", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia Destaque"),
+            "edit_item"          => __("Editar Notícia Destaque"),
+            "new_item"           => __("Nova Notícia Destaque"),
+            "all_items"          => __("Todas as Notícias Destaques"),
+            "view_item"          => __("Ver Notícia Destaque"),
+            "search_items"       => __("Buscar Notícias Destaques"),
+            "not_found"          => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque com 3"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Destaque com 3"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "3",
+            "front"     => "3",
             "structure" => "%year%/%monthnum%/%day%/%destaque_3_itens%"
     );
 
@@ -357,44 +357,44 @@ add_action("save_post", "meta_box_noticia_destaque_3_itens_imagem_salvar");
 // post_type: noticia_destaque_1_item
 function post_type_noticia_destaque_1_item_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque com 1", "post type general name"),
-            "singular_name" => _x("Notícia Destaque com 1", "post type singular name"),
-            "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
-            "add_new_item" => __("Adicionar Nova Notícia Destaque"),
-            "edit_item" => __("Editar Notícia Destaque"),
-            "new_item" => __("Nova Notícia Destaque"),
-            "all_items" => __("Todas as Notícias Destaques"),
-            "view_item" => __("Ver Notícia Destaque"),
-            "search_items" => __("Buscar Notícias Destaques"),
-            "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
+            "name"               => _x("Notícia Destaque com 1", "post type general name"),
+            "singular_name"      => _x("Notícia Destaque com 1", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia Destaque", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia Destaque"),
+            "edit_item"          => __("Editar Notícia Destaque"),
+            "new_item"           => __("Nova Notícia Destaque"),
+            "all_items"          => __("Todas as Notícias Destaques"),
+            "view_item"          => __("Ver Notícia Destaque"),
+            "search_items"       => __("Buscar Notícias Destaques"),
+            "not_found"          => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque com 1"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Destaque com 1"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "0",
+            "front"     => "0",
             "structure" => "%year%/%monthnum%/%day%/%destaque_1_item%"
     );
 
@@ -510,44 +510,44 @@ add_action("save_post", "meta_box_noticia_destaque_1_item_imagem_salvar");
 // post_type: noticia_destaque_2_itens
 function post_type_noticia_destaque_2_itens_criar() {
     $labels = array(
-            "name" => _x("Notícia Destaque com 2", "post type general name"),
-            "singular_name" => _x("Notícia Destaque com 2", "post type singular name"),
-            "add_new" => _x("Adicionar Notícia Destaque", "jornal"),
-            "add_new_item" => __("Adicionar Nova Notícia Destaque"),
-            "edit_item" => __("Editar Notícia Destaque"),
-            "new_item" => __("Nova Notícia Destaque"),
-            "all_items" => __("Todas as Notícias Destaques"),
-            "view_item" => __("Ver Notícia Destaque"),
-            "search_items" => __("Buscar Notícias Destaques"),
-            "not_found" => __("Nenhuma Notícia Destaque Encontrada"),
+            "name"               => _x("Notícia Destaque com 2", "post type general name"),
+            "singular_name"      => _x("Notícia Destaque com 2", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia Destaque", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia Destaque"),
+            "edit_item"          => __("Editar Notícia Destaque"),
+            "new_item"           => __("Nova Notícia Destaque"),
+            "all_items"          => __("Todas as Notícias Destaques"),
+            "view_item"          => __("Ver Notícia Destaque"),
+            "search_items"       => __("Buscar Notícias Destaques"),
+            "not_found"          => __("Nenhuma Notícia Destaque Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Destaque Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Notícia Destaque com 2"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Destaque com 2"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "1",
+            "front"     => "1",
             "structure" => "%year%/%monthnum%/%day%/%destaque_2_itens%"
     );
 
@@ -663,44 +663,44 @@ add_action("save_post", "meta_box_noticia_destaque_2_itens_imagem_salvar");
 // post_type: outros_destaques
 function post_type_outros_destaques_criar() {
     $labels = array(
-            "name" => _x("Outros Destaques", "post type general name"),
-            "singular_name" => _x("Outros Destaques", "post type singular name"),
-            "add_new" => _x("Adicionar Destaque", "jornal"),
-            "add_new_item" => __("Adicionar Novo Destaque"),
-            "edit_item" => __("Editar Destaque"),
-            "new_item" => __("Novo Destaque"),
-            "all_items" => __("Todos os Destaques"),
-            "view_item" => __("Ver Destaque"),
-            "search_items" => __("Buscar Destaques"),
-            "not_found" => __("Nenhum Destaque Encontrado"),
+            "name"               => _x("Outros Destaques", "post type general name"),
+            "singular_name"      => _x("Outros Destaques", "post type singular name"),
+            "add_new"            => _x("Adicionar Destaque", "jornal"),
+            "add_new_item"       => __("Adicionar Novo Destaque"),
+            "edit_item"          => __("Editar Destaque"),
+            "new_item"           => __("Novo Destaque"),
+            "all_items"          => __("Todos os Destaques"),
+            "view_item"          => __("Ver Destaque"),
+            "search_items"       => __("Buscar Destaques"),
+            "not_found"          => __("Nenhum Destaque Encontrado"),
             "not_found_in_trash" => __("Nenhum Destaque Encontrado na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Outros Destaques"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Outros Destaques"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "outros-destaques",
+            "front"     => "outros-destaques",
             "structure" => "%year%/%monthnum%/%day%/%outros_destaques%"
     );
 
@@ -765,44 +765,44 @@ add_action("save_post", "meta_box_outros_destaques_imagem_salvar");
 // post_type: noticia_destacada
 function post_type_noticia_destacada_criar() {
     $labels = array(
-            "name" => _x("Notícia Destacada (1ª)", "post type general name"),
-            "singular_name" => _x("Notícia Destacada (1ª)", "post type singular name"),
-            "add_new" => _x("Adicionar Notícia", "jornal"),
-            "add_new_item" => __("Adicionar Nova Notícia"),
-            "edit_item" => __("Editar Notícia"),
-            "new_item" => __("Nova Notícia"),
-            "all_items" => __("Todas as Notícias"),
-            "view_item" => __("Ver Notícia"),
-            "search_items" => __("Buscar Notícias"),
-            "not_found" => __("Nenhuma Notícia Encontrada"),
+            "name"               => _x("Notícia Destacada (1ª)", "post type general name"),
+            "singular_name"      => _x("Notícia Destacada (1ª)", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia"),
+            "edit_item"          => __("Editar Notícia"),
+            "new_item"           => __("Nova Notícia"),
+            "all_items"          => __("Todas as Notícias"),
+            "view_item"          => __("Ver Notícia"),
+            "search_items"       => __("Buscar Notícias"),
+            "not_found"          => __("Nenhuma Notícia Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Notícia Destacada (1ª)"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Destacada (1ª)"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
             ),
-            "taxonomies" => array("category")
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "0/1",
+            "front"     => "0/1",
             "structure" => "%year%/%monthnum%/%day%/%noticia_destacada%"
     );
 
@@ -918,44 +918,44 @@ add_action("save_post", "meta_box_noticia_destacada_imagem_salvar");
 // post_type: noticia_dstq_2
 function post_type_noticia_dstq_2_criar() {
     $labels = array(
-            "name" => _x("Notícia Destacada (2ª)", "post type general name"),
-            "singular_name" => _x("Notícia Destacada (2ª)", "post type singular name"),
-            "add_new" => _x("Adicionar Notícia", "jornal"),
-            "add_new_item" => __("Adicionar Nova Notícia"),
-            "edit_item" => __("Editar Notícia"),
-            "new_item" => __("Nova Notícia"),
-            "all_items" => __("Todas as Notícias"),
-            "view_item" => __("Ver Notícia"),
-            "search_items" => __("Buscar Notícias"),
-            "not_found" => __("Nenhuma Notícia Encontrada"),
+            "name"               => _x("Notícia Destacada (2ª)", "post type general name"),
+            "singular_name"      => _x("Notícia Destacada (2ª)", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia"),
+            "edit_item"          => __("Editar Notícia"),
+            "new_item"           => __("Nova Notícia"),
+            "all_items"          => __("Todas as Notícias"),
+            "view_item"          => __("Ver Notícia"),
+            "search_items"       => __("Buscar Notícias"),
+            "not_found"          => __("Nenhuma Notícia Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Notícia Destacada (2ª)"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Destacada (2ª)"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "0/2",
+            "front"     => "0/2",
             "structure" => "%year%/%monthnum%/%day%/%noticia_dstq_2%"
     );
 
@@ -1071,44 +1071,44 @@ add_action("save_post", "meta_box_noticia_dstq_2_imagem_salvar");
 // post_type: noticia_dstq_3
 function post_type_noticia_dstq_3_criar() {
     $labels = array(
-            "name" => _x("Notícia Destacada (3ª)", "post type general name"),
-            "singular_name" => _x("Notícia Destacada (3ª)", "post type singular name"),
-            "add_new" => _x("Adicionar Notícia", "jornal"),
-            "add_new_item" => __("Adicionar Nova Notícia"),
-            "edit_item" => __("Editar Notícia"),
-            "new_item" => __("Nova Notícia"),
-            "all_items" => __("Todas as Notícias"),
-            "view_item" => __("Ver Notícia"),
-            "search_items" => __("Buscar Notícias"),
-            "not_found" => __("Nenhuma Notícia Encontrada"),
+            "name"               => _x("Notícia Destacada (3ª)", "post type general name"),
+            "singular_name"      => _x("Notícia Destacada (3ª)", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia"),
+            "edit_item"          => __("Editar Notícia"),
+            "new_item"           => __("Nova Notícia"),
+            "all_items"          => __("Todas as Notícias"),
+            "view_item"          => __("Ver Notícia"),
+            "search_items"       => __("Buscar Notícias"),
+            "not_found"          => __("Nenhuma Notícia Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Notícia Destacada (3ª)"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Destacada (3ª)"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "0/3",
+            "front"     => "0/3",
             "structure" => "%year%/%monthnum%/%day%/%noticia_dstq_3%"
     );
 
@@ -1224,44 +1224,44 @@ add_action("save_post", "meta_box_noticia_dstq_3_imagem_salvar");
 // post_type: noticia
 function post_type_noticia_criar() {
     $labels = array(
-            "name" => _x("Notícia Comum", "post type general name"),
-            "singular_name" => _x("Notícia Comum", "post type singular name"),
-            "add_new" => _x("Adicionar Notícia", "jornal"),
-            "add_new_item" => __("Adicionar Nova Notícia"),
-            "edit_item" => __("Editar Notícia"),
-            "new_item" => __("Nova Notícia"),
-            "all_items" => __("Todas as Notícias"),
-            "view_item" => __("Ver Notícia"),
-            "search_items" => __("Buscar Notícias"),
-            "not_found" => __("Nenhuma Notícia Encontrada"),
+            "name"               => _x("Notícia Comum", "post type general name"),
+            "singular_name"      => _x("Notícia Comum", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia"),
+            "edit_item"          => __("Editar Notícia"),
+            "new_item"           => __("Nova Notícia"),
+            "all_items"          => __("Todas as Notícias"),
+            "view_item"          => __("Ver Notícia"),
+            "search_items"       => __("Buscar Notícias"),
+            "not_found"          => __("Nenhuma Notícia Encontrada"),
             "not_found_in_trash" => __("Nenhuma Notícia Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Notícia Comum"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Comum"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-text",
-            "supports" => array(
-                    "title",
-                    "editor",
-                    "author",
-                    "excerpt"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     $rewrite = array(
-            "front" => "tematicas",
+            "front"     => "tematicas",
             "structure" => "%year%/%monthnum%/%day%/%noticia%"
     );
 
@@ -1377,38 +1377,38 @@ add_action("save_post", "meta_box_noticia_imagem_salvar");
 // post_type: agenda
 function post_type_agenda_criar() {
     $labels = array(
-            "name" => _x("Agenda", "post type general name"),
-            "singular_name" => _x("Agenda", "post type singular name"),
-            "add_new" => _x("Adicionar Evento", "jornal"),
-            "add_new_item" => __("Adicionar Novo Evento"),
-            "edit_item" => __("Editar Evento"),
-            "new_item" => __("Novo Evento"),
-            "all_items" => __("Todas os Eventos"),
-            "view_item" => __("Ver Evento"),
-            "search_items" => __("Buscar Eventos"),
-            "not_found" => __("Nenhum Evento Encontrado"),
+            "name"               => _x("Agenda", "post type general name"),
+            "singular_name"      => _x("Agenda", "post type singular name"),
+            "add_new"            => _x("Adicionar Evento", "jornal"),
+            "add_new_item"       => __("Adicionar Novo Evento"),
+            "edit_item"          => __("Editar Evento"),
+            "new_item"           => __("Novo Evento"),
+            "all_items"          => __("Todas os Eventos"),
+            "view_item"          => __("Ver Evento"),
+            "search_items"       => __("Buscar Eventos"),
+            "not_found"          => __("Nenhum Evento Encontrado"),
             "not_found_in_trash" => __("Nenhum Evento Encontrado na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Agenda"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Agenda"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-exerpt-view",
-            "supports" => array(
-                    "title",
-                    "editor"
-            ),
-            "taxonomies" => array("category")
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-exerpt-view",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    ),
+            "taxonomies"         => array("category")
     );
 
     register_post_type("agenda", $args);
@@ -1778,37 +1778,37 @@ add_action("save_post", "meta_box_agenda_imagem_salvar");
 // post_type: pub_302_x_285
 function post_type_pub_302_x_285_criar() {
     $labels = array(
-            "name" => _x("Publicidade 302 x 285", "post type general name"),
-            "singular_name" => _x("Publicidade 302 x 285", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 302 x 285", "post type general name"),
+            "singular_name"      => _x("Publicidade 302 x 285", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 302 x 285"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 302 x 285"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_302_x_285", $args);
@@ -1975,37 +1975,37 @@ add_action("save_post", "meta_box_pub_302_x_285_object_salvar");
 // post_type: pub_350_x_200
 function post_type_pub_350_x_200_criar() {
     $labels = array(
-            "name" => _x("Publicidade 350 x 200", "post type general name"),
-            "singular_name" => _x("Publicidade 350 x 200", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 350 x 200", "post type general name"),
+            "singular_name"      => _x("Publicidade 350 x 200", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 350 x 200"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 350 x 200"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_350_x_200", $args);
@@ -2172,37 +2172,37 @@ add_action("save_post", "meta_box_pub_350_x_200_object_salvar");
 // post_type: pub_190_x_193
 function post_type_pub_190_x_193_criar() {
     $labels = array(
-            "name" => _x("Publicidade 190 x 193", "post type general name"),
-            "singular_name" => _x("Publicidade 190 x 193", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 190 x 193", "post type general name"),
+            "singular_name"      => _x("Publicidade 190 x 193", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 190 x 193"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 190 x 193"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_190_x_193", $args);
@@ -2369,37 +2369,37 @@ add_action("save_post", "meta_box_pub_190_x_193_object_salvar");
 // post_type: pub_210_x_130
 function post_type_pub_210_x_130_criar() {
     $labels = array(
-            "name" => _x("Publicidade 210 x 130", "post type general name"),
-            "singular_name" => _x("Publicidade 210 x 130", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 210 x 130", "post type general name"),
+            "singular_name"      => _x("Publicidade 210 x 130", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 210 x 130"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 210 x 130"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_210_x_130", $args);
@@ -2566,37 +2566,37 @@ add_action("save_post", "meta_box_pub_210_x_130_object_salvar");
 // post_type: pub_223_x_200
 function post_type_pub_223_x_200_criar() {
     $labels = array(
-            "name" => _x("Publicidade 223 x 200", "post type general name"),
-            "singular_name" => _x("Publicidade 223 x 200", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 223 x 200", "post type general name"),
+            "singular_name"      => _x("Publicidade 223 x 200", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 223 x 200"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 223 x 200"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_223_x_200", $args);
@@ -2763,37 +2763,37 @@ add_action("save_post", "meta_box_pub_223_x_200_object_salvar");
 // post_type: pub_300_x_250
 function post_type_pub_300_x_250_criar() {
     $labels = array(
-            "name" => _x("Publicidade 300 x 250 (lateral)", "post type general name"),
-            "singular_name" => _x("Publicidade 300 x 250 (lateral)", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 300 x 250 (lateral)", "post type general name"),
+            "singular_name"      => _x("Publicidade 300 x 250 (lateral)", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 300 x 250 (lateral)"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 300 x 250 (lateral)"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_300_x_250", $args);
@@ -2960,37 +2960,37 @@ add_action("save_post", "meta_box_pub_300_x_250_object_salvar");
 // post_type: pub_630_x_200
 function post_type_pub_630_x_200_criar() {
     $labels = array(
-            "name" => _x("Publicidade 630 x 200 (matéria)", "post type general name"),
-            "singular_name" => _x("Publicidade 630 x 200 (matéria)", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 630 x 200 (matéria)", "post type general name"),
+            "singular_name"      => _x("Publicidade 630 x 200 (matéria)", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 630 x 200 (matéria)"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 630 x 200 (matéria)"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_630_x_200", $args);
@@ -3157,37 +3157,37 @@ add_action("save_post", "meta_box_pub_630_x_200_object_salvar");
 // post_type: pub_730_x_100
 function post_type_pub_730_x_100_criar() {
     $labels = array(
-            "name" => _x("Publicidade 730 x 100 (topo)", "post type general name"),
-            "singular_name" => _x("Publicidade 730 x 100 (topo)", "post type singular name"),
-            "add_new" => _x("Adicionar Publicidade", "jornal"),
-            "add_new_item" => __("Adicionar Nova Publicidade"),
-            "edit_item" => __("Editar Publicidade"),
-            "new_item" => __("Nova Publicidade"),
-            "all_items" => __("Todas as Publicidades"),
-            "view_item" => __("Ver Publicidade"),
-            "search_items" => __("Buscar Publicidades"),
-            "not_found" => __("Nenhuma Publicidade Encontrada"),
+            "name"               => _x("Publicidade 730 x 100 (topo)", "post type general name"),
+            "singular_name"      => _x("Publicidade 730 x 100 (topo)", "post type singular name"),
+            "add_new"            => _x("Adicionar Publicidade", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Publicidade"),
+            "edit_item"          => __("Editar Publicidade"),
+            "new_item"           => __("Nova Publicidade"),
+            "all_items"          => __("Todas as Publicidades"),
+            "view_item"          => __("Ver Publicidade"),
+            "search_items"       => __("Buscar Publicidades"),
+            "not_found"          => __("Nenhuma Publicidade Encontrada"),
             "not_found_in_trash" => __("Nenhuma Publicidade Encontrada na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Publicidade 730 x 100 (topo)"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Publicidade 730 x 100 (topo)"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-megaphone",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-megaphone",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     register_post_type("pub_730_x_100", $args);
@@ -3354,41 +3354,41 @@ add_action("save_post", "meta_box_pub_730_x_100_object_salvar");
 // post_type: fatos_e_fotos
 function post_type_fatos_e_fotos_criar() {
     $labels = array(
-            "name" => _x("Fatos e Fotos", "post type general name"),
-            "singular_name" => _x("Fatos e Fotos", "post type singular name"),
-            "add_new" => _x("Adicionar Evento", "jornal"),
-            "add_new_item" => __("Adicionar Novo Evento"),
-            "edit_item" => __("Editar Evento"),
-            "new_item" => __("Novo Evento"),
-            "all_items" => __("Todos os Eventos"),
-            "view_item" => __("Ver Evento"),
-            "search_items" => __("Buscar Evento"),
-            "not_found" => __("Nenhum Evento Encontrado"),
+            "name"               => _x("Fatos e Fotos", "post type general name"),
+            "singular_name"      => _x("Fatos e Fotos", "post type singular name"),
+            "add_new"            => _x("Adicionar Evento", "jornal"),
+            "add_new_item"       => __("Adicionar Novo Evento"),
+            "edit_item"          => __("Editar Evento"),
+            "new_item"           => __("Novo Evento"),
+            "all_items"          => __("Todos os Eventos"),
+            "view_item"          => __("Ver Evento"),
+            "search_items"       => __("Buscar Evento"),
+            "not_found"          => __("Nenhum Evento Encontrado"),
             "not_found_in_trash" => __("Nenhum Evento Encontrado na Lixeira"),
-            "parent_item_colon" => "",
-            "menu_name" => "Fatos e Fotos"
+            "parent_item_colon"  => "",
+            "menu_name"          => "Fatos e Fotos"
     );
 
     $args = array(
-            "labels" => $labels,
-            "public" => true,
+            "labels"             => $labels,
+            "public"             => true,
             "publicly_queryable" => true,
-            "show_ui" => true,
-            "show_in_menu" => true,
-            "rewrite" => false,
-            "capability_type" => "post",
-            "has_archive" => true,
-            "hierarchical" => false,
-            "menu_position" => 10,
-            "menu_icon" => "dashicons-format-gallery",
-            "supports" => array(
-                "title",
-                "editor"
-            )
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-format-gallery",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
     );
 
     $rewrite = array(
-            "front" => "eventos",
+            "front"     => "eventos",
             "structure" => "%year%/%monthnum%/%day%/%fatos_e_fotos%",
     );
 
@@ -3500,11 +3500,11 @@ add_action("save_post", "meta_box_fatos_e_fotos_imagem_menor_salvar");
 // Funções gerais
 function categorias_sem_title($categoria) {
     $args = array(
-            "orderby" => "name",
+            "orderby"    => "name",
             "hide_empty" => 0,
-            "echo" => 0,
-            "title_li" => "",
-            "child_of" => get_cat_ID($categoria)
+            "echo"       => 0,
+            "title_li"   => "",
+            "child_of"   => get_cat_ID($categoria)
     );
     $cats = wp_list_categories($args);
     $cats = preg_replace('/title=\"(.*?)\"/', "", $cats); // Remove atributo title
@@ -3531,42 +3531,42 @@ function slug() {
 }
 
 function limitar_caracteres_titulos() {
-  global $current_screen;
-  $tipo_post = $current_screen -> post_type;
-  $scripts   = get_template_directory_uri() . "\/scripts\/scripts.js";
-  $limites   = array(
-      0 => array("destaque_3_itens", 55),
-      1 => array("destaque_1_item", 60),
-      2 => array("destaque_2_itens", 50),
-      3 => array("outros_destaques", 70),
-      4 => array("noticia_destacada", 50),
-      5 => array("noticia_dstq_2", 45),
-      6 => array("noticia_dstq_3", 35),
-      7 => array("noticia", 70),
-      8 => array("fatos_e_fotos", 40)
-  );
+    global $current_screen;
+    $tipo_post = $current_screen -> post_type;
+    $scripts   = get_template_directory_uri() . "\/scripts\/scripts.js";
+    $limites   = array(
+            0 => array("destaque_3_itens", 55),
+            1 => array("destaque_1_item", 60),
+            2 => array("destaque_2_itens", 50),
+            3 => array("outros_destaques", 70),
+            4 => array("noticia_destacada", 50),
+            5 => array("noticia_dstq_2", 45),
+            6 => array("noticia_dstq_3", 35),
+            7 => array("noticia", 70),
+            8 => array("fatos_e_fotos", 40)
+    );
 
-  echo "<script src='$scripts'></script>";
+    echo "<script src='$scripts'></script>";
 
-  for ($i = 0; $i <= count($limites); $i += 1) {
-    if ($tipo_post == $limites[$i][0]) {
-      echo "
-        <script>
-          window.onload = function () {
-            Portal.apps.limitarCaracteresTitulos(" . $limites[$i][1] . ");
-          };
-        </script>";
+    for ($i = 0; $i <= count($limites); $i += 1) {
+        if ($tipo_post == $limites[$i][0]) {
+            echo "
+                <script>
+                  window.onload = function () {
+                    Portal.apps.limitarCaracteresTitulos(" . $limites[$i][1] . ");
+                  };
+                </script>";
+        }
     }
-  }
 }
 
 add_action("admin_footer", "limitar_caracteres_titulos");
 
 function query_noticias_um_post($tipo_post, $IDIgnorado = null) {
     $query = array(
-            "order" => "desc",
-            "showposts" => "1",
-            "post_type" => $tipo_post,
+            "order"        => "desc",
+            "showposts"    => "1",
+            "post_type"    => $tipo_post,
             "post__not_in" => array($IDIgnorado)
     );
 
@@ -3576,18 +3576,18 @@ function query_noticias_um_post($tipo_post, $IDIgnorado = null) {
 function query_todas_noticias($categoria = null) {
     $query = array(
             "category_name" => $categoria,
-            "order" => "desc",
+            "order"         => "desc",
             "post_per_page" => "-1",
-            "post_type" => array(
-                    "destaque_3_itens",
-                    "destaque_1_item",
-                    "destaque_2_itens",
-                    "outros_destaques",
-                    "noticia_destacada",
-                    "noticia_dstq_2",
-                    "noticia_dstq_3",
-                    "noticia"
-            )
+            "post_type"     => array(
+                                        "destaque_3_itens",
+                                        "destaque_1_item",
+                                        "destaque_2_itens",
+                                        "outros_destaques",
+                                        "noticia_destacada",
+                                        "noticia_dstq_2",
+                                        "noticia_dstq_3",
+                                        "noticia"
+                                )
     );
 
     return $query;
@@ -3595,13 +3595,13 @@ function query_todas_noticias($categoria = null) {
 
 function query_agenda() {
     $query = array(
-            "meta_key" => "data",
+            "meta_key"      => "data",
             "post_per_page" => "30",
-            "orderby" => "meta_value",
-            "order" => "asc",
-            "post_type" => array(
-                    "agenda"
-            )
+            "orderby"       => "meta_value",
+            "order"         => "asc",
+            "post_type"     => array(
+                                       "agenda"
+                               )
     );
 
     return $query;
