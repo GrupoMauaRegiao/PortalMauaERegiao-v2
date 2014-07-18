@@ -7,18 +7,18 @@ Portal.apps =
     paginas = $ '.paginador'
 
     if paginas[0]
-      indice = $ '.indice'
+      indice      = $ '.indice'
       inputPagina = $ 'input[name="digitar-pagina"]'
 
       paginas.jPages {
-        container: '.chamadas, .resultados'
-        perPage: 5
+        container : '.chamadas, .resultados'
+        perPage   : 5
         startRange: 1
-        endRange: 1
-        first: '.primeira'
-        last: '.ultima'
-        next: '.proxima'
-        previous: '.anterior'
+        endRange  : 1
+        first     : '.primeira'
+        last      : '.ultima'
+        next      : '.proxima'
+        previous  : '.anterior'
         callback: (paginas, itens) ->
           if paginas.count >= 1
             ajustarMaxNumerosInput = ->
@@ -52,12 +52,12 @@ Portal.apps =
     formulario = $ '.formulario-fale-conosco form'
 
     if formulario
-      cNome = $ '#nome'
-      cEmail = $ '#email'
-      cAssunto = $ '#assunto'
-      cMsg = $ '#mensagem'
+      cNome      = $ '#nome'
+      cEmail     = $ '#email'
+      cAssunto   = $ '#assunto'
+      cMsg       = $ '#mensagem'
       msgSucesso = $ '.mensagem-sucesso'
-      botao = $ '#enviar'
+      botao      = $ '#enviar'
 
       botao.on 'click', (evt) ->
         xhr = new XMLHttpRequest()
@@ -66,7 +66,7 @@ Portal.apps =
             +\@(([a-zA-Z0-9\-])
             +\.)+([a-zA-Z0-9]{2,4})+$
         ///
-        msg = ''
+        msg        = ''
 
         if cNome.val() isnt ''
           if cEmail.val() isnt '' and cEmail.val().match(regexEmail) isnt null
@@ -100,12 +100,13 @@ Portal.apps =
   # Apaga todos os campos do formulario de contato `Fale Conosco`.
   limparFormularioContato: ->
     formulario = $ '.formulario-fale-conosco form'
+
     if formulario
-      cNome = $ '#nome'
-      cEmail = $ '#email'
+      cNome    = $ '#nome'
+      cEmail   = $ '#email'
       cAssunto = $ '#assunto'
-      cMsg = $ '#mensagem'
-      botao = $ '#apagar'
+      cMsg     = $ '#mensagem'
+      botao    = $ '#apagar'
 
       _apagar = ->
         cNome.val ""
@@ -149,27 +150,27 @@ Portal.apps =
   # Obtem informações sobre as condições climáticas conforme a localização
   # geográfica do usuário.
   obterCondicoesClimaticas: (cidade) ->
-    container = $ '.elementos'
-    imagemLoading = $ '.loading'
-    icone = $ '.previsao-do-tempo .icone'
+    container            = $ '.elementos'
+    imagemLoading        = $ '.loading'
+    icone                = $ '.previsao-do-tempo .icone'
     containerTemperatura = $ '.temperatura'
-    containerLocalidade = $ '.localidade'
+    containerLocalidade  = $ '.localidade'
 
     _converterBeauFort = (velocidade) ->
       tipoVento =
-          'calmo': 'calmo'
-          'aragem': 'aragem'
-          'brisaLeve': 'brisa leve'
-          'brisaFraca': 'brisa fraca'
-          'brisaModerada': 'brisa moderada'
-          'brisaForte': 'brisa forte'
-          'ventoFresco': 'vento fresco'
-          'ventoForte': 'vento forte'
-          'ventania': 'ventania'
-          'ventaniaForte': 'ventania forte'
-          'tempestade': 'tempestade'
+          'calmo'             : 'calmo'
+          'aragem'            : 'aragem'
+          'brisaLeve'         : 'brisa leve'
+          'brisaFraca'        : 'brisa fraca'
+          'brisaModerada'     : 'brisa moderada'
+          'brisaForte'        : 'brisa forte'
+          'ventoFresco'       : 'vento fresco'
+          'ventoForte'        : 'vento forte'
+          'ventania'          : 'ventania'
+          'ventaniaForte'     : 'ventania forte'
+          'tempestade'        : 'tempestade'
           'tempestadeViolenta': 'tempestade violenta'
-          'furacao': 'furacão'
+          'furacao'           : 'furacão'
 
       if velocidade < 0.3
         vento = tipoVento.calmo
@@ -208,14 +209,14 @@ Portal.apps =
       dataType: 'json'
     }
     .done (dados) ->
-      cidade = dados.name
+      cidade         = dados.name
       cidadeCompacto = Portal.apps.diminuirTexto cidade, 5
-      tempMax = dados.main.temp_max.toFixed()
-      tempMin = dados.main.temp_min.toFixed()
-      codIcone = dados.weather[0].icon
-      clima = dados.weather[0].description
-      vento = dados.wind.speed
-      urlIcone = 'http://openweathermap.org/img/w/' + codIcone + '.png'
+      tempMax        = dados.main.temp_max.toFixed()
+      tempMin        = dados.main.temp_min.toFixed()
+      codIcone       = dados.weather[0].icon
+      clima          = dados.weather[0].description
+      vento          = dados.wind.speed
+      urlIcone       = 'http://openweathermap.org/img/w/' + codIcone + '.png'
 
       # Corrige temperatura quando ambas (máxima e mínima) forem iguais
       if tempMin is tempMax
@@ -308,9 +309,9 @@ Portal.apps =
       for data, i in datas
         arrData = $(data).text().split(':')[1]
         arrData = arrData.split '-'
-        dia = arrData[2].trim()
-        mes = arrData[1].trim()
-        ano = arrData[0].trim()
+        dia     = arrData[2].trim()
+        mes     = arrData[1].trim()
+        ano     = arrData[0].trim()
         $(data).text "Data: " + dia + "/" + mes + "/" + ano
 
   # Cria efeito de exibição aleatória nas notícias principais da homepage
@@ -318,9 +319,9 @@ Portal.apps =
     containerNoticias = $ '.conteudo .noticias'
 
     if containerNoticias[0]
-      boxCom1 = $ '.box-com-1'
-      boxCom2 = $ '.box-com-2'
-      boxCom3 = $ '.box-com-3'
+      boxCom1  = $ '.box-com-1'
+      boxCom2  = $ '.box-com-2'
+      boxCom3  = $ '.box-com-3'
       arranjos = [
           [boxCom1, boxCom2, boxCom3]
           [boxCom2, boxCom1, boxCom3]
