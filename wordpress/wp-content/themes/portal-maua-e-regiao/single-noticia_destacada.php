@@ -32,24 +32,7 @@
             Por <strong><?php the_author_meta("user_firstname"); ?> <?php the_author_meta("user_lastname"); ?> | Portal Mauá e Região</strong>
           </section>
 
-          <section class="social">
-            <section class="twitter">
-              <a href="https://twitter.com/share"
-                 class="twitter-share-button"
-                 data-via="marcker"
-                 data-lang="pt"
-                 data-hashtags="maua">Tweetar</a>
-            </section>
-
-            <section class="facebook">
-              <div class="fb-like"
-                   data-href="<?php the_permalink(); ?>"
-                   data-layout="button_count"
-                   data-action="recommend"
-                   data-show-faces="false"
-                   data-share="false"></div>
-            </section>
-          </section>
+          <?php include "icones-social.php"; ?>
 
           <section class="texto">
             <?php the_content(); ?>

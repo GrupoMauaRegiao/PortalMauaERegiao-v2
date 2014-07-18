@@ -24,6 +24,12 @@
     <section class="layout">
       <header>
         <section class="conteudo-header">
+        <?php wp_reset_query(); ?>
+        <?php if (is_single()): ?>
+          <a href="<?php echo feed_rss_url(); ?>">
+            <section class="feed"></section>
+          </a>
+        <?php endif; ?>
           <section class="facebook">
             <section class="facebook">
               <div class="fb-like"
