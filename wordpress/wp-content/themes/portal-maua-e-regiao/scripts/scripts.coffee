@@ -283,7 +283,7 @@ Portal.apps =
     textoTitulo = document.title
 
     jQuery('[name="post_title"]').on 'keyup', ->
-      $this = jQuery this
+      $this          = jQuery this
       document.title = '(' + $this.val().length +
                        ' de ' + limite + ' caracteres) ' + textoTitulo
 
