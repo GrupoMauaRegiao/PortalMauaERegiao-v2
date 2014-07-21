@@ -202,10 +202,10 @@ Portal.apps =
 
     # Obtém informações sobre o clima conforme a cidade
     $.ajax {
-      url: 'http://api.openweathermap.org/data/2.5/weather?' +
-          'q=' + Portal.apps.removerAcentos(cidade) + ',brasil&' +
-          'units=metric&' +
-          'lang=pt'
+      url     : 'http://api.openweathermap.org/data/2.5/weather?' +
+                'q=' + Portal.apps.removerAcentos(cidade) + ',brasil&' +
+                'units=metric&' +
+                'lang=pt'
       dataType: 'json'
     }
     .done (dados) ->
@@ -256,8 +256,8 @@ Portal.apps =
 
         # Obtém o nome da cidade conforme a latitude e a longitude
         $.ajax {
-          url: 'http://maps.googleapis.com/maps/api/geocode/json?' +
-               'latlng=' + lt + ',' + lg
+          url     : 'http://maps.googleapis.com/maps/api/geocode/json?' +
+                    'latlng=' + lt + ',' + lg
           dataType: 'json'
         }
         .done (dados) ->
