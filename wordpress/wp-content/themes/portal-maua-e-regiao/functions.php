@@ -3512,12 +3512,6 @@ function categorias_sem_title($categoria) {
     return $cats;
 }
 
-function categoria_noticia() {
-  $categorias = get_the_category();
-
-  return $categorias[1] -> name;
-}
-
 function categoria() {
     $categorias = get_the_category();
 
@@ -3561,6 +3555,17 @@ function limitar_caracteres_titulos() {
 }
 
 add_action("admin_footer", "limitar_caracteres_titulos");
+
+function query_noticia_comum($IDIgnorado = null) {
+    $query = array(
+            "order" => "desc",
+            "showposts" => "3",
+            "post_type" => "noticia",
+            "post__not_in" => array($IDIgnorado)
+    );
+
+    return $query;
+}
 
 function query_noticias_um_post($tipo_post, $IDIgnorado = null) {
     $query = array(
