@@ -77,7 +77,7 @@
             </section>
 
             <section class="email">
-              <a href="mailto:atendimento@grupomauaeregiao.com.br">atendimento@grupomauaeregiao.com.br</a>
+              <a href="mailto:atendimento@grupomaua.com.br">atendimento@grupomaua.com.br</a>
             </section>
           </section>
 
