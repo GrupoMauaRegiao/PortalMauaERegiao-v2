@@ -17,7 +17,7 @@
 
         <section class="agenda-chamada">
           <p>
-            Tem alguma dúvida, sugestão ou crítica? Então entre em contato com a gente. Sua opinião é fundamental para nosso aperfeiçoamento.
+            Tem alguma dúvida, sugestão ou crítica? Então entre em contato. Sua opinião é fundamental para o nosso aperfeiçoamento.
           </p>
         </section>
 
