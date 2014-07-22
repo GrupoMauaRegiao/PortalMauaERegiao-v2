@@ -416,37 +416,33 @@
 
             <?php endif; ?>
 
-            <!-- ///////////////// PUBLICIDADE ////////////////// -->
-            <section class="publicidade">
-              <?php query_posts("orderby=rand&showposts=1&post_type=pub_190_x_193"); ?>
-              <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                <a target="_blank" href="<?php echo get_post_meta($post -> ID, "link", true); ?>" title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
+            <?php query_posts("order=desc&showposts=1&post_type=noticia_dstq_4"); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                  <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
-
-                    <section class="imagem">
-                      <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <section class="noticia">
+                  <section class="imagem">
+                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                  </section>
+                  <section class="informacoes">
+                    <section class="marca">
+                      <span><?php echo get_post_meta($post -> ID, "expressao-chave", true); ?></span>
                     </section>
-
-                  <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
-
-                    <section class="object publicidade">
-                      <object data="<?php echo get_post_meta($post -> ID, "object", true); ?>"
-                              type="application/x-shockwave-flash">
-                        <param name="movie" value="<?php echo get_post_meta($post -> ID, "object", true); ?>">
-                        <param name="quality" value="high">
-                      </object>
+                    <section class="titulo">
+                      <h2>
+                        <span><?php the_title(); ?></span>
+                      </h2>
                     </section>
+                  </section>
+                </section>
+              </a>
 
-                  <?php endif; ?>
-                </a>
-              <?php endwhile; else: ?>
+            <?php endwhile; else: ?>
 
-                <p>ANUNCIE AQUI</p>
+              <p>Nenhuma notícia foi publicada ainda.</p>
 
-              <?php endif; ?>
-            </section>
-            <!-- ///////////////// close PUBLICIDADE ////////////////// -->
+            <?php endif; ?>
+
           </section>
         </section>
 

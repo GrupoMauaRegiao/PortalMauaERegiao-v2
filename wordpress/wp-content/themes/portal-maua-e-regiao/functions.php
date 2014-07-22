@@ -1221,6 +1221,159 @@ add_action("save_post", "meta_box_noticia_dstq_3_expressao_chave_salvar");
 add_action("add_meta_boxes", "meta_box_noticia_dstq_3_imagem_adicionar");
 add_action("save_post", "meta_box_noticia_dstq_3_imagem_salvar");
 
+// post_type: noticia_dstq_4
+function post_type_noticia_dstq_4_criar() {
+    $labels = array(
+            "name"               => _x("Notícia Destacada (4ª)", "post type general name"),
+            "singular_name"      => _x("Notícia Destacada (4ª)", "post type singular name"),
+            "add_new"            => _x("Adicionar Notícia", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Notícia"),
+            "edit_item"          => __("Editar Notícia"),
+            "new_item"           => __("Nova Notícia"),
+            "all_items"          => __("Todas as Notícias"),
+            "view_item"          => __("Ver Notícia"),
+            "search_items"       => __("Buscar Notícias"),
+            "not_found"          => __("Nenhuma Notícia Encontrada"),
+            "not_found_in_trash" => __("Nenhuma Notícia Encontrada na Lixeira"),
+            "parent_item_colon"  => "",
+            "menu_name"          => "Notícia Destacada (4ª)"
+    );
+
+    $args = array(
+            "labels"             => $labels,
+            "public"             => true,
+            "publicly_queryable" => true,
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-text",
+            "supports"           => array(
+                                            "title",
+                                            "editor",
+                                            "author",
+                                            "excerpt"
+                                    ),
+            "taxonomies"         => array("category")
+    );
+
+    $rewrite = array(
+            "front"     => "0/4",
+            "structure" => "%year%/%monthnum%/%day%/%noticia_dstq_4%"
+    );
+
+    register_post_type_com_rewrite_rules("noticia_dstq_4", $args, $rewrite);
+}
+
+// Campo: Expressão-chave
+function meta_box_noticia_dstq_4_expressao_chave_adicionar() {
+    add_meta_box(
+            "meta_box_noticia_dstq_4_expressao_chave_id",
+            "Expressão-chave",
+            "meta_box_noticia_dstq_4_expressao_chave",
+            "noticia_dstq_4",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_noticia_dstq_4_expressao_chave() {
+    $campos   = get_post_custom($post -> ID);
+    $conteudo = isset($campos["expressao-chave"]) ? esc_attr($campos["expressao-chave"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='expressao-chave'>Expressão-chave (ficará posicionada acima do título): </label><br>
+                <input style='width: 100%;' type='text' name='expressao-chave' id='expressao-chave' value='$conteudo'><br><br>
+                Dê preferência a expressões únicas, como: 'Cultura na cidade', 'Novos horizontes', 'Mauá melhor' etc.
+            </p>
+    ";
+}
+
+function meta_box_noticia_dstq_4_expressao_chave_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["expressao-chave"])) {
+        update_post_meta(
+                $post_id,
+                "expressao-chave",
+                $_POST["expressao-chave"]
+        );
+    }
+}
+
+// Campo: Imagem
+function meta_box_noticia_dstq_4_imagem_adicionar() {
+    add_meta_box(
+            "meta_box_noticia_dstq_4_imagem_id",
+            "Imagem",
+            "meta_box_noticia_dstq_4_imagem",
+            "noticia_dstq_4",
+            "normal",
+            "high"
+    );
+}
+
+function meta_box_noticia_dstq_4_imagem() {
+    $campos   = get_post_custom($post -> ID);
+    $conteudo = isset($campos["imagem"]) ? esc_attr($campos["imagem"][0]) : "";
+
+    wp_nonce_field("my_meta_box_nonce", "meta_box_nonce");
+
+    echo "
+            <p>
+                <label for='imagem'>Link para a imagem: </label><br>
+                <input style='width: 100%;' type='text' name='imagem' id='imagem' value='$conteudo'><br><br>
+                A imagem deve possuir as DIMENSÕES APROXIMADAS:<br><br>
+                LARGURA: 190 pixels<br>
+                ALTURA: 193 pixels
+            </p>
+    ";
+}
+
+function meta_box_noticia_dstq_4_imagem_salvar($post_id) {
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!isset($_POST["meta_box_nonce"]) || !wp_verify_nonce($_POST["meta_box_nonce"], "my_meta_box_nonce")) {
+        return;
+    }
+
+    if (!current_user_can("edit_post")) {
+        return;
+    }
+
+    if (isset($_POST["imagem"])) {
+        update_post_meta(
+                $post_id,
+                "imagem",
+                $_POST["imagem"]
+        );
+    }
+}
+
+add_action("init", "post_type_noticia_dstq_4_criar");
+add_action("add_meta_boxes", "meta_box_noticia_dstq_4_expressao_chave_adicionar");
+add_action("save_post", "meta_box_noticia_dstq_4_expressao_chave_salvar");
+add_action("add_meta_boxes", "meta_box_noticia_dstq_4_imagem_adicionar");
+add_action("save_post", "meta_box_noticia_dstq_4_imagem_salvar");
+
 // post_type: noticia
 function post_type_noticia_criar() {
     $labels = array(
