@@ -52,18 +52,18 @@ notícias do Portal, divididas por categorias.</p>
     paginas = $ <span class="hljs-string">'.paginador'</span>
 
     <span class="hljs-keyword">if</span> paginas[<span class="hljs-number">0</span>]
-      indice = $ <span class="hljs-string">'.indice'</span>
+      indice      = $ <span class="hljs-string">'.indice'</span>
       inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
 
       paginas.jPages {
-        <span class="hljs-attribute">container</span>: <span class="hljs-string">'.chamadas, .resultados'</span>
-        <span class="hljs-attribute">perPage</span>: <span class="hljs-number">5</span>
+        container : <span class="hljs-string">'.chamadas, .resultados'</span>
+        perPage   : <span class="hljs-number">5</span>
         <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
-        <span class="hljs-attribute">endRange</span>: <span class="hljs-number">1</span>
-        <span class="hljs-attribute">first</span>: <span class="hljs-string">'.primeira'</span>
-        <span class="hljs-attribute">last</span>: <span class="hljs-string">'.ultima'</span>
-        <span class="hljs-attribute">next</span>: <span class="hljs-string">'.proxima'</span>
-        <span class="hljs-attribute">previous</span>: <span class="hljs-string">'.anterior'</span>
+        endRange  : <span class="hljs-number">1</span>
+        first     : <span class="hljs-string">'.primeira'</span>
+        last      : <span class="hljs-string">'.ultima'</span>
+        next      : <span class="hljs-string">'.proxima'</span>
+        previous  : <span class="hljs-string">'.anterior'</span>
         <span class="hljs-attribute">callback</span>: <span class="hljs-function"><span class="hljs-params">(paginas, itens)</span> -&gt;</span>
           <span class="hljs-keyword">if</span> paginas.count &gt;= <span class="hljs-number">1</span>
             <span class="hljs-function"><span class="hljs-title">ajustarMaxNumerosInput</span> = -&gt;</span>
@@ -109,12 +109,12 @@ GET a partir de um formulário HTML comum.</p>
     formulario = $ <span class="hljs-string">'.formulario-fale-conosco form'</span>
 
     <span class="hljs-keyword">if</span> formulario
-      cNome = $ <span class="hljs-string">'#nome'</span>
-      cEmail = $ <span class="hljs-string">'#email'</span>
-      cAssunto = $ <span class="hljs-string">'#assunto'</span>
-      cMsg = $ <span class="hljs-string">'#mensagem'</span>
+      cNome      = $ <span class="hljs-string">'#nome'</span>
+      cEmail     = $ <span class="hljs-string">'#email'</span>
+      cAssunto   = $ <span class="hljs-string">'#assunto'</span>
+      cMsg       = $ <span class="hljs-string">'#mensagem'</span>
       msgSucesso = $ <span class="hljs-string">'.mensagem-sucesso'</span>
-      botao = $ <span class="hljs-string">'#enviar'</span>
+      botao      = $ <span class="hljs-string">'#enviar'</span>
 
       botao.<span class="hljs-literal">on</span> <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">(evt)</span> -&gt;</span>
         xhr = <span class="hljs-keyword">new</span> XMLHttpRequest()
@@ -123,7 +123,7 @@ GET a partir de um formulário HTML comum.</p>
             +\@(([a-zA-Z0-9\-])
             +\.)+([a-zA-Z0-9]{2,4})+$
         ///</span>
-        msg = <span class="hljs-string">''</span>
+        msg        = <span class="hljs-string">''</span>
 
         <span class="hljs-keyword">if</span> cNome.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
           <span class="hljs-keyword">if</span> cEmail.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span> cEmail.val().match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
@@ -169,12 +169,13 @@ GET a partir de um formulário HTML comum.</p>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">limparFormularioContato</span>:<span class="hljs-function"> -&gt;</span>
     formulario = $ <span class="hljs-string">'.formulario-fale-conosco form'</span>
+
     <span class="hljs-keyword">if</span> formulario
-      cNome = $ <span class="hljs-string">'#nome'</span>
-      cEmail = $ <span class="hljs-string">'#email'</span>
+      cNome    = $ <span class="hljs-string">'#nome'</span>
+      cEmail   = $ <span class="hljs-string">'#email'</span>
       cAssunto = $ <span class="hljs-string">'#assunto'</span>
-      cMsg = $ <span class="hljs-string">'#mensagem'</span>
-      botao = $ <span class="hljs-string">'#apagar'</span>
+      cMsg     = $ <span class="hljs-string">'#mensagem'</span>
+      botao    = $ <span class="hljs-string">'#apagar'</span>
 
       <span class="hljs-function"><span class="hljs-title">_apagar</span> = -&gt;</span>
         cNome.val <span class="hljs-string">""</span>
@@ -254,27 +255,27 @@ geográfica do usuário.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">obterCondicoesClimaticas</span>: <span class="hljs-function"><span class="hljs-params">(cidade)</span> -&gt;</span>
-    container = $ <span class="hljs-string">'.elementos'</span>
-    imagemLoading = $ <span class="hljs-string">'.loading'</span>
-    icone = $ <span class="hljs-string">'.previsao-do-tempo .icone'</span>
+    container            = $ <span class="hljs-string">'.elementos'</span>
+    imagemLoading        = $ <span class="hljs-string">'.loading'</span>
+    icone                = $ <span class="hljs-string">'.previsao-do-tempo .icone'</span>
     containerTemperatura = $ <span class="hljs-string">'.temperatura'</span>
-    containerLocalidade = $ <span class="hljs-string">'.localidade'</span>
+    containerLocalidade  = $ <span class="hljs-string">'.localidade'</span>
 
     <span class="hljs-function"><span class="hljs-title">_converterBeauFort</span> = <span class="hljs-params">(velocidade)</span> -&gt;</span>
       tipoVento =
-          <span class="hljs-string">'calmo'</span>: <span class="hljs-string">'calmo'</span>
-          <span class="hljs-string">'aragem'</span>: <span class="hljs-string">'aragem'</span>
-          <span class="hljs-string">'brisaLeve'</span>: <span class="hljs-string">'brisa leve'</span>
-          <span class="hljs-string">'brisaFraca'</span>: <span class="hljs-string">'brisa fraca'</span>
-          <span class="hljs-string">'brisaModerada'</span>: <span class="hljs-string">'brisa moderada'</span>
-          <span class="hljs-string">'brisaForte'</span>: <span class="hljs-string">'brisa forte'</span>
-          <span class="hljs-string">'ventoFresco'</span>: <span class="hljs-string">'vento fresco'</span>
-          <span class="hljs-string">'ventoForte'</span>: <span class="hljs-string">'vento forte'</span>
-          <span class="hljs-string">'ventania'</span>: <span class="hljs-string">'ventania'</span>
-          <span class="hljs-string">'ventaniaForte'</span>: <span class="hljs-string">'ventania forte'</span>
-          <span class="hljs-string">'tempestade'</span>: <span class="hljs-string">'tempestade'</span>
+          <span class="hljs-string">'calmo'</span>             : <span class="hljs-string">'calmo'</span>
+          <span class="hljs-string">'aragem'</span>            : <span class="hljs-string">'aragem'</span>
+          <span class="hljs-string">'brisaLeve'</span>         : <span class="hljs-string">'brisa leve'</span>
+          <span class="hljs-string">'brisaFraca'</span>        : <span class="hljs-string">'brisa fraca'</span>
+          <span class="hljs-string">'brisaModerada'</span>     : <span class="hljs-string">'brisa moderada'</span>
+          <span class="hljs-string">'brisaForte'</span>        : <span class="hljs-string">'brisa forte'</span>
+          <span class="hljs-string">'ventoFresco'</span>       : <span class="hljs-string">'vento fresco'</span>
+          <span class="hljs-string">'ventoForte'</span>        : <span class="hljs-string">'vento forte'</span>
+          <span class="hljs-string">'ventania'</span>          : <span class="hljs-string">'ventania'</span>
+          <span class="hljs-string">'ventaniaForte'</span>     : <span class="hljs-string">'ventania forte'</span>
+          <span class="hljs-string">'tempestade'</span>        : <span class="hljs-string">'tempestade'</span>
           <span class="hljs-string">'tempestadeViolenta'</span>: <span class="hljs-string">'tempestade violenta'</span>
-          <span class="hljs-string">'furacao'</span>: <span class="hljs-string">'furacão'</span>
+          <span class="hljs-string">'furacao'</span>           : <span class="hljs-string">'furacão'</span>
 
       <span class="hljs-keyword">if</span> velocidade &lt; <span class="hljs-number">0.3</span>
         vento = tipoVento.calmo
@@ -318,21 +319,21 @@ geográfica do usuário.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>    $.ajax {
-      <span class="hljs-attribute">url</span>: <span class="hljs-string">'http://api.openweathermap.org/data/2.5/weather?'</span> +
-          <span class="hljs-string">'q='</span> + Portal.apps.removerAcentos(cidade) + <span class="hljs-string">',brasil&amp;'</span> +
-          <span class="hljs-string">'units=metric&amp;'</span> +
-          <span class="hljs-string">'lang=pt'</span>
+      url     : <span class="hljs-string">'http://api.openweathermap.org/data/2.5/weather?'</span> +
+                <span class="hljs-string">'q='</span> + Portal.apps.removerAcentos(cidade) + <span class="hljs-string">',brasil&amp;'</span> +
+                <span class="hljs-string">'units=metric&amp;'</span> +
+                <span class="hljs-string">'lang=pt'</span>
       <span class="hljs-attribute">dataType</span>: <span class="hljs-string">'json'</span>
     }
     .done <span class="hljs-function"><span class="hljs-params">(dados)</span> -&gt;</span>
-      cidade = dados.name
+      cidade         = dados.name
       cidadeCompacto = Portal.apps.diminuirTexto cidade, <span class="hljs-number">5</span>
-      tempMax = dados.main.temp_max.toFixed()
-      tempMin = dados.main.temp_min.toFixed()
-      codIcone = dados.weather[<span class="hljs-number">0</span>].icon
-      clima = dados.weather[<span class="hljs-number">0</span>].description
-      vento = dados.wind.speed
-      urlIcone = <span class="hljs-string">'http://openweathermap.org/img/w/'</span> + codIcone + <span class="hljs-string">'.png'</span></pre></div></div>
+      tempMax        = dados.main.temp_max.toFixed()
+      tempMin        = dados.main.temp_min.toFixed()
+      codIcone       = dados.weather[<span class="hljs-number">0</span>].icon
+      clima          = dados.weather[<span class="hljs-number">0</span>].description
+      vento          = dados.wind.speed
+      urlIcone       = <span class="hljs-string">'http://openweathermap.org/img/w/'</span> + codIcone + <span class="hljs-string">'.png'</span></pre></div></div>
             
         </li>
         
@@ -421,8 +422,8 @@ Fonte da escala: <a href="http://pt.wikipedia.org/wiki/Escala_de_Beaufort">http:
             </div>
             
             <div class="content"><div class='highlight'><pre>        $.ajax {
-          <span class="hljs-attribute">url</span>: <span class="hljs-string">'http://maps.googleapis.com/maps/api/geocode/json?'</span> +
-               <span class="hljs-string">'latlng='</span> + lt + <span class="hljs-string">','</span> + lg
+          url     : <span class="hljs-string">'http://maps.googleapis.com/maps/api/geocode/json?'</span> +
+                    <span class="hljs-string">'latlng='</span> + lt + <span class="hljs-string">','</span> + lg
           <span class="hljs-attribute">dataType</span>: <span class="hljs-string">'json'</span>
         }
         .done <span class="hljs-function"><span class="hljs-params">(dados)</span> -&gt;</span>
@@ -460,7 +461,7 @@ títulos do navegador do usuário.</p>
     textoTitulo = <span class="hljs-built_in">document</span>.title
 
     jQuery(<span class="hljs-string">'[name="post_title"]'</span>).<span class="hljs-literal">on</span> <span class="hljs-string">'keyup'</span>,<span class="hljs-function"> -&gt;</span>
-      $<span class="hljs-keyword">this</span> = jQuery <span class="hljs-keyword">this</span>
+      $<span class="hljs-keyword">this</span>          = jQuery <span class="hljs-keyword">this</span>
       <span class="hljs-built_in">document</span>.title = <span class="hljs-string">'('</span> + $<span class="hljs-keyword">this</span>.val().length +
                        <span class="hljs-string">' de '</span> + limite + <span class="hljs-string">' caracteres) '</span> + textoTitulo
 
@@ -510,9 +511,9 @@ títulos do navegador do usuário.</p>
       <span class="hljs-keyword">for</span> data, i <span class="hljs-keyword">in</span> datas
         arrData = $(data).text().split(<span class="hljs-string">':'</span>)[<span class="hljs-number">1</span>]
         arrData = arrData.split <span class="hljs-string">'-'</span>
-        dia = arrData[<span class="hljs-number">2</span>].trim()
-        mes = arrData[<span class="hljs-number">1</span>].trim()
-        ano = arrData[<span class="hljs-number">0</span>].trim()
+        dia     = arrData[<span class="hljs-number">2</span>].trim()
+        mes     = arrData[<span class="hljs-number">1</span>].trim()
+        ano     = arrData[<span class="hljs-number">0</span>].trim()
         $(data).text <span class="hljs-string">"Data: "</span> + dia + <span class="hljs-string">"/"</span> + mes + <span class="hljs-string">"/"</span> + ano</pre></div></div>
             
         </li>
@@ -532,9 +533,9 @@ títulos do navegador do usuário.</p>
     containerNoticias = $ <span class="hljs-string">'.conteudo .noticias'</span>
 
     <span class="hljs-keyword">if</span> containerNoticias[<span class="hljs-number">0</span>]
-      boxCom1 = $ <span class="hljs-string">'.box-com-1'</span>
-      boxCom2 = $ <span class="hljs-string">'.box-com-2'</span>
-      boxCom3 = $ <span class="hljs-string">'.box-com-3'</span>
+      boxCom1  = $ <span class="hljs-string">'.box-com-1'</span>
+      boxCom2  = $ <span class="hljs-string">'.box-com-2'</span>
+      boxCom3  = $ <span class="hljs-string">'.box-com-3'</span>
       arranjos = [
           [boxCom1, boxCom2, boxCom3]
           [boxCom2, boxCom1, boxCom3]
@@ -553,7 +554,26 @@ títulos do navegador do usuário.</p>
 
       $(containerNoticias[<span class="hljs-number">0</span>]).append arranjos[_numeroAleatorio arranjos.length]
 
+  <span class="hljs-attribute">controlarMenuScroll</span>:<span class="hljs-function"> -&gt;</span>
+    $<span class="hljs-built_in">window</span> = $ <span class="hljs-built_in">window</span>
+
+    <span class="hljs-function"><span class="hljs-title">_controlarMenu</span> = -&gt;</span>
+      container  = $ <span class="hljs-string">'.conteudo'</span>
+
+      <span class="hljs-keyword">if</span> container[<span class="hljs-number">0</span>]
+        menu       = $ <span class="hljs-string">'.menu'</span>
+        alturaMenu = <span class="hljs-number">30</span>
+        maxScroll  = container.offset().top - alturaMenu
+
+        <span class="hljs-keyword">if</span> $<span class="hljs-built_in">window</span>.scrollTop() &gt; maxScroll
+          menu.removeClass(<span class="hljs-string">'esconder'</span>).addClass <span class="hljs-string">'mostrar'</span>
+        <span class="hljs-keyword">else</span>
+          menu.removeClass(<span class="hljs-string">'mostrar'</span>).addClass <span class="hljs-string">'esconder'</span>
+
+    $<span class="hljs-built_in">window</span>.<span class="hljs-literal">on</span> <span class="hljs-string">'scroll'</span>, _controlarMenu
+
 <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
+  Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
