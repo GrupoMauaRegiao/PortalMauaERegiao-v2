@@ -3689,6 +3689,7 @@ function limitar_caracteres_titulos() {
             4 => array("noticia_destacada", 50),
             5 => array("noticia_dstq_2", 45),
             6 => array("noticia_dstq_3", 35),
+            7 => array("noticia_dstq_4", 35),
             7 => array("noticia", 70),
             8 => array("fatos_e_fotos", 40)
     );

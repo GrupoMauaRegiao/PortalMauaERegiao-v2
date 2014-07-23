@@ -340,7 +340,26 @@ Portal.apps =
 
       $(containerNoticias[0]).append arranjos[_numeroAleatorio arranjos.length]
 
+  controlarMenuScroll: ->
+    $window = $ window
+
+    _controlarMenu = ->
+      container  = $ '.conteudo'
+
+      if container[0]
+        menu       = $ '.menu'
+        alturaMenu = 30
+        maxScroll  = container.offset().top - alturaMenu
+
+        if $window.scrollTop() > maxScroll
+          menu.removeClass('esconder').addClass 'mostrar'
+        else
+          menu.removeClass('mostrar').addClass 'esconder'
+
+    $window.on 'scroll', _controlarMenu
+
 do ->
+  Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
