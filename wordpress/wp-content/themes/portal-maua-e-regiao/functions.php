@@ -3745,6 +3745,7 @@ function query_todas_noticias($categoria = null) {
                                         "noticia_destacada",
                                         "noticia_dstq_2",
                                         "noticia_dstq_3",
+                                        "noticia_dstq_4",
                                         "noticia"
                                 )
     );

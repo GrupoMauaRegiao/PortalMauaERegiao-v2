@@ -1888,7 +1888,11 @@ body
 
                   img
                     width: 196px
-                    height: auto
+                    height: 130px
+                    object-fit: cover
+
+                    @-moz-document url-prefix()
+                      height: auto
 
                 .informacoes
                   margin: 15px 0 0 0
