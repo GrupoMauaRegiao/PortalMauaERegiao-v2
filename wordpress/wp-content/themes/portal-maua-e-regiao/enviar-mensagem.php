@@ -5,7 +5,7 @@ if (PATH_SEPARATOR == ";") {
   $quebraLinha = "\n";
 }
 
-$destino = "atendimento@grupomaua.com.br";
+$destino = "programador@revistamaua.com.br";
 
 $nome = $_GET["nome"];
 $email = $_GET["email"];

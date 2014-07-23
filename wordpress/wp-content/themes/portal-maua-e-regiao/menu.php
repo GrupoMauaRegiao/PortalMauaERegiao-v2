@@ -1,7 +1,8 @@
 <nav class="menu esconder">
   <section class="itens">
-    <section class="logotipo">
-    </section>
+    <a href="<?php bloginfo('url'); ?>">
+      <section class="logotipo"></section>
+    </a>
     <section class="categorias">
       <section class="header">
         <section class="titulo">
