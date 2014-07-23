@@ -4018,10 +4018,18 @@ function ajustar_nomes_arquivos_upload($nome_arquivo) {
 add_filter("sanitize_file_name", "ajustar_nomes_arquivos_upload", 10);
 
 function feed_rss_url() {
-    $url_site = bloginfo("url");
+    $url_site  = bloginfo("url");
     $tipo_post = get_post_type();
-    $url = $url_site . "/feed/?post_type=" . $tipo_post;
+    $url       = $url_site . "/feed/?post_type=" . $tipo_post;
 
     return $url;
 }
+
+function permitir_swf($mimes = array()) {
+    $mimes["swf"] = "application/x-shockwave-flash";
+
+    return $mimes;
+}
+
+add_filter("upload_mimes", "permitir_swf");
 ?>

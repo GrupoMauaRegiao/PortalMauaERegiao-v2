@@ -17,7 +17,7 @@
 
         <section class="agenda-chamada">
           <p>
-            Tem alguma dúvida, sugestão ou crítica? Então entre em contato. Sua opinião é fundamental para o nosso aperfeiçoamento.
+            Acompanhe a programação dos eventos culturais na cidade de Mauá e Região.
           </p>
         </section>
 
@@ -38,10 +38,10 @@
                 <section class="linha-fina"></section>
                 <section class="data-horario">
                   <section class="data">
-                    Data: <?php echo get_post_meta($post -> ID, "data", true); ?>
+                    <span>Data:</span> <?php echo get_post_meta($post -> ID, "data", true); ?>
                   </section>
                   <section class="horario">
-                    Hora: <?php echo get_post_meta($post -> ID, "hora", true); ?>
+                    <span>Hora:</span> <?php echo get_post_meta($post -> ID, "hora", true); ?>
                   </section>
                 </section>
               </section>
@@ -55,9 +55,9 @@
               </section>
             </section>
             <section class="localizacao">
-              Local: <?php echo get_post_meta($post -> ID, "local", true); ?><br>
-              Endereço: <?php echo get_post_meta($post -> ID, "endereco", true); ?><br>
-              Valor: <?php echo get_post_meta($post -> ID, "valor-ingresso", true); ?>
+              <span>Local:</span> <?php echo get_post_meta($post -> ID, "local", true); ?><br>
+              <span>Endereço:</span> <?php echo get_post_meta($post -> ID, "endereco", true); ?><br>
+              <span>Valor:</span> <?php echo get_post_meta($post -> ID, "valor-ingresso", true); ?>
             </section>
           </section>
           <?php endwhile; else: ?>
