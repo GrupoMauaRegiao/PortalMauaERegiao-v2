@@ -2,7 +2,7 @@
   <a href="<?php echo feed_rss_url(); ?>"
      title="Feed RSS"
      target="_blank">
-    <section class="feed">RSS</section>
+    <section class="feed"><span>RSS</span></section>
   </a>
 
   <section class="twitter">
