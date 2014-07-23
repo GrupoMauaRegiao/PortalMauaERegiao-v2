@@ -340,6 +340,8 @@ Portal.apps =
 
       $(containerNoticias[0]).append arranjos[_numeroAleatorio arranjos.length]
 
+  # Mostra ou esconde uma cópia do menu principal (exceto informações
+  # climáticas) de acordo com a posição da barra de rolagem.
   controlarMenuScroll: ->
     $window = $ window
 
