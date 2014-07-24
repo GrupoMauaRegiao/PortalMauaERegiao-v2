@@ -46,6 +46,27 @@
                 <?php endif; ?>
           </section>
         </section>
+
+        <section class="paginacao">
+          <section class="indice"></section>
+          <section class="elementos">
+            <section class="paginador"></section>
+          </section>
+          <section class="controles">
+            <section title="Primeira" class="primeira">Primeira</section>
+            <section title="Anterior" class="anterior">Anterior</section>
+            <section title="Próxima" class="proxima">Próxima</section>
+            <section title="Última" class="ultima">Última</section>
+            <section class="input-pagina">
+              <input type="number"
+                     name="digitar-pagina"
+                     placeholder="Digite o número"
+                     max="99999"
+                     min="1">
+            </section>
+          </section>
+        </section>
+
       </section>
 
       <?php get_sidebar(); ?>

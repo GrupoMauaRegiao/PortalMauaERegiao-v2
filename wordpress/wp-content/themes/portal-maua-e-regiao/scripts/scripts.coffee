@@ -11,8 +11,8 @@ Portal.apps =
       inputPagina = $ 'input[name="digitar-pagina"]'
 
       paginas.jPages {
-        container : '.chamadas, .resultados'
-        perPage   : 5
+        container : '.chamadas, .resultados, .publicidade-destaques'
+        perPage   : 6
         startRange: 1
         endRange  : 1
         first     : '.primeira'
