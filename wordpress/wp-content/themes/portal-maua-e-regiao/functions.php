@@ -3788,7 +3788,12 @@ function mostrar_titulo() {
                   get_the_date("j \d\e F \d\e Y") .
                   " (" . mostrar_tempo_transcorrido() . ")";
     } elseif (is_category()) {
-        $titulo = is_category("agenda")
+        $titulo = is_category(
+                          array(
+                                  "agenda",
+                                  "fatos-e-fotos"
+                          )
+        )
                   ? $nome . " &#8212 Últimos eventos"
                   : $nome . " &#8212 Notícias sobre " . $categoria;
     } else {
@@ -3836,8 +3841,13 @@ function implementar_open_graph() {
         $titulo       = get_bloginfo("name");
         $categoria    = single_cat_title("", false);
         $id_categoria = get_cat_id($categoria);
-        $descricao    = is_category("agenda")
-                        ? "Calendário de eventos"
+        $descricao    = is_category(
+                                array(
+                                        "agenda",
+                                        "fatos-e-fotos"
+                                )
+                        )
+                        ? "Acompanhe os últimos eventos"
                         : "Acompanhe as últimas notícias sobre " . $categoria;
         $url          = get_category_link($id_categoria);
         $imagem       = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";

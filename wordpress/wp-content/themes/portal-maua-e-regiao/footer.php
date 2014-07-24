@@ -65,7 +65,24 @@
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jquery.iecors.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/jPages.min.js"></script>
     <script src="<?php bloginfo('template_directory'); ?>/scripts/libs/lightbox.min.js"></script>
-    <script src="<?php bloginfo('template_directory'); ?>/scripts/scripts.js"></script>
+    <script src="<?php bloginfo('template_directory'); ?>/scripts/scripts.min.js"></script>
+
+    <!-- Google -->
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-31061749-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol
+          ? 'https://ssl'
+          : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <!-- close Google -->
 
     <!-- Twitter button -->
     <script>

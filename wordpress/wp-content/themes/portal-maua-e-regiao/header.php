@@ -29,7 +29,7 @@
           <section class="facebook">
             <section class="facebook">
               <div class="fb-like"
-                   data-href="<?php bloginfo('url'); ?>"
+                   data-href="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546"
                    data-layout="button_count"
                    data-action="like"
                    data-show-faces="false"
