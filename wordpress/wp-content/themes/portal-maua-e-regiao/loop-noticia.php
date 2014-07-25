@@ -1,3 +1,4 @@
+<?php wp_reset_query(); ?>
 <?php query_posts(query_noticia_comum($post -> ID)); ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
