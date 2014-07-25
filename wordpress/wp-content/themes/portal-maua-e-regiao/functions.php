@@ -3680,7 +3680,7 @@ function slug() {
 function limitar_caracteres_titulos() {
     global $current_screen;
     $tipo_post = $current_screen -> post_type;
-    $scripts   = get_template_directory_uri() . "\/scripts\/scripts.js";
+    $scripts   = get_template_directory_uri() . "/scripts/scripts.min.js";
     $limites   = array(
             0 => array("destaque_3_itens", 55),
             1 => array("destaque_1_item", 60),
@@ -3690,8 +3690,8 @@ function limitar_caracteres_titulos() {
             5 => array("noticia_dstq_2", 45),
             6 => array("noticia_dstq_3", 35),
             7 => array("noticia_dstq_4", 35),
-            7 => array("noticia", 70),
-            8 => array("fatos_e_fotos", 40)
+            8 => array("noticia", 70),
+            9 => array("fatos_e_fotos", 40)
     );
 
     echo "<script src='$scripts'></script>";
