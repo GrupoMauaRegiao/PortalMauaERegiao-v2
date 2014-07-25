@@ -8,7 +8,7 @@
   <section class="twitter">
     <a href="https://twitter.com/share"
        class="twitter-share-button"
-       data-via="marcker"
+       data-via="tvmauaeregiao"
        data-lang="pt"
        data-hashtags="maua">Tweetar</a>
   </section>

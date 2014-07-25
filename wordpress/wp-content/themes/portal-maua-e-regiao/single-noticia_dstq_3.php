@@ -29,7 +29,7 @@
           </section>
 
           <section class="creditos">
-            Por <strong><?php the_author_meta("user_firstname"); ?> <?php the_author_meta("user_lastname"); ?> | Portal Mauá e Região</strong>
+            Por <strong title="<?php the_author_meta("user_email"); ?>"> <?php the_author_meta("user_firstname"); ?> <?php the_author_meta("user_lastname"); ?> | Portal Mauá e Região</strong>
           </section>
 
           <?php include "icones-social.php"; ?>
