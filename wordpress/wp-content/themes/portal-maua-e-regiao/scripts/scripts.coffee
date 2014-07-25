@@ -298,8 +298,13 @@ Portal.apps =
       titulo = $ 'article .titulo'
 
       for link, i in links
-        $(link).attr 'data-lightbox', 'roadtrip'
-        $(link).attr 'data-title', titulo.text()
+        # Verifica se a tag `a` contêm uma imagem, se sim aplica
+        # os atributos para o LightBox
+        if $(link).children().is 'IMG'
+          $(link).attr 'data-lightbox', 'roadtrip'
+          $(link).attr 'data-title', titulo.text()
+        else
+          $(link).attr 'target', '_blank'
 
   # Formata data do padrão YYYY-MM-DD para DD/MM/YYYY
   formatarData: ->

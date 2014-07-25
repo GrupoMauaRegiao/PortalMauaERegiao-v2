@@ -56,8 +56,8 @@ notícias do Portal, divididas por categorias.</p>
       inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
 
       paginas.jPages {
-        container : <span class="hljs-string">'.chamadas, .resultados'</span>
-        perPage   : <span class="hljs-number">5</span>
+        container : <span class="hljs-string">'.chamadas, .resultados, .publicidade-destaques'</span>
+        perPage   : <span class="hljs-number">6</span>
         <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
         endRange  : <span class="hljs-number">1</span>
         first     : <span class="hljs-string">'.primeira'</span>
@@ -487,9 +487,7 @@ títulos do navegador do usuário.</p>
     <span class="hljs-keyword">if</span> links[<span class="hljs-number">0</span>]
       titulo = $ <span class="hljs-string">'article .titulo'</span>
 
-      <span class="hljs-keyword">for</span> link, i <span class="hljs-keyword">in</span> links
-        $(link).attr <span class="hljs-string">'data-lightbox'</span>, <span class="hljs-string">'roadtrip'</span>
-        $(link).attr <span class="hljs-string">'data-title'</span>, titulo.text()</pre></div></div>
+      <span class="hljs-keyword">for</span> link, i <span class="hljs-keyword">in</span> links</pre></div></div>
             
         </li>
         
@@ -499,6 +497,26 @@ títulos do navegador do usuário.</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Verifica se a tag <code>a</code> contêm uma imagem, se sim aplica
+os atributos para o LightBox</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span> $(link).children().<span class="hljs-keyword">is</span> <span class="hljs-string">'IMG'</span>
+          $(link).attr <span class="hljs-string">'data-lightbox'</span>, <span class="hljs-string">'roadtrip'</span>
+          $(link).attr <span class="hljs-string">'data-title'</span>, titulo.text()
+        <span class="hljs-keyword">else</span>
+          $(link).attr <span class="hljs-string">'target'</span>, <span class="hljs-string">'_blank'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>Formata data do padrão YYYY-MM-DD para DD/MM/YYYY</p>
 
@@ -519,11 +537,11 @@ títulos do navegador do usuário.</p>
         </li>
         
         
-        <li id="section-16">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>Cria efeito de exibição aleatória nas notícias principais da homepage</p>
 
@@ -557,11 +575,11 @@ títulos do navegador do usuário.</p>
         </li>
         
         
-        <li id="section-17">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p>Mostra ou esconde uma cópia do menu principal (exceto informações
 climáticas) de acordo com a posição da barra de rolagem.</p>
