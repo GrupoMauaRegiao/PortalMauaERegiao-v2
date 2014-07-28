@@ -33,6 +33,20 @@ module.exports = (grunt) ->
         src: 'scripts/scripts.js'
         dest: 'scripts/scripts.min.js'
 
+    concat:
+      options:
+        separator: ' '
+      dist:
+        src: [
+          'scripts/libs/jquery-2.1.1.min.js'
+          'scripts/libs/jquery.iecors.js'
+          'scripts/libs/jPages.min.js'
+          'scripts/libs/lightbox.min.js'
+          'scripts/scripts.min.js'
+          '!scripts/libs/*.map'
+        ]
+        dest: 'scripts/public.min.js'
+
     sass:
       options:
         style: 'compressed'
@@ -80,6 +94,7 @@ module.exports = (grunt) ->
         tasks: [
             'jshint'
             'min'
+            'concat'
             'shell'
             'notify:shell'
         ]
@@ -111,5 +126,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-shell'
   grunt.loadNpmTasks 'grunt-notify'
+  grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.registerTask 'all', ['watch']
   return
