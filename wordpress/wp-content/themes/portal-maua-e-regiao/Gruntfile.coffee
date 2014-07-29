@@ -43,7 +43,6 @@ module.exports = (grunt) ->
           'scripts/libs/jPages.min.js'
           'scripts/libs/lightbox.min.js'
           'scripts/scripts.min.js'
-          '!scripts/libs/*.map'
         ]
         dest: 'scripts/public.min.js'
 
