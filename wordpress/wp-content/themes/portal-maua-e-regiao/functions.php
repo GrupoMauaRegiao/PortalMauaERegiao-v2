@@ -4041,4 +4041,12 @@ function permitir_swf($mimes = array()) {
 }
 
 add_filter("upload_mimes", "permitir_swf");
+
+// Remove o filtro get_the_excerpt, que age quando o resumo
+// é deixado em branco
+function remover_texto_resumo() {
+    remove_filter("get_the_excerpt", "wp_trim_excerpt");
+}
+
+add_action("init", "remover_texto_resumo");
 ?>
