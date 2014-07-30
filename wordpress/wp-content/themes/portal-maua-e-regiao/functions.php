@@ -1560,8 +1560,7 @@ function post_type_agenda_criar() {
             "supports"           => array(
                                             "title",
                                             "editor"
-                                    ),
-            "taxonomies"         => array("category")
+                                    )
     );
 
     register_post_type("agenda", $args);

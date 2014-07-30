@@ -22,8 +22,13 @@
         </section>
 
         <section class="agenda">
+          <?php $data_atual = strtotime(date("d M Y")); ?>
           <?php query_posts(query_agenda()); ?>
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+          <?php $data_evento = strtotime(get_post_meta($post -> ID, "data", true)); ?>
+          <?php // Verifica se a data do post ainda é válida ?>
+          <?php if ($data_evento > $data_atual): ?>
+
           <section class="evento evento-<?php echo get_post_meta($post -> ID, 'cor_box', true); ?>" title="<?php the_title(); ?>">
             <section class="imagem">
               <section class="foto-materia">
@@ -60,6 +65,7 @@
               <span>Valor:</span> <?php echo get_post_meta($post -> ID, "valor-ingresso", true); ?>
             </section>
           </section>
+          <?php endif; ?>
           <?php endwhile; else: ?>
 
             <p>Nenhum evento foi publicado ainda.</p>
