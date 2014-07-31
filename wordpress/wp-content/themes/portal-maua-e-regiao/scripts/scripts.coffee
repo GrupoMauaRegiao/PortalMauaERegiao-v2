@@ -60,7 +60,7 @@ Portal.apps =
       botao      = $ '#enviar'
 
       botao.on 'click', (evt) ->
-        xhr = new XMLHttpRequest()
+        xhr        = new XMLHttpRequest()
         regexEmail = ///
             ^([a-zA-Z0-9_\.\-])
             +\@(([a-zA-Z0-9\-])
@@ -109,10 +109,10 @@ Portal.apps =
       botao    = $ '#apagar'
 
       _apagar = ->
-        cNome.val ""
-        cEmail.val ""
-        cAssunto.val ""
-        cMsg.val ""
+        cNome.val ''
+        cEmail.val ''
+        cAssunto.val ''
+        cMsg.val ''
         return
 
       botao.on 'click', _apagar

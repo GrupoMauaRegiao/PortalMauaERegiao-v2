@@ -3735,7 +3735,7 @@ function query_todas_noticias($categoria = null) {
     $query = array(
             "category_name" => $categoria,
             "order"         => "desc",
-            "post_per_page" => "-1",
+            "nopaging"        => true,
             "post_type"     => array(
                                         "destaque_3_itens",
                                         "destaque_1_item",
