@@ -27,7 +27,7 @@
           <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
           <?php $data_evento = strtotime(get_post_meta($post -> ID, "data", true)); ?>
           <?php // Verifica se a data do post ainda é válida ?>
-          <?php if ($data_evento > $data_atual): ?>
+          <?php if ($data_evento >= $data_atual): ?>
 
           <section class="evento evento-<?php echo get_post_meta($post -> ID, 'cor_box', true); ?>" title="<?php the_title(); ?>">
             <section class="imagem">
