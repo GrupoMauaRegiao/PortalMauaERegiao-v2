@@ -201,6 +201,53 @@ add_action("init", "post_type_jornal_criar");
 add_action("add_meta_boxes", "meta_box_jornal_adicionar");
 add_action("save_post", "meta_box_jornal_salvar");
 
+// post_type: coluna
+function post_type_coluna_criar() {
+    $labels = array(
+            "name"               => _x("Coluna", "post type general name"),
+            "singular_name"      => _x("Coluna", "post type singular name"),
+            "add_new"            => _x("Adicionar Coluna", "jornal"),
+            "add_new_item"       => __("Adicionar Nova Coluna"),
+            "edit_item"          => __("Editar Coluna"),
+            "new_item"           => __("Nova Coluna"),
+            "all_items"          => __("Todas as Colunas"),
+            "view_item"          => __("Ver Coluna"),
+            "search_items"       => __("Buscar Colunas"),
+            "not_found"          => __("Nenhuma Coluna Encontrada"),
+            "not_found_in_trash" => __("Nenhuma Coluna Encontrada na Lixeira"),
+            "parent_item_colon"  => "",
+            "menu_name"          => "Coluna"
+    );
+
+    $args = array(
+            'map_meta_cap'       => true,
+            "labels"             => $labels,
+            "public"             => true,
+            "publicly_queryable" => true,
+            "show_ui"            => true,
+            "show_in_menu"       => true,
+            "rewrite"            => false,
+            "capability_type"    => "post",
+            "has_archive"        => true,
+            "hierarchical"       => false,
+            "menu_position"      => 10,
+            "menu_icon"          => "dashicons-welcome-write-blog",
+            "supports"           => array(
+                                            "title",
+                                            "editor"
+                                    )
+    );
+
+    $rewrite = array(
+            "front"     => "coluna",
+            "structure" => "/%year%/%monthnum%/%day%/%coluna%"
+    );
+
+    register_post_type_com_rewrite_rules("coluna", $args, $rewrite);
+}
+
+add_action("init", "post_type_coluna_criar");
+
 // post_type: noticia_destaque_3_itens
 function post_type_noticia_destaque_3_itens_criar() {
     $labels = array(
@@ -3709,11 +3756,22 @@ function limitar_caracteres_titulos() {
 
 add_action("admin_footer", "limitar_caracteres_titulos");
 
+function query_colunista($ID_colunista = null) {
+    $query = array(
+        "order"        => "desc",
+        "nopaging"     => true,
+        "post_type"    => "any",
+        "author"       => $ID_colunista
+    );
+
+    return $query;
+}
+
 function query_noticia_comum($IDIgnorado = null) {
     $query = array(
-            "order" => "desc",
-            "showposts" => "3",
-            "post_type" => "noticia",
+            "order"        => "desc",
+            "showposts"    => "3",
+            "post_type"    => "noticia",
             "post__not_in" => array($IDIgnorado)
     );
 
@@ -4049,4 +4107,98 @@ function remover_texto_resumo() {
 }
 
 add_action("init", "remover_texto_resumo");
+
+function mudar_permalinks_autor() {
+    global $wp_rewrite;
+    $slug_autor = "colunista";
+    $wp_rewrite -> author_base = $slug_autor;
+}
+
+add_action("init", "mudar_permalinks_autor");
+
+function adicionar_campo_categoria($user) {
+    $html_categoria =  "
+        <h3>Informação extra</h3>
+        <table class='form-table'>
+            <tr>
+                <th><label for='categoria'>Categoria das publicações</th>
+
+                <td>
+                    <input type='text'
+                           name='categoria'
+                           id='categoria'
+                           value='" . get_the_author_meta('categoria', $user -> ID) . "'
+                           class='regular-text' /><br>
+                    <span class='description'>Digite a categoria das publicações desse autor.</span>
+                </td>
+            </tr>
+        </table>
+    ";
+
+    echo $html_categoria;
+}
+
+function adicionar_campo_categoria_salvar($user_id) {
+    update_usermeta($user_id, 'categoria', $_POST["categoria"]);
+}
+
+add_action("show_user_profile", "adicionar_campo_categoria");
+add_action("edit_user_profile", "adicionar_campo_categoria");
+add_action("personal_options_update", "adicionar_campo_categoria_salvar");
+add_action("edit_user_profile_update", "adicionar_campo_categoria_salvar");
+
+// Remove itens do menu lateral para Colaboradores (contributor == colunista)
+function remover_itens_menu_lateral() {
+    if (current_user_can("contributor")) {
+        remove_menu_page("edit-comments.php");
+        remove_menu_page("edit.php");
+        remove_menu_page("edit.php");
+        remove_menu_page("users.php");
+        remove_menu_page("tools.php");
+        remove_menu_page("profile.php");
+        remove_menu_page("edit.php?post_type=agenda");
+        remove_menu_page("edit.php?post_type=page");
+        remove_menu_page("edit.php?post_type=revista");
+        remove_menu_page("edit.php?post_type=jornal");
+        remove_menu_page("edit.php?post_type=destaque_3_itens");
+        remove_menu_page("edit.php?post_type=destaque_1_item");
+        remove_menu_page("edit.php?post_type=destaque_2_itens");
+        remove_menu_page("edit.php?post_type=outros_destaques");
+        remove_menu_page("edit.php?post_type=noticia_destacada");
+        remove_menu_page("edit.php?post_type=noticia_dstq_2");
+        remove_menu_page("edit.php?post_type=noticia_dstq_3");
+        remove_menu_page("edit.php?post_type=noticia_dstq_4");
+        remove_menu_page("edit.php?post_type=noticia");
+        remove_menu_page("edit.php?post_type=pub_302_x_285");
+        remove_menu_page("edit.php?post_type=pub_350_x_200");
+        remove_menu_page("edit.php?post_type=pub_190_x_193");
+        remove_menu_page("edit.php?post_type=pub_210_x_130");
+        remove_menu_page("edit.php?post_type=pub_223_x_200");
+        remove_menu_page("edit.php?post_type=pub_300_x_250");
+        remove_menu_page("edit.php?post_type=pub_630_x_200");
+        remove_menu_page("edit.php?post_type=pub_730_x_100");
+        remove_menu_page("edit.php?post_type=fatos_e_fotos");
+    }
+}
+
+// Remove itens do menu superior para Colaboradores (contributor == colunista)
+function remover_itens_menu_topo() {
+    global $wp_admin_bar;
+
+    if (current_user_can("contributor")) {
+        $wp_admin_bar -> remove_menu("wp-logo");
+        $wp_admin_bar -> remove_menu("updates");
+        $wp_admin_bar -> remove_menu("comments");
+        $wp_admin_bar -> remove_menu("new-content");
+        $wp_admin_bar -> remove_menu("wporg");
+        $wp_admin_bar -> remove_menu("w3tc");
+        $wp_admin_bar -> remove_menu("about");
+        $wp_admin_bar -> remove_menu("documentation");
+        $wp_admin_bar -> remove_menu("feedback");
+        $wp_admin_bar -> remove_menu("support-forums");
+    }
+}
+
+add_action("admin_menu", "remover_itens_menu_lateral");
+add_action("wp_before_admin_bar_render", "remover_itens_menu_topo");
 ?>

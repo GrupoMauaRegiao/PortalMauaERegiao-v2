@@ -1443,6 +1443,86 @@ body
 
           @include decoracaoHeader(630px, 110px, $azul, $cinzaTituloMat)
 
+        .perfil-colunista
+          width: 630px
+
+          .perfil
+            margin: 0 0 60px 0
+            float: left
+
+            .imagem
+              width: 140px
+              height: 140px
+              float: left
+
+              img
+                border-radius: 100%
+
+            .nome
+              font-size: 22px
+              color: $cinzaTituloMat
+              width: 480px
+              margin: 0 0 10px 0
+              float: left
+
+            .categoria
+              font-size: 18px
+              color: $azulSubmenu
+              width: 475px
+              margin: 0 0 40px 15px
+              float: left
+
+            .biografia
+              width: 475px
+              color: $cinzaTituloMat
+              margin: 0 0 0 15px
+              float: left
+
+          .ultimas-publicacoes
+            width: 630px
+            float: left
+
+            .header
+              width: 320px
+              font-size: 20px
+              margin: 0 auto
+              margin-bottom: 20px
+              background: $cinzaBGDestaquesLateral
+              text-transform: uppercase
+              color: $roxoTituloMateria
+              text-align: center
+              border-radius: 20px
+              padding: 10px
+
+            .publicacoes
+              height: 378px
+              float: left
+
+              .publicacao
+                width: 630px
+
+                .horario
+                  width: 630px
+                  font-size: 12px
+                  text-align: right
+                  color: $azulSubmenu
+                  border-bottom: 1px solid $cinzaLinhaChamadas
+                  float: left
+
+                .titulo-artigo
+                  width: 630px
+                  padding: 15px
+                  text-align: center
+                  float: left
+
+                  a
+                    font-size: 20px
+                    text-decoration: none
+                    color: $cinzaTituloMat
+
+                  a:hover
+                    color: $preto
+
         .noticias
           float: left
 
@@ -2204,7 +2284,8 @@ body
     font-size: 18px
     color: $cinzaTituloMat
 
-.itens-fatos-e-fotos
+.itens-fatos-e-fotos,
+.itens-colunistas
   width: 630px
   height: 440px
   margin: 0 0 40px 0
@@ -2250,6 +2331,43 @@ body
       .titulo
         h3
           text-decoration: underline
+
+.itens-colunistas
+  a
+    .galeria
+      .categoria
+        text-align: center
+        color: $azulSubmenu
+        margin: 0 0 10px 0
+
+      .imagens
+        width: 120px
+
+        .imagem
+          width: 120px
+          height: 120px
+
+          img
+            height: 120px
+
+      .titulo
+        width: 210px
+        margin-left: 30px
+
+        h3
+          width: 155px
+          text-align: left
+          font-size: 20px
+          color: $cinzaTituloBox
+
+    .galeria:hover
+      .titulo
+        h3
+          text-decoration: underline
+
+  a:nth-child(6n-2)
+    .galeria
+      margin-left: -50px
 
 .agenda
   color: $cinzaTituloMat

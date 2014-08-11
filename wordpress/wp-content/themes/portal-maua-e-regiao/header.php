@@ -29,7 +29,7 @@
                     <section class="facebook">
                         <section class="facebook">
                             <div class="fb-like"
-                                 data-href="https://www.facebook.com/                              pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546"
+                                 data-href="https://www.facebook.com/pages/Portal-Mauá-e-Região/359211450756546?fref=ts"
                                  data-layout="button_count"
                                  data-action="like"
                                  data-show-faces="false"
@@ -148,6 +148,7 @@
                                     <section class="lista">
                                         <ul>
                                             <li><a href="<?php bloginfo('url') ?>/secao/agenda">Agenda</a></li>
+                                            <li><a href="<?php bloginfo('url') ?>/secao/colunistas">Colunistas</a></li>
                                             <li><a href="<?php bloginfo('url') ?>/secao/fatos-e-fotos">Fatos e Fotos</a></li>
                                             <li><a target="_blank" href="http://tvmauaeregiao.com.br/categorias/programas/rapidinha/?canal=1">Rapidinha</a></li>
                                             <li><a target="_blank" href="http://tvmauaeregiao.com.br/categorias/programas/entrevista/?canal=1">Entrevistas</a></li>
