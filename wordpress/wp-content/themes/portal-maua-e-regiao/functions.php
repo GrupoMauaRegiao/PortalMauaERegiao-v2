@@ -3812,13 +3812,13 @@ function query_todas_noticias($categoria = null) {
 
 function query_agenda() {
     $query = array(
-            "meta_key"      => "data",
-            "post_per_page" => "30",
-            "orderby"       => "meta_value",
-            "order"         => "asc",
-            "post_type"     => array(
-                                       "agenda"
-                               )
+            "meta_key"  => "data",
+            "nopaging"  => true,
+            "orderby"   => "meta_value",
+            "order"     => "asc",
+            "post_type" => array(
+                                   "agenda"
+                           )
     );
 
     return $query;
