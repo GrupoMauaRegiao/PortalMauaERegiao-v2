@@ -41,6 +41,7 @@ module.exports = (grunt) ->
           'scripts/libs/jquery-2.1.1.min.js'
           'scripts/libs/jquery.iecors.js'
           'scripts/libs/jPages.min.js'
+          'scripts/libs/jquery.maskedinput.min.js'
           'scripts/libs/lightbox.min.js'
           'scripts/scripts.min.js'
         ]

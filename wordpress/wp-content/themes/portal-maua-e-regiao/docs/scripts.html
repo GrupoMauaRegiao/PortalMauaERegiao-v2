@@ -56,7 +56,7 @@ notícias do Portal, divididas por categorias.</p>
       inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
 
       paginas.jPages {
-        container : <span class="hljs-string">'.chamadas, .resultados, .publicidade-destaques'</span>
+        container : <span class="hljs-string">'.chamadas, .resultados, .publicidade-destaques, .publicacoes'</span>
         perPage   : <span class="hljs-number">6</span>
         <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
         endRange  : <span class="hljs-number">1</span>
@@ -117,7 +117,7 @@ GET a partir de um formulário HTML comum.</p>
       botao      = $ <span class="hljs-string">'#enviar'</span>
 
       botao.<span class="hljs-literal">on</span> <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">(evt)</span> -&gt;</span>
-        xhr = <span class="hljs-keyword">new</span> XMLHttpRequest()
+        xhr        = <span class="hljs-keyword">new</span> XMLHttpRequest()
         regexEmail = <span class="hljs-regexp">///
             ^([a-zA-Z0-9_\.\-])
             +\@(([a-zA-Z0-9\-])
@@ -178,10 +178,10 @@ GET a partir de um formulário HTML comum.</p>
       botao    = $ <span class="hljs-string">'#apagar'</span>
 
       <span class="hljs-function"><span class="hljs-title">_apagar</span> = -&gt;</span>
-        cNome.val <span class="hljs-string">""</span>
-        cEmail.val <span class="hljs-string">""</span>
-        cAssunto.val <span class="hljs-string">""</span>
-        cMsg.val <span class="hljs-string">""</span>
+        cNome.val <span class="hljs-string">''</span>
+        cEmail.val <span class="hljs-string">''</span>
+        cAssunto.val <span class="hljs-string">''</span>
+        cMsg.val <span class="hljs-string">''</span>
         <span class="hljs-keyword">return</span>
 
       botao.<span class="hljs-literal">on</span> <span class="hljs-string">'click'</span>, _apagar</pre></div></div>

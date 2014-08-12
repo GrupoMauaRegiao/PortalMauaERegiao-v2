@@ -37,6 +37,14 @@
                                        required>
                             </section>
 
+                            <section class="telefone">
+                                <input id="telefone"
+                                       name="telefone"
+                                       type="text"
+                                       placeholder="Telefone"
+                                       required>
+                            </section>
+
                             <section class="email">
                                 <input id="email"
                                        name="email"

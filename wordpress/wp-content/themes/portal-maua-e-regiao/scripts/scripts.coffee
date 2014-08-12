@@ -53,6 +53,7 @@ Portal.apps =
 
     if formulario
       cNome      = $ '#nome'
+      cTelefone  = $ '#telefone'
       cEmail     = $ '#email'
       cAssunto   = $ '#assunto'
       cMsg       = $ '#mensagem'
@@ -69,26 +70,31 @@ Portal.apps =
         msg        = ''
 
         if cNome.val() isnt ''
-          if cEmail.val() isnt '' and cEmail.val().match(regexEmail) isnt null
-            if cMsg.val() isnt ''
-              msg += 'nome=' + encodeURI(cNome.val())
-              msg += '&email=' + encodeURI(cEmail.val())
-              msg += '&assunto=' + encodeURI(cAssunto.val())
-              msg += '&mensagem=' + encodeURI(cMsg.val())
+          if cTelefone.val() isnt ''
+            if cEmail.val() isnt '' and cEmail.val().match(regexEmail) isnt null
+              if cMsg.val() isnt ''
+                msg += 'nome=' + encodeURI(cNome.val())
+                msg += '&telefone=' + encodeURI(cTelefone.val())
+                msg += '&email=' + encodeURI(cEmail.val())
+                msg += '&assunto=' + encodeURI(cAssunto.val())
+                msg += '&mensagem=' + encodeURI(cMsg.val())
 
-              xhr.open formulario.attr('method'), formulario.attr('action') +
-                                                  '?' + msg, true
-              xhr.send msg
-              xhr.onreadystatechange = ->
-                if xhr.readyState is 4 and xhr.status is 200
-                  formulario.css 'display', 'none'
-                  msgSucesso.attr 'class', 'mensagem-sucesso exibir'
+                xhr.open formulario.attr('method'), formulario.attr('action') +
+                                                    '?' + msg, true
+                xhr.send msg
+                xhr.onreadystatechange = ->
+                  if xhr.readyState is 4 and xhr.status is 200
+                    formulario.css 'display', 'none'
+                    msgSucesso.attr 'class', 'mensagem-sucesso exibir'
+              else
+                cMsg.focus()
+                cMsg.attr 'class', 'erro'
             else
-              cMsg.focus()
-              cMsg.attr 'class', 'erro'
+              cEmail.focus()
+              cEmail.attr 'class', 'erro'
           else
-            cEmail.focus()
-            cEmail.attr 'class', 'erro'
+            cTelefone.focus()
+            cTelefone.attr 'class', 'erro'
         else
           cNome.focus()
           cNome.attr 'class', 'erro'
@@ -102,20 +108,29 @@ Portal.apps =
     formulario = $ '.formulario-fale-conosco form'
 
     if formulario
-      cNome    = $ '#nome'
-      cEmail   = $ '#email'
-      cAssunto = $ '#assunto'
-      cMsg     = $ '#mensagem'
-      botao    = $ '#apagar'
+      cNome     = $ '#nome'
+      cTelefone = $ '#telefone'
+      cEmail    = $ '#email'
+      cAssunto  = $ '#assunto'
+      cMsg      = $ '#mensagem'
+      botao     = $ '#apagar'
 
       _apagar = ->
         cNome.val ''
+        cTelefone.val ''
         cEmail.val ''
         cAssunto.val ''
         cMsg.val ''
         return
 
       botao.on 'click', _apagar
+
+  # Adiciona máscara para telefone (formulário Fale Conosco)
+  mascararCampoTelefone: ->
+    cTelefone = $ '#telefone'
+
+    if cTelefone
+      cTelefone.mask '(99) ?9 9999-9999'
 
   # Remove acentuação gráfica de letras utilizando um mapa de caracteres
   # hexadecimais.
@@ -374,4 +389,5 @@ do ->
   Portal.apps.adicionarCondicoesClimaticas()
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
+  Portal.apps.mascararCampoTelefone()
   return

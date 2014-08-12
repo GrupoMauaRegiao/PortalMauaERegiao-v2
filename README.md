@@ -21,5 +21,4 @@ Para seguir as instruções abaixo você deverá ter o node (npm) instalado.
 
 `$ grunt all`
 
-
-Obs.: ***Neste repositório não consta arquivos de imagens, configurações e fontes.***
+Obs.: ***neste repositório não consta arquivos de imagens, configurações e fontes.***

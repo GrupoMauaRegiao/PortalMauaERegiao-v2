@@ -8,11 +8,13 @@ if (PATH_SEPARATOR == ";") {
 $destino  = "atendimento@grupomaua.com.br";
 
 $nome     = $_GET["nome"];
+$telefone = $_GET["telefone"];
 $email    = $_GET["email"];
 $assunto  = "Mensagem do Portal: '" . $_GET["assunto"] . "'";
 
 $mensagem = "";
 $mensagem .= "<b>Nome:</b><br> " . $nome . "<br><br>";
+$mensagem .= "<b>Telefone:</b><br> " . $telefone . "<br><br>";
 $mensagem .= "<b>E-mail:</b><br> " . $email . "<br><br>";
 $mensagem .= "<b>Assunto:</b><br> " . $assunto . "<br><br>";
 $mensagem .= "<b>Mensagem:<b><br> " .
