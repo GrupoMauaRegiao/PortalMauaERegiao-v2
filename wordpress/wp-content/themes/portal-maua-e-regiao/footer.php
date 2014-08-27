@@ -38,11 +38,11 @@
                             </section>
 
                             <section class="marcas">
-                                <a href="#" title="Revista Mauá e Região">
+                                <a target="_blank" href="http://revistamaua.com.br" title="Revista Mauá e Região">
                                     <section class="logotipo"></section>
                                 </a>
 
-                                <a href="#" title="Jornal Mauá e Região">
+                                <a target="_blank" href="#" title="Jornal Mauá e Região">
                                     <section class="logotipo"></section>
                                 </a>
 
@@ -50,7 +50,7 @@
                                     <section class="logotipo"></section>
                                 </a>
 
-                                <a href="#" title="TV Mauá e Região">
+                                <a target="_blank" href="http://tvmauaeregiao.com.br" title="TV Mauá e Região">
                                     <section class="logotipo"></section>
                                 </a>
                             </section>

@@ -18,12 +18,11 @@
                 <section class="itens-colunistas">
                     <section class="publicidade-destaques">
                         <?php
-                        // IDs
+                        // IDs dos não-colunistas
                         $marcker      = 1;
                         $leonardo     = 2;
                         $vinipinheiro = 3;
-
-                        $autores  = get_users("orderby=nicename&exclude=$marcker,$leonardo,$vinipinheiro");
+                        $autores      = get_users("orderby=nicename&exclude=$marcker,$leonardo,$vinipinheiro");
                         foreach ($autores as $autor ) {
                         ?>
                             <a href="<?php echo get_author_posts_url($autor -> ID); ?>"

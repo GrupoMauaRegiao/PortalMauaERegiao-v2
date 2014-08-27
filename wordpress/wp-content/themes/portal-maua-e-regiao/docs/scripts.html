@@ -110,6 +110,7 @@ GET a partir de um formulário HTML comum.</p>
 
     <span class="hljs-keyword">if</span> formulario
       cNome      = $ <span class="hljs-string">'#nome'</span>
+      cTelefone  = $ <span class="hljs-string">'#telefone'</span>
       cEmail     = $ <span class="hljs-string">'#email'</span>
       cAssunto   = $ <span class="hljs-string">'#assunto'</span>
       cMsg       = $ <span class="hljs-string">'#mensagem'</span>
@@ -126,26 +127,31 @@ GET a partir de um formulário HTML comum.</p>
         msg        = <span class="hljs-string">''</span>
 
         <span class="hljs-keyword">if</span> cNome.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
-          <span class="hljs-keyword">if</span> cEmail.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span> cEmail.val().match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
-            <span class="hljs-keyword">if</span> cMsg.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
-              msg += <span class="hljs-string">'nome='</span> + encodeURI(cNome.val())
-              msg += <span class="hljs-string">'&amp;email='</span> + encodeURI(cEmail.val())
-              msg += <span class="hljs-string">'&amp;assunto='</span> + encodeURI(cAssunto.val())
-              msg += <span class="hljs-string">'&amp;mensagem='</span> + encodeURI(cMsg.val())
+          <span class="hljs-keyword">if</span> cTelefone.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
+            <span class="hljs-keyword">if</span> cEmail.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span> cEmail.val().match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
+              <span class="hljs-keyword">if</span> cMsg.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
+                msg += <span class="hljs-string">'nome='</span> + encodeURI(cNome.val())
+                msg += <span class="hljs-string">'&amp;telefone='</span> + encodeURI(cTelefone.val())
+                msg += <span class="hljs-string">'&amp;email='</span> + encodeURI(cEmail.val())
+                msg += <span class="hljs-string">'&amp;assunto='</span> + encodeURI(cAssunto.val())
+                msg += <span class="hljs-string">'&amp;mensagem='</span> + encodeURI(cMsg.val())
 
-              xhr.open formulario.attr(<span class="hljs-string">'method'</span>), formulario.attr(<span class="hljs-string">'action'</span>) +
-                                                  <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
-              xhr.send msg
-              xhr.<span class="hljs-function"><span class="hljs-title">onreadystatechange</span> = -&gt;</span>
-                <span class="hljs-keyword">if</span> xhr.readyState <span class="hljs-keyword">is</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> xhr.status <span class="hljs-keyword">is</span> <span class="hljs-number">200</span>
-                  formulario.css <span class="hljs-string">'display'</span>, <span class="hljs-string">'none'</span>
-                  msgSucesso.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'mensagem-sucesso exibir'</span>
+                xhr.open formulario.attr(<span class="hljs-string">'method'</span>), formulario.attr(<span class="hljs-string">'action'</span>) +
+                                                    <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
+                xhr.send msg
+                xhr.<span class="hljs-function"><span class="hljs-title">onreadystatechange</span> = -&gt;</span>
+                  <span class="hljs-keyword">if</span> xhr.readyState <span class="hljs-keyword">is</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> xhr.status <span class="hljs-keyword">is</span> <span class="hljs-number">200</span>
+                    formulario.css <span class="hljs-string">'display'</span>, <span class="hljs-string">'none'</span>
+                    msgSucesso.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'mensagem-sucesso exibir'</span>
+              <span class="hljs-keyword">else</span>
+                cMsg.focus()
+                cMsg.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
             <span class="hljs-keyword">else</span>
-              cMsg.focus()
-              cMsg.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+              cEmail.focus()
+              cEmail.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
           <span class="hljs-keyword">else</span>
-            cEmail.focus()
-            cEmail.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
+            cTelefone.focus()
+            cTelefone.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
         <span class="hljs-keyword">else</span>
           cNome.focus()
           cNome.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'erro'</span>
@@ -171,14 +177,16 @@ GET a partir de um formulário HTML comum.</p>
     formulario = $ <span class="hljs-string">'.formulario-fale-conosco form'</span>
 
     <span class="hljs-keyword">if</span> formulario
-      cNome    = $ <span class="hljs-string">'#nome'</span>
-      cEmail   = $ <span class="hljs-string">'#email'</span>
-      cAssunto = $ <span class="hljs-string">'#assunto'</span>
-      cMsg     = $ <span class="hljs-string">'#mensagem'</span>
-      botao    = $ <span class="hljs-string">'#apagar'</span>
+      cNome     = $ <span class="hljs-string">'#nome'</span>
+      cTelefone = $ <span class="hljs-string">'#telefone'</span>
+      cEmail    = $ <span class="hljs-string">'#email'</span>
+      cAssunto  = $ <span class="hljs-string">'#assunto'</span>
+      cMsg      = $ <span class="hljs-string">'#mensagem'</span>
+      botao     = $ <span class="hljs-string">'#apagar'</span>
 
       <span class="hljs-function"><span class="hljs-title">_apagar</span> = -&gt;</span>
         cNome.val <span class="hljs-string">''</span>
+        cTelefone.val <span class="hljs-string">''</span>
         cEmail.val <span class="hljs-string">''</span>
         cAssunto.val <span class="hljs-string">''</span>
         cMsg.val <span class="hljs-string">''</span>
@@ -194,6 +202,25 @@ GET a partir de um formulário HTML comum.</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Adiciona máscara para telefone (formulário Fale Conosco)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">mascararCampoTelefone</span>:<span class="hljs-function"> -&gt;</span>
+    cTelefone = $ <span class="hljs-string">'#telefone'</span>
+
+    <span class="hljs-keyword">if</span> cTelefone
+      cTelefone.mask <span class="hljs-string">'(99) ?9 9999-9999'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>Remove acentuação gráfica de letras utilizando um mapa de caracteres
 hexadecimais.</p>
@@ -217,11 +244,11 @@ hexadecimais.</p>
         </li>
         
         
-        <li id="section-6">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p>Diminui um texto (<code>texto</code>) para um tamanho máximo (<code>max</code>) e acrescenta
 reticências ao final.</p>
@@ -243,11 +270,11 @@ reticências ao final.</p>
         </li>
         
         
-        <li id="section-7">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>Obtem informações sobre as condições climáticas conforme a localização
 geográfica do usuário.</p>
@@ -308,11 +335,11 @@ geográfica do usuário.</p>
         </li>
         
         
-        <li id="section-8">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>Obtém informações sobre o clima conforme a cidade</p>
 
@@ -338,11 +365,11 @@ geográfica do usuário.</p>
         </li>
         
         
-        <li id="section-9">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>Corrige temperatura quando ambas (máxima e mínima) forem iguais</p>
 
@@ -376,11 +403,11 @@ geográfica do usuário.</p>
         </li>
         
         
-        <li id="section-10">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>Implementa a exibição climática no header da página com:
 Temperatura máxima e mínima e vento, segundo a Escala de Beaufort.
@@ -395,11 +422,11 @@ Fonte da escala: <a href="http://pt.wikipedia.org/wiki/Escala_de_Beaufort">http:
         </li>
         
         
-        <li id="section-11">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>Obtém a latitude e a longitude</p>
 
@@ -411,11 +438,11 @@ Fonte da escala: <a href="http://pt.wikipedia.org/wiki/Escala_de_Beaufort">http:
         </li>
         
         
-        <li id="section-12">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p>Obtém o nome da cidade conforme a latitude e a longitude</p>
 
@@ -445,11 +472,11 @@ Fonte da escala: <a href="http://pt.wikipedia.org/wiki/Escala_de_Beaufort">http:
         </li>
         
         
-        <li id="section-13">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p>Limita o número de caracteres do título de uma matéria no Painel do
 WordPress e apresenta total e número máximo de caracteres na barra de
@@ -471,11 +498,11 @@ títulos do navegador do usuário.</p>
         </li>
         
         
-        <li id="section-14">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <p>Implementa atributos para que o plugin <code>LightBox2</code> possa funcionar.</p>
 
@@ -492,11 +519,11 @@ títulos do navegador do usuário.</p>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>Verifica se a tag <code>a</code> contêm uma imagem, se sim aplica
 os atributos para o LightBox</p>
@@ -512,11 +539,11 @@ os atributos para o LightBox</p>
         </li>
         
         
-        <li id="section-16">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>Formata data do padrão YYYY-MM-DD para DD/MM/YYYY</p>
 
@@ -537,11 +564,11 @@ os atributos para o LightBox</p>
         </li>
         
         
-        <li id="section-17">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p>Cria efeito de exibição aleatória nas notícias principais da homepage</p>
 
@@ -575,11 +602,11 @@ os atributos para o LightBox</p>
         </li>
         
         
-        <li id="section-18">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p>Mostra ou esconde uma cópia do menu principal (exceto informações
 climáticas) de acordo com a posição da barra de rolagem.</p>
@@ -613,6 +640,7 @@ climáticas) de acordo com a posição da barra de rolagem.</p>
   Portal.apps.adicionarCondicoesClimaticas()
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
+  Portal.apps.mascararCampoTelefone()
   <span class="hljs-keyword">return</span></pre></div></div>
             
         </li>

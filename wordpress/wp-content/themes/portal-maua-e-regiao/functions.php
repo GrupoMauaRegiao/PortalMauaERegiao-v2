@@ -4201,4 +4201,15 @@ function remover_itens_menu_topo() {
 
 add_action("admin_menu", "remover_itens_menu_lateral");
 add_action("wp_before_admin_bar_render", "remover_itens_menu_topo");
+
+// Unifica o feed dos tipos de post
+function unificar_feeds($query_var) {
+    if (isset($query_var["feed"])) {
+        $query_var["post_type"] = get_post_types();
+
+    }
+    return $query_var;
+}
+
+add_filter("request", "unificar_feeds");
 ?>
