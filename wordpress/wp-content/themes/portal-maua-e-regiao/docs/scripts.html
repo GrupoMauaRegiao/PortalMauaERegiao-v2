@@ -52,12 +52,13 @@ notícias do Portal, divididas por categorias.</p>
     paginas = $ <span class="hljs-string">'.paginador'</span>
 
     <span class="hljs-keyword">if</span> paginas[<span class="hljs-number">0</span>]
-      indice      = $ <span class="hljs-string">'.indice'</span>
-      inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
+      indice        = $ <span class="hljs-string">'.indice'</span>
+      inputPagina   = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
+      maximoPaginas = <span class="hljs-number">6</span>
 
       paginas.jPages {
         container : <span class="hljs-string">'.chamadas, .resultados, .publicidade-destaques, .publicacoes'</span>
-        perPage   : <span class="hljs-number">6</span>
+        perPage   : maximoPaginas
         <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
         endRange  : <span class="hljs-number">1</span>
         first     : <span class="hljs-string">'.primeira'</span>
@@ -74,7 +75,8 @@ notícias do Portal, divididas por categorias.</p>
 
             <span class="hljs-function"><span class="hljs-title">controlarExibicaoPaginador</span> = -&gt;</span>
               containerPaginador = $ <span class="hljs-string">'.paginacao'</span>
-              <span class="hljs-keyword">if</span> itens.count &gt; <span class="hljs-number">5</span>
+
+              <span class="hljs-keyword">if</span> itens.count &gt; maximoPaginas - <span class="hljs-number">1</span>
                 containerPaginador.show()
               <span class="hljs-keyword">else</span>
                 containerPaginador.hide()
@@ -109,13 +111,15 @@ GET a partir de um formulário HTML comum.</p>
     formulario = $ <span class="hljs-string">'.formulario-fale-conosco form'</span>
 
     <span class="hljs-keyword">if</span> formulario
-      cNome      = $ <span class="hljs-string">'#nome'</span>
-      cTelefone  = $ <span class="hljs-string">'#telefone'</span>
-      cEmail     = $ <span class="hljs-string">'#email'</span>
-      cAssunto   = $ <span class="hljs-string">'#assunto'</span>
-      cMsg       = $ <span class="hljs-string">'#mensagem'</span>
-      msgSucesso = $ <span class="hljs-string">'.mensagem-sucesso'</span>
-      botao      = $ <span class="hljs-string">'#enviar'</span>
+      cNome       = $ <span class="hljs-string">'#nome'</span>
+      cTelefone   = $ <span class="hljs-string">'#telefone'</span>
+      cEmail      = $ <span class="hljs-string">'#email'</span>
+      cAssunto    = $ <span class="hljs-string">'#assunto'</span>
+      cMsg        = $ <span class="hljs-string">'#mensagem'</span>
+      msgSucesso  = $ <span class="hljs-string">'.mensagem-sucesso'</span>
+      botao       = $ <span class="hljs-string">'#enviar'</span>
+      xhrComplete = <span class="hljs-number">4</span>
+      xhrStatusOK = <span class="hljs-number">200</span>
 
       botao.<span class="hljs-literal">on</span> <span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">(evt)</span> -&gt;</span>
         xhr        = <span class="hljs-keyword">new</span> XMLHttpRequest()
@@ -128,7 +132,8 @@ GET a partir de um formulário HTML comum.</p>
 
         <span class="hljs-keyword">if</span> cNome.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
           <span class="hljs-keyword">if</span> cTelefone.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
-            <span class="hljs-keyword">if</span> cEmail.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span> cEmail.val().match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
+            <span class="hljs-keyword">if</span> cEmail.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span> <span class="hljs-keyword">and</span>
+               cEmail.val().match(regexEmail) <span class="hljs-keyword">isnt</span> <span class="hljs-literal">null</span>
               <span class="hljs-keyword">if</span> cMsg.val() <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span>
                 msg += <span class="hljs-string">'nome='</span> + encodeURI(cNome.val())
                 msg += <span class="hljs-string">'&amp;telefone='</span> + encodeURI(cTelefone.val())
@@ -140,7 +145,8 @@ GET a partir de um formulário HTML comum.</p>
                                                     <span class="hljs-string">'?'</span> + msg, <span class="hljs-literal">true</span>
                 xhr.send msg
                 xhr.<span class="hljs-function"><span class="hljs-title">onreadystatechange</span> = -&gt;</span>
-                  <span class="hljs-keyword">if</span> xhr.readyState <span class="hljs-keyword">is</span> <span class="hljs-number">4</span> <span class="hljs-keyword">and</span> xhr.status <span class="hljs-keyword">is</span> <span class="hljs-number">200</span>
+                  <span class="hljs-keyword">if</span> xhr.readyState <span class="hljs-keyword">is</span> xhrComplete <span class="hljs-keyword">and</span>
+                     xhr.status <span class="hljs-keyword">is</span> xhrStatusOK
                     formulario.css <span class="hljs-string">'display'</span>, <span class="hljs-string">'none'</span>
                     msgSucesso.attr <span class="hljs-string">'class'</span>, <span class="hljs-string">'mensagem-sucesso exibir'</span>
               <span class="hljs-keyword">else</span>
@@ -306,27 +312,27 @@ geográfica do usuário.</p>
 
       <span class="hljs-keyword">if</span> velocidade &lt; <span class="hljs-number">0.3</span>
         vento = tipoVento.calmo
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">0.3</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">1.5</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">0.3</span>.<span class="hljs-number">.1</span><span class="hljs-number">.5</span>]
         vento = tipoVento.aragem
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">1.6</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">3.3</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">1.6</span>.<span class="hljs-number">.3</span><span class="hljs-number">.3</span>]
         vento = tipoVento.brisaLeve
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">3.4</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">5.4</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">3.4</span>.<span class="hljs-number">.5</span><span class="hljs-number">.4</span>]
         vento = tipoVento.brisaFraca
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">5.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">7.9</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">5.5</span>.<span class="hljs-number">.7</span><span class="hljs-number">.9</span>]
         vento = tipoVento.brisaModerada
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">8.0</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">10.7</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">8.0</span>.<span class="hljs-number">.10</span><span class="hljs-number">.7</span>]
         vento = tipoVento.brisaForte
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">10.8</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">13.8</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">10.8</span>.<span class="hljs-number">.13</span><span class="hljs-number">.8</span>]
         vento = tipoVento.ventoFresco
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">13.9</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">17.1</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">13.9</span>.<span class="hljs-number">.17</span><span class="hljs-number">.1</span>]
         vento = tipoVento.ventoForte
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">17.2</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">20.7</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">17.2</span>.<span class="hljs-number">.20</span><span class="hljs-number">.7</span>]
         vento = tipoVento.ventania
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">20.8</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">24.4</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">20.8</span>.<span class="hljs-number">.24</span><span class="hljs-number">.4</span>]
         vento = tipoVento.ventaniaForte
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">24.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">28.4</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">24.5</span>.<span class="hljs-number">.28</span><span class="hljs-number">.4</span>]
         vento = tipoVento.tempestade
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">28.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">32.6</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">28.5</span>.<span class="hljs-number">.32</span><span class="hljs-number">.6</span>]
         vento = tipoVento.tempestadeViolenta
       <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade &gt;= <span class="hljs-number">32.7</span>
         vento = tipoVento.furacao
