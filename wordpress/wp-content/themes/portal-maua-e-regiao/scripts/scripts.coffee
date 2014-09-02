@@ -195,27 +195,27 @@ Portal.apps =
 
       if velocidade < 0.3
         vento = tipoVento.calmo
-      else if velocidade in [0.3..1.5]
+      else if velocidade is 0.3 or velocidade <= 1.5
         vento = tipoVento.aragem
-      else if velocidade in [1.6..3.3]
+      else if velocidade is 1.6 or velocidade <= 3.3
         vento = tipoVento.brisaLeve
-      else if velocidade in [3.4..5.4]
+      else if velocidade is 3.4 or velocidade <= 5.4
         vento = tipoVento.brisaFraca
-      else if velocidade in [5.5..7.9]
+      else if velocidade is 5.5 or velocidade <= 7.9
         vento = tipoVento.brisaModerada
-      else if velocidade in [8.0..10.7]
+      else if velocidade is 8.0 or velocidade <= 10.7
         vento = tipoVento.brisaForte
-      else if velocidade in [10.8..13.8]
+      else if velocidade is 10.8 or velocidade <= 13.8
         vento = tipoVento.ventoFresco
-      else if velocidade in [13.9..17.1]
+      else if velocidade is 13.9 or velocidade <= 17.1
         vento = tipoVento.ventoForte
-      else if velocidade in [17.2..20.7]
+      else if velocidade is 17.2 or velocidade <= 20.7
         vento = tipoVento.ventania
-      else if velocidade in [20.8..24.4]
+      else if velocidade is 20.8 or velocidade <= 24.4
         vento = tipoVento.ventaniaForte
-      else if velocidade in [24.5..28.4]
+      else if velocidade is 24.5 or velocidade <= 28.4
         vento = tipoVento.tempestade
-      else if velocidade in [28.5..32.6]
+      else if velocidade is 28.5 or velocidade <= 32.6
         vento = tipoVento.tempestadeViolenta
       else if velocidade >= 32.7
         vento = tipoVento.furacao
