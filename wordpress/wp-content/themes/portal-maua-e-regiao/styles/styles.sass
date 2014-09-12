@@ -2204,8 +2204,26 @@ body
 
           @include decoracaoHeader(630px, 110px, $azul, $cinzaTituloMat)
 
+          @media screen and (max-width: 600px)
+            .decoracao
+              width: 100%
+
+              .linha-grossa
+                display: none
+
+              .linha-fina
+                width: 100%
+
+        @media screen and (max-width: 600px)
+          .header
+            padding: 0 25px
+
         .publicidade
           margin-top: 15px
+
+        @media screen and (max-width: 600px)
+          .publicidade
+            display: none
 
         .tematicas
           margin: 0 0 40px 0
@@ -2298,6 +2316,10 @@ body
                     .linha-grossa
                       background: $rosaTecnologia
 
+        @media screen and (max-width: 600px)
+          .tematicas
+            display: none
+
         article.materia
           .data
             font-size: 14px
@@ -2350,6 +2372,7 @@ body
               .feed
                 color: $laranjaFeed
 
+
             .twitter,
             .facebook
               padding: 7px 0 0
@@ -2357,6 +2380,19 @@ body
 
             .facebook
               line-height: 9px
+
+          @media screen and (max-width: 600px)
+            .creditos
+              width: 100%
+
+            .social
+              width: 100%
+              padding: 20px 0 10px
+
+              a
+                .feed
+                  margin: 8px 0 0 35px
+                  float: right
 
           .ilustracao
             margin: 15px 0 0
@@ -2448,6 +2484,29 @@ body
             a:hover
               color: $cinzaDestaques
               border-bottom: 1px solid $branco
+
+          @media screen and (max-width: 600px)
+            .texto
+              width: 100%
+
+        @media screen and (max-width: 600px)
+          article.materia
+            padding: 0 25px
+
+    @media screen and (max-width: 600px)
+      .conteudo
+        width: 100%
+        padding: 0
+
+        .principal
+          width: 100%
+
+        .lateral
+          display: none
+
+  @media screen and (max-width: 600px)
+    .layout-ultimas-noticias
+      width: 100%
 // end Ler notícia
 
 // Paginador
