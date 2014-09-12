@@ -43,6 +43,10 @@ $areaUtilLayout: 950px
 .mostrar
   display: block
 
+@media screen and (max-width: 600px)
+  .mostrar
+    display: none
+
 .menu
   width: 100%
   height: 30px
@@ -81,7 +85,7 @@ $areaUtilLayout: 950px
 
         .cidade,
         .politica
-          height: 170px
+          height: 185px
           border-right: 2px solid $azulSubmenu
 
         .politica,
@@ -138,7 +142,7 @@ $areaUtilLayout: 950px
         margin-left: -15px
 
         .cidade
-          width: 178px
+          width: 184px
 
     .revista,
     .jornal
@@ -391,7 +395,7 @@ body
       margin-top: 15px
 
       .facebook
-        width: $areaUtilLayout
+        width: $areaUtilLayout + 10px
         margin: 0 0 7px 0
         text-align: right
         float: left
@@ -407,6 +411,10 @@ body
       .publicidade-topo
         margin: 0 0 25px 0
         float: left
+
+        @media screen and (max-width: 600px)
+          .publicidade-topo
+            display: none
 
         a
           .imagem,
@@ -501,7 +509,7 @@ body
             margin-left: -15px
 
             .cidade
-              width: 178px
+              width: 184px
 
         .revista,
         .jornal
@@ -873,6 +881,56 @@ body
                   @-moz-document url-prefix()
                     width: auto
 
+        @media screen and (max-width: 600px)
+          .box-com-1,
+          .box-com-2,
+          .box-com-3,
+            width: 100%
+            height: auto
+            float: left
+
+            a,
+            a:nth-child(2),
+            a:nth-child(3)
+              text-decoration: none
+
+              .noticia
+                width: 100%
+                height: 150px
+                margin: 0 0 20px 0
+
+                .imagem
+                  width: 100%
+                  height: 150px
+
+                  img
+                    width: 100%
+                    height: 150px
+
+                .informacoes
+                  width: 100%
+                  margin: -77px 0 0
+
+                  .marca
+                    margin: 0 0 5px
+
+                    span
+                      padding: 5px 5px 5px 15px
+                      font-size: 14px
+
+                  .titulo
+                    h2
+                      span
+                        line-height: 27px
+                        box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                        background: $cinzaDestaques
+                        padding: 3px 10px 5px 0
+                        font-size: 19px
+
+      @media screen and (max-width: 600px)
+        .noticias > section:last-child
+          margin: 0 !important
+
       .outros-destaques
         width: $areaUtilLayout
         padding: 0 25px 0 25px
@@ -968,6 +1026,57 @@ body
           height: 50px
           background: url("../imagens/sombra-inferior.jpg") no-repeat 50% 0
           float: left
+
+      @media screen and (max-width: 600px)
+        .outros-destaques
+          width: auto
+          padding: 0 25px
+          clear: both
+
+          .header-outros-destaques
+            width: 100%
+            background: none
+            margin: 0 0 20px
+
+            h1
+              text-align: left
+
+          .box-com-destaques
+            width: 100%
+            float: none
+
+            a
+              .destaque
+                width: 100%
+                margin-bottom: 22px
+
+                .imagem
+                  width: 100%
+
+                  img
+                    width: 100%
+                    opacity: 0.3
+
+                .categoria
+                  margin-left: 10px
+                  position: absolute
+                  color: $azulSubmenu
+
+                .decoracao
+                  display: none
+
+                .titulo
+                  width: 80%
+                  position: absolute
+                  color: $cinzaDestaques
+                  margin: 40px 0 0 10px
+
+                  h3
+                    padding: 3px 5px 10px 0
+                    font-size: 18px
+
+          .sombra
+            display: none
 
       .midias
         width: $areaUtilLayout
@@ -1123,6 +1232,48 @@ body
                 width: 210px
                 height: 230px
 
+      @media screen and (max-width: 600px)
+        .midias
+          width: auto
+          padding: 0 0 0 25px
+
+          .f-e-f-pub
+            width: 100%
+
+            .fatos-e-fotos
+              width: 100%
+
+              .galerias
+                margin: 0
+
+              .header-fatos-e-fotos
+                margin: 0 0 20px 0
+                width: 100%
+                background: none
+
+                h1
+                  text-align: left
+
+              .galerias
+                width: 100%
+
+                .publicidade-destaques
+                  a
+                    .galeria
+                      width: 100%
+                      margin: 0 0 20px 0
+
+                      .imagens
+                        width: 135px
+                        float: left
+
+                        .subimagem
+                          display: none
+
+                      .titulo
+                        float: none
+                        margin: 50px 50px 0 150px
+
       .outras-noticias
         width: $areaUtilLayout
         margin: 15px 0 20px 0
@@ -1202,6 +1353,55 @@ body
                       span
                         box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
                         background: $cinzaDestCentral
+
+          @media screen and (max-width: 600px)
+            .destacadas
+              width: 100%
+
+              .destaque
+                width: 100%
+                height: auto
+                margin: 0
+                float: left
+
+                a
+                  text-decoration: none
+
+                  .noticia
+                    width: 100%
+                    height: 150px
+                    margin: 0 0 5px 0
+
+                    .imagem
+                      width: 100%
+                      height: 150px
+
+                      img
+                        width: 100%
+                        height: 150px
+
+                    .informacoes
+                      width: 100%
+                      margin: -77px 0 0
+
+                      .marca
+                        margin: 0 0 5px
+
+                        span
+                          padding: 5px 5px 5px 15px
+                          font-size: 14px
+
+                      .titulo
+                        h2
+                          span
+                            line-height: 27px
+                            box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                            background: $cinzaDestaques
+                            padding: 3px 10px 5px 0
+                            font-size: 19px
+
+            .tematicas
+              display: none
 
           .outras
             width: 400px
@@ -1287,6 +1487,51 @@ body
             a:nth-child(3)
               .noticia
                 margin-right: 0
+
+          @media screen and (max-width: 600px)
+            .outras
+              width: 100%
+              height: auto
+              margin: 0
+              float: left
+
+              a,
+              a:nth-child(2),
+              a:nth-child(3)
+                text-decoration: none
+
+                .noticia
+                  width: 100%
+                  height: 150px
+                  margin: 0 0 5px 0
+
+                  .imagem
+                    width: 100%
+                    height: 150px
+
+                    img
+                      width: 100%
+                      height: 150px
+
+                  .informacoes
+                    width: 100%
+                    margin: -77px 0 0
+
+                    .marca
+                      margin: 0 0 5px
+
+                      span
+                        padding: 5px 5px 5px 15px
+                        font-size: 14px
+
+                    .titulo
+                      h2
+                        span
+                          line-height: 27px
+                          box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                          background: $cinzaDestaques
+                          padding: 3px 10px 5px 0
+                          font-size: 19px
 
           .tematicas
             .noticias
@@ -1380,6 +1625,15 @@ body
                   height: 130px
                   background: $branco
 
+      @media screen and (max-width: 600px)
+        .outras-noticias
+          width: 100%
+          margin-bottom: 0
+          padding: 0
+
+          .itens
+            width: 100%
+
       .strip-publicidade
         width: $areaUtilLayout
         float: left
@@ -1398,6 +1652,10 @@ body
         .publicidade:last-child
           margin: 0
 
+      @media screen and (max-width: 600px)
+        .strip-publicidade
+          display: none
+
     .conteudo > .noticias > section:first-child
       margin: 0 22px 0 0
 
@@ -1406,6 +1664,39 @@ body
 
     .conteudo > .noticias > section:last-child
       margin: 0 0 0 22px
+
+  @media screen and (max-width: 600px)
+    .homepage-noticias
+      width: auto
+      float: none
+
+      .conteudo
+        width: 100%
+
+        .outros-destaques
+          .publicidade-destaques
+            display: none
+
+        .midias
+          .f-e-f-pub
+            .fatos-e-fotos
+              .publicidade-fatos-e-fotos
+                display: none
+
+          .revista-e-jornal
+            display: none
+
+        .outras-noticias
+          .publicidades-lateral
+            display: none
+
+@media screen and (max-width: 600px)
+  .layout
+    overflow: visible
+
+    header
+      .conteudo-header
+        display: none
 
 // Últimas notícias
 .ultimas-noticias
@@ -2837,3 +3128,53 @@ footer
             margin-right: 0
             background: url("../imagens/sprite.png") no-repeat -5px -177px
             float: left
+
+@media screen and (max-width: 600px)
+  footer
+    .conteudo-rodape
+      .cabecalho-rodape
+        width: 100%
+
+        .conteudo
+          width: 100%
+
+          .lateral
+            width: 100%
+
+            .logotipo
+              width: 100%
+              padding: 0
+              border-right: 0
+
+              a
+                .logotipo-grupo-maua-e-regiao
+                  margin: 0 auto
+
+            .links
+              width: 100%
+              margin: 30px 0 0
+              text-align: center
+
+          .busca-rodape
+            margin: 70px 20px 0
+
+      .copyright-marcas
+        width: 100%
+
+        .conteudo-copyright-marcas
+          width: 100%
+
+          .copyright,
+          .marcas
+            width: auto
+            padding: 0 0 20px 20px
+
+            a
+              float: left
+
+          .copyright
+            clear: both
+            float: none
+
+          .marcas
+            padding-bottom: 0
