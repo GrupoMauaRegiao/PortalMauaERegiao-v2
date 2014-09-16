@@ -2705,6 +2705,11 @@ body
     font-size: 18px
     color: $cinzaTituloMat
 
+@media screen and (max-width: 600px)
+  .fatos-e-fotos-chamada
+    padding: 0 25px
+    border: 0
+
 .itens-fatos-e-fotos,
 .itens-colunistas
   width: 630px
@@ -2752,6 +2757,12 @@ body
       .titulo
         h3
           text-decoration: underline
+
+@media screen and (max-width: 600px)
+  .itens-fatos-e-fotos
+    width: 100%
+    height: auto
+    margin: 0
 
 .itens-colunistas
   a
@@ -2949,6 +2960,11 @@ body
     font-size: 18px
     color: $cinzaTituloMat
 
+@media screen and (max-width: 600px)
+  .fale-conosco-chamada
+    padding: 0 25px
+    border: 0
+
 .fale-conosco
   margin: 0 0 50px 0
 
@@ -3097,6 +3113,43 @@ body
     .email
       a:hover
         text-decoration: underline
+
+@media screen and (max-width: 600px)
+  .fale-conosco
+    padding: 0 25px
+
+    .formulario-fale-conosco
+      padding: 0 25px 0 0
+
+      form
+        .nome,
+        .telefone,
+        .email,
+        .assunto
+          input
+            width: 100%
+
+        .mensagem
+          textarea
+            width: 100%
+
+        .botoes
+          input#enviar
+            margin: 0 0 7px 0
+
+          input#apagar
+            margin: 0
+            border-radius: 30px
+
+    @media screen and (max-width: 600px)
+      .redes-sociais
+        .decoracao
+          .linha
+            width: 100%
+            background: $branco
+
+        .icones
+          width: 100%
 
 .conteudo-ajuda
   p
