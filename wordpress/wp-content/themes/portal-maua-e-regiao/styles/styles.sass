@@ -2516,6 +2516,18 @@ body
                 background: $cinzaBGDestaquesLateral
                 box-shadow: inset -10px 0 0 $branco
 
+            @media screen and (max-width: 600px)
+              .wp-caption
+                width: 100% !important
+
+                a
+                  img
+                    width: 100%
+                    object-fit: cover
+
+                p
+                  box-shadow: none
+
             .aligncenter
               margin: 0 auto
 
