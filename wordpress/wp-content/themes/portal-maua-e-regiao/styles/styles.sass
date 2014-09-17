@@ -1931,11 +1931,21 @@ body
                       margin: -10px 20px 0
                       position: absolute
 
+                    @media screen and (max-width: 600px)
+                      .categoria
+                        width: auto
+                        margin: 0
+
                     .horario
                       width: 460px
                       font-size: 14px
                       text-align: right
                       text-transform: lowercase
+
+                    @media screen and (max-width: 600px)
+                      .horario
+                        width: auto
+                        margin: 0 0 10px
 
                   .texto
                     font-size: 20px
@@ -2027,7 +2037,42 @@ body
                     margin: 0 0 10px 10px
                     color: $branco
                     float: left
+
+            @media screen and (max-width: 600px)
+              .chamada
+                .titulo
+                  width: auto
+                  margin: 0
+
+                  .header
+                    .decoracao
+                      width: 100%
+
+                      .linha
+                        width: 100%
             // end Chamada destacada
+
+            @media screen and (max-width: 600px)
+              a:first-child
+                .chamada
+                  width: 100%
+                  height: auto
+
+                  .titulo
+                    width: auto
+                    margin: 0
+
+                    .header
+                      width: 100%
+
+                      .decoracao
+                        display: none
+
+                      .categoria
+                        width: auto
+
+                    .texto
+                      margin: 10px 0
 
           .outras-noticias
             margin: 20px 0 0 0
@@ -2221,10 +2266,12 @@ body
           .noticias
             padding: 0 25px
 
+            .chamadas,
             .resultados
               width: 100%
 
               a
+                .chamada,
                 .resultado
                   width: 100%
                   height: auto
