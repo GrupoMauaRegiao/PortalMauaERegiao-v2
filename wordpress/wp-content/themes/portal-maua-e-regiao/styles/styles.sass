@@ -3385,6 +3385,11 @@ footer
               border: 1px solid $azulClaroBusca
               background: darken($azulClaroBusca, 3)
 
+            @media screen and (max-width: 600px)
+              input[type="text"]
+                text-align: left
+                float: none
+
             input[type="submit"]
               width: 16px
               height: 16px
@@ -3393,6 +3398,13 @@ footer
               outline: 0
               margin: 12px 0 0 -25px
               cursor: pointer
+
+        @media screen and (max-width: 600px)
+          .busca-rodape
+            width: auto
+            margin: 0
+            text-align: center
+            float: none
 
   .copyright-marcas
     width: 100%
@@ -3465,6 +3477,7 @@ footer
 
           .lateral
             width: 100%
+            margin: 0 0 12px
 
             .logotipo
               width: 100%
@@ -3480,8 +3493,19 @@ footer
               margin: 30px 0 0
               text-align: center
 
+              ul
+                li
+                  display: inline-block
+                  margin: 0 20px 0 0
+
+                li:last-child
+                  margin: 0
+
           .busca-rodape
-            margin: 70px 20px 0
+            form
+              input
+                text-align: center
+                float: none
 
       .copyright-marcas
         width: 100%
@@ -3499,7 +3523,12 @@ footer
 
           .copyright
             clear: both
+            text-align: center
             float: none
 
           .marcas
+            width: 250px
+            margin: 0 auto
+            margin-top: 10px
             padding-bottom: 0
+            float: none
