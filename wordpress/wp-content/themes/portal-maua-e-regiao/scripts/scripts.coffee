@@ -5,10 +5,11 @@ Portal.apps =
   # notícias do Portal, divididas por categorias.
   paginador: ->
     paginas            = $ '.paginador'
-    indice             = $ '.indice'
-    inputPagina        = $ 'input[name="digitar-pagina"]'
 
     if paginas[0]
+      indice             = $ '.indice'
+      inputPagina        = $ 'input[name="digitar-pagina"]'
+
       _jPages = (container, maxPaginas) ->
         paginas.jPages {
           container : container
