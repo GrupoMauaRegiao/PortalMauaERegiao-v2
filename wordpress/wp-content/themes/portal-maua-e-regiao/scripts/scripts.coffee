@@ -372,7 +372,7 @@ Portal.apps =
     $window = $ window
 
     _controlarMenu = ->
-      container  = $ '.conteudo'
+      container  = $ '.topo'
 
       if container[0]
         menu       = $ '.menu'
@@ -386,7 +386,52 @@ Portal.apps =
 
     $window.on 'scroll', _controlarMenu
 
+  # Ativa menu da versão mobile com evento `ontouchstart` ou `onclick`
+  touchAtivarMenu: ->
+    iconeMenu = $ '.menu-mobile .conteudo .menu-conteudo button'
+
+    if iconeMenu and iconeMenu.is ':visible'
+      botaoMenu = $ '.menu-mobile .conteudo .menu-conteudo'
+      suporteTouch = 'ontouchstart' of window
+
+      if suporteTouch
+        evento = 'touchstart'
+      else
+        evento = 'click'
+
+      _abrirMenu = (e) ->
+        if botaoMenu.hasClass 'botao-menu-mobile-ativado'
+          botaoMenu.removeClass 'botao-menu-mobile-ativado'
+        else
+          botaoMenu.addClass 'botao-menu-mobile-ativado'
+        e.preventDefault()
+      iconeMenu.on evento, _abrirMenu
+
+  # Ativa formulário de busca da versão mobile com evento `ontouchstart`
+  # ou `onclick`
+  touchAtivarBusca: ->
+    iconeBusca = $ '.menu-mobile .conteudo .busca button'
+
+    if iconeBusca and iconeBusca.is ':visible'
+      botaoBusca = $ '.menu-mobile .conteudo .busca'
+      suporteTouch = 'ontouchstart' of window
+
+      if suporteTouch
+        evento = 'touchstart'
+      else
+        evento = 'click'
+
+      _abrirBusca = (e) ->
+        if botaoBusca.hasClass 'botao-busca-mobile-ativado'
+          botaoBusca.removeClass 'botao-busca-mobile-ativado'
+        else
+          botaoBusca.addClass 'botao-busca-mobile-ativado'
+        e.preventDefault()
+      iconeBusca.on evento, _abrirBusca
+
 do ->
+  Portal.apps.touchAtivarMenu()
+  Portal.apps.touchAtivarBusca()
   Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
@@ -396,4 +441,3 @@ do ->
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   Portal.apps.mascararCampoTelefone()
-  return

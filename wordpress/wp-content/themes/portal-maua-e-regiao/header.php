@@ -23,6 +23,7 @@
     <body>
 
         <?php include "menu.php"; ?>
+        <?php include "menu-mobile.php"; ?>
 
         <section class="layout">
             <header>

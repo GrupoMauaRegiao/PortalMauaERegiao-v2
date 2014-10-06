@@ -43,6 +43,104 @@ $areaUtilLayout: 950px
 .mostrar
   display: block
 
+// Mobile
+.botao-menu-mobile-ativado
+  width: 100% !important
+  background: $azulSubmenu !important
+  position: absolute
+
+  button
+    width: 56px !important
+    height: 56px !important
+    margin: 0 13px 0 0
+    background: url("../imagens/sprite.png") no-repeat -690px -4px !important
+    float: left
+
+  button + .menu-categorias-mobile
+    height: 515px
+    background: $branco
+    margin: 38px 0 0 -15px
+    display: block
+    overflow-y: scroll
+
+    .itens
+      text-transform: uppercase
+      text-align: center
+
+      .categorias
+        .lista-categorias
+          .cidade,
+          .politica,
+          .e-mais
+            margin: 0 0 3px 0
+
+          .cidade,
+          .politica,
+          .e-mais
+            .header
+              background: darken($azulSubmenu, 1%)
+              color: $branco
+              padding: 10px 0 3px
+
+            .lista
+              margin: 10px 0
+
+              ul
+                li
+                  padding: 5px
+
+                  a
+                    width: 100%
+                    text-decoration: none
+                    color: $cinzaTituloMat
+
+      .entretenimento
+        .header
+          background: darken($azulSubmenu, 2%)
+          color: $branco
+
+          .titulo
+            padding: 10px 0 3px 0
+
+        .lista
+          margin: 10px 0
+
+          ul
+            li
+              padding: 5px
+
+              a
+                width: 100%
+                text-decoration: none
+                color: $cinzaTituloMat
+
+.botao-busca-mobile-ativado
+  width: 100% !important
+  background: $azulSubmenu !important
+  position: absolute
+
+  button
+    width: 56px !important
+    height: 56px !important
+    float: left
+    margin: 0 13px 0 0
+    background: url("../imagens/sprite.png") no-repeat -690px 0 !important
+
+  button + form
+    display: block
+
+    input[type="text"]
+      width: 230px
+      border-radius: 15px
+      margin: -3px 0 0
+      padding: 7px
+      border: 0
+      outline: none
+
+    input[type="text"]:focus
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5)
+// Mobile
+
 @media screen and (max-width: 600px)
   .mostrar
     display: none
@@ -352,6 +450,66 @@ $areaUtilLayout: 950px
       cursor: pointer
       background: $azulSubmenu
 // end Menu dependente do scroll
+
+// Menu Mobile
+.menu-mobile
+  display: none
+
+@media screen and (max-width: 600px)
+  .menu-mobile
+    width: 100%
+    height: 53px
+    z-index: 9999
+    position: fixed
+    display: block
+    background: url("../imagens/background-menu-mobile.jpg") no-repeat
+
+    .conteudo
+      .menu-conteudo,
+      .busca
+        width: 26px
+        height: 23px
+        background: rgba(100, 113, 166, 0.5)
+        padding: 15px
+        float: left
+
+        button
+          width: 56px
+          height: 56px
+          background: url("../imagens/sprite.png") no-repeat -1px -285px
+          margin: -15px
+          padding: 28px
+          border: 0
+          outline: 0
+      a
+        width: 105px
+        margin: 0 auto
+        display: block
+        outline: none
+        border: 0
+
+        .logotipo
+          width: 105px
+          height: 53px
+          background: url("../imagens/sprite.png") no-repeat -746px 3px
+          float: left
+
+      .busca
+        width: 19px
+        height: 23px
+        padding: 15px 19px
+        float: right
+
+        button
+          width: 56px
+          height: 56px
+          background-position: -54px -285px
+          padding: 28px
+          margin: -19px 0 -19px -19px
+
+      .menu-conteudo:active,
+      .busca:active
+        background: rgb(100, 113, 166)
 
 @mixin decoracaoHeader($total, $linhaGrossa, $corGrossa, $corFina)
   .decoracao
@@ -1693,6 +1851,7 @@ body
 @media screen and (max-width: 600px)
   .layout
     overflow: visible
+    padding-top: 53px
 
     header
       .conteudo-header
@@ -2499,7 +2658,7 @@ body
 
             a
               .feed
-                width: 42px
+                width: 46px
                 height: 18px
                 margin: 8px -15px 0
                 color: $preto
@@ -2515,7 +2674,6 @@ body
               .feed
                 color: $laranjaFeed
 
-
             .twitter,
             .facebook
               padding: 7px 0 0
@@ -2530,12 +2688,31 @@ body
 
             .social
               width: 100%
+              text-align: center
               padding: 20px 0 10px
 
               a
                 .feed
-                  margin: 8px 0 0 35px
-                  float: right
+                  width: 100%
+                  background: none
+                  background-position: -440px 0
+                  color: $branco
+                  margin: 8px 0 5px 0
+
+                  span
+                    background: $laranjaFeed
+                    padding: 5px
+                    border-radius: 5px
+
+              a:hover
+                .feed
+                  span
+                    color: $branco
+                    background: darken($laranjaFeed, 10%)
+
+              .twitter
+                width: 100%
+                margin: 0 0 0 17px
 
           .ilustracao
             margin: 15px 0 0
@@ -3255,6 +3432,16 @@ body
     .email
       a:hover
         text-decoration: underline
+
+  @media screen and (max-width: 600px)
+    .informacoes-contato
+      font-size: 15px
+      text-align: center
+
+      .telefone,
+      .email
+        width: 100%
+        padding: 10px 0
 
 @media screen and (max-width: 600px)
   .fale-conosco
