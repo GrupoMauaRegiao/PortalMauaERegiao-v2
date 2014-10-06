@@ -4,11 +4,11 @@ Portal.apps =
   # Cria paginador com o plugin `jPages` em páginas onde constará listas de
   # notícias do Portal, divididas por categorias.
   paginador: ->
-    paginas            = $ '.paginador'
+    paginas = $ '.paginador'
 
     if paginas[0]
-      indice             = $ '.indice'
-      inputPagina        = $ 'input[name="digitar-pagina"]'
+      indice      = $ '.indice'
+      inputPagina = $ 'input[name="digitar-pagina"]'
 
       _jPages = (container, maxPaginas) ->
         paginas.jPages {
@@ -406,6 +406,7 @@ Portal.apps =
         evento = 'click'
 
       _abrirMenu = (e) ->
+        console.log 'click'
         if botaoMenu.hasClass 'botao-menu-mobile-ativado'
           botaoMenu.removeClass 'botao-menu-mobile-ativado'
         else
@@ -435,9 +436,22 @@ Portal.apps =
         e.preventDefault()
       iconeBusca.on evento, _abrirBusca
 
+  adicionarIconeVerMaisFoto: ->
+    fotos = $ '.wp-caption'
+
+    if fotos[0]
+      for foto in fotos
+        link = $(fotos).children('a').attr 'href'
+        $(foto).append(
+          '<a class="esconder" data-lightbox="roadtrip" href="' + link + '">
+            <section class="icone-ver-mais"></section>
+           </a>'
+        )
+
 do ->
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()
+  Portal.apps.adicionarIconeVerMaisFoto()
   Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
