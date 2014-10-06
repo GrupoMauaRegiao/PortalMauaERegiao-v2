@@ -4,43 +4,48 @@ Portal.apps =
   # Cria paginador com o plugin `jPages` em páginas onde constará listas de
   # notícias do Portal, divididas por categorias.
   paginador: ->
-    paginas = $ '.paginador'
+    paginas            = $ '.paginador'
+    indice             = $ '.indice'
+    inputPagina        = $ 'input[name="digitar-pagina"]'
 
     if paginas[0]
-      indice        = $ '.indice'
-      inputPagina   = $ 'input[name="digitar-pagina"]'
-      maximoPaginas = 6
+      _jPages = (container, maxPaginas) ->
+        paginas.jPages {
+          container : container
+          perPage   : maxPaginas
+          startRange: 1
+          endRange  : 1
+          first     : '.primeira'
+          last      : '.ultima'
+          next      : '.proxima'
+          previous  : '.anterior'
+          callback  : (paginas, itens) ->
+            if paginas.count >= 1
+              ajustarMaxNumerosInput = ->
+                inputPagina.attr 'max', paginas.count
 
-      paginas.jPages {
-        container : '.chamadas, .resultados, .publicidade-destaques, .publicacoes'
-        perPage   : maximoPaginas
-        startRange: 1
-        endRange  : 1
-        first     : '.primeira'
-        last      : '.ultima'
-        next      : '.proxima'
-        previous  : '.anterior'
-        callback: (paginas, itens) ->
-          if paginas.count >= 1
-            ajustarMaxNumerosInput = ->
-              inputPagina.attr 'max', paginas.count
+              mostrarIndice = ->
+                indice.html(
+                  'Página ' + paginas.current +
+                  ' de ' + paginas.count
+                )
 
-            mostrarIndice = ->
-              indice.html('Página ' + paginas.current + ' de ' + paginas.count)
+              controlarExibicaoPaginador = ->
+                containerPaginador = $ '.paginacao'
 
-            controlarExibicaoPaginador = ->
-              containerPaginador = $ '.paginacao'
+                if itens.count > maxPaginas - 1
+                  containerPaginador.show()
+                else
+                  containerPaginador.hide()
 
-              if itens.count > maximoPaginas - 1
-                containerPaginador.show()
-              else
-                containerPaginador.hide()
+              ajustarMaxNumerosInput()
+              mostrarIndice()
+              controlarExibicaoPaginador()
+            return
+        }
 
-            ajustarMaxNumerosInput()
-            mostrarIndice()
-            controlarExibicaoPaginador()
-          return
-      }
+      _jPages '.chamadas, .resultados, .publicacoes', 6
+      _jPages '.publicidade-destaques', 12
 
       _moverParaPagina = ->
         pagina = parseInt(inputPagina.val())
