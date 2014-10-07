@@ -394,39 +394,11 @@ Portal.apps =
 
   # Ativa menu da versão mobile com evento `ontouchstart` ou `onclick`
   touchAtivarMenu: ->
-    iconeMenu = $ '.menu-mobile .conteudo .menu-conteudo button'
-
-    if iconeMenu and iconeMenu.is ':visible'
-      botaoMenu = $ '.menu-mobile .conteudo .menu-conteudo'
-      suporteTouch = 'ontouchstart' of window
-
-      if suporteTouch
-        evento = 'touchstart'
-      else
-        evento = 'click'
-
-      _abrirMenu = (e) ->
-        console.log 'click'
-        if botaoMenu.hasClass 'botao-menu-mobile-ativado'
-          botaoMenu.removeClass 'botao-menu-mobile-ativado'
-        else
-          botaoMenu.addClass 'botao-menu-mobile-ativado'
-        e.preventDefault()
-      iconeMenu.on evento, _abrirMenu
-
-  # Ativa formulário de busca da versão mobile com evento `ontouchstart`
-  # ou `onclick`
-  touchAtivarBusca: ->
     iconeBusca = $ '.menu-mobile .conteudo .busca button'
 
     if iconeBusca and iconeBusca.is ':visible'
       botaoBusca = $ '.menu-mobile .conteudo .busca'
-      suporteTouch = 'ontouchstart' of window
-
-      if suporteTouch
-        evento = 'touchstart'
-      else
-        evento = 'click'
+      evento     = if 'ontouchstart' of window then 'touchstart' else 'click'
 
       _abrirBusca = (e) ->
         if botaoBusca.hasClass 'botao-busca-mobile-ativado'
@@ -435,6 +407,23 @@ Portal.apps =
           botaoBusca.addClass 'botao-busca-mobile-ativado'
         e.preventDefault()
       iconeBusca.on evento, _abrirBusca
+
+  # Ativa formulário de busca da versão mobile com evento `ontouchstart`
+  # ou `onclick`
+  touchAtivarBusca: ->
+    iconeMenu = $ '.menu-mobile .conteudo .menu-conteudo button'
+
+    if iconeMenu and iconeMenu.is ':visible'
+      botaoMenu = $ '.menu-mobile .conteudo .menu-conteudo'
+      evento    = if 'ontouchstart' of window then 'touchstart' else 'click'
+
+      _abrirMenu = (e) ->
+        if botaoMenu.hasClass 'botao-menu-mobile-ativado'
+          botaoMenu.removeClass 'botao-menu-mobile-ativado'
+        else
+          botaoMenu.addClass 'botao-menu-mobile-ativado'
+        e.preventDefault()
+      iconeMenu.on evento, _abrirMenu
 
   adicionarIconeVerMaisFoto: ->
     fotos = $ '.wp-caption'
