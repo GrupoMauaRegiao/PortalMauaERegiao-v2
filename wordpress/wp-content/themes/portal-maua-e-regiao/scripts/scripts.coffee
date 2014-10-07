@@ -7,40 +7,46 @@ Portal.apps =
     paginas = $ '.paginador'
 
     if paginas[0]
-      indice        = $ '.indice'
-      inputPagina   = $ 'input[name="digitar-pagina"]'
-      maximoPaginas = 6
+      indice      = $ '.indice'
+      inputPagina = $ 'input[name="digitar-pagina"]'
 
-      paginas.jPages {
-        container : '.chamadas, .resultados, .publicidade-destaques, .publicacoes'
-        perPage   : maximoPaginas
-        startRange: 1
-        endRange  : 1
-        first     : '.primeira'
-        last      : '.ultima'
-        next      : '.proxima'
-        previous  : '.anterior'
-        callback: (paginas, itens) ->
-          if paginas.count >= 1
-            ajustarMaxNumerosInput = ->
-              inputPagina.attr 'max', paginas.count
+      _jPages = (container, maxPaginas) ->
+        paginas.jPages {
+          container : container
+          perPage   : maxPaginas
+          startRange: 1
+          endRange  : 1
+          first     : '.primeira'
+          last      : '.ultima'
+          next      : '.proxima'
+          previous  : '.anterior'
+          callback  : (paginas, itens) ->
+            if paginas.count >= 1
+              ajustarMaxNumerosInput = ->
+                inputPagina.attr 'max', paginas.count
 
-            mostrarIndice = ->
-              indice.html('Página ' + paginas.current + ' de ' + paginas.count)
+              mostrarIndice = ->
+                indice.html(
+                  'Página ' + paginas.current +
+                  ' de ' + paginas.count
+                )
 
-            controlarExibicaoPaginador = ->
-              containerPaginador = $ '.paginacao'
+              controlarExibicaoPaginador = ->
+                containerPaginador = $ '.paginacao'
 
-              if itens.count > maximoPaginas - 1
-                containerPaginador.show()
-              else
-                containerPaginador.hide()
+                if itens.count > maxPaginas - 1
+                  containerPaginador.show()
+                else
+                  containerPaginador.hide()
 
-            ajustarMaxNumerosInput()
-            mostrarIndice()
-            controlarExibicaoPaginador()
-          return
-      }
+              ajustarMaxNumerosInput()
+              mostrarIndice()
+              controlarExibicaoPaginador()
+            return
+        }
+
+      _jPages '.chamadas, .resultados, .publicacoes', 6
+      _jPages '.publicidade-destaques', 12
 
       _moverParaPagina = ->
         pagina = parseInt(inputPagina.val())
@@ -372,7 +378,7 @@ Portal.apps =
     $window = $ window
 
     _controlarMenu = ->
-      container  = $ '.conteudo'
+      container  = $ '.topo'
 
       if container[0]
         menu       = $ '.menu'
@@ -386,14 +392,61 @@ Portal.apps =
 
     $window.on 'scroll', _controlarMenu
 
+  # Ativa menu da versão mobile com evento `ontouchstart` ou `onclick`
+  touchAtivarMenu: ->
+    iconeBusca = $ '.menu-mobile .conteudo .busca button'
+
+    if iconeBusca and iconeBusca.is ':visible'
+      botaoBusca = $ '.menu-mobile .conteudo .busca'
+      evento     = if 'ontouchstart' of window then 'touchstart' else 'click'
+
+      _abrirBusca = (e) ->
+        if botaoBusca.hasClass 'botao-busca-mobile-ativado'
+          botaoBusca.removeClass 'botao-busca-mobile-ativado'
+        else
+          botaoBusca.addClass 'botao-busca-mobile-ativado'
+        e.preventDefault()
+      iconeBusca.on evento, _abrirBusca
+
+  # Ativa formulário de busca da versão mobile com evento `ontouchstart`
+  # ou `onclick`
+  touchAtivarBusca: ->
+    iconeMenu = $ '.menu-mobile .conteudo .menu-conteudo button'
+
+    if iconeMenu and iconeMenu.is ':visible'
+      botaoMenu = $ '.menu-mobile .conteudo .menu-conteudo'
+      evento    = if 'ontouchstart' of window then 'touchstart' else 'click'
+
+      _abrirMenu = (e) ->
+        if botaoMenu.hasClass 'botao-menu-mobile-ativado'
+          botaoMenu.removeClass 'botao-menu-mobile-ativado'
+        else
+          botaoMenu.addClass 'botao-menu-mobile-ativado'
+        e.preventDefault()
+      iconeMenu.on evento, _abrirMenu
+
+  adicionarIconeVerMaisFoto: ->
+    fotos = $ '.wp-caption'
+
+    if fotos[0]
+      for foto in fotos
+        link = $(fotos).children('a').attr 'href'
+        $(foto).append(
+          '<a class="esconder" data-lightbox="roadtrip" href="' + link + '">
+            <section class="icone-ver-mais"></section>
+           </a>'
+        )
+
 do ->
+  Portal.apps.touchAtivarMenu()
+  Portal.apps.touchAtivarBusca()
+  Portal.apps.adicionarIconeVerMaisFoto()
   Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
-  Portal.apps.adicionarCondicoesClimaticas()
+  Portal.apps.adicionarCondicoesClimaticas() if not('ontouchstart' of window)
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   Portal.apps.mascararCampoTelefone()
-  return

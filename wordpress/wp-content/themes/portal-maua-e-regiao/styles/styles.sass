@@ -10,7 +10,7 @@ $areaUtilLayout: 950px
 .pace .pace-progress
   background: $azul
   position: fixed
-  z-index: 2000
+  z-index: 9999
   top: 0
   left: 0
   height: 5px
@@ -42,6 +42,121 @@ $areaUtilLayout: 950px
 
 .mostrar
   display: block
+
+// Mobile
+.botao-menu-mobile-ativado
+  width: 100% !important
+  background: $azulSubmenu !important
+  position: absolute
+
+  button
+    width: 56px !important
+    height: 56px !important
+    margin: 0 13px 0 0
+    background: url("../imagens/sprite.png") no-repeat -690px -4px !important
+    float: left
+
+  button + .menu-categorias-mobile
+    height: 515px
+    background: $branco
+    margin: 38px 0 0 -15px
+    display: block
+    overflow-y: scroll
+
+    .itens
+      text-transform: uppercase
+      text-align: center
+
+      .categorias
+        .lista-categorias
+          .cidade,
+          .politica,
+          .e-mais
+            margin: 0 0 3px 0
+
+          .cidade,
+          .politica,
+          .e-mais
+            .header
+              background: darken($azulSubmenu, 1%)
+              color: $branco
+              padding: 10px 0 3px
+
+            .lista
+              margin: 10px 0
+
+              ul
+                li
+                  padding: 5px
+
+                  a
+                    width: 100%
+                    text-decoration: none
+                    color: $cinzaTituloMat
+
+      .entretenimento
+        .header
+          background: darken($azulSubmenu, 2%)
+          color: $branco
+
+          .titulo
+            padding: 10px 0 3px 0
+
+        .lista
+          margin: 10px 0
+
+          ul
+            li
+              padding: 5px
+
+              a
+                width: 100%
+                text-decoration: none
+                color: $cinzaTituloMat
+
+.botao-busca-mobile-ativado
+  width: 100% !important
+  background: $azulSubmenu !important
+  position: absolute
+
+  button
+    width: 56px !important
+    height: 56px !important
+    float: left
+    margin: 0 13px 0 0
+    background: url("../imagens/sprite.png") no-repeat -690px 0 !important
+
+  button + form
+    display: block
+
+    input[type="text"]
+      width: 230px
+      border-radius: 15px
+      margin: -3px 0 0
+      padding: 7px
+      border: 0
+      outline: none
+
+    input[type="text"]:focus
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5)
+// Mobile
+
+@media screen and (max-width: 600px)
+  .mostrar
+    display: none
+
+  a.esconder
+    outline: none
+    border: 0 !important
+    display: block
+
+    .icone-ver-mais
+      width: 30px
+      height: 30px
+      background: $azulSubmenu url("../imagens/sprite.png") no-repeat 2px 2px
+      position: absolute
+      margin: -57px 25px 0
+      right: 0
 
 .menu
   width: 100%
@@ -81,7 +196,7 @@ $areaUtilLayout: 950px
 
         .cidade,
         .politica
-          height: 170px
+          height: 185px
           border-right: 2px solid $azulSubmenu
 
         .politica,
@@ -138,7 +253,7 @@ $areaUtilLayout: 950px
         margin-left: -15px
 
         .cidade
-          width: 178px
+          width: 184px
 
     .revista,
     .jornal
@@ -349,6 +464,66 @@ $areaUtilLayout: 950px
       background: $azulSubmenu
 // end Menu dependente do scroll
 
+// Menu Mobile
+.menu-mobile
+  display: none
+
+@media screen and (max-width: 600px)
+  .menu-mobile
+    width: 100%
+    height: 53px
+    z-index: 9998
+    position: fixed
+    display: block
+    background: url("../imagens/background-menu-mobile.jpg") no-repeat
+
+    .conteudo
+      .menu-conteudo,
+      .busca
+        width: 26px
+        height: 23px
+        background: rgba(100, 113, 166, 0.5)
+        padding: 15px
+        float: left
+
+        button
+          width: 56px
+          height: 56px
+          background: url("../imagens/sprite.png") no-repeat -1px -285px
+          margin: -15px
+          padding: 28px
+          border: 0
+          outline: 0
+      a
+        width: 105px
+        margin: 0 auto
+        display: block
+        outline: none
+        border: 0
+
+        .logotipo
+          width: 105px
+          height: 53px
+          background: url("../imagens/sprite.png") no-repeat -746px 3px
+          float: left
+
+      .busca
+        width: 19px
+        height: 23px
+        padding: 15px 19px
+        float: right
+
+        button
+          width: 56px
+          height: 56px
+          background-position: -54px -285px
+          padding: 28px
+          margin: -19px 0 -19px -19px
+
+      .menu-conteudo:active,
+      .busca:active
+        background: rgb(100, 113, 166)
+
 @mixin decoracaoHeader($total, $linhaGrossa, $corGrossa, $corFina)
   .decoracao
     width: $total
@@ -391,7 +566,7 @@ body
       margin-top: 15px
 
       .facebook
-        width: $areaUtilLayout
+        width: $areaUtilLayout + 10px
         margin: 0 0 7px 0
         text-align: right
         float: left
@@ -407,6 +582,10 @@ body
       .publicidade-topo
         margin: 0 0 25px 0
         float: left
+
+        @media screen and (max-width: 600px)
+          .publicidade-topo
+            display: none
 
         a
           .imagem,
@@ -501,7 +680,7 @@ body
             margin-left: -15px
 
             .cidade
-              width: 178px
+              width: 184px
 
         .revista,
         .jornal
@@ -873,6 +1052,56 @@ body
                   @-moz-document url-prefix()
                     width: auto
 
+        @media screen and (max-width: 600px)
+          .box-com-1,
+          .box-com-2,
+          .box-com-3,
+            width: 100%
+            height: auto
+            float: left
+
+            a,
+            a:nth-child(2),
+            a:nth-child(3)
+              text-decoration: none
+
+              .noticia
+                width: 100%
+                height: 150px
+                margin: 0 0 20px 0
+
+                .imagem
+                  width: 100%
+                  height: 150px
+
+                  img
+                    width: 100%
+                    height: 150px
+
+                .informacoes
+                  width: 100%
+                  margin: -77px 0 0
+
+                  .marca
+                    margin: 0 0 5px
+
+                    span
+                      padding: 5px 5px 5px 15px
+                      font-size: 14px
+
+                  .titulo
+                    h2
+                      span
+                        line-height: 27px
+                        box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                        background: $cinzaDestaques
+                        padding: 3px 10px 5px 0
+                        font-size: 19px
+
+      @media screen and (max-width: 600px)
+        .noticias > section:last-child
+          margin: 0 !important
+
       .outros-destaques
         width: $areaUtilLayout
         padding: 0 25px 0 25px
@@ -968,6 +1197,57 @@ body
           height: 50px
           background: url("../imagens/sombra-inferior.jpg") no-repeat 50% 0
           float: left
+
+      @media screen and (max-width: 600px)
+        .outros-destaques
+          width: auto
+          padding: 0 25px
+          clear: both
+
+          .header-outros-destaques
+            width: 100%
+            background: none
+            margin: 0 0 20px
+
+            h1
+              text-align: left
+
+          .box-com-destaques
+            width: 100%
+            float: none
+
+            a
+              .destaque
+                width: 100%
+                margin-bottom: 22px
+
+                .imagem
+                  width: 100%
+
+                  img
+                    width: 100%
+                    opacity: 0.3
+
+                .categoria
+                  margin-left: 10px
+                  position: absolute
+                  color: $azulSubmenu
+
+                .decoracao
+                  display: none
+
+                .titulo
+                  width: 80%
+                  position: absolute
+                  color: $cinzaDestaques
+                  margin: 40px 0 0 10px
+
+                  h3
+                    padding: 3px 5px 10px 0
+                    font-size: 18px
+
+          .sombra
+            display: none
 
       .midias
         width: $areaUtilLayout
@@ -1123,6 +1403,48 @@ body
                 width: 210px
                 height: 230px
 
+      @media screen and (max-width: 600px)
+        .midias
+          width: auto
+          padding: 0 0 0 25px
+
+          .f-e-f-pub
+            width: 100%
+
+            .fatos-e-fotos
+              width: 100%
+
+              .galerias
+                margin: 0
+
+              .header-fatos-e-fotos
+                margin: 0 0 20px 0
+                width: 100%
+                background: none
+
+                h1
+                  text-align: left
+
+              .galerias
+                width: 100%
+
+                .publicidade-destaques
+                  a
+                    .galeria
+                      width: 100%
+                      margin: 0 0 20px 0
+
+                      .imagens
+                        width: 135px
+                        float: left
+
+                        .subimagem
+                          display: none
+
+                      .titulo
+                        float: none
+                        margin: 50px 50px 0 150px
+
       .outras-noticias
         width: $areaUtilLayout
         margin: 15px 0 20px 0
@@ -1202,6 +1524,55 @@ body
                       span
                         box-shadow: 15px 0 0 $cinzaDestCentral, -15px 0 0 $cinzaDestCentral
                         background: $cinzaDestCentral
+
+          @media screen and (max-width: 600px)
+            .destacadas
+              width: 100%
+
+              .destaque
+                width: 100%
+                height: auto
+                margin: 0
+                float: left
+
+                a
+                  text-decoration: none
+
+                  .noticia
+                    width: 100%
+                    height: 150px
+                    margin: 0 0 5px 0
+
+                    .imagem
+                      width: 100%
+                      height: 150px
+
+                      img
+                        width: 100%
+                        height: 150px
+
+                    .informacoes
+                      width: 100%
+                      margin: -77px 0 0
+
+                      .marca
+                        margin: 0 0 5px
+
+                        span
+                          padding: 5px 5px 5px 15px
+                          font-size: 14px
+
+                      .titulo
+                        h2
+                          span
+                            line-height: 27px
+                            box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                            background: $cinzaDestaques
+                            padding: 3px 10px 5px 0
+                            font-size: 19px
+
+            .tematicas
+              display: none
 
           .outras
             width: 400px
@@ -1287,6 +1658,51 @@ body
             a:nth-child(3)
               .noticia
                 margin-right: 0
+
+          @media screen and (max-width: 600px)
+            .outras
+              width: 100%
+              height: auto
+              margin: 0
+              float: left
+
+              a,
+              a:nth-child(2),
+              a:nth-child(3)
+                text-decoration: none
+
+                .noticia
+                  width: 100%
+                  height: 150px
+                  margin: 0 0 5px 0
+
+                  .imagem
+                    width: 100%
+                    height: 150px
+
+                    img
+                      width: 100%
+                      height: 150px
+
+                  .informacoes
+                    width: 100%
+                    margin: -77px 0 0
+
+                    .marca
+                      margin: 0 0 5px
+
+                      span
+                        padding: 5px 5px 5px 15px
+                        font-size: 14px
+
+                    .titulo
+                      h2
+                        span
+                          line-height: 27px
+                          box-shadow: 15px 0 0 $cinzaDestaques, -15px 0 0 $cinzaDestaques
+                          background: $cinzaDestaques
+                          padding: 3px 10px 5px 0
+                          font-size: 19px
 
           .tematicas
             .noticias
@@ -1380,6 +1796,15 @@ body
                   height: 130px
                   background: $branco
 
+      @media screen and (max-width: 600px)
+        .outras-noticias
+          width: 100%
+          margin-bottom: 0
+          padding: 0
+
+          .itens
+            width: 100%
+
       .strip-publicidade
         width: $areaUtilLayout
         float: left
@@ -1398,6 +1823,10 @@ body
         .publicidade:last-child
           margin: 0
 
+      @media screen and (max-width: 600px)
+        .strip-publicidade
+          display: none
+
     .conteudo > .noticias > section:first-child
       margin: 0 22px 0 0
 
@@ -1406,6 +1835,40 @@ body
 
     .conteudo > .noticias > section:last-child
       margin: 0 0 0 22px
+
+  @media screen and (max-width: 600px)
+    .homepage-noticias
+      width: auto
+      float: none
+
+      .conteudo
+        width: 100%
+
+        .outros-destaques
+          .publicidade-destaques
+            display: none
+
+        .midias
+          .f-e-f-pub
+            .fatos-e-fotos
+              .publicidade-fatos-e-fotos
+                display: none
+
+          .revista-e-jornal
+            display: none
+
+        .outras-noticias
+          .publicidades-lateral
+            display: none
+
+@media screen and (max-width: 600px)
+  .layout
+    overflow: visible
+    padding-top: 53px
+
+    header
+      .conteudo-header
+        display: none
 
 // Últimas notícias
 .ultimas-noticias
@@ -1522,6 +1985,43 @@ body
 
                   a:hover
                     color: $preto
+
+        @media screen and (max-width: 600px)
+          .perfil-colunista
+            width: auto
+            padding: 0 25px
+
+            .perfil
+              width: 100%
+
+              .nome
+                width: 100%
+                margin: 20px 0 0
+
+              .categoria
+                width: 100%
+                margin: 5px 0 20px
+
+              .biografia
+                width: 100%
+                margin: 0
+
+            .ultimas-publicacoes
+              width: 100%
+
+              .publicacoes
+                width: 100%
+
+                .publicacao
+                  width: 100%
+
+                  .horario
+                    width: 100%
+
+                  .titulo-artigo
+                    width: 100%
+                    text-align: left
+                    padding: 15px 0 0
 
         .noticias
           float: left
@@ -1640,11 +2140,21 @@ body
                       margin: -10px 20px 0
                       position: absolute
 
+                    @media screen and (max-width: 600px)
+                      .categoria
+                        width: auto
+                        margin: 0
+
                     .horario
                       width: 460px
                       font-size: 14px
                       text-align: right
                       text-transform: lowercase
+
+                    @media screen and (max-width: 600px)
+                      .horario
+                        width: auto
+                        margin: 0 0 10px
 
                   .texto
                     font-size: 20px
@@ -1736,7 +2246,42 @@ body
                     margin: 0 0 10px 10px
                     color: $branco
                     float: left
+
+            @media screen and (max-width: 600px)
+              .chamada
+                .titulo
+                  width: auto
+                  margin: 0
+
+                  .header
+                    .decoracao
+                      width: 100%
+
+                      .linha
+                        width: 100%
             // end Chamada destacada
+
+            @media screen and (max-width: 600px)
+              a:first-child
+                .chamada
+                  width: 100%
+                  height: auto
+
+                  .titulo
+                    width: auto
+                    margin: 0
+
+                    .header
+                      width: 100%
+
+                      .decoracao
+                        display: none
+
+                      .categoria
+                        width: auto
+
+                    .texto
+                      margin: 10px 0
 
           .outras-noticias
             margin: 20px 0 0 0
@@ -1913,8 +2458,87 @@ body
 
           @include decoracaoHeader(630px, 110px, $azul, $cinzaTituloMat)
 
+          @media screen and (max-width: 600px)
+            .decoracao
+              width: 100%
+
+              .linha-grossa
+                display: none
+
+              .linha-fina
+                width: 100%
+
+        @media screen and (max-width: 600px)
+          .header
+            padding: 0 25px
+
+          .noticias
+            padding: 0 25px
+
+            .chamadas,
+            .resultados
+              width: 100%
+
+              a
+                .chamada,
+                .resultado
+                  width: 100%
+                  height: auto
+
+                  .imagem
+                    display: none
+
+                  .titulo
+                    width: auto
+                    margin: 0
+
+                    .header
+                      width: 100%
+                      padding: 0
+                      margin: 0
+
+                      .titulo-materia
+                        margin: 0
+
+                        .decoracao
+                          .linha
+                            width: 100%
+
+                      .decoracao
+                        width: 100%
+
+                        .linha
+                          width: 100%
+
+                    .texto
+                      width: auto
+                      height: auto
+                      margin: 0 0 20px 0
+
+                    .horario
+                      float: none
+                      text-align: center
+
+          .paginacao
+            width: auto
+            padding: 0 25px
+
+            .elementos,
+            .controles
+              width: 100%
+
+              .primeira,
+              .anterior,
+              .proxima,
+              .ultima
+                margin: 0 7px 7px 0
+
         .publicidade
           margin-top: 15px
+
+        @media screen and (max-width: 600px)
+          .publicidade
+            display: none
 
         .tematicas
           margin: 0 0 40px 0
@@ -2007,6 +2631,10 @@ body
                     .linha-grossa
                       background: $rosaTecnologia
 
+        @media screen and (max-width: 600px)
+          .tematicas
+            display: none
+
         article.materia
           .data
             font-size: 14px
@@ -2043,7 +2671,7 @@ body
 
             a
               .feed
-                width: 42px
+                width: 46px
                 height: 18px
                 margin: 8px -15px 0
                 color: $preto
@@ -2053,7 +2681,7 @@ body
 
                 span
                   background: $branco
-                  padding: 5px 0 5px 3px
+                  padding: 5px 0
 
             a:hover
               .feed
@@ -2066,6 +2694,38 @@ body
 
             .facebook
               line-height: 9px
+
+          @media screen and (max-width: 600px)
+            .creditos
+              width: 100%
+
+            .social
+              width: 100%
+              text-align: center
+              padding: 20px 0 10px
+
+              a
+                .feed
+                  width: 100%
+                  background: none
+                  background-position: -440px 0
+                  color: $branco
+                  margin: 8px 0 5px 0
+
+                  span
+                    background: $laranjaFeed
+                    padding: 5px
+                    border-radius: 5px
+
+              a:hover
+                .feed
+                  span
+                    color: $branco
+                    background: darken($laranjaFeed, 10%)
+
+              .twitter
+                width: 100%
+                margin: 0 0 0 17px
 
           .ilustracao
             margin: 15px 0 0
@@ -2130,6 +2790,18 @@ body
                 background: $cinzaBGDestaquesLateral
                 box-shadow: inset -10px 0 0 $branco
 
+            @media screen and (max-width: 600px)
+              .wp-caption
+                width: 100% !important
+
+                a
+                  img
+                    width: 100%
+                    object-fit: cover
+
+                p
+                  box-shadow: none
+
             .aligncenter
               margin: 0 auto
 
@@ -2157,6 +2829,29 @@ body
             a:hover
               color: $cinzaDestaques
               border-bottom: 1px solid $branco
+
+          @media screen and (max-width: 600px)
+            .texto
+              width: 100%
+
+        @media screen and (max-width: 600px)
+          article.materia
+            padding: 0 25px
+
+    @media screen and (max-width: 600px)
+      .conteudo
+        width: 100%
+        padding: 0
+
+        .principal
+          width: 100%
+
+        .lateral
+          display: none
+
+  @media screen and (max-width: 600px)
+    .layout-ultimas-noticias
+      width: 100%
 // end Ler notícia
 
 // Paginador
@@ -2284,6 +2979,12 @@ body
     font-size: 18px
     color: $cinzaTituloMat
 
+@media screen and (max-width: 600px)
+  .agenda-chamada,
+  .fatos-e-fotos-chamada
+    padding: 0 25px
+    border: 0
+
 .itens-fatos-e-fotos,
 .itens-colunistas
   width: 630px
@@ -2332,6 +3033,12 @@ body
         h3
           text-decoration: underline
 
+@media screen and (max-width: 600px)
+  .itens-fatos-e-fotos
+    width: 100%
+    height: auto
+    margin: 0
+
 .itens-colunistas
   a
     .galeria
@@ -2368,6 +3075,30 @@ body
   a:nth-child(6n-2)
     .galeria
       margin-left: -50px
+
+@media screen and (max-width: 600px)
+  .itens-colunistas
+    width: auto
+    padding: 0 25px
+
+    .publicidade-destaques
+      width: 100%
+
+      a
+        .galeria
+          width: 50%
+
+          .titulo
+            width: 100%
+            margin-left: 0
+
+            h3
+              width: 100%
+              text-align: center
+
+      a:nth-child(6n-2)
+        .galeria
+          margin-left: 0
 
 .agenda
   color: $cinzaTituloMat
@@ -2512,6 +3243,39 @@ body
 
     .localizacao
       background: $amareloEvento
+
+@media screen and (max-width: 600px)
+  .agenda
+    padding: 0 25px
+
+    .evento
+      width: 100%
+
+      .imagem
+        display: none
+
+      .agenda-header
+        .decoracao
+          .linha-grossa
+            width: 100%
+            margin: 0 0 18px 0
+
+          .linha-fina
+            display: none
+
+          .data-horario
+            margin: 0 0 20px 0px
+
+      .informacoes
+        width: 100%
+        margin: 0
+
+        .titulo
+          margin: 0 0 20px 0
+
+      .localizacao
+        width: auto
+
 // end Agenda
 
 // Fale Conosco
@@ -2527,6 +3291,11 @@ body
   p
     font-size: 18px
     color: $cinzaTituloMat
+
+@media screen and (max-width: 600px)
+  .fale-conosco-chamada
+    padding: 0 25px
+    border: 0
 
 .fale-conosco
   margin: 0 0 50px 0
@@ -2677,6 +3446,53 @@ body
       a:hover
         text-decoration: underline
 
+  @media screen and (max-width: 600px)
+    .informacoes-contato
+      font-size: 15px
+      text-align: center
+
+      .telefone,
+      .email
+        width: 100%
+        padding: 10px 0
+
+@media screen and (max-width: 600px)
+  .fale-conosco
+    padding: 0 25px
+
+    .formulario-fale-conosco
+      padding: 0 25px 0 0
+
+      form
+        .nome,
+        .telefone,
+        .email,
+        .assunto
+          input
+            width: 100%
+
+        .mensagem
+          textarea
+            width: 100%
+
+        .botoes
+          input#enviar
+            margin: 0 0 7px 0
+
+          input#apagar
+            margin: 0
+            border-radius: 30px
+
+    @media screen and (max-width: 600px)
+      .redes-sociais
+        .decoracao
+          .linha
+            width: 100%
+            background: $branco
+
+        .icones
+          width: 100%
+
 .conteudo-ajuda
   p
     color: $cinzaTituloMat
@@ -2769,6 +3585,11 @@ footer
               border: 1px solid $azulClaroBusca
               background: darken($azulClaroBusca, 3)
 
+            @media screen and (max-width: 600px)
+              input[type="text"]
+                text-align: left
+                float: none
+
             input[type="submit"]
               width: 16px
               height: 16px
@@ -2777,6 +3598,13 @@ footer
               outline: 0
               margin: 12px 0 0 -25px
               cursor: pointer
+
+        @media screen and (max-width: 600px)
+          .busca-rodape
+            width: auto
+            margin: 0
+            text-align: center
+            float: none
 
   .copyright-marcas
     width: 100%
@@ -2837,3 +3665,70 @@ footer
             margin-right: 0
             background: url("../imagens/sprite.png") no-repeat -5px -177px
             float: left
+
+@media screen and (max-width: 600px)
+  footer
+    .conteudo-rodape
+      .cabecalho-rodape
+        width: 100%
+
+        .conteudo
+          width: 100%
+
+          .lateral
+            width: 100%
+            margin: 0 0 12px
+
+            .logotipo
+              width: 100%
+              padding: 0
+              border-right: 0
+
+              a
+                .logotipo-grupo-maua-e-regiao
+                  margin: 0 auto
+
+            .links
+              width: 100%
+              margin: 30px 0 0
+              text-align: center
+
+              ul
+                li
+                  display: inline-block
+                  margin: 0 20px 0 0
+
+                li:last-child
+                  margin: 0
+
+          .busca-rodape
+            form
+              input
+                text-align: center
+                float: none
+
+      .copyright-marcas
+        width: 100%
+
+        .conteudo-copyright-marcas
+          width: 100%
+
+          .copyright,
+          .marcas
+            width: auto
+            padding: 0 0 20px 20px
+
+            a
+              float: left
+
+          .copyright
+            clear: both
+            text-align: center
+            float: none
+
+          .marcas
+            width: 250px
+            margin: 0 auto
+            margin-top: 10px
+            padding-bottom: 0
+            float: none

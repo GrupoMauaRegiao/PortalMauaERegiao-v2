@@ -52,40 +52,46 @@ notícias do Portal, divididas por categorias.</p>
     paginas = $ <span class="hljs-string">'.paginador'</span>
 
     <span class="hljs-keyword">if</span> paginas[<span class="hljs-number">0</span>]
-      indice        = $ <span class="hljs-string">'.indice'</span>
-      inputPagina   = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
-      maximoPaginas = <span class="hljs-number">6</span>
+      indice      = $ <span class="hljs-string">'.indice'</span>
+      inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
 
-      paginas.jPages {
-        container : <span class="hljs-string">'.chamadas, .resultados, .publicidade-destaques, .publicacoes'</span>
-        perPage   : maximoPaginas
-        <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
-        endRange  : <span class="hljs-number">1</span>
-        first     : <span class="hljs-string">'.primeira'</span>
-        last      : <span class="hljs-string">'.ultima'</span>
-        next      : <span class="hljs-string">'.proxima'</span>
-        previous  : <span class="hljs-string">'.anterior'</span>
-        <span class="hljs-attribute">callback</span>: <span class="hljs-function"><span class="hljs-params">(paginas, itens)</span> -&gt;</span>
-          <span class="hljs-keyword">if</span> paginas.count &gt;= <span class="hljs-number">1</span>
-            <span class="hljs-function"><span class="hljs-title">ajustarMaxNumerosInput</span> = -&gt;</span>
-              inputPagina.attr <span class="hljs-string">'max'</span>, paginas.count
+      <span class="hljs-function"><span class="hljs-title">_jPages</span> = <span class="hljs-params">(container, maxPaginas)</span> -&gt;</span>
+        paginas.jPages {
+          container : container
+          perPage   : maxPaginas
+          <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
+          endRange  : <span class="hljs-number">1</span>
+          first     : <span class="hljs-string">'.primeira'</span>
+          last      : <span class="hljs-string">'.ultima'</span>
+          next      : <span class="hljs-string">'.proxima'</span>
+          previous  : <span class="hljs-string">'.anterior'</span>
+          callback  : <span class="hljs-function"><span class="hljs-params">(paginas, itens)</span> -&gt;</span>
+            <span class="hljs-keyword">if</span> paginas.count &gt;= <span class="hljs-number">1</span>
+              <span class="hljs-function"><span class="hljs-title">ajustarMaxNumerosInput</span> = -&gt;</span>
+                inputPagina.attr <span class="hljs-string">'max'</span>, paginas.count
 
-            <span class="hljs-function"><span class="hljs-title">mostrarIndice</span> = -&gt;</span>
-              indice.html(<span class="hljs-string">'Página '</span> + paginas.current + <span class="hljs-string">' de '</span> + paginas.count)
+              <span class="hljs-function"><span class="hljs-title">mostrarIndice</span> = -&gt;</span>
+                indice.html(
+                  <span class="hljs-string">'Página '</span> + paginas.current +
+                  <span class="hljs-string">' de '</span> + paginas.count
+                )
 
-            <span class="hljs-function"><span class="hljs-title">controlarExibicaoPaginador</span> = -&gt;</span>
-              containerPaginador = $ <span class="hljs-string">'.paginacao'</span>
+              <span class="hljs-function"><span class="hljs-title">controlarExibicaoPaginador</span> = -&gt;</span>
+                containerPaginador = $ <span class="hljs-string">'.paginacao'</span>
 
-              <span class="hljs-keyword">if</span> itens.count &gt; maximoPaginas - <span class="hljs-number">1</span>
-                containerPaginador.show()
-              <span class="hljs-keyword">else</span>
-                containerPaginador.hide()
+                <span class="hljs-keyword">if</span> itens.count &gt; maxPaginas - <span class="hljs-number">1</span>
+                  containerPaginador.show()
+                <span class="hljs-keyword">else</span>
+                  containerPaginador.hide()
 
-            ajustarMaxNumerosInput()
-            mostrarIndice()
-            controlarExibicaoPaginador()
-          <span class="hljs-keyword">return</span>
-      }
+              ajustarMaxNumerosInput()
+              mostrarIndice()
+              controlarExibicaoPaginador()
+            <span class="hljs-keyword">return</span>
+        }
+
+      _jPages <span class="hljs-string">'.chamadas, .resultados, .publicacoes'</span>, <span class="hljs-number">6</span>
+      _jPages <span class="hljs-string">'.publicidade-destaques'</span>, <span class="hljs-number">12</span>
 
       <span class="hljs-function"><span class="hljs-title">_moverParaPagina</span> = -&gt;</span>
         pagina = parseInt(inputPagina.val())
@@ -312,27 +318,27 @@ geográfica do usuário.</p>
 
       <span class="hljs-keyword">if</span> velocidade &lt; <span class="hljs-number">0.3</span>
         vento = tipoVento.calmo
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">0.3</span>.<span class="hljs-number">.1</span><span class="hljs-number">.5</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">0.3</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">1.5</span>
         vento = tipoVento.aragem
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">1.6</span>.<span class="hljs-number">.3</span><span class="hljs-number">.3</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">1.6</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">3.3</span>
         vento = tipoVento.brisaLeve
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">3.4</span>.<span class="hljs-number">.5</span><span class="hljs-number">.4</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">3.4</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">5.4</span>
         vento = tipoVento.brisaFraca
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">5.5</span>.<span class="hljs-number">.7</span><span class="hljs-number">.9</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">5.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">7.9</span>
         vento = tipoVento.brisaModerada
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">8.0</span>.<span class="hljs-number">.10</span><span class="hljs-number">.7</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">8.0</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">10.7</span>
         vento = tipoVento.brisaForte
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">10.8</span>.<span class="hljs-number">.13</span><span class="hljs-number">.8</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">10.8</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">13.8</span>
         vento = tipoVento.ventoFresco
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">13.9</span>.<span class="hljs-number">.17</span><span class="hljs-number">.1</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">13.9</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">17.1</span>
         vento = tipoVento.ventoForte
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">17.2</span>.<span class="hljs-number">.20</span><span class="hljs-number">.7</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">17.2</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">20.7</span>
         vento = tipoVento.ventania
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">20.8</span>.<span class="hljs-number">.24</span><span class="hljs-number">.4</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">20.8</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">24.4</span>
         vento = tipoVento.ventaniaForte
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">24.5</span>.<span class="hljs-number">.28</span><span class="hljs-number">.4</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">24.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">28.4</span>
         vento = tipoVento.tempestade
-      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">in</span> [<span class="hljs-number">28.5</span>.<span class="hljs-number">.32</span><span class="hljs-number">.6</span>]
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade <span class="hljs-keyword">is</span> <span class="hljs-number">28.5</span> <span class="hljs-keyword">or</span> velocidade &lt;= <span class="hljs-number">32.6</span>
         vento = tipoVento.tempestadeViolenta
       <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> velocidade &gt;= <span class="hljs-number">32.7</span>
         vento = tipoVento.furacao
@@ -623,7 +629,7 @@ climáticas) de acordo com a posição da barra de rolagem.</p>
     $<span class="hljs-built_in">window</span> = $ <span class="hljs-built_in">window</span>
 
     <span class="hljs-function"><span class="hljs-title">_controlarMenu</span> = -&gt;</span>
-      container  = $ <span class="hljs-string">'.conteudo'</span>
+      container  = $ <span class="hljs-string">'.topo'</span>
 
       <span class="hljs-keyword">if</span> container[<span class="hljs-number">0</span>]
         menu       = $ <span class="hljs-string">'.menu'</span>
@@ -635,19 +641,90 @@ climáticas) de acordo com a posição da barra de rolagem.</p>
         <span class="hljs-keyword">else</span>
           menu.removeClass(<span class="hljs-string">'mostrar'</span>).addClass <span class="hljs-string">'esconder'</span>
 
-    $<span class="hljs-built_in">window</span>.<span class="hljs-literal">on</span> <span class="hljs-string">'scroll'</span>, _controlarMenu
+    $<span class="hljs-built_in">window</span>.<span class="hljs-literal">on</span> <span class="hljs-string">'scroll'</span>, _controlarMenu</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Ativa menu da versão mobile com evento <code>ontouchstart</code> ou <code>onclick</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">touchAtivarMenu</span>:<span class="hljs-function"> -&gt;</span>
+    iconeBusca = $ <span class="hljs-string">'.menu-mobile .conteudo .busca button'</span>
+
+    <span class="hljs-keyword">if</span> iconeBusca <span class="hljs-keyword">and</span> iconeBusca.<span class="hljs-keyword">is</span> <span class="hljs-string">':visible'</span>
+      botaoBusca = $ <span class="hljs-string">'.menu-mobile .conteudo .busca'</span>
+      evento     = <span class="hljs-keyword">if</span> <span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'touchstart'</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'click'</span>
+
+      <span class="hljs-function"><span class="hljs-title">_abrirBusca</span> = <span class="hljs-params">(e)</span> -&gt;</span>
+        <span class="hljs-keyword">if</span> botaoBusca.hasClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
+          botaoBusca.removeClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
+        <span class="hljs-keyword">else</span>
+          botaoBusca.addClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
+        e.preventDefault()
+      iconeBusca.<span class="hljs-literal">on</span> evento, _abrirBusca</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Ativa formulário de busca da versão mobile com evento <code>ontouchstart</code>
+ou <code>onclick</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">touchAtivarBusca</span>:<span class="hljs-function"> -&gt;</span>
+    iconeMenu = $ <span class="hljs-string">'.menu-mobile .conteudo .menu-conteudo button'</span>
+
+    <span class="hljs-keyword">if</span> iconeMenu <span class="hljs-keyword">and</span> iconeMenu.<span class="hljs-keyword">is</span> <span class="hljs-string">':visible'</span>
+      botaoMenu = $ <span class="hljs-string">'.menu-mobile .conteudo .menu-conteudo'</span>
+      evento    = <span class="hljs-keyword">if</span> <span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'touchstart'</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'click'</span>
+
+      <span class="hljs-function"><span class="hljs-title">_abrirMenu</span> = <span class="hljs-params">(e)</span> -&gt;</span>
+        <span class="hljs-keyword">if</span> botaoMenu.hasClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
+          botaoMenu.removeClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
+        <span class="hljs-keyword">else</span>
+          botaoMenu.addClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
+        e.preventDefault()
+      iconeMenu.<span class="hljs-literal">on</span> evento, _abrirMenu
+
+  <span class="hljs-attribute">adicionarIconeVerMaisFoto</span>:<span class="hljs-function"> -&gt;</span>
+    fotos = $ <span class="hljs-string">'.wp-caption'</span>
+
+    <span class="hljs-keyword">if</span> fotos[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">for</span> foto <span class="hljs-keyword">in</span> fotos
+        link = $(fotos).children(<span class="hljs-string">'a'</span>).attr <span class="hljs-string">'href'</span>
+        $(foto).append(
+          <span class="hljs-string">'&lt;a class="esconder" data-lightbox="roadtrip" href="'</span> + link + <span class="hljs-string">'"&gt;
+            &lt;section class="icone-ver-mais"&gt;&lt;/section&gt;
+           &lt;/a&gt;'</span>
+        )
 
 <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
+  Portal.apps.touchAtivarMenu()
+  Portal.apps.touchAtivarBusca()
+  Portal.apps.adicionarIconeVerMaisFoto()
   Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
-  Portal.apps.adicionarCondicoesClimaticas()
+  Portal.apps.adicionarCondicoesClimaticas() <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(<span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span>)
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
-  Portal.apps.mascararCampoTelefone()
-  <span class="hljs-keyword">return</span></pre></div></div>
+  Portal.apps.mascararCampoTelefone()</pre></div></div>
             
         </li>
         

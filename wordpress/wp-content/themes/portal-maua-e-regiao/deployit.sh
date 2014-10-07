@@ -6,6 +6,7 @@ destination=`awk -F", " '{print $3}' config`;
 
 deployit () {
   if [[ $file_or_directory && $ssh_data && $destination ]]; then
+    #rsync -avz -e ssh $file_or_directory $ssh_data:$destination
     rsync -avz -e 'ssh -p 2222' $file_or_directory $ssh_data:$destination
   else
     echo -e "Missing parameter (s).";

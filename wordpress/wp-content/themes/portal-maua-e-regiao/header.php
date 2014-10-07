@@ -9,6 +9,7 @@
         <meta name="keywords" content="portal maua e regiao, maua e regiao, maua, portal maua, noticias, ultimas noticias, qualidade, melhor, website maua, melhor website, melhor site, ribeirao pires, rio grande da serra, noticias de ribeirao pires, noticias de rio grande da serra, santo andre, noticias de santo andre, portal de noticias do abc, abc sao paulo, sao paulo abc">
         <meta name="description" content="Portal de notícias do Grupo Mauá e Região de Comunicação; <?php bloginfo('description'); ?>">
         <meta name="author" content="Grupo Mauá e Região de Comunicação">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/imagens/favicon.ico">
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/libs/lightbox.css">
@@ -22,6 +23,7 @@
     <body>
 
         <?php include "menu.php"; ?>
+        <?php include "menu-mobile.php"; ?>
 
         <section class="layout">
             <header>
