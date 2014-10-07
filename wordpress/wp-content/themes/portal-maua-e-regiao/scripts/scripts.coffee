@@ -446,7 +446,7 @@ do ->
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
-  Portal.apps.adicionarCondicoesClimaticas()
+  Portal.apps.adicionarCondicoesClimaticas() if not('ontouchstart' of window)
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   Portal.apps.mascararCampoTelefone()

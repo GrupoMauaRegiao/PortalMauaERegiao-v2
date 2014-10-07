@@ -52,40 +52,46 @@ notícias do Portal, divididas por categorias.</p>
     paginas = $ <span class="hljs-string">'.paginador'</span>
 
     <span class="hljs-keyword">if</span> paginas[<span class="hljs-number">0</span>]
-      indice        = $ <span class="hljs-string">'.indice'</span>
-      inputPagina   = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
-      maximoPaginas = <span class="hljs-number">6</span>
+      indice      = $ <span class="hljs-string">'.indice'</span>
+      inputPagina = $ <span class="hljs-string">'input[name="digitar-pagina"]'</span>
 
-      paginas.jPages {
-        container : <span class="hljs-string">'.chamadas, .resultados, .publicidade-destaques, .publicacoes'</span>
-        perPage   : maximoPaginas
-        <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
-        endRange  : <span class="hljs-number">1</span>
-        first     : <span class="hljs-string">'.primeira'</span>
-        last      : <span class="hljs-string">'.ultima'</span>
-        next      : <span class="hljs-string">'.proxima'</span>
-        previous  : <span class="hljs-string">'.anterior'</span>
-        <span class="hljs-attribute">callback</span>: <span class="hljs-function"><span class="hljs-params">(paginas, itens)</span> -&gt;</span>
-          <span class="hljs-keyword">if</span> paginas.count &gt;= <span class="hljs-number">1</span>
-            <span class="hljs-function"><span class="hljs-title">ajustarMaxNumerosInput</span> = -&gt;</span>
-              inputPagina.attr <span class="hljs-string">'max'</span>, paginas.count
+      <span class="hljs-function"><span class="hljs-title">_jPages</span> = <span class="hljs-params">(container, maxPaginas)</span> -&gt;</span>
+        paginas.jPages {
+          container : container
+          perPage   : maxPaginas
+          <span class="hljs-attribute">startRange</span>: <span class="hljs-number">1</span>
+          endRange  : <span class="hljs-number">1</span>
+          first     : <span class="hljs-string">'.primeira'</span>
+          last      : <span class="hljs-string">'.ultima'</span>
+          next      : <span class="hljs-string">'.proxima'</span>
+          previous  : <span class="hljs-string">'.anterior'</span>
+          callback  : <span class="hljs-function"><span class="hljs-params">(paginas, itens)</span> -&gt;</span>
+            <span class="hljs-keyword">if</span> paginas.count &gt;= <span class="hljs-number">1</span>
+              <span class="hljs-function"><span class="hljs-title">ajustarMaxNumerosInput</span> = -&gt;</span>
+                inputPagina.attr <span class="hljs-string">'max'</span>, paginas.count
 
-            <span class="hljs-function"><span class="hljs-title">mostrarIndice</span> = -&gt;</span>
-              indice.html(<span class="hljs-string">'Página '</span> + paginas.current + <span class="hljs-string">' de '</span> + paginas.count)
+              <span class="hljs-function"><span class="hljs-title">mostrarIndice</span> = -&gt;</span>
+                indice.html(
+                  <span class="hljs-string">'Página '</span> + paginas.current +
+                  <span class="hljs-string">' de '</span> + paginas.count
+                )
 
-            <span class="hljs-function"><span class="hljs-title">controlarExibicaoPaginador</span> = -&gt;</span>
-              containerPaginador = $ <span class="hljs-string">'.paginacao'</span>
+              <span class="hljs-function"><span class="hljs-title">controlarExibicaoPaginador</span> = -&gt;</span>
+                containerPaginador = $ <span class="hljs-string">'.paginacao'</span>
 
-              <span class="hljs-keyword">if</span> itens.count &gt; maximoPaginas - <span class="hljs-number">1</span>
-                containerPaginador.show()
-              <span class="hljs-keyword">else</span>
-                containerPaginador.hide()
+                <span class="hljs-keyword">if</span> itens.count &gt; maxPaginas - <span class="hljs-number">1</span>
+                  containerPaginador.show()
+                <span class="hljs-keyword">else</span>
+                  containerPaginador.hide()
 
-            ajustarMaxNumerosInput()
-            mostrarIndice()
-            controlarExibicaoPaginador()
-          <span class="hljs-keyword">return</span>
-      }
+              ajustarMaxNumerosInput()
+              mostrarIndice()
+              controlarExibicaoPaginador()
+            <span class="hljs-keyword">return</span>
+        }
+
+      _jPages <span class="hljs-string">'.chamadas, .resultados, .publicacoes'</span>, <span class="hljs-number">6</span>
+      _jPages <span class="hljs-string">'.publicidade-destaques'</span>, <span class="hljs-number">12</span>
 
       <span class="hljs-function"><span class="hljs-title">_moverParaPagina</span> = -&gt;</span>
         pagina = parseInt(inputPagina.val())
@@ -651,24 +657,19 @@ climáticas) de acordo com a posição da barra de rolagem.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">touchAtivarMenu</span>:<span class="hljs-function"> -&gt;</span>
-    iconeMenu = $ <span class="hljs-string">'.menu-mobile .conteudo .menu-conteudo button'</span>
+    iconeBusca = $ <span class="hljs-string">'.menu-mobile .conteudo .busca button'</span>
 
-    <span class="hljs-keyword">if</span> iconeMenu <span class="hljs-keyword">and</span> iconeMenu.<span class="hljs-keyword">is</span> <span class="hljs-string">':visible'</span>
-      botaoMenu = $ <span class="hljs-string">'.menu-mobile .conteudo .menu-conteudo'</span>
-      suporteTouch = <span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span>
+    <span class="hljs-keyword">if</span> iconeBusca <span class="hljs-keyword">and</span> iconeBusca.<span class="hljs-keyword">is</span> <span class="hljs-string">':visible'</span>
+      botaoBusca = $ <span class="hljs-string">'.menu-mobile .conteudo .busca'</span>
+      evento     = <span class="hljs-keyword">if</span> <span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'touchstart'</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'click'</span>
 
-      <span class="hljs-keyword">if</span> suporteTouch
-        evento = <span class="hljs-string">'touchstart'</span>
-      <span class="hljs-keyword">else</span>
-        evento = <span class="hljs-string">'click'</span>
-
-      <span class="hljs-function"><span class="hljs-title">_abrirMenu</span> = <span class="hljs-params">(e)</span> -&gt;</span>
-        <span class="hljs-keyword">if</span> botaoMenu.hasClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
-          botaoMenu.removeClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
+      <span class="hljs-function"><span class="hljs-title">_abrirBusca</span> = <span class="hljs-params">(e)</span> -&gt;</span>
+        <span class="hljs-keyword">if</span> botaoBusca.hasClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
+          botaoBusca.removeClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
         <span class="hljs-keyword">else</span>
-          botaoMenu.addClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
+          botaoBusca.addClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
         e.preventDefault()
-      iconeMenu.<span class="hljs-literal">on</span> evento, _abrirMenu</pre></div></div>
+      iconeBusca.<span class="hljs-literal">on</span> evento, _abrirBusca</pre></div></div>
             
         </li>
         
@@ -685,34 +686,42 @@ ou <code>onclick</code></p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">touchAtivarBusca</span>:<span class="hljs-function"> -&gt;</span>
-    iconeBusca = $ <span class="hljs-string">'.menu-mobile .conteudo .busca button'</span>
+    iconeMenu = $ <span class="hljs-string">'.menu-mobile .conteudo .menu-conteudo button'</span>
 
-    <span class="hljs-keyword">if</span> iconeBusca <span class="hljs-keyword">and</span> iconeBusca.<span class="hljs-keyword">is</span> <span class="hljs-string">':visible'</span>
-      botaoBusca = $ <span class="hljs-string">'.menu-mobile .conteudo .busca'</span>
-      suporteTouch = <span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span>
+    <span class="hljs-keyword">if</span> iconeMenu <span class="hljs-keyword">and</span> iconeMenu.<span class="hljs-keyword">is</span> <span class="hljs-string">':visible'</span>
+      botaoMenu = $ <span class="hljs-string">'.menu-mobile .conteudo .menu-conteudo'</span>
+      evento    = <span class="hljs-keyword">if</span> <span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'touchstart'</span> <span class="hljs-keyword">else</span> <span class="hljs-string">'click'</span>
 
-      <span class="hljs-keyword">if</span> suporteTouch
-        evento = <span class="hljs-string">'touchstart'</span>
-      <span class="hljs-keyword">else</span>
-        evento = <span class="hljs-string">'click'</span>
-
-      <span class="hljs-function"><span class="hljs-title">_abrirBusca</span> = <span class="hljs-params">(e)</span> -&gt;</span>
-        <span class="hljs-keyword">if</span> botaoBusca.hasClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
-          botaoBusca.removeClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
+      <span class="hljs-function"><span class="hljs-title">_abrirMenu</span> = <span class="hljs-params">(e)</span> -&gt;</span>
+        <span class="hljs-keyword">if</span> botaoMenu.hasClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
+          botaoMenu.removeClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
         <span class="hljs-keyword">else</span>
-          botaoBusca.addClass <span class="hljs-string">'botao-busca-mobile-ativado'</span>
+          botaoMenu.addClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
         e.preventDefault()
-      iconeBusca.<span class="hljs-literal">on</span> evento, _abrirBusca
+      iconeMenu.<span class="hljs-literal">on</span> evento, _abrirMenu
+
+  <span class="hljs-attribute">adicionarIconeVerMaisFoto</span>:<span class="hljs-function"> -&gt;</span>
+    fotos = $ <span class="hljs-string">'.wp-caption'</span>
+
+    <span class="hljs-keyword">if</span> fotos[<span class="hljs-number">0</span>]
+      <span class="hljs-keyword">for</span> foto <span class="hljs-keyword">in</span> fotos
+        link = $(fotos).children(<span class="hljs-string">'a'</span>).attr <span class="hljs-string">'href'</span>
+        $(foto).append(
+          <span class="hljs-string">'&lt;a class="esconder" data-lightbox="roadtrip" href="'</span> + link + <span class="hljs-string">'"&gt;
+            &lt;section class="icone-ver-mais"&gt;&lt;/section&gt;
+           &lt;/a&gt;'</span>
+        )
 
 <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()
+  Portal.apps.adicionarIconeVerMaisFoto()
   Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
   Portal.apps.paginador()
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
-  Portal.apps.adicionarCondicoesClimaticas()
+  Portal.apps.adicionarCondicoesClimaticas() <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(<span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span>)
   Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   Portal.apps.mascararCampoTelefone()</pre></div></div>
