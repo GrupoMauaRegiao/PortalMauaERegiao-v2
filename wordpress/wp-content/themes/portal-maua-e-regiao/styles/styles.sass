@@ -2791,7 +2791,7 @@ body
                 box-shadow: inset -10px 0 0 $branco
 
             @media screen and (max-width: 600px)
-              .wp-caption
+              .wp-caption,
                 width: 100% !important
 
                 a
@@ -2801,6 +2801,11 @@ body
 
                 p
                   box-shadow: none
+
+              a[data-lightbox="roadtrip"]
+                img
+                  width: 100%
+                  object-fit: cover
 
             .aligncenter
               margin: 0 auto

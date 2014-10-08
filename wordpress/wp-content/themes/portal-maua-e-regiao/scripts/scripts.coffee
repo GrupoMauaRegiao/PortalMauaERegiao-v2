@@ -425,7 +425,7 @@ Portal.apps =
         e.preventDefault()
       iconeMenu.on evento, _abrirMenu
 
-  adicionarIconeVerMaisFoto: ->
+  adicionarIconeVerMaisFotoComWpCaption: ->
     fotos = $ '.wp-caption'
 
     if fotos[0]
@@ -437,9 +437,24 @@ Portal.apps =
            </a>'
         )
 
+  adicionarIconeVerMaisFoto: ->
+    fotos = $ 'a[data-lightbox="roadtrip"]'
+
+    if fotos[0]
+      for foto in fotos
+        link = $(fotos).children('img').attr 'src'
+        $(foto).append(
+          '<a class="esconder" data-lightbox="roadtrip" href="' + link + '">
+            <section class="icone-ver-mais"
+                     style="margin-top: -45px;"></section>
+           </a>'
+        )
+
 do ->
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()
+  Portal.apps.adicionarAtributoLightbox()
+  Portal.apps.adicionarIconeVerMaisFotoComWpCaption()
   Portal.apps.adicionarIconeVerMaisFoto()
   Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
@@ -447,6 +462,5 @@ do ->
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
   Portal.apps.adicionarCondicoesClimaticas() if not('ontouchstart' of window)
-  Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   Portal.apps.mascararCampoTelefone()
