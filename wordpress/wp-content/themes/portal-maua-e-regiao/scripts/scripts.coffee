@@ -438,17 +438,19 @@ Portal.apps =
         )
 
   adicionarIconeVerMaisFoto: ->
-    fotos = $ 'a[data-lightbox="roadtrip"]'
+    fotosComWpCaption = $ '.wp-caption'
+    fotos             = $ 'a[data-lightbox="roadtrip"]'
 
-    if fotos[0]
-      for foto in fotos
-        link = $(fotos).children('img').attr 'src'
-        $(foto).append(
-          '<a class="esconder" data-lightbox="roadtrip" href="' + link + '">
-            <section class="icone-ver-mais"
-                     style="margin-top: -45px;"></section>
-           </a>'
-        )
+    if not(fotosComWpCaption[0])
+      if fotos[0]
+        for foto in fotos
+          link = $(fotos).children('img').attr 'src'
+          $(foto).append(
+            '<a class="esconder" data-lightbox="roadtrip" href="' + link + '">
+              <section class="icone-ver-mais"
+                       style="margin-top: -45px;"></section>
+             </a>'
+          )
 
 do ->
   Portal.apps.touchAtivarMenu()
