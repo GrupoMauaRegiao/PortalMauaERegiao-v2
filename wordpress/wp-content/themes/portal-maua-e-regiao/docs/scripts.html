@@ -698,9 +698,23 @@ ou <code>onclick</code></p>
         <span class="hljs-keyword">else</span>
           botaoMenu.addClass <span class="hljs-string">'botao-menu-mobile-ativado'</span>
         e.preventDefault()
-      iconeMenu.<span class="hljs-literal">on</span> evento, _abrirMenu
+      iconeMenu.<span class="hljs-literal">on</span> evento, _abrirMenu</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>Adiciona um ícone na lateral inferior direita das imagens que contenham
+a classe ‘wp-caption’ em notícias</p>
 
-  <span class="hljs-attribute">adicionarIconeVerMaisFoto</span>:<span class="hljs-function"> -&gt;</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">adicionarIconeVerMaisFotoComWpCaption</span>:<span class="hljs-function"> -&gt;</span>
     fotos = $ <span class="hljs-string">'.wp-caption'</span>
 
     <span class="hljs-keyword">if</span> fotos[<span class="hljs-number">0</span>]
@@ -710,11 +724,41 @@ ou <code>onclick</code></p>
           <span class="hljs-string">'&lt;a class="esconder" data-lightbox="roadtrip" href="'</span> + link + <span class="hljs-string">'"&gt;
             &lt;section class="icone-ver-mais"&gt;&lt;/section&gt;
            &lt;/a&gt;'</span>
-        )
+        )</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Adiciona um ícone na lateral inferior direita das imagens em notícias</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">adicionarIconeVerMaisFoto</span>:<span class="hljs-function"> -&gt;</span>
+    fotosComWpCaption = $ <span class="hljs-string">'.wp-caption'</span>
+    fotos             = $ <span class="hljs-string">'a[data-lightbox="roadtrip"]'</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(fotosComWpCaption[<span class="hljs-number">0</span>])
+      <span class="hljs-keyword">if</span> fotos[<span class="hljs-number">0</span>]
+        <span class="hljs-keyword">for</span> foto <span class="hljs-keyword">in</span> fotos
+          link = $(fotos).children(<span class="hljs-string">'img'</span>).attr <span class="hljs-string">'src'</span>
+          $(foto).append(
+            <span class="hljs-string">'&lt;a class="esconder" data-lightbox="roadtrip" href="'</span> + link + <span class="hljs-string">'"&gt;
+              &lt;section class="icone-ver-mais"
+                       style="margin-top: -45px;"&gt;&lt;/section&gt;
+             &lt;/a&gt;'</span>
+          )
 
 <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()
+  Portal.apps.adicionarAtributoLightbox()
+  Portal.apps.adicionarIconeVerMaisFotoComWpCaption()
   Portal.apps.adicionarIconeVerMaisFoto()
   Portal.apps.controlarMenuScroll()
   Portal.apps.criarEfeitoAleatorioNoticias()
@@ -722,7 +766,6 @@ ou <code>onclick</code></p>
   Portal.apps.enviarEmail()
   Portal.apps.limparFormularioContato()
   Portal.apps.adicionarCondicoesClimaticas() <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span>(<span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">of</span> <span class="hljs-built_in">window</span>)
-  Portal.apps.adicionarAtributoLightbox()
   Portal.apps.formatarData()
   Portal.apps.mascararCampoTelefone()</pre></div></div>
             

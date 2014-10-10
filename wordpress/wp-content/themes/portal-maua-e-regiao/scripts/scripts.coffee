@@ -425,6 +425,8 @@ Portal.apps =
         e.preventDefault()
       iconeMenu.on evento, _abrirMenu
 
+  # Adiciona um ícone na lateral inferior direita das imagens que contenham
+  # a classe 'wp-caption' em notícias
   adicionarIconeVerMaisFotoComWpCaption: ->
     fotos = $ '.wp-caption'
 
@@ -437,6 +439,7 @@ Portal.apps =
            </a>'
         )
 
+  # Adiciona um ícone na lateral inferior direita das imagens em notícias
   adicionarIconeVerMaisFoto: ->
     fotosComWpCaption = $ '.wp-caption'
     fotos             = $ 'a[data-lightbox="roadtrip"]'
