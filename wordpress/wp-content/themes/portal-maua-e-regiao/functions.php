@@ -3838,23 +3838,24 @@ function mostrar_titulo() {
     $categoria  = single_cat_title("", false);
 
     if (is_home()) {
-        $titulo = $nome . " &#8212; " . $descricao;
+        $titulo = $nome . " &middot; " . $descricao;
     } elseif (is_single()) {
-        $titulo = $nome . " &#8212 " .
-                  get_the_title() . " &#8212 " .
+        $titulo = $nome . " &middot; " .
+                  get_the_title() . " &middot; " .
                   get_the_date("j \d\e F \d\e Y") .
                   " (" . mostrar_tempo_transcorrido() . ")";
     } elseif (is_category()) {
+        // Verifica se é uma categoria que possui eventos
         $titulo = is_category(
                           array(
                                   "agenda",
                                   "fatos-e-fotos"
                           )
         )
-                  ? $nome . " &#8212 Últimos eventos"
-                  : $nome . " &#8212 Notícias sobre " . $categoria;
+        ? $nome . " &middot; Últimos eventos"
+        : $nome . " &middot; " . $categoria;
     } else {
-        $titulo = $nome . " &#8212; " . $descricao;
+        $titulo = $nome . " &middot; " . $descricao;
     }
 
     return $titulo;
@@ -3917,7 +3918,7 @@ function implementar_open_graph() {
         ";
     } elseif (is_page()) {
         $nome_pagina = $wp_query -> post -> post_title;
-        $titulo      = get_bloginfo("name") . " &#8212; " . $nome_pagina;
+        $titulo      = get_bloginfo("name") . " &middot; " . $nome_pagina;
         $descricao   = "Clique para visitar a página " . $nome_pagina;
         $url         = get_permalink();
         $imagem      = get_bloginfo("template_url") . "/imagens/logotipo-portal-maua-e-regiao.jpg";
