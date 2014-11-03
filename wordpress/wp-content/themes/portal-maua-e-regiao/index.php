@@ -13,7 +13,7 @@
                            title="<?php the_title(); ?>">
                             <section class="noticia">
                                 <section class="imagem">
-                                    <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                                    <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
                                     <section class="marca">
@@ -48,7 +48,7 @@
                            title="<?php the_title(); ?>">
                             <section class="noticia">
                                 <section class="imagem">
-                                    <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                                    <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
                                     <section class="marca">
@@ -81,7 +81,7 @@
                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                             <section class="noticia">
                                 <section class="imagem">
-                                    <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                                    <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
                                     <section class="marca">
@@ -118,7 +118,7 @@
                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                         <section class="destaque">
                             <section class="imagem">
-                                <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                                <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                             </section>
                             <section class="categoria">
                                 Cidade <strong>Mauá</strong>
@@ -149,7 +149,7 @@
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <section class="destaque">
                                     <section class="imagem">
-                                        <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="">
+                                        <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                     </section>
                                     <section class="categoria">
                                         Cidade <strong>Ribeirão Pires</strong>
@@ -187,7 +187,7 @@
                     <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
 
                         <section class="imagem">
-                            <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                            <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                         </section>
 
                     <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
@@ -230,10 +230,10 @@
                                     <section class="galeria">
                                         <section class="imagens" title="<?php the_title(); ?>">
                                             <section class="imagem">
-                                                <img src="<?php echo get_post_meta($post -> ID, "capa_fundo_imagem_maior", true); ?>" alt="">
+                                                <img src="<?php echo get_post_meta($post -> ID, "capa_fundo_imagem_maior", true); ?>" alt="<?php the_title(); ?>">
                                             </section>
                                             <section class="subimagem">
-                                                <img src="<?php echo get_post_meta($post -> ID, "capa_fundo_imagem_menor", true); ?>" alt="">
+                                                <img src="<?php echo get_post_meta($post -> ID, "capa_fundo_imagem_menor", true); ?>" alt="<?php the_title(); ?>">
                                             </section>
                                         </section>
                                         <section class="titulo">
@@ -263,7 +263,7 @@
                                 <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
                                     <section class="publicidade">
                                         <section class="imagem">
-                                            <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                                            <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                         </section>
                                     </section>
                                 <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
@@ -346,7 +346,7 @@
                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                             <section class="noticia">
                                 <section class="imagem">
-                                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
                                     <section class="marca">
@@ -376,7 +376,7 @@
                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                             <section class="noticia">
                                 <section class="imagem">
-                                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
                                     <section class="marca">
@@ -401,7 +401,7 @@
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <section class="noticia">
                                     <section class="imagem">
-                                        <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                                        <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                     </section>
                                     <section class="informacoes">
                                         <section class="marca">
@@ -428,7 +428,7 @@
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                     <section class="noticia">
                                         <section class="imagem">
-                                            <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                                            <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                         </section>
                                         <section class="informacoes">
                                             <section class="marca">
@@ -472,7 +472,7 @@
                                 </section>
 
                                 <section class="imagem">
-                                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                                    <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
                                     <section class="titulo">
@@ -509,7 +509,7 @@
                            title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
                 <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
                     <section class="imagem">
-                        <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                        <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                     </section>
                 <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
                     <section class="object publicidade">
@@ -542,7 +542,7 @@
                    title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
                     <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
                     <section class="imagem">
-                        <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="">
+                        <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                     </section>
             <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
                 <section class="object publicidade">

@@ -22,4 +22,8 @@
              data-show-faces="false"
              data-share="false"></div>
     </section>
+
+    <section class="googleplus">
+        <div class="g-plus" data-annotation="bubble" data-action="share"></div>
+    </section>
 </section>

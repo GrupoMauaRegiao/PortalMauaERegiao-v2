@@ -102,5 +102,11 @@
           }(document, 'script', 'facebook-jssdk'));
         </script>
         <!-- close Facebook button -->
+
+        <!-- Google + button -->
+        <script src="https://apis.google.com/js/platform.js" async defer>
+          {lang:'pt-BR'}
+        </script>
+        <!-- close Google + button -->
     </body>
 </html>

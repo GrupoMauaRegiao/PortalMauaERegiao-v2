@@ -2665,15 +2665,18 @@ body
               font-weight: bold
 
           .social
-            width: 315px
+            width: 505px
+            height: 52px
             text-align: right
-            float: left
+            float: right
+            line-height: 58px
+            margin-right: -33px
 
             a
               .feed
                 width: 46px
                 height: 18px
-                margin: 8px -15px 0
+                margin: 23px -15px 0
                 color: $preto
                 font: bold 11px/18px Arial, sans-serif
                 float: left
@@ -2688,12 +2691,16 @@ body
                 color: $laranjaFeed
 
             .twitter,
-            .facebook
+            .facebook,
+            .googleplus
               padding: 7px 0 0
               display: inline-block
 
             .facebook
               line-height: 9px
+
+            .googleplus
+              padding: 7px 30px 0
 
           @media screen and (max-width: 600px)
             .creditos
@@ -2701,8 +2708,12 @@ body
 
             .social
               width: 100%
+              height: auto
               text-align: center
+              line-height: 0
+              float: left
               padding: 20px 0 10px
+              margin: 0
 
               a
                 .feed
@@ -2723,9 +2734,15 @@ body
                     color: $branco
                     background: darken($laranjaFeed, 10%)
 
-              .twitter
+              .twitter,
+              .googleplus
                 width: 100%
                 margin: 0 0 0 17px
+
+              .googleplus
+                margin: 0
+                padding: 7px 0 0
+
 
           .ilustracao
             margin: 15px 0 0
