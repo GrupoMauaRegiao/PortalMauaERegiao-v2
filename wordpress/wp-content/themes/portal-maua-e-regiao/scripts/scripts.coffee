@@ -455,6 +455,7 @@ Portal.apps =
              </a>'
           )
 
+  # Adiciona loader (animação indicando carregamento) as imagens da home
   carregarImagens: ->
     imagens = $ '.homepage-noticias .conteudo'
     imgLoad = imagesLoaded imagens
