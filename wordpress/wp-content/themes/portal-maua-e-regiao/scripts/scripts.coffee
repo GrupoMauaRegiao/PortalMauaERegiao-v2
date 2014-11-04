@@ -455,7 +455,18 @@ Portal.apps =
              </a>'
           )
 
+  carregarImagens: ->
+    imagens = $ '.homepage-noticias .conteudo'
+    imgLoad = imagesLoaded imagens
+
+    _removerLoader = ->
+      for imagem in @.images
+        $(imagem.img).parent().removeClass('carregando')
+
+    imgLoad.on 'done', _removerLoader
+
 do ->
+  Portal.apps.carregarImagens()
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()
   Portal.apps.adicionarAtributoLightbox()

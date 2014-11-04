@@ -12,7 +12,7 @@
                         <a href="<?php the_permalink(); ?>"
                            title="<?php the_title(); ?>">
                             <section class="noticia">
-                                <section class="imagem">
+                                <section class="imagem carregando">
                                     <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
@@ -47,7 +47,7 @@
                         <a href="<?php the_permalink(); ?>"
                            title="<?php the_title(); ?>">
                             <section class="noticia">
-                                <section class="imagem">
+                                <section class="imagem carregando">
                                     <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
@@ -80,7 +80,7 @@
                     if (get_post_meta($post -> ID, "imagem", true)): ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                             <section class="noticia">
-                                <section class="imagem">
+                                <section class="imagem carregando">
                                     <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
@@ -117,7 +117,7 @@
                 if (get_post_meta($post -> ID, "imagem", true)): ?>
                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                         <section class="destaque">
-                            <section class="imagem">
+                            <section class="imagem carregando">
                                 <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                             </section>
                             <section class="categoria">
@@ -148,7 +148,7 @@
                         if (get_post_meta($post -> ID, "imagem", true)): ?>
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <section class="destaque">
-                                    <section class="imagem">
+                                    <section class="imagem carregando">
                                         <img src="<?php echo get_post_meta($post -> ID, 'imagem', true); ?>" alt="<?php the_title(); ?>">
                                     </section>
                                     <section class="categoria">
@@ -186,7 +186,7 @@
 
                     <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
 
-                        <section class="imagem">
+                        <section class="imagem carregando">
                             <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                         </section>
 
@@ -262,7 +262,7 @@
 
                                 <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
                                     <section class="publicidade">
-                                        <section class="imagem">
+                                        <section class="imagem carregando">
                                             <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                         </section>
                                     </section>
@@ -345,7 +345,7 @@
 
                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                             <section class="noticia">
-                                <section class="imagem">
+                                <section class="imagem carregando">
                                     <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
@@ -375,7 +375,7 @@
                     if (have_posts()) : while (have_posts()) : the_post(); ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                             <section class="noticia">
-                                <section class="imagem">
+                                <section class="imagem carregando">
                                     <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
@@ -400,7 +400,7 @@
                         if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                 <section class="noticia">
-                                    <section class="imagem">
+                                    <section class="imagem carregando">
                                         <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                     </section>
                                     <section class="informacoes">
@@ -427,7 +427,7 @@
                             if (have_posts()) : while (have_posts()) : the_post(); ?>
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                                     <section class="noticia">
-                                        <section class="imagem">
+                                        <section class="imagem carregando">
                                             <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                         </section>
                                         <section class="informacoes">
@@ -471,7 +471,7 @@
                                     </section>
                                 </section>
 
-                                <section class="imagem">
+                                <section class="imagem carregando">
                                     <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                                 </section>
                                 <section class="informacoes">
@@ -508,7 +508,7 @@
                            href="<?php echo get_post_meta($post -> ID, "link", true); ?>"
                            title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
                 <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
-                    <section class="imagem">
+                    <section class="imagem carregando">
                         <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                     </section>
                 <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
@@ -541,7 +541,7 @@
                    href="<?php echo get_post_meta($post -> ID, "link", true); ?>"
                    title="Publicidade &#8212; <?php echo get_post_meta($post -> ID, "link", true); ?>">
                     <?php if (get_post_meta($post -> ID, "imagem", true)): ?>
-                    <section class="imagem">
+                    <section class="imagem carregando">
                         <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>">
                     </section>
             <?php elseif (get_post_meta($post -> ID, "object", true)): ?>
