@@ -456,18 +456,20 @@ Portal.apps =
           )
 
   # Adiciona loader (animação indicando carregamento) as imagens da home
-  carregarImagens: ->
+  adicionarEfeitoLoadingImagensHome: ->
     imagens = $ '.homepage-noticias .conteudo'
-    imgLoad = imagesLoaded imagens
 
-    _removerLoader = ->
-      for imagem in @.images
-        $(imagem.img).parent().removeClass('carregando')
+    if imagens[0]
+      imgLoad = imagesLoaded imagens
 
-    imgLoad.on 'done', _removerLoader
+      _removerLoader = ->
+        for imagem in @.images
+          $(imagem.img).parent().removeClass('carregando')
+
+      imgLoad.on 'done', _removerLoader
 
 do ->
-  Portal.apps.carregarImagens()
+  Portal.apps.adicionarEfeitoLoadingImagensHome()
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()
   Portal.apps.adicionarAtributoLightbox()

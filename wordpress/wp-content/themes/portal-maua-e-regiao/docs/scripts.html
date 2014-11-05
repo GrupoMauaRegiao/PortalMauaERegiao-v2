@@ -767,18 +767,20 @@ a classe ‘wp-caption’ em notícias</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">carregarImagens</span>:<span class="hljs-function"> -&gt;</span>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-attribute">adicionarEfeitoLoadingImagensHome</span>:<span class="hljs-function"> -&gt;</span>
     imagens = $ <span class="hljs-string">'.homepage-noticias .conteudo'</span>
-    imgLoad = imagesLoaded imagens
 
-    <span class="hljs-function"><span class="hljs-title">_removerLoader</span> = -&gt;</span>
-      <span class="hljs-keyword">for</span> imagem <span class="hljs-keyword">in</span> @.images
-        $(imagem.img).parent().removeClass(<span class="hljs-string">'carregando'</span>)
+    <span class="hljs-keyword">if</span> imagens[<span class="hljs-number">0</span>]
+      imgLoad = imagesLoaded imagens
 
-    imgLoad.<span class="hljs-literal">on</span> <span class="hljs-string">'done'</span>, _removerLoader
+      <span class="hljs-function"><span class="hljs-title">_removerLoader</span> = -&gt;</span>
+        <span class="hljs-keyword">for</span> imagem <span class="hljs-keyword">in</span> @.images
+          $(imagem.img).parent().removeClass(<span class="hljs-string">'carregando'</span>)
+
+      imgLoad.<span class="hljs-literal">on</span> <span class="hljs-string">'done'</span>, _removerLoader
 
 <span class="hljs-keyword">do</span><span class="hljs-function"> -&gt;</span>
-  Portal.apps.carregarImagens()
+  Portal.apps.adicionarEfeitoLoadingImagensHome()
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()
   Portal.apps.adicionarAtributoLightbox()
