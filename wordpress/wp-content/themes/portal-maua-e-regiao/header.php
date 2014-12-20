@@ -22,6 +22,19 @@
     </head>
     <body>
 
+        <!-- MODAL Happy New Year, Merry Christmas -->
+        <section class="overlay"></section>
+
+        <section class="modal-vacation">
+            <section class="close-button">
+                &#10006;
+            </section>
+
+            <section class="image">
+                <img src="<?php bloginfo('template_url') ?>/imagens/mensagem-manutencao-ferias.jpg" alt="">
+            </section>
+        </section>
+
         <?php include "menu.php"; ?>
         <?php include "menu-mobile.php"; ?>
 

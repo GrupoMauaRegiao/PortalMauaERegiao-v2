@@ -44,6 +44,7 @@ module.exports = (grunt) ->
           'scripts/libs/jquery.maskedinput.min.js'
           'scripts/libs/lightbox.min.js'
           'scripts/libs/imagesloaded.pkgd.min.js'
+          'scripts/libs/jqModal.min.js'
           'scripts/scripts.min.js'
         ]
         dest: 'scripts/public.min.js'
