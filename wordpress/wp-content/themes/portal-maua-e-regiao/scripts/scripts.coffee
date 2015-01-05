@@ -468,17 +468,6 @@ Portal.apps =
 
       imgLoad.on 'done', _removerLoader
 
-  # Fechar mensagem de manutenção
-  fecharMensagem: ->
-    overlay = $ '.overlay'
-    mensagem = $ '.modal-vacation'
-    botaoX = $ '.modal-vacation .close-button'
-
-    if botaoX[0]
-      botaoX.on 'click', ->
-        overlay.css 'display', 'none'
-        mensagem.css 'display', 'none'
-
 do ->
   Portal.apps.adicionarEfeitoLoadingImagensHome()
   Portal.apps.touchAtivarMenu()
@@ -494,4 +483,3 @@ do ->
   Portal.apps.adicionarCondicoesClimaticas() if not('ontouchstart' of window)
   Portal.apps.formatarData()
   Portal.apps.mascararCampoTelefone()
-  Portal.apps.fecharMensagem()
