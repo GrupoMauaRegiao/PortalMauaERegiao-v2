@@ -2,9 +2,9 @@
 
 Adiciona um `modal` -- 600 x 300 -- com um banner (pasta de imagens: `mensagem-manutencao-ferias.jpg`) e um botão de fechar.
 
-## HTML
+## PHP
 
-```html
+```php
 <!-- MODAL Happy New Year, Merry Christmas -->
 <section class="overlay"></section>
 
