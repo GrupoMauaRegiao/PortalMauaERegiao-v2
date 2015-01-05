@@ -5,7 +5,7 @@ Adiciona um `modal` -- 600 x 300 -- com um banner (pasta de imagens: `mensagem-m
 ## PHP
 
 ```php
-<!-- MODAL Happy New Year, Merry Christmas -->
+// MODAL Happy New Year, Merry Christmas
 <section class="overlay"></section>
 
 <section class="modal-vacation">
