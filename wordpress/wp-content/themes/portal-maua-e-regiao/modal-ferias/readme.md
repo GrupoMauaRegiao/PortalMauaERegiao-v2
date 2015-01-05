@@ -1,6 +1,6 @@
-# Modal de férias
+# Modal de férias (600 x 300)
 
-Adiciona um `modal` com um banner (pasta de imagens: `imagens`) e um botão de fechar.
+Adiciona um `modal` -- 600 x 300 -- com um banner (pasta de imagens: `mensagem-manutencao-ferias.jpg`) e um botão de fechar.
 
 ## HTML
 
