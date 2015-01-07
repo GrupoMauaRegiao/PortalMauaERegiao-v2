@@ -45,7 +45,9 @@ Portal.apps =
             return
         }
 
-      _jPages '.chamadas, .resultados, .publicacoes', 6
+      _jPages '.chamadas', 6
+      _jPages '.resultados', 6
+      _jPages '.publicacoes', 6
       _jPages '.publicidade-destaques', 12
 
       _moverParaPagina = ->
@@ -319,19 +321,15 @@ Portal.apps =
 
   # Implementa atributos para que o plugin `LightBox2` possa funcionar.
   adicionarAtributoLightbox: ->
-    links = $ '.texto div a, .texto p a'
+    links = $ '.texto div a:not(a.esconder), .texto p a'
 
     if links[0]
       titulo = $ 'article .titulo'
 
       for link, i in links
-        # Verifica se a tag `a` contêm uma imagem, se sim aplica
-        # os atributos para o LightBox
-        if $(link).children().is 'IMG'
-          $(link).attr 'data-lightbox', 'roadtrip'
-          $(link).attr 'data-title', titulo.text()
-        else
-          $(link).attr 'target', '_blank'
+        $(link).addClass 'galeria-lightbox'
+        $(link).attr 'data-lightbox', 'roadtrip'
+        $(link).attr 'data-title', titulo.text()
 
   # Formata data do padrão YYYY-MM-DD para DD/MM/YYYY
   formatarData: ->
@@ -431,10 +429,12 @@ Portal.apps =
     fotos = $ '.wp-caption'
 
     if fotos[0]
+      containerFoto = $ '.galeria-lightbox'
+
       for foto in fotos
         link = $(fotos).children('a').attr 'href'
-        $(foto).append(
-          '<a class="esconder" data-lightbox="roadtrip" href="' + link + '">
+        $(containerFoto).append(
+          '<a class="esconder" href="' + link + '">
             <section class="icone-ver-mais"></section>
            </a>'
         )
@@ -442,14 +442,14 @@ Portal.apps =
   # Adiciona um ícone na lateral inferior direita das imagens em notícias
   adicionarIconeVerMaisFoto: ->
     fotosComWpCaption = $ '.wp-caption'
-    fotos             = $ 'a[data-lightbox="roadtrip"]'
+    fotos             = $ '.texto p .galeria-lightbox'
 
     if not(fotosComWpCaption[0])
       if fotos[0]
         for foto in fotos
           link = $(fotos).children('img').attr 'src'
           $(foto).append(
-            '<a class="esconder" data-lightbox="roadtrip" href="' + link + '">
+            '<a class="esconder" href="' + link + '">
               <section class="icone-ver-mais"
                        style="margin-top: -45px;"></section>
              </a>'

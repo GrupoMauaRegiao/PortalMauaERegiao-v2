@@ -128,5 +128,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-shell'
   grunt.loadNpmTasks 'grunt-notify'
   grunt.loadNpmTasks 'grunt-contrib-concat'
-  grunt.registerTask 'all', ['watch']
+  grunt.registerTask 'default', ['watch']
   return
