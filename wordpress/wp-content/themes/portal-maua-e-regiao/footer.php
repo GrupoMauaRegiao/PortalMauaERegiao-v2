@@ -64,7 +64,8 @@
         wp_reset_query();
         wp_footer();
         ?>
-
+        <script src="<?php bloginfo('template_directory'); ?>/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="<?php bloginfo('template_directory'); ?>/bower_components/carouFredSel/jquery.carouFredSel-6.2.1-packed.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/scripts/public.min.js"></script>
 
         <!-- Google -->

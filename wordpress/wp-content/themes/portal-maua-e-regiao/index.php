@@ -211,6 +211,49 @@
             <section class="sombra"></section>
         </section>
 
+        <section class="widget-webtv">
+            <section class="header-widget-webtv">
+                <h1>
+                    <span>Web <strong>TV</strong></span>
+                </h1>
+            </section>
+
+            <section class="content-widget-webtv">
+                <section class="controles">
+                    <input class="anterior" type="button" title="Anterior" value=" ">
+                    <input class="proximo" type="button" title="Próximo" value=" ">
+                </section>
+
+                <section class="clips">
+                    <ul>
+                        <?php
+                        query_posts("orderby=rand&showposts=10&post_type=video");
+                        if (have_posts()) : while (have_posts()) : the_post(); ?>
+                        <li>
+                            <a target="_blank" href="<?php echo get_post_meta($post -> ID, "link", true); ?>" title="<?php the_title(); ?>">
+                                <img src="<?php echo get_post_meta($post -> ID, "imagem", true); ?>" alt="<?php the_title(); ?>"/>
+                            </a>
+                            <section class="titulo-video">
+                                <span><?php the_title(); ?></span>
+                            </section>
+                        </li>
+                        <?php endwhile; else: ?>
+                            <li>
+                                <p>Nenhum vídeo foi publicado ainda.</p>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="chamada-widget-webtv">
+                <a target="_blank" href="http://tvmauaeregiao.com.br">
+                    Confira os vídeos da <strong>TV Mauá e Região</strong>
+                </a>
+            </section>
+
+        </section>
+
         <section class="midias">
             <section class="f-e-f-pub">
                 <section class="fatos-e-fotos">

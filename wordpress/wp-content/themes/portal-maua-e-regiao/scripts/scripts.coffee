@@ -45,10 +45,7 @@ Portal.apps =
             return
         }
 
-      _jPages '.chamadas', 6
-      _jPages '.resultados', 6
-      _jPages '.publicacoes', 6
-      _jPages '.publicidade-destaques', 12
+      _jPages '.chamadas, .resultados, .publicacoes, .publicidade-destaques', 12
 
       _moverParaPagina = ->
         pagina = parseInt(inputPagina.val())
@@ -468,7 +465,29 @@ Portal.apps =
 
       imgLoad.on 'done', _removerLoader
 
+
+
+  carouselTVMaua: ->
+    carousel = $ '.clips ul'
+
+    if carousel[0]
+      _executar = ->
+        carousel.carouFredSel {
+          auto: false
+          align: false
+          width: '100%'
+          scroll:
+            items: 1
+          prev:
+            button: '.controles .anterior'
+          next:
+            button: '.controles .proximo'
+        }
+
+      _executar()
+
 do ->
+  Portal.apps.carouselTVMaua()
   Portal.apps.adicionarEfeitoLoadingImagensHome()
   Portal.apps.touchAtivarMenu()
   Portal.apps.touchAtivarBusca()

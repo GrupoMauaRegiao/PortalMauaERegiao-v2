@@ -1,0 +1,18 @@
+{
+  "name": "portal-maua-e-regiao",
+  "version": "0.4.0",
+  "homepage": "https://github.com/GrupoMauaRegiao/PortalMauaERegiao-v2",
+  "authors": [
+    "marcker <marckfree@gmail.com>"
+  ],
+  "main": "index.php",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
