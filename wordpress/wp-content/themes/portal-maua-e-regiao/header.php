@@ -28,6 +28,11 @@
         <section class="layout">
             <header>
                 <section class="conteudo-header">
+                    <section class="googleplus">
+                        <div class="g-plusone"
+                             data-annotation="inline"
+                             data-width="120"></div>
+                    </section>
                     <section class="facebook">
                         <section class="facebook">
                             <div class="fb-like"
