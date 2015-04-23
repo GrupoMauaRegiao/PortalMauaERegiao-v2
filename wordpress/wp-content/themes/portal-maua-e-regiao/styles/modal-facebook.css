@@ -1,0 +1,101 @@
+.facebook-box-overlay{
+  background: rgba(0, 0, 0, .9);
+  display: none;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  transition: opacity 1s ease;
+  width: 100%;
+  z-index: 1;
+}
+
+.close-overlay{
+  pointer-events: none;
+  opacity: 0;
+}
+
+.facebook-box{
+  background: rgb(100, 113, 166);
+  border: 10px solid rgba(0, 0, 0, .7);
+  display: none;
+  height: 320px;
+  left: calc(50% - 340px / 2);
+  position: fixed;
+  top: calc(50% - 340px / 2);
+  transition: margin-top 2s ease;
+  width: 320px;
+  z-index: 1;
+}
+
+.close-facebook-box{
+  margin-top: -3000px;
+}
+
+.facebook-box .close-bar{
+  background: rgb(100, 113, 166);
+  height: 50px;
+}
+
+.close-bar .close-button{
+  background: rgb(90, 100, 156);
+  border-left: 1px solid rgb(80, 90, 146);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 50px;
+}
+
+.close-bar .close-button::before{
+  content: "\2716";
+  display: block;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+.close-bar:hover .close-button::before{
+  background: rgb(80, 90, 146);
+}
+
+.close-bar:active .close-button::before{
+  background: rgb(50, 60, 116);
+}
+
+a .button-fanpage button{
+  background: rgb(63, 92, 154);
+  border: 0;
+  bottom: 0;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font: bold 14px 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  height: 50px;
+  outline: 0;
+  position: absolute;
+  text-shadow: 0 -1px 0 rgb(40, 58, 109);
+  width: 100%;
+}
+
+a .button-fanpage button:active{
+  background: rgb(30, 48, 99);
+}
+
+.facebook-widget .loading-widget{
+  background: rgb(100,113,166);
+  height: 220px;
+  position: absolute;
+  width: 320px;
+  z-index: 9999;
+}
+
+.loading-widget img{
+  display: block;
+  height: 16px;
+  margin: 0 auto;
+  margin-top: 85px;
+  width: 16px;
+}
+
+.hide{
+  display: none;
+}

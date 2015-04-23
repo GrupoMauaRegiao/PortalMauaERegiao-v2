@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/imagens/favicon.ico">
+        <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/modal-facebook.css">
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/libs/lightbox.css">
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/styles.min.css">
 
@@ -21,7 +22,6 @@
 
     </head>
     <body>
-
         <?php include "menu.php"; ?>
         <?php include "menu-mobile.php"; ?>
 

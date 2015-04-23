@@ -58,6 +58,29 @@
                     </section>
                 </section>
             </footer>
+
+            <section class="facebook-box-overlay"></section>
+
+            <section class="facebook-box">
+                <div class="close-bar">
+                    <div class="close-button"></div>
+                </div>
+
+                <div class="facebook-widget">
+                    <div class="loading-widget">
+                        <img src="<?php bloginfo('template_url'); ?>/imagens/loading-widget.gif" alt="">
+                    </div>
+
+                    <div class="fb-page" data-href="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546" data-width="320" data-height="220" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546"><a href="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546">Portal Mauá e Região</a></blockquote></div></div>
+                </div>
+
+                <a target="_blank" href="https://www.facebook.com/pages/Portal-Mau%C3%A1-e-Regi%C3%A3o/359211450756546">
+                    <div class="button-fanpage">
+                        <button>Curta nossa página no facebook</button>
+                    </div>
+                </a>
+            </section>
+
         </section>
 
         <?php
@@ -113,5 +136,7 @@
           {lang:'pt-BR'}
         </script>
         <!-- close Google + button -->
+
+        <script src="<?php bloginfo('template_directory'); ?>/scripts/modal-facebook.js"></script>
     </body>
 </html>
