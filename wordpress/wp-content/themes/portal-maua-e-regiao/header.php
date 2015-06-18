@@ -10,6 +10,7 @@
         <meta name="description" content="Portal de notícias do Grupo Mauá e Região de Comunicação; <?php bloginfo('description'); ?>">
         <meta name="author" content="Grupo Mauá e Região de Comunicação">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="I4jTcOmdtjih6Cl0Spe_vui16WqF0l7YasO4vYbiIYc" />
 
         <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/imagens/favicon.ico">
         <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/styles/modal-facebook.css">
