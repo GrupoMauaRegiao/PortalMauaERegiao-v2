@@ -231,7 +231,8 @@ Portal.apps =
       url     : 'http://api.openweathermap.org/data/2.5/weather?' +
                 'q=' + Portal.apps.removerAcentos(cidade) + ',brasil&' +
                 'units=metric&' +
-                'lang=pt'
+                'lang=pt&' +
+                'APPID=b691682f252034393f92cb3ee80b0f32'
       dataType: 'json'
     }
     .done (dados) ->
